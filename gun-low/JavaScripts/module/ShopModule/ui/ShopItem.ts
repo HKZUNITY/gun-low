@@ -33,6 +33,11 @@ export default class ShopItem extends ShopItem_Generate {
 		this.initModule();
 		this.initUIPanel();
 		this.bindBUttons();
+		this.initTextBlock();
+	}
+
+	private initTextBlock(): void {
+		this.mUesTextBlock.text = GameConfig.Language.Use.Value;
 	}
 
 	private initModule(): void {
@@ -53,27 +58,27 @@ export default class ShopItem extends ShopItem_Generate {
 	private onClickCoinBuyButton(): void {
 		if (!this.isCanSuccessfulClick()) return;
 		this.getShopModuleC.previewShopItem(this.key, this.shopType);
-		let contentText = "<size=80>确认花费</size>\n" + "<size=100><color=#yellow>" + this.getShopModuleC.getGoodPrice(this.key, this.shopType)[1] + "</color></size><size=80>金币</size>";
+		let contentText = `<size=80>${GameConfig.Language.ConfirmExpenses.Value}</size>\n` + "<size=100><color=#yellow>" + this.getShopModuleC.getGoodPrice(this.key, this.shopType)[1] + `</color></size><size=80>${GameConfig.Language.GoldCoins.Value}</size>`;
 		this.getConfirmPanel.confirmTips(() => {
 			if (!this.getShopModuleC.buyShopItemByCoin(this.key, this.shopType)) return;
 			this.buyCompleted();
 			this.getConfirmPanel.confirmTips(() => {
 				this.getShopModuleC.useShopItem(this.key, this.shopType);
-			}, "是否立即使用", "是", "否");
-		}, contentText, "购买");
+			}, GameConfig.Language.DoYouWantToUseItImmediately.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.Tips.Value);
+		}, contentText, GameConfig.Language.Buy.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.Tips.Value);
 	}
 
 	private onClickDiamondBuyButton(): void {
 		if (!this.isCanSuccessfulClick()) return;
 		this.getShopModuleC.previewShopItem(this.key, this.shopType);
-		let contentText = "<size=80>确认花费</size>\n" + "<size=100><color=#blue>" + this.getShopModuleC.getGoodPrice(this.key, this.shopType)[0] + "</color></size><size=80>钻石</size>";
+		let contentText = `<size=80>${GameConfig.Language.ConfirmExpenses.Value}</size>\n` + "<size=100><color=#blue>" + this.getShopModuleC.getGoodPrice(this.key, this.shopType)[0] + `</color></size><size=80>${GameConfig.Language.Diamonds.Value}</size>`;
 		this.getConfirmPanel.confirmTips(() => {
 			if (!this.getShopModuleC.buyShopItemByDiamond(this.key, this.shopType)) return;
 			this.buyCompleted();
 			this.getConfirmPanel.confirmTips(() => {
 				this.getShopModuleC.useShopItem(this.key, this.shopType);
-			}, "是否立即使用", "是", "否");
-		}, contentText, "购买");
+			}, GameConfig.Language.DoYouWantToUseItImmediately.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.Tips.Value);
+		}, contentText, GameConfig.Language.Buy.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.Tips.Value);
 	}
 
 	private onClickUseButton(): void {
@@ -88,13 +93,13 @@ export default class ShopItem extends ShopItem_Generate {
 
 	private buyCompleted(): void {
 		this.isHas = true;
-		this.mHasTextBlock.text = this.isHas ? "已获得" : "未获得";
+		this.mHasTextBlock.text = this.isHas ? GameConfig.Language.Obtained.Value : GameConfig.Language.NotObtained.Value;
 		this.updateHasState();
 	}
 
 	private isCanSuccessfulClick(): boolean {
 		if (this.key == null || this.shopType == null) {
-			Notice.showDownNotice("出错啦");
+			Notice.showDownNotice(GameConfig.Language.Error.Value);
 			return false;
 		}
 		return true;
@@ -106,7 +111,7 @@ export default class ShopItem extends ShopItem_Generate {
 		this.key = key;
 		this.shopType = shopType;
 		this.isHas = this.getShopModuleC.isHasShopId(this.key, this.shopType);
-		this.mHasTextBlock.text = this.isHas ? "已获得" : "未获得";
+		this.mHasTextBlock.text = this.isHas ? GameConfig.Language.Obtained.Value : GameConfig.Language.NotObtained.Value;
 		switch (this.shopType) {
 			case ShopType.Gun:
 				this.setGun(key);
@@ -133,9 +138,9 @@ export default class ShopItem extends ShopItem_Generate {
 			this.mICONImage.renderTransformAngle = 0;
 		}
 		this.mNameTextBlock.text = weaponPropElement.WeaponName;
-		this.mHasTypeTextBlock.text = weaponPropElement.PriceType == PriceType.Ads ? "限时" : "永久";
-		this.mHurtTextBlock.text = "伤害:" + weaponPropElement.Damage;
-		this.mBulletCountTextBlock.text = "子弹:" + weaponPropElement.BulletCount + "/∞";
+		this.mHasTypeTextBlock.text = weaponPropElement.PriceType == PriceType.Ads ? GameConfig.Language.TimeLimited.Value : GameConfig.Language.Permanent.Value;
+		this.mHurtTextBlock.text = `${GameConfig.Language.Hurt.Value}:` + weaponPropElement.Damage;
+		this.mBulletCountTextBlock.text = `${GameConfig.Language.Bullet.Value}:` + weaponPropElement.BulletCount + "/∞";
 		if (this.isHas) return;
 		this.updatePrice(weaponPropElement.PriceType, weaponPropElement.WeaponPrices);
 	}
@@ -146,7 +151,7 @@ export default class ShopItem extends ShopItem_Generate {
 		this.mICONImage.renderScale = mw.Vector2.one;
 		this.mICONImage.renderTransformAngle = 0;
 		this.mNameTextBlock.text = roleElement.NAME;
-		this.mHasTypeTextBlock.text = roleElement.PRICETYPE == PriceType.Ads ? "限时" : "永久";
+		this.mHasTypeTextBlock.text = roleElement.PRICETYPE == PriceType.Ads ? GameConfig.Language.TimeLimited.Value : GameConfig.Language.Permanent.Value;
 		if (this.isHas) return;
 		this.updatePrice(roleElement.PRICETYPE, roleElement.PRICE);
 	}
@@ -157,7 +162,7 @@ export default class ShopItem extends ShopItem_Generate {
 		this.mICONImage.renderScale = mw.Vector2.one;
 		this.mICONImage.renderTransformAngle = 0;
 		this.mNameTextBlock.text = trailingElement.NAME;
-		this.mHasTypeTextBlock.text = trailingElement.PRICETYPE == PriceType.Ads ? "限时" : "永久";
+		this.mHasTypeTextBlock.text = trailingElement.PRICETYPE == PriceType.Ads ? GameConfig.Language.TimeLimited.Value : GameConfig.Language.Permanent.Value;
 		if (this.isHas) return;
 		this.updatePrice(trailingElement.PRICETYPE, trailingElement.PRICE);
 	}

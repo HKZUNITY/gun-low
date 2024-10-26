@@ -1,4 +1,5 @@
 ﻿import { Notice } from "../../../common/notice/Notice";
+import { GameConfig } from "../../../config/GameConfig";
 import { EventType } from "../../../tools/EventType";
 import GlobalData from "../../../tools/GlobalData";
 import Utils from "../../../tools/Utils";
@@ -19,6 +20,18 @@ export default class TeamPanel extends TeamPanel_Generate {
 	protected onStart(): void {
 		this.initDatas();
 		this.bindButtons();
+		this.initTextBlock();
+	}
+
+	private initTextBlock(): void {
+		this.mRedTeamTextBlock.text = `${GameConfig.Language.Join.Value}\n${GameConfig.Language.Lurking.Value}`;
+		this.mBlueTeamTextBlock.text = `${GameConfig.Language.Join.Value}\n${GameConfig.Language.Defenders.Value}`;
+		this.mRedTextBlock.text = GameConfig.Language.Lurking.Value;
+		this.mBlueTextBlock.text = GameConfig.Language.Defenders.Value;
+		if (GlobalData.languageId == 0) {
+			this.mRedTextBlock.fontSize = 40;
+			this.mBlueTextBlock.fontSize = 40;
+		}
 	}
 
 	private redTeamItems: TeamItem[] = [];

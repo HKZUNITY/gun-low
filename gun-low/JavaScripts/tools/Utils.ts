@@ -343,18 +343,18 @@ export default class Utils {
     }
 
     private static redTeamRevivalPoint: mw.Vector[] = [
-        new mw.Vector(-16190, -38170 - 1049),
-        new mw.Vector(-16137, -37609, -1049),
-        new mw.Vector(-16195, -38624, -1049),
-        new mw.Vector(-16644, -38559, -1049),
-        new mw.Vector(-16607, -37942, -1049)
+        new mw.Vector(-16190, -38170, - 1049 + 300),
+        new mw.Vector(-16137, -37609, -1049 + 300),
+        new mw.Vector(-16195, -38624, -1049 + 300),
+        new mw.Vector(-16644, -38559, -1049 + 300),
+        new mw.Vector(-16607, -37942, -1049 + 300)
     ];
     private static blueTeamRevivalPoint: mw.Vector[] = [
-        new mw.Vector(-11862, -51435, -1049),
-        new mw.Vector(-11305, -51543, -1049),
-        new mw.Vector(-10932, -51223, -1049),
-        new mw.Vector(-12029, -50989, -1049),
-        new mw.Vector(-11451, -51048, -1049)
+        new mw.Vector(-11862, -51435, -1049 + 300),
+        new mw.Vector(-11305, -51543, -1049 + 300),
+        new mw.Vector(-10932, -51223, -1049 + 300),
+        new mw.Vector(-12029, -50989, -1049 + 300),
+        new mw.Vector(-11451, -51048, -1049 + 300)
     ];
     public static randomRevivalPoint(isRedTeam: boolean): mw.Vector {
         if (isRedTeam) {
@@ -511,6 +511,16 @@ export default class Utils {
         } else {
             return new mw.Vector(points[0].x, points[0].y, points[0].z);
         }
+    }
+
+    private static pathIndex: number = 0;
+    public static getPathIndex(length: number): number {
+        if (this.pathIndex <= length - 1) return this.pathIndex++;
+        if (this.pathIndex >= length) {
+            this.pathIndex = 0
+            return this.pathIndex;
+        }
+        return this.randomInt(0, length - 1);
     }
 }
 

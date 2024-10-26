@@ -1,4 +1,5 @@
-﻿import Utils from "../tools/Utils";
+﻿import GlobalData from "../tools/GlobalData";
+import Utils from "../tools/Utils";
 import ConfirmPanel_Generate from "../ui-generate/common/ConfirmPanel_generate";
 
 export default class ConfirmPanel extends ConfirmPanel_Generate {
@@ -11,6 +12,13 @@ export default class ConfirmPanel extends ConfirmPanel_Generate {
         this.canUpdate = false;
         this.layer = UILayerMiddle;
         this.bindButton();
+        this.initTextBlock();
+    }
+
+    private initTextBlock(): void {
+        if (GlobalData.languageId == 0) {
+            this.mCancleTextBlock.fontSize = 40;
+        }
     }
 
     private bindButton(): void {
@@ -25,7 +33,7 @@ export default class ConfirmPanel extends ConfirmPanel_Generate {
         });
     }
 
-    public confirmTips(callback: () => void, contentText: string, yesText: string = "购买", noText: string = "取消", titleText: string = "提示"): void {
+    public confirmTips(callback: () => void, contentText: string, yesText: string, noText: string, titleText: string): void {
         this.mSureTextBlock.text = yesText;
         this.mCancleTextBlock.text = noText;
         this.mTitleTextBlock.text = titleText;

@@ -114,7 +114,7 @@ export default class TryOutGun extends Script {
                 if (!this.gunkey) return;
                 this.switchGun();
                 this.switchGunModel(Utils.randomInt(10, 15));
-            }, gunElement.WeaponName + "\n免费使用一局", "取消", "免费使用");
+            }, StringUtil.format(GameConfig.Language.FreeUseOfOneRound.Value, gunElement.WeaponName), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
         } else {
             if (!this.gunkey) return;
             this.switchGun();

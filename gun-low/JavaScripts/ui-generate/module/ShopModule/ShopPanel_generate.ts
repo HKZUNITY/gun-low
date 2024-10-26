@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/ShopModule/ShopPanel.ui
- * TIME: 2024.06.22-23.56.51
+ * TIME: 2024.10.27-00.04.45
  */
  
 @UIBind('UI/module/ShopModule/ShopPanel.ui')
@@ -22,6 +22,13 @@ export default class ShopPanel_Generate extends UIScript {
 		}
 		return this.mTabButton_0_Internal
 	}
+	private mTabTextBlock_0_Internal: mw.TextBlock
+	public get mTabTextBlock_0(): mw.TextBlock {
+		if(!this.mTabTextBlock_0_Internal&&this.uiWidgetBase) {
+			this.mTabTextBlock_0_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightCanvas/mTabCanvas/mTabButton_0/mTabTextBlock_0') as mw.TextBlock
+		}
+		return this.mTabTextBlock_0_Internal
+	}
 	private mTabButton_1_Internal: mw.Button
 	public get mTabButton_1(): mw.Button {
 		if(!this.mTabButton_1_Internal&&this.uiWidgetBase) {
@@ -29,12 +36,26 @@ export default class ShopPanel_Generate extends UIScript {
 		}
 		return this.mTabButton_1_Internal
 	}
+	private mTabTextBlock_1_Internal: mw.TextBlock
+	public get mTabTextBlock_1(): mw.TextBlock {
+		if(!this.mTabTextBlock_1_Internal&&this.uiWidgetBase) {
+			this.mTabTextBlock_1_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightCanvas/mTabCanvas/mTabButton_1/mTabTextBlock_1') as mw.TextBlock
+		}
+		return this.mTabTextBlock_1_Internal
+	}
 	private mTabButton_2_Internal: mw.Button
 	public get mTabButton_2(): mw.Button {
 		if(!this.mTabButton_2_Internal&&this.uiWidgetBase) {
 			this.mTabButton_2_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightCanvas/mTabCanvas/mTabButton_2') as mw.Button
 		}
 		return this.mTabButton_2_Internal
+	}
+	private mTabTextBlock_2_Internal: mw.TextBlock
+	public get mTabTextBlock_2(): mw.TextBlock {
+		if(!this.mTabTextBlock_2_Internal&&this.uiWidgetBase) {
+			this.mTabTextBlock_2_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightCanvas/mTabCanvas/mTabButton_2/mTabTextBlock_2') as mw.TextBlock
+		}
+		return this.mTabTextBlock_2_Internal
 	}
 	private mScrollBox_Internal: mw.ScrollBox
 	public get mScrollBox(): mw.ScrollBox {
@@ -98,17 +119,17 @@ export default class ShopPanel_Generate extends UIScript {
 		
 		//文本多语言
 		
+		this.initLanguage(this.mTabTextBlock_0)
+		
+	
+		this.initLanguage(this.mTabTextBlock_1)
+		
+	
+		this.initLanguage(this.mTabTextBlock_2)
+		
+	
 		//文本多语言
 		
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/RightCanvas/mTabCanvas/mTabButton_0/TabTextBlock_0") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/RightCanvas/mTabCanvas/mTabButton_1/TabTextBlock_1") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/RightCanvas/mTabCanvas/mTabButton_2/TabTextBlock_2") as any);
-		
-	
 	}
 	
 	/**初始化多语言*/

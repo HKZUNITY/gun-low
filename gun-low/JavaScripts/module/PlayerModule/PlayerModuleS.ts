@@ -1,4 +1,5 @@
-﻿import { PrefabEvent } from "../../tools/PrefabEvent";
+﻿import GlobalData from "../../tools/GlobalData";
+import { PrefabEvent } from "../../tools/PrefabEvent";
 import Utils from "../../tools/Utils";
 import CoinModuleS from "../CoinModule/CoinModuleS";
 import { MorphModuleS } from "../MorphModule/MorphModule";
@@ -63,6 +64,7 @@ export class PlayerModuleS extends ModuleS<PlayerModuleC, PlayerData> {
 
     private initEventAction(): void {
         PrefabEvent.PrefabEvtFight.onHit(this.playerAtkPlayer.bind(this));
+        PrefabEvent.PrefabEvtFight.onHurt(this.npcAtkPlayer.bind(this));
     }
 
     protected onPlayerEnterGame(player: mw.Player): void {
@@ -95,6 +97,12 @@ export class PlayerModuleS extends ModuleS<PlayerModuleC, PlayerData> {
         if (this.playerMap.has(gameObjectId)) {
             this.playerMap.delete(gameObjectId);
         }
+    }
+
+    private npcAtkPlayer(senderGuid: string, targetGuid: string, damage: number): void {
+        if (!this.playerMap.has(targetGuid)) return;
+        let targetPlayer = this.playerMap.get(targetGuid);
+        this.updatePlayerData(null, targetPlayer, damage, mw.Vector.zero);
     }
 
     private playerAtkPlayer(senderGuid: string, targetGuid: string, damage: number, hitPoint: mw.Vector): void {
@@ -152,7 +160,7 @@ export class PlayerModuleS extends ModuleS<PlayerModuleC, PlayerData> {
             names = this.getRankModuleS.getNamesByUserId(userId1, userId2);
         } else {
             names.push(this.getRankModuleS.getNameByUserId(userId1));
-            names.push(Utils.randomNpcName());
+            names.push(GlobalData.languageId == 0 ? `Npc` : Utils.randomNpcName());
         }
         if (names && names.length == 2) this.getAllClient().net_killTip(userId1, names[0], userId2, names[1]);
 

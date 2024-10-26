@@ -42,9 +42,9 @@ export default class JumpGame extends Script {
         this.jumpTrigger = this.gameObject as mw.Trigger;
         this.jumpTrigger.onEnter.add((character: mw.Character) => {
             if (Player.localPlayer.character != character) return;
-            this.getConfirmPanel.confirmTips(() => {
-                mw.RouteService.enterNewGame("P_3440ed187d6a2079f7a42e496389c0a43267d222");
-            }, "前往 枪战躲猫猫-私人别墅", "前往", "取消");
+            // this.getConfirmPanel.confirmTips(() => {
+            //     mw.RouteService.enterNewGame("P_3440ed187d6a2079f7a42e496389c0a43267d222");
+            // }, "前往 枪战躲猫猫-私人别墅", "前往", "取消");
         });
     }
 

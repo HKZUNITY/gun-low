@@ -1,4 +1,5 @@
-﻿import { EventType } from "../../tools/EventType";
+﻿import { GameConfig } from "../../config/GameConfig";
+import { EventType } from "../../tools/EventType";
 import GlobalData from "../../tools/GlobalData";
 import Utils from "../../tools/Utils";
 import CoinPanel from "../CoinModule/ui/CoinPanel";
@@ -120,31 +121,31 @@ export default class HUDModuleC extends ModuleC<HUDModuleS, HUDData> {
         switch (killCount) {
             case 2:
                 soundId = "65877";
-                killCountTips = "连续消灭2人！势不可当！";
+                killCountTips = GameConfig.Language.DefeatedPeople_2.Value;
                 break;
             case 3:
                 soundId = "65874";
-                killCountTips = "连续消灭3人！勇冠三军！";
+                killCountTips = GameConfig.Language.DefeatedPeople_3.Value;
                 break;
             case 4:
                 soundId = "65873";
-                killCountTips = "连续消灭4人！无人能敌！";
+                killCountTips = GameConfig.Language.DefeatedPeople_4.Value;
                 break;
             case 5:
                 soundId = "65881";
-                killCountTips = "连续消灭5人！横扫千军！";
+                killCountTips = GameConfig.Language.DefeatedPeople_5.Value;
                 break;
             case 6:
                 soundId = "65871";
-                killCountTips = "连续消灭6人！接近神了！";
+                killCountTips = GameConfig.Language.DefeatedPeople_6.Value;
                 break;
             case 7:
                 soundId = "65879";
-                killCountTips = "连续消灭7人！超越神了！";
+                killCountTips = StringUtil.format(GameConfig.Language.DefeatedPeople_7.Value, 7);
                 break;
             default:
                 soundId = "65879";
-                killCountTips = "连续消灭" + Utils.numChangeToCN(killCount) + "人！超越神了！";
+                killCountTips = StringUtil.format(GameConfig.Language.DefeatedPeople_7.Value, killCount);
                 break;
         }
         SoundService.playSound(soundId, 1, GlobalData.soundVolume);

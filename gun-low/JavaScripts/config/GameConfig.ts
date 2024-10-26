@@ -1,5 +1,7 @@
 import {ConfigBase, IElementBase} from "./ConfigBase";
 import {GUNConfig} from "./GUN";
+import {LanguageConfig} from "./Language";
+import {MonsterInfoConfig} from "./MonsterInfo";
 import {MorphConfig} from "./Morph";
 import {ProjectilePropConfig} from "./ProjectileProp";
 import {ROLEConfig} from "./ROLE";
@@ -26,6 +28,8 @@ export class GameConfig{
 		return this.configMap.get(ConfigClass.name) as T;
 	}
 	public static get GUN():GUNConfig{ return this.getConfig(GUNConfig) };
+	public static get Language():LanguageConfig{ return this.getConfig(LanguageConfig) };
+	public static get MonsterInfo():MonsterInfoConfig{ return this.getConfig(MonsterInfoConfig) };
 	public static get Morph():MorphConfig{ return this.getConfig(MorphConfig) };
 	public static get ProjectileProp():ProjectilePropConfig{ return this.getConfig(ProjectilePropConfig) };
 	public static get ROLE():ROLEConfig{ return this.getConfig(ROLEConfig) };

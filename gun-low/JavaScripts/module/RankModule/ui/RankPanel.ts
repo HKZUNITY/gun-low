@@ -1,4 +1,6 @@
-﻿import { EventType } from "../../../tools/EventType";
+﻿import { GameConfig } from "../../../config/GameConfig";
+import { EventType } from "../../../tools/EventType";
+import GlobalData from "../../../tools/GlobalData";
 import Utils from "../../../tools/Utils";
 import RankPanel_Generate from "../../../ui-generate/module/RankModule/RankPanel_generate";
 import { RoomData, WorldData } from "../RankData";
@@ -16,6 +18,38 @@ export default class RankPanel extends RankPanel_Generate {
 		this.layer = UILayerMiddle;
 		this.initData();
 		this.bindButton();
+		this.initTextBlock();
+	}
+
+	private initTextBlock(): void {
+		this.mRedRoomTextBlock.text = GameConfig.Language.Lurking.Value;
+		this.mBlueRoomTextBlock.text = GameConfig.Language.Defenders.Value;
+		this.mRedRankTextBlock.text = GameConfig.Language.Ranking.Value;
+		this.mRedNameTextBlock.text = GameConfig.Language.Nickname.Value;
+		this.mRedKillCountTextBlock.text = GameConfig.Language.Beat.Value;
+		this.mRedDieCountTextBlock.text = GameConfig.Language.Death.Value;
+		this.mBlueRankTextBlock.text = GameConfig.Language.Ranking.Value;
+		this.mBlueNameTextBlock.text = GameConfig.Language.Nickname.Value;
+		this.mBlueKillCountTextBlock.text = GameConfig.Language.Beat.Value;
+		this.mBlueDieCountTextBlock.text = GameConfig.Language.Death.Value;
+		this.mTitleTextBlock.text = StringUtil.format(GameConfig.Language.TopInTheEntireServer.Value, GlobalData.maxWorldRankCount);
+		this.mWorldRankTextBlock.text = GameConfig.Language.Ranking.Value;
+		this.mWorldNameTextBlock.text = GameConfig.Language.Nickname.Value;
+		this.mWorldKillCountTextBlock.text = GameConfig.Language.TotalDefeat.Value;
+		this.mWorldDieCountTextBlock.text = GameConfig.Language.TotalDeaths.Value;
+		this.mRoomTextBlock.text = GameConfig.Language.RankingOfAchievements.Value;
+		this.mWorldTextBlock.text = GameConfig.Language.FullServerRankingList.Value;
+
+		if (GlobalData.languageId == 0) {
+			this.mBlueKillCountTextBlock.fontSize = 20;
+			this.mBlueDieCountTextBlock.fontSize = 20;
+			this.mRedKillCountTextBlock.fontSize = 20;
+			this.mRedDieCountTextBlock.fontSize = 20;
+			this.mWorldKillCountTextBlock.fontSize = 20;
+			this.mWorldDieCountTextBlock.fontSize = 20;
+			this.mBlueRankTextBlock.fontSize = 20;
+			this.mWorldRankTextBlock.fontSize = 20;
+		}
 	}
 
 	private initData(): void {

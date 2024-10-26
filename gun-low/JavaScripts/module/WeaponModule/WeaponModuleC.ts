@@ -63,7 +63,7 @@ export default class WeaponModuleC extends ModuleC<WeaponModuleS, null> {
         this.weaponPropElement = GameConfig.WeaponProp.getElement(this.currentWeaponId);
         Helper.damage = this.weaponPropElement.Damage;
         this.updateNormalData();
-        Notice.showDownNotice("武器装备成功");
+        Notice.showDownNotice(GameConfig.Language.WeaponEquipmentSuccessful.Value);
     }
 
     private switchWeapon(): void {

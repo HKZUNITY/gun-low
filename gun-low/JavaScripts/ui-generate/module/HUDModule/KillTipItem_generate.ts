@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/HUDModule/KillTipItem.ui
- * TIME: 2024.06.22-23.56.50
+ * TIME: 2024.10.27-00.04.45
  */
  
 @UIBind('UI/module/HUDModule/KillTipItem.ui')
@@ -28,6 +28,13 @@ export default class KillTipItem_Generate extends UIScript {
 			this.mKillerTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mMainCanvas/KillerCanvas/mKillerTextBlock') as mw.TextBlock
 		}
 		return this.mKillerTextBlock_Internal
+	}
+	private mKillTextBlock_Internal: mw.TextBlock
+	public get mKillTextBlock(): mw.TextBlock {
+		if(!this.mKillTextBlock_Internal&&this.uiWidgetBase) {
+			this.mKillTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mMainCanvas/KillCanvas/mKillTextBlock') as mw.TextBlock
+		}
+		return this.mKillTextBlock_Internal
 	}
 	private mKilledTextBlock_Internal: mw.TextBlock
 	public get mKilledTextBlock(): mw.TextBlock {
@@ -56,14 +63,14 @@ export default class KillTipItem_Generate extends UIScript {
 		this.initLanguage(this.mKillerTextBlock)
 		
 	
+		this.initLanguage(this.mKillTextBlock)
+		
+	
 		this.initLanguage(this.mKilledTextBlock)
 		
 	
 		//文本多语言
 		
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mMainCanvas/KillCanvas/KillTextBlock") as any);
-		
-	
 	}
 	
 	/**初始化多语言*/

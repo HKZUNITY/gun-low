@@ -64,6 +64,10 @@ export default class ActivityPanel extends ActivityPanel_Generate {
 		this.bindButtons();
 	}
 
+	private initTextBlock(): void {
+		this.mAdsTextBlock.text = `直接领取`;
+	}
+
 	private initModule(): void {
 		this.activityModuleC = ModuleService.getModule(ActivityModuleC);
 	}
@@ -117,7 +121,7 @@ export default class ActivityPanel extends ActivityPanel_Generate {
 		if (GlobalData.isOpenIAA) {
 			this.getAdPanel.showRewardAd(() => {
 				this.setGetActivity();
-			}, "免费领取" + this.getActicityShopTypeStr());
+			}, "免费领取" + this.getActicityShopTypeStr(), `取消`, `领取`);
 		} else {
 			this.setGetActivity();
 		}

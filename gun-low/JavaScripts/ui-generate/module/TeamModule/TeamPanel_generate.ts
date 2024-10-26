@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/TeamModule/TeamPanel.ui
- * TIME: 2024.06.22-23.56.51
+ * TIME: 2024.10.27-00.04.45
  */
  
 @UIBind('UI/module/TeamModule/TeamPanel.ui')
@@ -36,12 +36,40 @@ export default class TeamPanel_Generate extends UIScript {
 		}
 		return this.mRedTeamButton_Internal
 	}
+	private mRedTeamTextBlock_Internal: mw.TextBlock
+	public get mRedTeamTextBlock(): mw.TextBlock {
+		if(!this.mRedTeamTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedTeamTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mMainCanvas/mRedTeamButton/mRedTeamTextBlock') as mw.TextBlock
+		}
+		return this.mRedTeamTextBlock_Internal
+	}
 	private mBlueTeamButton_Internal: mw.Button
 	public get mBlueTeamButton(): mw.Button {
 		if(!this.mBlueTeamButton_Internal&&this.uiWidgetBase) {
 			this.mBlueTeamButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mMainCanvas/mBlueTeamButton') as mw.Button
 		}
 		return this.mBlueTeamButton_Internal
+	}
+	private mBlueTeamTextBlock_Internal: mw.TextBlock
+	public get mBlueTeamTextBlock(): mw.TextBlock {
+		if(!this.mBlueTeamTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueTeamTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mMainCanvas/mBlueTeamButton/mBlueTeamTextBlock') as mw.TextBlock
+		}
+		return this.mBlueTeamTextBlock_Internal
+	}
+	private mRedTextBlock_Internal: mw.TextBlock
+	public get mRedTextBlock(): mw.TextBlock {
+		if(!this.mRedTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TitleCanvas/mRedTextBlock') as mw.TextBlock
+		}
+		return this.mRedTextBlock_Internal
+	}
+	private mBlueTextBlock_Internal: mw.TextBlock
+	public get mBlueTextBlock(): mw.TextBlock {
+		if(!this.mBlueTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TitleCanvas/mBlueTextBlock') as mw.TextBlock
+		}
+		return this.mBlueTextBlock_Internal
 	}
 	private mCloseButton_Internal: mw.Button
 	public get mCloseButton(): mw.Button {
@@ -85,20 +113,20 @@ export default class TeamPanel_Generate extends UIScript {
 		
 		//文本多语言
 		
+		this.initLanguage(this.mRedTeamTextBlock)
+		
+	
+		this.initLanguage(this.mBlueTeamTextBlock)
+		
+	
+		this.initLanguage(this.mRedTextBlock)
+		
+	
+		this.initLanguage(this.mBlueTextBlock)
+		
+	
 		//文本多语言
 		
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mMainCanvas/mRedTeamButton/RedTeamTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mMainCanvas/mBlueTeamButton/BlueTeamTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/TitleCanvas/RedTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/TitleCanvas/BlueTextBlock") as any);
-		
-	
 	}
 	
 	/**初始化多语言*/

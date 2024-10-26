@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/RankModule/RankPanel.ui
- * TIME: 2024.06.22-23.56.51
+ * TIME: 2024.10.27-00.04.44
  */
  
 @UIBind('UI/module/RankModule/RankPanel.ui')
@@ -14,6 +14,76 @@ export default class RankPanel_Generate extends UIScript {
 			this.mRoomCanvas_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas') as mw.Canvas
 		}
 		return this.mRoomCanvas_Internal
+	}
+	private mRedRoomTextBlock_Internal: mw.TextBlock
+	public get mRedRoomTextBlock(): mw.TextBlock {
+		if(!this.mRedRoomTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedRoomTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/MainRoomCanvas/TitleRoomCanvas/mRedRoomTextBlock') as mw.TextBlock
+		}
+		return this.mRedRoomTextBlock_Internal
+	}
+	private mBlueRoomTextBlock_Internal: mw.TextBlock
+	public get mBlueRoomTextBlock(): mw.TextBlock {
+		if(!this.mBlueRoomTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueRoomTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/MainRoomCanvas/TitleRoomCanvas/mBlueRoomTextBlock') as mw.TextBlock
+		}
+		return this.mBlueRoomTextBlock_Internal
+	}
+	private mRedRankTextBlock_Internal: mw.TextBlock
+	public get mRedRankTextBlock(): mw.TextBlock {
+		if(!this.mRedRankTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedRankTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/RedTitleRoomCanvas/mRedRankTextBlock') as mw.TextBlock
+		}
+		return this.mRedRankTextBlock_Internal
+	}
+	private mRedNameTextBlock_Internal: mw.TextBlock
+	public get mRedNameTextBlock(): mw.TextBlock {
+		if(!this.mRedNameTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedNameTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/RedTitleRoomCanvas/mRedNameTextBlock') as mw.TextBlock
+		}
+		return this.mRedNameTextBlock_Internal
+	}
+	private mRedKillCountTextBlock_Internal: mw.TextBlock
+	public get mRedKillCountTextBlock(): mw.TextBlock {
+		if(!this.mRedKillCountTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedKillCountTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/RedTitleRoomCanvas/mRedKillCountTextBlock') as mw.TextBlock
+		}
+		return this.mRedKillCountTextBlock_Internal
+	}
+	private mRedDieCountTextBlock_Internal: mw.TextBlock
+	public get mRedDieCountTextBlock(): mw.TextBlock {
+		if(!this.mRedDieCountTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRedDieCountTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/RedTitleRoomCanvas/mRedDieCountTextBlock') as mw.TextBlock
+		}
+		return this.mRedDieCountTextBlock_Internal
+	}
+	private mBlueRankTextBlock_Internal: mw.TextBlock
+	public get mBlueRankTextBlock(): mw.TextBlock {
+		if(!this.mBlueRankTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueRankTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/mBlueRankTextBlock') as mw.TextBlock
+		}
+		return this.mBlueRankTextBlock_Internal
+	}
+	private mBlueNameTextBlock_Internal: mw.TextBlock
+	public get mBlueNameTextBlock(): mw.TextBlock {
+		if(!this.mBlueNameTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueNameTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/mBlueNameTextBlock') as mw.TextBlock
+		}
+		return this.mBlueNameTextBlock_Internal
+	}
+	private mBlueKillCountTextBlock_Internal: mw.TextBlock
+	public get mBlueKillCountTextBlock(): mw.TextBlock {
+		if(!this.mBlueKillCountTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueKillCountTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/mBlueKillCountTextBlock') as mw.TextBlock
+		}
+		return this.mBlueKillCountTextBlock_Internal
+	}
+	private mBlueDieCountTextBlock_Internal: mw.TextBlock
+	public get mBlueDieCountTextBlock(): mw.TextBlock {
+		if(!this.mBlueDieCountTextBlock_Internal&&this.uiWidgetBase) {
+			this.mBlueDieCountTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/mBlueDieCountTextBlock') as mw.TextBlock
+		}
+		return this.mBlueDieCountTextBlock_Internal
 	}
 	private mRedRoomContentCanvas_Internal: mw.Canvas
 	public get mRedRoomContentCanvas(): mw.Canvas {
@@ -36,6 +106,41 @@ export default class RankPanel_Generate extends UIScript {
 		}
 		return this.mWorldCanvas_Internal
 	}
+	private mTitleTextBlock_Internal: mw.TextBlock
+	public get mTitleTextBlock(): mw.TextBlock {
+		if(!this.mTitleTextBlock_Internal&&this.uiWidgetBase) {
+			this.mTitleTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mWorldCanvas/MainWorldCanvas/TitleWorldCanvas/mTitleTextBlock') as mw.TextBlock
+		}
+		return this.mTitleTextBlock_Internal
+	}
+	private mWorldRankTextBlock_Internal: mw.TextBlock
+	public get mWorldRankTextBlock(): mw.TextBlock {
+		if(!this.mWorldRankTextBlock_Internal&&this.uiWidgetBase) {
+			this.mWorldRankTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mWorldCanvas/WorldCanvas/mWorldRankTextBlock') as mw.TextBlock
+		}
+		return this.mWorldRankTextBlock_Internal
+	}
+	private mWorldNameTextBlock_Internal: mw.TextBlock
+	public get mWorldNameTextBlock(): mw.TextBlock {
+		if(!this.mWorldNameTextBlock_Internal&&this.uiWidgetBase) {
+			this.mWorldNameTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mWorldCanvas/WorldCanvas/mWorldNameTextBlock') as mw.TextBlock
+		}
+		return this.mWorldNameTextBlock_Internal
+	}
+	private mWorldKillCountTextBlock_Internal: mw.TextBlock
+	public get mWorldKillCountTextBlock(): mw.TextBlock {
+		if(!this.mWorldKillCountTextBlock_Internal&&this.uiWidgetBase) {
+			this.mWorldKillCountTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mWorldCanvas/WorldCanvas/mWorldKillCountTextBlock') as mw.TextBlock
+		}
+		return this.mWorldKillCountTextBlock_Internal
+	}
+	private mWorldDieCountTextBlock_Internal: mw.TextBlock
+	public get mWorldDieCountTextBlock(): mw.TextBlock {
+		if(!this.mWorldDieCountTextBlock_Internal&&this.uiWidgetBase) {
+			this.mWorldDieCountTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mWorldCanvas/WorldCanvas/mWorldDieCountTextBlock') as mw.TextBlock
+		}
+		return this.mWorldDieCountTextBlock_Internal
+	}
 	private mWorldContentCanvas_Internal: mw.Canvas
 	public get mWorldContentCanvas(): mw.Canvas {
 		if(!this.mWorldContentCanvas_Internal&&this.uiWidgetBase) {
@@ -50,6 +155,13 @@ export default class RankPanel_Generate extends UIScript {
 		}
 		return this.mRoomButton_Internal
 	}
+	private mRoomTextBlock_Internal: mw.TextBlock
+	public get mRoomTextBlock(): mw.TextBlock {
+		if(!this.mRoomTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRoomTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TypeCanvas/RoomCanvas/mRoomTextBlock') as mw.TextBlock
+		}
+		return this.mRoomTextBlock_Internal
+	}
 	private mRoomSignImage_Internal: mw.Image
 	public get mRoomSignImage(): mw.Image {
 		if(!this.mRoomSignImage_Internal&&this.uiWidgetBase) {
@@ -63,6 +175,13 @@ export default class RankPanel_Generate extends UIScript {
 			this.mWorldButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TypeCanvas/WorldCanvas/mWorldButton') as mw.Button
 		}
 		return this.mWorldButton_Internal
+	}
+	private mWorldTextBlock_Internal: mw.TextBlock
+	public get mWorldTextBlock(): mw.TextBlock {
+		if(!this.mWorldTextBlock_Internal&&this.uiWidgetBase) {
+			this.mWorldTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TypeCanvas/WorldCanvas/mWorldTextBlock') as mw.TextBlock
+		}
+		return this.mWorldTextBlock_Internal
 	}
 	private mWorldSignImage_Internal: mw.Image
 	public get mWorldSignImage(): mw.Image {
@@ -113,59 +232,59 @@ export default class RankPanel_Generate extends UIScript {
 		
 		//文本多语言
 		
+		this.initLanguage(this.mRedRoomTextBlock)
+		
+	
+		this.initLanguage(this.mBlueRoomTextBlock)
+		
+	
+		this.initLanguage(this.mRedRankTextBlock)
+		
+	
+		this.initLanguage(this.mRedNameTextBlock)
+		
+	
+		this.initLanguage(this.mRedKillCountTextBlock)
+		
+	
+		this.initLanguage(this.mRedDieCountTextBlock)
+		
+	
+		this.initLanguage(this.mBlueRankTextBlock)
+		
+	
+		this.initLanguage(this.mBlueNameTextBlock)
+		
+	
+		this.initLanguage(this.mBlueKillCountTextBlock)
+		
+	
+		this.initLanguage(this.mBlueDieCountTextBlock)
+		
+	
+		this.initLanguage(this.mTitleTextBlock)
+		
+	
+		this.initLanguage(this.mWorldRankTextBlock)
+		
+	
+		this.initLanguage(this.mWorldNameTextBlock)
+		
+	
+		this.initLanguage(this.mWorldKillCountTextBlock)
+		
+	
+		this.initLanguage(this.mWorldDieCountTextBlock)
+		
+	
+		this.initLanguage(this.mRoomTextBlock)
+		
+	
+		this.initLanguage(this.mWorldTextBlock)
+		
+	
 		//文本多语言
 		
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/MainRoomCanvas/TitleRoomCanvas/RedRoomTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/MainRoomCanvas/TitleRoomCanvas/BlueRoomTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/RedTitleRoomCanvas/RedRankTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/RedTitleRoomCanvas/RedNameTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/RedTitleRoomCanvas/RedKillCountTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/RedTitleRoomCanvas/RedDieCountTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/BlueRankTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/BlueNameTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/BlueKillCountTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mRoomCanvas/BlueTitleRoomCanvas/BlueDieCountTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mWorldCanvas/MainWorldCanvas/TitleWorldCanvas/TitleTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mWorldCanvas/WorldCanvas/WorldRankTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mWorldCanvas/WorldCanvas/WorldNameTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mWorldCanvas/WorldCanvas/WorldKillCountTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mWorldCanvas/WorldCanvas/WorldDieCountTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/TypeCanvas/RoomCanvas/RoomTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/TypeCanvas/WorldCanvas/WorldTextBlock") as any);
-		
-	
 	}
 	
 	/**初始化多语言*/

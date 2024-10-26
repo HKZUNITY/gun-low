@@ -1,5 +1,6 @@
 ﻿import ConfirmPanel from "../../common/ConfirmPanel";
 import { Notice } from "../../common/notice/Notice";
+import { GameConfig } from "../../config/GameConfig";
 import GlobalData from "../../tools/GlobalData";
 import AdPanel from "../AdModule/ui/AdPanel";
 import CoinModuleC from "../CoinModule/CoinModuleC";
@@ -89,7 +90,7 @@ export default class AddMaxHp extends Script {
         if (GlobalData.isOpenIAA) {
             this.getAdPanel.showRewardAd(() => {
                 this.getPlayerModuleC.addMaxHp();
-            }, "奖励翻倍\n最大生命值提高到 + " + GlobalData.maxHp * 2, "取消", "免费提高");
+            }, StringUtil.format(GameConfig.Language.DoubleTheRewardMaximumHealthIncreasedTo.Value, GlobalData.maxHp * 2), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeIncrease.Value);
         } else {
             this.getPlayerModuleC.addMaxHp();
         }

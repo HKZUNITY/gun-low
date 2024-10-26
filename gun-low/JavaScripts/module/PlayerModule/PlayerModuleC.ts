@@ -1,5 +1,6 @@
 ﻿import ConfirmPanel from "../../common/ConfirmPanel";
 import { Notice } from "../../common/notice/Notice";
+import { GameConfig } from "../../config/GameConfig";
 import { FlyText } from "../../tools/FlyText";
 import GlobalData from "../../tools/GlobalData";
 import Utils from "../../tools/Utils";
@@ -56,14 +57,14 @@ export class PlayerModuleC extends ModuleC<PlayerModuleS, PlayerData> {
     private addResetPosAction(): void {
         this.getConfirmPanel.confirmTips(() => {
             if (!this.isCanResetPos) {
-                Notice.showDownNotice("60秒内不可重置位置");
+                Notice.showDownNotice(StringUtil.format(GameConfig.Language.CannotResetPositionWithinSeconds.Value, 60));
                 return;
             }
             let revivalPoint = Utils.randomRevivalPoint(this.getTeamModuleC.isRedTeam(this.localPlayer.userId));
             this.localPlayer.character.worldTransform.position = revivalPoint;
             this.isCanResetPos = false;
             TimeUtil.delaySecond(60).then(() => { this.isCanResetPos = true; });
-        }, "是否重置位置", "是", "否", "重置位置");
+        }, GameConfig.Language.DoYouWantToResetThePosition.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.ResetPosition.Value);
     }
 
     public net_hitTeammate(): void {

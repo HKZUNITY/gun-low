@@ -1,4 +1,5 @@
 ﻿import { Notice } from "../../../common/notice/Notice";
+import { GameConfig } from "../../../config/GameConfig";
 import Utils, { cubicBezier } from "../../../tools/Utils";
 import HUDPanel_Generate from "../../../ui-generate/module/HUDModule/HUDPanel_generate";
 import CoinModuleC from "../../CoinModule/CoinModuleC";
@@ -27,6 +28,22 @@ export default class HUDPanel extends HUDPanel_Generate {
         this.initModule();
         this.initUI();
         this.bindButtons();
+        this.initTextBlock();
+    }
+
+    private initTextBlock(): void {
+        this.mRedVsTextBlock.text = GameConfig.Language.Lurking.Value;
+        this.mBlueVsTextBlock.text = GameConfig.Language.Defenders.Value;
+        this.mTipsHpTextBlock.text = GameConfig.Language.Life.Value;
+        this.mInvincibleTextBlock.text = GameConfig.Language.InvincibleTime.Value;
+        this.mDeadTextBlock.text = GameConfig.Language.ResurrectionCountdown.Value;
+        this.mDeadTipsTextBlock.text = StringUtil.format(GameConfig.Language.InvincibleWithinSecondsAfterResurrection.Value, 2);
+        this.mSetTextBlock.text = GameConfig.Language.SetUp.Value;
+        this.mFireTextBlock.text = GameConfig.Language.FiringSensitivity.Value;
+        this.mControlTextBlock.text = GameConfig.Language.ControlSensitivity.Value;
+        this.mBgmTextBlock.text = GameConfig.Language.BackgroundMusicSize.Value;
+        this.mSoundTextBlock.text = GameConfig.Language.SfxVolume.Value;
+        this.mResetTextBlock.text = GameConfig.Language.ResetPosition.Value;
     }
 
     private initModule(): void {
@@ -166,7 +183,7 @@ export default class HUDPanel extends HUDPanel_Generate {
     private killTipsTimeOutId1: any = null;
     private killTipsTimeOutId2: any = null;
     public showKillTips1(killTips: string, killerName: string, killedName: string): void {
-        Notice.showDownNotice("<color=#lime>" + "<size=18>" + killerName + " 击败了 " + killedName + "</size>" + "</color>"
+        Notice.showDownNotice("<color=#lime>" + "<size=18>" + killerName + GameConfig.Language.Defeated.Value + killedName + "</size>" + "</color>"
             + "\n" + "<color=#red>" + killTips + "</color>");
     }
 
@@ -181,9 +198,9 @@ export default class HUDPanel extends HUDPanel_Generate {
         if (killTipType == KillTipType.None) return;
         this.clearKillTipsTimeOutId2();
         if (killTipType == KillTipType.Killed) {
-            this.mKillTipTextBlock3.text = "你已被 " + killerName + " 击败";
+            this.mKillTipTextBlock3.text = StringUtil.format(GameConfig.Language.YouHaveBeenDefeatedBy.Value, killerName);
         } else if (killTipType == KillTipType.revenge) {
-            this.mKillTipTextBlock3.text = "击败 " + killedName + " 完成复仇";
+            this.mKillTipTextBlock3.text = StringUtil.format(GameConfig.Language.DefeatToCompleteRevenge.Value, killedName);
         }
         Utils.setWidgetVisibility(this.mKillTipTextBlock3, mw.SlateVisibility.SelfHitTestInvisible);
         this.killTipsTimeOutId2 = setTimeout(() => {
@@ -212,13 +229,13 @@ export default class HUDPanel extends HUDPanel_Generate {
     }
 
     public updateRankUIText(isRedTeam: boolean, rank: number): void {
-        let teamStr: string = "潜伏者：第";
+        let teamStr: string = GameConfig.Language.Lurking.Value;
         let rankTextBlockColor: mw.LinearColor = mw.LinearColor.red;
         if (!isRedTeam) {
-            teamStr = "保卫者：第";
+            teamStr = GameConfig.Language.Defenders.Value;
             rankTextBlockColor = mw.LinearColor.blue;
         }
-        this.mRankTextBlock.text = teamStr + rank + "名";
+        this.mRankTextBlock.text = StringUtil.format(GameConfig.Language.RdPlace.Value, teamStr, rank);
         this.mRankTextBlock.fontColor = rankTextBlockColor;
     }
     //#endregion

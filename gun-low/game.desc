@@ -1,0 +1,50 @@
+﻿{
+	"IsHorizontal": true,
+	"name": "枪战模拟器(全部免费)",
+	"packageName": "0F555F2849775E6C297569881C634146",
+	"foldername": "gun-low",
+	"mainScene": 1,
+	"scenePublic": 1,
+	"intro": "修改审核拒绝问题",
+	"notes": "修改审核拒绝问题",
+	"editorVersion": "v0.40.0.3",
+	"parentGameIdentity": "",
+	"parentGameId": "",
+	"extra": "{\"attribute\":2,\"IsHorizontal\":true,\"useAvatar\":0}",
+	"devEnv": 4,
+	"needToMgs": 0,
+	"attribute": 2,
+	"autoSubmitAudit": false,
+	"lightZipIgnore":
+	{
+		"suffixMatches": [
+			".meta",
+			".ts",
+			".ui",
+			".uimap",
+			".mat"
+		],
+		"fullMatches": [
+			"Asset_Data_List"
+		],
+		"prefixMatches": [
+			"AutoBackup/",
+			"JavaScripts/",
+			"Plugins/"
+		]
+	},
+	"files": [
+		{
+			"type": "Game_Thumbnail",
+			"path": "Pictures/Game_Thumbnail.jpg"
+		},
+		{
+			"type": "GameSetting",
+			"path": "Config/GameSetting.ini"
+		},
+		{
+			"type": "Asset_Data_List",
+			"path": "Asset_Data_List"
+		}
+	]
+}

@@ -3,12 +3,19 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/TaskModule/TaskPanel.ui
- * TIME: 2024.06.22-23.56.51
+ * TIME: 2024.10.27-00.04.45
  */
  
 @UIBind('UI/module/TaskModule/TaskPanel.ui')
 export default class TaskPanel_Generate extends UIScript {
-		private mDailyTimeTextBlock_Internal: mw.TextBlock
+		private mDailyTaskTitleTextBlock_Internal: mw.TextBlock
+	public get mDailyTaskTitleTextBlock(): mw.TextBlock {
+		if(!this.mDailyTaskTitleTextBlock_Internal&&this.uiWidgetBase) {
+			this.mDailyTaskTitleTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TaskCanvas/DailyTaskCanvas/DailyTaskTitleImage/mDailyTaskTitleTextBlock') as mw.TextBlock
+		}
+		return this.mDailyTaskTitleTextBlock_Internal
+	}
+	private mDailyTimeTextBlock_Internal: mw.TextBlock
 	public get mDailyTimeTextBlock(): mw.TextBlock {
 		if(!this.mDailyTimeTextBlock_Internal&&this.uiWidgetBase) {
 			this.mDailyTimeTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TaskCanvas/DailyTaskCanvas/DailyTaskTitleImage/mDailyTimeTextBlock') as mw.TextBlock
@@ -35,6 +42,13 @@ export default class TaskPanel_Generate extends UIScript {
 			this.mDailyTaskDoneTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TaskCanvas/DailyTaskCanvas/mDailyTaskDoneTextBlock') as mw.TextBlock
 		}
 		return this.mDailyTaskDoneTextBlock_Internal
+	}
+	private mWeekTaskTitleTextBlock_Internal: mw.TextBlock
+	public get mWeekTaskTitleTextBlock(): mw.TextBlock {
+		if(!this.mWeekTaskTitleTextBlock_Internal&&this.uiWidgetBase) {
+			this.mWeekTaskTitleTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/TaskCanvas/WeekTaskCanvas/WeekTaskTitleImage/mWeekTaskTitleTextBlock') as mw.TextBlock
+		}
+		return this.mWeekTaskTitleTextBlock_Internal
 	}
 	private mWeekTimeTextBlock_Internal: mw.TextBlock
 	public get mWeekTimeTextBlock(): mw.TextBlock {
@@ -94,10 +108,16 @@ export default class TaskPanel_Generate extends UIScript {
 		
 		//文本多语言
 		
+		this.initLanguage(this.mDailyTaskTitleTextBlock)
+		
+	
 		this.initLanguage(this.mDailyTimeTextBlock)
 		
 	
 		this.initLanguage(this.mDailyTaskDoneTextBlock)
+		
+	
+		this.initLanguage(this.mWeekTaskTitleTextBlock)
 		
 	
 		this.initLanguage(this.mWeekTimeTextBlock)
@@ -108,12 +128,6 @@ export default class TaskPanel_Generate extends UIScript {
 	
 		//文本多语言
 		
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/TaskCanvas/DailyTaskCanvas/DailyTaskTitleImage/DailyTaskTitleTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/TaskCanvas/WeekTaskCanvas/WeekTaskTitleImage/WeekTaskTitleTextBlock") as any);
-		
-	
 	}
 	
 	/**初始化多语言*/

@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/ActivityModule/ActivityPanel.ui
- * TIME: 2024.06.22-23.56.50
+ * TIME: 2024.10.27-00.04.44
  */
  
 @UIBind('UI/module/ActivityModule/ActivityPanel.ui')
@@ -22,6 +22,13 @@ export default class ActivityPanel_Generate extends UIScript {
 		}
 		return this.mAdsGetButton_Internal
 	}
+	private mAdsTextBlock_Internal: mw.TextBlock
+	public get mAdsTextBlock(): mw.TextBlock {
+		if(!this.mAdsTextBlock_Internal&&this.uiWidgetBase) {
+			this.mAdsTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/mAdsGetButton/mAdsTextBlock') as mw.TextBlock
+		}
+		return this.mAdsTextBlock_Internal
+	}
 	private mMinutesTextBlock_Internal: mw.TextBlock
 	public get mMinutesTextBlock(): mw.TextBlock {
 		if(!this.mMinutesTextBlock_Internal&&this.uiWidgetBase) {
@@ -35,6 +42,13 @@ export default class ActivityPanel_Generate extends UIScript {
 			this.mGetButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/GetCanvas/mGetButton') as mw.Button
 		}
 		return this.mGetButton_Internal
+	}
+	private mGetTextBlock_Internal: mw.TextBlock
+	public get mGetTextBlock(): mw.TextBlock {
+		if(!this.mGetTextBlock_Internal&&this.uiWidgetBase) {
+			this.mGetTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/GetCanvas/mGetButton/mGetTextBlock') as mw.TextBlock
+		}
+		return this.mGetTextBlock_Internal
 	}
 	private mIconImage_Internal: mw.Image
 	public get mIconImage(): mw.Image {
@@ -128,7 +142,13 @@ export default class ActivityPanel_Generate extends UIScript {
 		this.initLanguage(this.mWhatDayTextBlock)
 		
 	
+		this.initLanguage(this.mAdsTextBlock)
+		
+	
 		this.initLanguage(this.mMinutesTextBlock)
+		
+	
+		this.initLanguage(this.mGetTextBlock)
 		
 	
 		this.initLanguage(this.mIconTextBlock)
@@ -139,12 +159,6 @@ export default class ActivityPanel_Generate extends UIScript {
 	
 		//文本多语言
 		
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mAdsGetButton/AdsTextBlock") as any);
-		
-	
-		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/GetCanvas/mGetButton/GetTextBlock") as any);
-		
-	
 	}
 	
 	/**初始化多语言*/

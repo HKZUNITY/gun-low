@@ -25,6 +25,25 @@ export default class TaskPanel extends TaskPanel_Generate {
 		this.initUIPanel();
 		this.bindButton();
 		this.initTime();
+		this.initTextBlock();
+	}
+
+	private initTextBlock(): void {
+		this.mDailyTaskTitleTextBlock.text = GameConfig.Language.Text_DailyTasks.Value;
+		this.mDailyTaskDoneTextBlock.text = GameConfig.Language.Text_AllTasksHaveBeenCompletedWaitingForRefresh.Value;
+		this.mWeekTaskTitleTextBlock.text = GameConfig.Language.Text_WeeklyTasks.Value
+		this.mWeekTaskDoneTextBlock.text = GameConfig.Language.Text_AllTasksHaveBeenCompletedWaitingForRefresh.Value;
+		if (GlobalData.languageId == 0) {
+			this.mDailyTaskTitleTextBlock.fontSize = 40;
+			this.mWeekTaskTitleTextBlock.fontSize = 35;
+			this.mDailyTimeTextBlock.fontSize = 18;
+			this.mWeekTimeTextBlock.fontSize = 18;
+		} else {
+			this.mDailyTaskTitleTextBlock.fontSize = 50;
+			this.mWeekTaskTitleTextBlock.fontSize = 50;
+			this.mDailyTimeTextBlock.fontSize = 30;
+			this.mWeekTimeTextBlock.fontSize = 30;
+		}
 	}
 
 	private initUIPanel(): void {
@@ -205,16 +224,16 @@ export default class TaskPanel extends TaskPanel_Generate {
 		} else {
 			this.hour = 24 - this.hour + this.refreshDailyHourTime;
 		}
-		this.mDailyTimeTextBlock.text = "剩余: " + this.hour + "小时";
+		this.mDailyTimeTextBlock.text = StringUtil.format(GameConfig.Language.Text_RemainingHours.Value, this.hour);
 	}
 
 	private week: number = 0;
 	private updateWeekTime(): void {
 		if (Number(Utils.getWhatDay()) == 1 && this.hour < this.refreshWeekHourTime) {
-			this.mWeekTimeTextBlock.text = "剩余: " + 1 + "天";
+			this.mWeekTimeTextBlock.text = StringUtil.format(GameConfig.Language.Text_RemainingDays.Value, 1);
 			this.week = 1;
 		} else {
-			this.mWeekTimeTextBlock.text = "剩余: " + this.week + "天";
+			this.mWeekTimeTextBlock.text = StringUtil.format(GameConfig.Language.Text_RemainingDays.Value, this.week);
 		}
 	}
 }
@@ -222,6 +241,21 @@ export default class TaskPanel extends TaskPanel_Generate {
 export class TaskItem extends TaskItem_Generate {
 	protected onStart(): void {
 		this.initUI();
+		this.initTextBlock();
+	}
+
+	private initTextBlock(): void {
+		this.mFinishTextBlock.text = GameConfig.Language.Text_ClaimRewards.Value;
+		this.mUnfinishTextBlock.text = GameConfig.Language.Text_HangInTheAir.Value;
+		if (GlobalData.languageId == 0) {
+			this.mNameTextBlock.fontSize = 16;
+			this.mFinishTextBlock.fontSize = 15;
+			this.mUnfinishTextBlock.fontSize = 15;
+		} else {
+			this.mNameTextBlock.fontSize = 20;
+			this.mFinishTextBlock.fontSize = 24;
+			this.mUnfinishTextBlock.fontSize = 24;
+		}
 	}
 
 	private initUI(): void {
@@ -246,7 +280,7 @@ export class TaskItem extends TaskItem_Generate {
 				mw.UIService.getUI(TaskPanel).controllerPic(1);
 			}
 		}
-		this.mNameTextBlock.text = StringUtil.format(this.vIPTaskElement.Name, this.task.progress, this.vIPTaskElement.TragetNum);
+		this.mNameTextBlock.text = StringUtil.format(this.vIPTaskElement.Name, this.task.progress, this.vIPTaskElement.TragetNum, this.vIPTaskElement.TragetNum);
 		this.mCoinTextBlock.text = this.vIPTaskElement.Coin.toString();
 		this.mDiamondTextBlock.text = this.vIPTaskElement.Diamond.toString();
 		if (this.vIPTaskElement.Diamond == 0 || this.vIPTaskElement.Diamond == null) {

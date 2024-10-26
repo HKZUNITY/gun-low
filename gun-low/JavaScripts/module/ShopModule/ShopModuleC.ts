@@ -65,7 +65,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
 
     private bindOpenShopAction(): void {
         if (this.getHUDModuleC.getIsMorph && !this.localPlayer.character.getVisibility()) {
-            Notice.showDownNotice("变身状态不可打开商店");
+            Notice.showDownNotice(GameConfig.Language.TransformationStatusCannotOpenTheStore.Value);
             return;
         }
         this.getShopPanel.show();
@@ -129,10 +129,10 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
         if (this.getCoinModuleC.getCoin >= costPrice[1]) {
             this.getCoinModuleC.setCoin(-costPrice[1]);
             this.setShopId(shopType, shopId);
-            Notice.showDownNotice("购买成功");
+            Notice.showDownNotice(GameConfig.Language.PurchaseSuccessful.Value);
             return true;
         } else {
-            Notice.showDownNotice("金币不足");
+            Notice.showDownNotice(GameConfig.Language.InsufficientGoldCoins.Value);
             this.getCoinModuleC.getCoinByAd();
             return false;
         }
@@ -143,10 +143,10 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
         if (this.getCoinModuleC.getDiamond >= costPrice[0]) {
             this.getCoinModuleC.setDiamond(-costPrice[0]);
             this.setShopId(shopType, shopId);
-            Notice.showDownNotice("购买成功");
+            Notice.showDownNotice(GameConfig.Language.PurchaseSuccessful.Value);
             return true;
         } else {
-            Notice.showDownNotice("钻石不足");
+            Notice.showDownNotice(GameConfig.Language.DiamondShortage.Value);
             this.getCoinModuleC.getDiamondByAd(costPrice[0]);
             return false;
         }
@@ -166,7 +166,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     public useShopItem(shopId: number, shopType: ShopType): void {
         this.previewShopItem(shopId, shopType);
         if (!this.setUseShopId(shopType, shopId)) {
-            Notice.showDownNotice("穿戴中");
+            Notice.showDownNotice(GameConfig.Language.WearingIt.Value);
             return;
         }
         switch (shopType) {
@@ -208,13 +208,13 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
         await Utils.asyncDownloadAsset(roleId);
         this.localPlayer.character.setDescription([roleId]);
         this.localPlayer.character.syncDescription();
-        Notice.showDownNotice("皮肤成功穿戴");
+        Notice.showDownNotice(GameConfig.Language.SkinSuccessfullyWorn.Value);
     }
 
     private setCharacterTrailing(shopId: number): void {
         let trailingId = GameConfig.TRAILING.getElement(shopId).TRAILING;
         this.server.net_setCharacterTrailing(trailingId);
-        Notice.showDownNotice("尾迹成功穿戴");
+        Notice.showDownNotice(GameConfig.Language.TailSuccessfullyWorn.Value);
     }
 
     public onSwitchCameraAction: Action1<number> = new Action1<number>();
@@ -275,7 +275,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     private gunkey: number = null;
     private async switchGunModel(key: number): Promise<void> {
         if (this.gunkey == key) {
-            Notice.showDownNotice("正在预览");
+            Notice.showDownNotice(GameConfig.Language.Previewing.Value);
             return;
         }
         this.gunkey = key;
@@ -307,7 +307,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     private roleKey: number = null;
     private async setShopNpcDescription(key: number): Promise<void> {
         if (this.roleKey == key) {
-            Notice.showDownNotice("正在预览");
+            Notice.showDownNotice(GameConfig.Language.Previewing.Value);
             return;
         }
         this.roleKey = key;
@@ -332,7 +332,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     private trailingKey: number = null;
     private switchTrailing(key: number): void {
         if (this.trailingKey == key) {
-            Notice.showDownNotice("正在预览");
+            Notice.showDownNotice(GameConfig.Language.Previewing.Value);
             return;
         }
         this.trailingKey = key;

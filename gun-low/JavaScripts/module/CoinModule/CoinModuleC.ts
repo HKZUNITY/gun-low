@@ -103,7 +103,7 @@ export default class CoinModuleC extends ModuleC<CoinModuleS, CoinData> {
         if (GlobalData.isOpenIAA) {
             this.getAdPanel.showRewardAd(() => {
                 this.setCoin(GlobalData.addCoin);
-            }, `免费领取${GlobalData.addCoin}金币`);
+            }, StringUtil.format(GameConfig.Language.FreeCollectionOfCoins.Value, GlobalData.addCoin), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToReceive.Value);
         } else {
             this.setCoin(GlobalData.addCoin);
         }
@@ -114,7 +114,7 @@ export default class CoinModuleC extends ModuleC<CoinModuleS, CoinData> {
         if (GlobalData.isOpenIAA) {
             this.getAdPanel.showRewardAd(() => {
                 this.setDiamond(GlobalData.addDiamond);
-            }, `免费领取${GlobalData.addDiamond}个钻石`);
+            }, StringUtil.format(GameConfig.Language.FreeCollectionOfDiamonds.Value, GlobalData.addDiamond), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToReceive.Value);
         } else {
             this.setDiamond(GlobalData.addDiamond);
         }
@@ -129,7 +129,7 @@ export default class CoinModuleC extends ModuleC<CoinModuleS, CoinData> {
 
     private popupNotice(num: number, isCoin: boolean): void {
         if (num == 0) return;
-        Notice.showDownNotice("<color=#" + (num > 0 ? "yellow>" : "red>") + (num > 0 ? "获得" : "花费") + (isCoin ? "金币" : "钻石") + num + "</color>");
+        Notice.showDownNotice("<color=#" + (num > 0 ? "yellow>" : "red>") + (num > 0 ? GameConfig.Language.Get.Value : GameConfig.Language.Spend.Value) + (isCoin ? GameConfig.Language.GoldCoins.Value : GameConfig.Language.Diamonds.Value) + num + "</color>");
         // Notice.showDownNotice("<color=#lime>" + "<size=18>" + killerName + " 击败了 " + killedName + "</size>" + "</color>"
         //     + "\n" + "<color=#red>完成了" + killTips + "</color>");
     }

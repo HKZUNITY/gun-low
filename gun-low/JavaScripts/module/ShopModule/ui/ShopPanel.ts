@@ -1,4 +1,6 @@
-﻿import { EventType } from "../../../tools/EventType";
+﻿import { GameConfig } from "../../../config/GameConfig";
+import { EventType } from "../../../tools/EventType";
+import GlobalData from "../../../tools/GlobalData";
 import Utils from "../../../tools/Utils";
 import ShopPanel_Generate from "../../../ui-generate/module/ShopModule/ShopPanel_generate";
 import { ShopType } from "../ShopData";
@@ -26,6 +28,19 @@ export default class ShopPanel extends ShopPanel_Generate {
 		this.initModule();
 		// this.initUIPanel();
 		this.bindButtons();
+		this.initTextBlock();
+	}
+
+	private initTextBlock(): void {
+		this.mTabTextBlock_0.text = GameConfig.Language.Weapon.Value;
+		this.mTabTextBlock_1.text = GameConfig.Language.Skin.Value;
+		this.mTabTextBlock_2.text = GameConfig.Language.Trailing.Value;
+
+		if (GlobalData.languageId == 0) {
+			this.mTabTextBlock_0.fontSize = 40;
+			this.mTabTextBlock_1.fontSize = 40;
+			this.mTabTextBlock_2.fontSize = 40;
+		}
 	}
 
 	private initModule(): void {

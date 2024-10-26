@@ -75,7 +75,7 @@ export default class RankModuleC extends ModuleC<RankModuleS, null> {
 
     protected onEnterScene(sceneType: number): void {
         let nickName = mw.AccountService.getNickName();
-        nickName = nickName ? nickName : "爱玩游戏的小胖子：" + this.currentUserId;
+        nickName = nickName ? nickName : "UserId:" + this.currentUserId;
         this.server.net_onEnterScene(nickName, this.getPlayerData.killCount, this.getPlayerData.dieCount);
     }
 

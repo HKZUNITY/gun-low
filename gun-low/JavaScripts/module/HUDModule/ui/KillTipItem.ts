@@ -1,10 +1,11 @@
-﻿import Utils from "../../../tools/Utils";
+﻿import { GameConfig } from "../../../config/GameConfig";
+import Utils from "../../../tools/Utils";
 import KillTipItem_Generate from "../../../ui-generate/module/HUDModule/KillTipItem_generate";
 import { KillTipData, KillTipType } from "../HUDData";
 
 export class KillTipItem extends KillTipItem_Generate {
     protected onAwake(): void {
-
+        this.mKillTextBlock.text = GameConfig.Language.Defeated.Value;
     }
 
     public setInfo(killTipDatas: KillTipData): void {

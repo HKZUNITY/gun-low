@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/AdModule/AdPanel.ui
- * TIME: 2024.06.22-23.56.50
+ * TIME: 2024.10.27-00.04.44
  */
  
 @UIBind('UI/module/AdModule/AdPanel.ui')
@@ -35,13 +35,6 @@ export default class AdPanel_Generate extends UIScript {
 			this.mYesBtn_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/Canvas/Canvas_1/mYesBtn') as mw.AdsButton
 		}
 		return this.mYesBtn_Internal
-	}
-	private mYesBtn_1_Internal: mw.AdsButton
-	public get mYesBtn_1(): mw.AdsButton {
-		if(!this.mYesBtn_1_Internal&&this.uiWidgetBase) {
-			this.mYesBtn_1_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/Canvas/Canvas_1/mYesBtn_1') as mw.AdsButton
-		}
-		return this.mYesBtn_1_Internal
 	}
 
 
