@@ -93,7 +93,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
 
     private initUseShopItem(): void {
         // if (MapEx.has(this.useShopIds, ShopType.Gun)) this.setCharacterGun();
-        if (MapEx.has(this.useShopIds, ShopType.Role)) this.setCharacterDescription(MapEx.get(this.useShopIds, ShopType.Role));
+        // if (MapEx.has(this.useShopIds, ShopType.Role)) this.setCharacterDescription(MapEx.get(this.useShopIds, ShopType.Role));
         if (MapEx.has(this.useShopIds, ShopType.Trailing)) this.setCharacterTrailing(MapEx.get(this.useShopIds, ShopType.Trailing));
     }
 
@@ -190,7 +190,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     }
 
     public setUseShopId(shopType: ShopType, shopId: number): boolean {
-        if (MapEx.has(this.useShopIds, shopType) && MapEx.get(this.useShopIds, shopType) == shopId) return false;
+        if (MapEx.has(this.useShopIds, shopType) && MapEx.get(this.useShopIds, shopType) == shopId && shopType != ShopType.Role) return false;
         MapEx.set(this.useShopIds, shopType, shopId);
         if (this.isAds(shopId, shopType)) return true;
         this.server.net_setUseShopId(shopType, shopId);

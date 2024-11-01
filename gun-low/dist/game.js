@@ -2747,6 +2747,11 @@ class MonsterInfoConfig extends ConfigBase {
     }
 }
 
+var foreign12 = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    MonsterInfoConfig: MonsterInfoConfig
+});
+
 const EXCELDATA$6 = [["ID", "AssetId", "OffsetPos", "OffsetRot", "OffsetSca"], ["", "", "", "", ""], [1, "20686", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [2, "20689", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [3, "20693", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [4, "20707", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [5, "20741", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [6, "20799", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [7, "20910", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [8, "20957", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [9, "21007", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [10, "21034", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [11, "21037", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0.3, 0.3, 0.3)], [12, "22879", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [13, "22881", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [14, "22905", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [15, "22906", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [16, "22907", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [17, "22913", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [18, "22921", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [19, "22926", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [20, "22951", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [21, "22940", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [22, "22972", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [23, "22966", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [24, "22969", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [25, "22986", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [26, "22981", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [27, "23001", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [28, "23018", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [29, "23020", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [30, "23043", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [31, "23071", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [32, "23072", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [33, "23102", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)]];
 class MorphConfig extends ConfigBase {
     constructor() {
@@ -11562,8 +11567,7 @@ class ShopModuleC extends ModuleC {
     }
     initUseShopItem() {
         // if (MapEx.has(this.useShopIds, ShopType.Gun)) this.setCharacterGun();
-        if (MapEx.has(this.useShopIds, ShopType.Role))
-            this.setCharacterDescription(MapEx.get(this.useShopIds, ShopType.Role));
+        // if (MapEx.has(this.useShopIds, ShopType.Role)) this.setCharacterDescription(MapEx.get(this.useShopIds, ShopType.Role));
         if (MapEx.has(this.useShopIds, ShopType.Trailing))
             this.setCharacterTrailing(MapEx.get(this.useShopIds, ShopType.Trailing));
     }
@@ -11653,7 +11657,7 @@ class ShopModuleC extends ModuleC {
         MapEx.set(this.useShopIds, ShopType.Gun, shopId);
     }
     setUseShopId(shopType, shopId) {
-        if (MapEx.has(this.useShopIds, shopType) && MapEx.get(this.useShopIds, shopType) == shopId)
+        if (MapEx.has(this.useShopIds, shopType) && MapEx.get(this.useShopIds, shopType) == shopId && shopType != ShopType.Role)
             return false;
         MapEx.set(this.useShopIds, shopType, shopId);
         if (this.isAds(shopId, shopType))
@@ -15390,6 +15394,7 @@ const MWModuleMap = {
      '166E934A4902E0274794828A310EFA30': foreign9,
      '6374DD3342310CB36D6D868EC5478FF4': foreign10,
      '6382D7424AF70223022A13AA574C6E2E': foreign11,
+     '4C6CF64F4A6BCA61A02F0F818F7E8A19': foreign12,
      'EC2961B34147096FC9DBC2971DD9AA53': foreign13,
      '6A277D5049CE2CE92CD7339A98FE615B': foreign14,
      'E19C4FBC41BEE3AD41222B8D64AAD365': foreign15,
@@ -15498,6 +15503,7 @@ const MWFileMapping = new WeakMap([[foreign1 || {}, "JavaScripts/common/ConfirmP
 [foreign9 || {}, "JavaScripts/config/GameConfig"],
 [foreign10 || {}, "JavaScripts/config/GUN"],
 [foreign11 || {}, "JavaScripts/config/Language"],
+[foreign12 || {}, "JavaScripts/config/MonsterInfo"],
 [foreign13 || {}, "JavaScripts/config/Morph"],
 [foreign14 || {}, "JavaScripts/config/ProjectileProp"],
 [foreign15 || {}, "JavaScripts/config/ROLE"],
