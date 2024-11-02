@@ -74,11 +74,11 @@ export default class TeamPanel extends TeamPanel_Generate {
 	private isDelayedEnd: boolean = true;
 	private async changeTeam(teamType: TeamType): Promise<void> {
 		if (this.getTeamModuleC.getCurTeamType() == teamType) {
-			Notice.showDownNotice("切换失败,你已在" + (teamType == TeamType.Red ? "红队" : "蓝队") + "中");
+			Notice.showDownNotice(StringUtil.format(GameConfig.Language.SwitchingFailedYouAreAlreadyIn.Value, (teamType == TeamType.Red ? GameConfig.Language.Lurking.Value : GameConfig.Language.Defenders.Value)));
 			return;
 		}
 		if (!this.isDelayedEnd) {
-			Notice.showDownNotice("不能频繁切换队伍，10秒后再试");
+			Notice.showDownNotice(StringUtil.format(GameConfig.Language.CannotSwitchTeamsFrequentlyTryAgainInSeconds.Value, 10));
 			return;
 		}
 		this.isDelayedEnd = false;

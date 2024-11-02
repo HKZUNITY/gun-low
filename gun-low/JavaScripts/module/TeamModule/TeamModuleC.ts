@@ -1,4 +1,5 @@
 ﻿import { Notice } from "../../common/notice/Notice";
+import { GameConfig } from "../../config/GameConfig";
 import { EventType } from "../../tools/EventType";
 import Utils from "../../tools/Utils";
 import HUDModuleC from "../HUDModule/HUDModuleC";
@@ -94,23 +95,23 @@ export default class TeamModuleC extends ModuleC<TeamModuleS, null> {
     private currentTeamType: TeamType = TeamType.Red;
     public async net_changeTeam(teamType: TeamType): Promise<boolean> {
         if (this.currentTeamType == teamType) {
-            Notice.showDownNotice("切换失败,你已在" + (teamType == TeamType.Red ? "红队" : "蓝队") + "中");
+            Notice.showDownNotice(StringUtil.format(GameConfig.Language.SwitchingFailedYouAreAlreadyIn.Value, (teamType == TeamType.Red ? GameConfig.Language.Lurking.Value : GameConfig.Language.Defenders.Value)));
             return;
         }
         let resultType = await this.server.net_changeTeam(teamType);
         switch (resultType) {
             case ResultType.Succeed:
-                Notice.showDownNotice("切换队伍成功");
+                Notice.showDownNotice(GameConfig.Language.SuccessfullySwitchedTeams.Value);
                 TimeUtil.delaySecond(1).then(() => { this.getRankModuleC.updateRankByChangeTeam(); });
                 break;
             case ResultType.Fail1:
-                Notice.showDownNotice("切换失败,此队已满");
+                Notice.showDownNotice(GameConfig.Language.SwitchingFailedThisTeamIsFull.Value);
                 break;
             case ResultType.Fail2:
-                Notice.showDownNotice("切换失败,人数不平等");
+                Notice.showDownNotice(GameConfig.Language.SwitchingFailedUnequalNumberOfPeople.Value);
                 break;
             case ResultType.Fail3:
-                Notice.showDownNotice("已在此队");
+                Notice.showDownNotice(GameConfig.Language.AlreadyOnThisTeam.Value);
                 break;
             default:
                 break;
