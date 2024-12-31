@@ -160,7 +160,7 @@ export class PlayerModuleS extends ModuleS<PlayerModuleC, PlayerData> {
             names = this.getRankModuleS.getNamesByUserId(userId1, userId2);
         } else {
             names.push(this.getRankModuleS.getNameByUserId(userId1));
-            names.push(GlobalData.languageId == 0 ? `Npc` : Utils.randomNpcName());
+            names.push(`Npc`);
         }
         if (names && names.length == 2) this.getAllClient().net_killTip(userId1, names[0], userId2, names[1]);
 

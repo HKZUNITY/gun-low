@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/HUDModule/HUDPanel.ui
- * TIME: 2024.10.27-00.04.45
+ * TIME: 2024.12.31-20.21.20
  */
  
 @UIBind('UI/module/HUDModule/HUDPanel.ui')
@@ -53,65 +53,72 @@ export default class HUDPanel_Generate extends UIScript {
 	private mSetButton_Internal: mw.Button
 	public get mSetButton(): mw.Button {
 		if(!this.mSetButton_Internal&&this.uiWidgetBase) {
-			this.mSetButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_1/SetCanvas/mSetButton') as mw.Button
+			this.mSetButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/SetCanvas/mSetButton') as mw.Button
 		}
 		return this.mSetButton_Internal
 	}
 	private mRankButton_Internal: mw.Button
 	public get mRankButton(): mw.Button {
 		if(!this.mRankButton_Internal&&this.uiWidgetBase) {
-			this.mRankButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_1/RankCanvas/mRankButton') as mw.Button
+			this.mRankButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RankCanvas/mRankButton') as mw.Button
 		}
 		return this.mRankButton_Internal
 	}
 	private mTaskButton_Internal: mw.Button
 	public get mTaskButton(): mw.Button {
 		if(!this.mTaskButton_Internal&&this.uiWidgetBase) {
-			this.mTaskButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_1/TaskCanvas/mTaskButton') as mw.Button
+			this.mTaskButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TaskCanvas/mTaskButton') as mw.Button
 		}
 		return this.mTaskButton_Internal
 	}
 	private mTaskPointImage_Internal: mw.Image
 	public get mTaskPointImage(): mw.Image {
 		if(!this.mTaskPointImage_Internal&&this.uiWidgetBase) {
-			this.mTaskPointImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_1/TaskCanvas/mTaskPointImage') as mw.Image
+			this.mTaskPointImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TaskCanvas/mTaskPointImage') as mw.Image
 		}
 		return this.mTaskPointImage_Internal
 	}
 	private mTaskBgImage_Internal: mw.Image
 	public get mTaskBgImage(): mw.Image {
 		if(!this.mTaskBgImage_Internal&&this.uiWidgetBase) {
-			this.mTaskBgImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_1/TaskCanvas/mTaskBgImage') as mw.Image
+			this.mTaskBgImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TaskCanvas/mTaskBgImage') as mw.Image
 		}
 		return this.mTaskBgImage_Internal
 	}
 	private mTeamButton_Internal: mw.Button
 	public get mTeamButton(): mw.Button {
 		if(!this.mTeamButton_Internal&&this.uiWidgetBase) {
-			this.mTeamButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_2/TeamCanvas/mTeamButton') as mw.Button
+			this.mTeamButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TeamCanvas/mTeamButton') as mw.Button
 		}
 		return this.mTeamButton_Internal
 	}
 	private mTeamBgImage_Internal: mw.Image
 	public get mTeamBgImage(): mw.Image {
 		if(!this.mTeamBgImage_Internal&&this.uiWidgetBase) {
-			this.mTeamBgImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_2/TeamCanvas/mTeamBgImage') as mw.Image
+			this.mTeamBgImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TeamCanvas/mTeamBgImage') as mw.Image
 		}
 		return this.mTeamBgImage_Internal
 	}
 	private mTeamIconImage_Internal: mw.Image
 	public get mTeamIconImage(): mw.Image {
 		if(!this.mTeamIconImage_Internal&&this.uiWidgetBase) {
-			this.mTeamIconImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_2/TeamCanvas/mTeamIconImage') as mw.Image
+			this.mTeamIconImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TeamCanvas/mTeamIconImage') as mw.Image
 		}
 		return this.mTeamIconImage_Internal
 	}
 	private mShopButton_Internal: mw.Button
 	public get mShopButton(): mw.Button {
 		if(!this.mShopButton_Internal&&this.uiWidgetBase) {
-			this.mShopButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas_2/ShopCanvas/mShopButton') as mw.Button
+			this.mShopButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/ShopCanvas/mShopButton') as mw.Button
 		}
 		return this.mShopButton_Internal
+	}
+	private mRoleButton_Internal: mw.Button
+	public get mRoleButton(): mw.Button {
+		if(!this.mRoleButton_Internal&&this.uiWidgetBase) {
+			this.mRoleButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RoleCanvas/mRoleButton') as mw.Button
+		}
+		return this.mRoleButton_Internal
 	}
 	private mActivityButton_Internal: mw.Button
 	public get mActivityButton(): mw.Button {
@@ -623,6 +630,12 @@ export default class HUDPanel_Generate extends UIScript {
 			Event.dispatchToLocal("PlayButtonClick", "mShopButton");
 		});
 		this.mShopButton.touchMethod = (mw.ButtonTouchMethod.PreciseTap);
+		
+	
+		this.mRoleButton.onClicked.add(()=>{
+			Event.dispatchToLocal("PlayButtonClick", "mRoleButton");
+		});
+		this.mRoleButton.touchMethod = (mw.ButtonTouchMethod.PreciseTap);
 		
 	
 		this.mActivityButton.onClicked.add(()=>{

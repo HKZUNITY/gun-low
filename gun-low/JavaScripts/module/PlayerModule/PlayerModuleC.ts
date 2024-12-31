@@ -81,6 +81,11 @@ export class PlayerModuleC extends ModuleC<PlayerModuleS, PlayerData> {
     }
 
     public net_killTip(killerUserId: string, killerName: string, killedUserId: string, killedName: string): void {
+        if (killedName == `Npc`) {
+            if (GlobalData.languageId == 1) {
+                killedName = Utils.randomNpcName();
+            }
+        }
         this.getHUDModuleC.killTip(killerUserId, killerName, killedUserId, killedName);
     }
 

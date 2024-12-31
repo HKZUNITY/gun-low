@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/ShopModule/ShopPanel.ui
- * TIME: 2024.10.27-00.04.45
+ * TIME: 2024.12.31-20.21.20
  */
  
 @UIBind('UI/module/ShopModule/ShopPanel.ui')
@@ -57,6 +57,13 @@ export default class ShopPanel_Generate extends UIScript {
 		}
 		return this.mTabTextBlock_2_Internal
 	}
+	private mBuyButton_Internal: mw.Button
+	public get mBuyButton(): mw.Button {
+		if(!this.mBuyButton_Internal&&this.uiWidgetBase) {
+			this.mBuyButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightCanvas/mTabCanvas/mBuyButton') as mw.Button
+		}
+		return this.mBuyButton_Internal
+	}
 	private mScrollBox_Internal: mw.ScrollBox
 	public get mScrollBox(): mw.ScrollBox {
 		if(!this.mScrollBox_Internal&&this.uiWidgetBase) {
@@ -109,6 +116,12 @@ export default class ShopPanel_Generate extends UIScript {
 		this.mTabButton_2.touchMethod = (mw.ButtonTouchMethod.PreciseTap);
 		
 	
+		this.mBuyButton.onClicked.add(()=>{
+			Event.dispatchToLocal("PlayButtonClick", "mBuyButton");
+		});
+		this.mBuyButton.touchMethod = (mw.ButtonTouchMethod.PreciseTap);
+		
+	
 		this.mCloseButton.onClicked.add(()=>{
 			Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
 		});
@@ -130,6 +143,9 @@ export default class ShopPanel_Generate extends UIScript {
 	
 		//文本多语言
 		
+		this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/RightCanvas/mTabCanvas/mBuyButton/TabTextBlock") as any);
+		
+	
 	}
 	
 	/**初始化多语言*/

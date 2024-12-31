@@ -40,6 +40,7 @@ export default class ShopPanel extends ShopPanel_Generate {
 			this.mTabTextBlock_0.fontSize = 40;
 			this.mTabTextBlock_1.fontSize = 40;
 			this.mTabTextBlock_2.fontSize = 40;
+			Utils.setWidgetVisibility(this.mBuyButton, mw.SlateVisibility.Collapsed);
 		}
 	}
 
@@ -53,11 +54,12 @@ export default class ShopPanel extends ShopPanel_Generate {
 
 	private bindButtons(): void {
 		this.mCloseButton.onClicked.add(this.onClickCloseButton.bind(this));
+		this.mBuyButton.onClicked.add(this.addBuyButton.bind(this));
 	}
 
 	private mTabButtons: mw.Button[] = [];
 	private initUI(): void {
-		for (let i = 0; i < this.mTabCanvas.getChildrenCount(); ++i) {
+		for (let i = 0; i < 3; ++i) {
 			this.mTabButtons.push(this["mTabButton_" + i] as mw.Button);
 			this.mTabButtons[i].onClicked.add(this.onClickTabButton.bind(this, i));
 		}
@@ -80,6 +82,10 @@ export default class ShopPanel extends ShopPanel_Generate {
 		Event.dispatchToLocal(EventType.OnOffMainHUD, true);
 	}
 
+	private addBuyButton(): void {
+		this.getShopModuleC.onBuyAction.call();
+	}
+
 	private currentTabButton: mw.Button = null;
 	private updateTabState(): void {
 		if (this.currentTabButton) Utils.setButtonEnable(this.currentTabButton, true);
@@ -89,7 +95,7 @@ export default class ShopPanel extends ShopPanel_Generate {
 	}
 
 	private shopItems: ShopItem[] = [];
-	private updateShopItem(): void {
+	public updateShopItem(): void {
 		if (this.shopItems.length > this.shopTypes[this.currentShopType]) {
 			for (let i = 0; i < this.shopTypes[this.currentShopType]; ++i) {
 				this.shopItems[i].setData(i + 1, this.currentShopType);

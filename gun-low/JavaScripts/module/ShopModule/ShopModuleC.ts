@@ -59,8 +59,20 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
         this.getHUDModuleC.onOpenShopAction.add(this.bindOpenShopAction.bind(this));
     }
 
+    public onBuyAction: Action = new Action();
     private initEvent(): void {
         Event.addLocalListener(EventType.TryOutGun, this.setCharacterGun.bind(this));
+        this.onBuyAction.add(() => {
+            if (mw.SystemUtil.isPIE) {
+                Notice.showDownNotice(`购买成功`);
+                this.buyComplete();
+            } else {
+                mw.PurchaseService.placeOrder(`AaQ7PpZOzzO0002Ug`, 1, (status, msg) => {
+                    mw.PurchaseService.getArkBalance();//刷新代币数量
+                    if (status != 200) return;
+                });
+            }
+        });
     }
 
     private bindOpenShopAction(): void {
@@ -89,6 +101,34 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
         // console.error("shopIds = " + JSON.stringify(this.shopIds));
         this.initUseShopItem();
         this.shopPanel = UIService.getUI(ShopPanel);
+    }
+
+    public net_deliverGoods(commodityId: string, amount: number): void {
+        if (commodityId == "AaQ7PpZOzzO0002Ug") {
+            Notice.showDownNotice(`购买成功`);
+            this.buyComplete();
+        }
+    }
+
+    private buyComplete(): void {
+        this.shopIds = {};
+        let weaponIds: number[] = [];
+        for (let i = 1; i <= 15; ++i) {
+            weaponIds.push(i);
+        }
+        MapEx.set(this.shopIds, ShopType.Gun, weaponIds);
+        let skinIds: number[] = [];
+        for (let i = 1; i <= 34; ++i) {
+            skinIds.push(i);
+        }
+        MapEx.set(this.shopIds, ShopType.Role, skinIds);
+        let trailIds: number[] = [];
+        for (let i = 1; i <= 63; ++i) {
+            trailIds.push(i);
+        }
+        MapEx.set(this.shopIds, ShopType.Trailing, trailIds);
+        this.server.net_buyComplete();
+        this.getShopPanel.updateShopItem();
     }
 
     private initUseShopItem(): void {
@@ -167,7 +207,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
         this.previewShopItem(shopId, shopType);
         if (!this.setUseShopId(shopType, shopId)) {
             Notice.showDownNotice(GameConfig.Language.WearingIt.Value);
-            return;
+            // return;
         }
         switch (shopType) {
             case ShopType.Gun:

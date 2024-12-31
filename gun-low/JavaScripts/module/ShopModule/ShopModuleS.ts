@@ -5,7 +5,18 @@ export default class ShopModuleS extends ModuleS<ShopModuleC, ShopData> {
 
     /** 当脚本被实例后，会在第一帧更新前调用此函数 */
     protected onStart(): void {
+        mw.PurchaseService.onOrderDelivered.add(this.addShipOrder.bind(this));
+    }
 
+    private addShipOrder(playerId: number, orderId: string, commodityId: string, amount: number, confirmOrder: (bReceived: boolean) => void): void {
+        //根据playerId和commodityId来处理购买逻辑
+        this.getClient(playerId).net_deliverGoods(commodityId, amount);
+        confirmOrder(true);//调用这个方法表示确认收货成功
+    }
+
+    @Decorator.noReply()
+    public net_buyComplete(): void {
+        this.currentData.buyComplete();
     }
 
     protected onPlayerLeft(player: mw.Player): void {

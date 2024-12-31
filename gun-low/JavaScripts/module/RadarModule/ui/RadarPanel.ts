@@ -1,4 +1,5 @@
-﻿import RadarModuleC from "../RadarModuleC";
+﻿import Utils from "../../../tools/Utils";
+import RadarModuleC from "../RadarModuleC";
 
 export default class RadarPanel extends UIScript {
 	private mCutCanvas: mw.Canvas = null;
@@ -94,22 +95,28 @@ export default class RadarPanel extends UIScript {
 			if (otherPlayer == this.currentPlayer) return;
 			if (this.playerPointMap.has(otherPlayer)) {
 				let otherPlayerPoint = this.playerPointMap.get(otherPlayer);
-
-				if (otherPlayer.character.ragdollEnabled) {
-					this.setTextBlock(otherPlayerPoint, "×");
-				} else {
-					this.setTextBlock(otherPlayerPoint, "◆");
-				}
-
-				if (this.getRadarModuleC.isFriendly(this.currentPlayer, otherPlayer)) {
-					this.setTextFontColor(otherPlayerPoint, mw.LinearColor.green);
-				} else {
-					this.setTextFontColor(otherPlayerPoint, mw.LinearColor.red);
-				}
-
 				let loc = this.Loc2RadarPos(otherPlayer.character.worldTransform.position);
 				let offset = otherPlayerPoint.size;
-				otherPlayerPoint.position = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
+				let retPosition = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
+				console.error(retPosition);
+				if (retPosition.x < 0 || retPosition.x > 400 || retPosition.y < 0 || retPosition.y > 400) {
+					Utils.setWidgetVisibility(otherPlayerPoint, mw.SlateVisibility.Collapsed);
+				} else {
+					if (otherPlayer.character.ragdollEnabled) {
+						this.setTextBlock(otherPlayerPoint, "×");
+					} else {
+						this.setTextBlock(otherPlayerPoint, "◆");
+					}
+
+					if (this.getRadarModuleC.isFriendly(this.currentPlayer, otherPlayer)) {
+						this.setTextFontColor(otherPlayerPoint, mw.LinearColor.green);
+					} else {
+						this.setTextFontColor(otherPlayerPoint, mw.LinearColor.red);
+					}
+
+					Utils.setWidgetVisibility(otherPlayerPoint, mw.SlateVisibility.SelfHitTestInvisible);
+					otherPlayerPoint.position = retPosition;
+				}
 			} else {
 				this.playerPointMap.set(otherPlayer, this.getTextBlockPoint(otherPlayer.userId));
 			}
@@ -119,14 +126,20 @@ export default class RadarPanel extends UIScript {
 	private updateNpcState(): void {
 		if (!this.npcPointMap || this.npcPointMap.size == 0) return;
 		this.npcPointMap.forEach((value, key) => {
-			if (key.ragdollEnabled) {
-				this.setTextBlock(value, "×");
-			} else {
-				this.setTextBlock(value, "◆");
-			}
 			let loc = this.Loc2RadarPos(key.worldTransform.position);
 			let offset = value.size;
-			value.position = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
+			let retPosition = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
+			if (retPosition.x < 0 || retPosition.x > 400 || retPosition.y < 0 || retPosition.y > 400) {
+				Utils.setWidgetVisibility(value, mw.SlateVisibility.Collapsed);
+			} else {
+				if (key.ragdollEnabled) {
+					this.setTextBlock(value, "×");
+				} else {
+					this.setTextBlock(value, "◆");
+				}
+				value.position = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
+				Utils.setWidgetVisibility(value, mw.SlateVisibility.SelfHitTestInvisible);
+			}
 		});
 	}
 

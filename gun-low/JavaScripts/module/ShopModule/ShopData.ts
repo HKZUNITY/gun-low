@@ -46,4 +46,24 @@ export default class ShopData extends Subdata {
         MapEx.set(this.useShopIds, shopType, shopId);
         this.save(true);
     }
+
+    public buyComplete(): void {
+        this.shopIds = {};
+        let weaponIds: number[] = [];
+        for (let i = 1; i <= 15; ++i) {
+            weaponIds.push(i);
+        }
+        MapEx.set(this.shopIds, ShopType.Gun, weaponIds);
+        let skinIds: number[] = [];
+        for (let i = 1; i < 34; ++i) {
+            skinIds.push(i);
+        }
+        MapEx.set(this.shopIds, ShopType.Role, skinIds);
+        let trailIds: number[] = [];
+        for (let i = 1; i < 63; ++i) {
+            trailIds.push(i);
+        }
+        MapEx.set(this.shopIds, ShopType.Trailing, trailIds);
+        this.save(false);
+    }
 }

@@ -27,6 +27,7 @@ export default class HUDModuleC extends ModuleC<HUDModuleS, HUDData> {
     public onNormalAction: Action1<boolean> = new Action1<boolean>();
     public onReloadAction: Action = new Action();
     public onCrouchAction: Action = new Action();
+    public onOpenRoleAction: Action = new Action();
 
     protected onStart(): void {
         this.initUIPanel();
@@ -42,6 +43,7 @@ export default class HUDModuleC extends ModuleC<HUDModuleS, HUDData> {
         this.initSoundEvent();
         this.initMorphAction();
         this.onJumpAction.add(this.addJumpAction.bind(this));
+        this.onOpenRoleAction.add(this.addOpenRoleAction.bind(this));
         this.onCrouchAction.add(this.addCrouchAction.bind(this));
         Event.addLocalListener(EventType.OnOffMainHUD, this.addOnOffHUDPannel.bind(this));
         let isOpen = true;
@@ -59,6 +61,11 @@ export default class HUDModuleC extends ModuleC<HUDModuleS, HUDData> {
     private addJumpAction(): void {
         this.localPlayer.character.jump();
         if (!this.localPlayer.character.movementEnabled) this.localPlayer.character.movementEnabled = true;
+    }
+
+
+    private addOpenRoleAction(): void {
+        AvatarEditorService.asyncOpenAvatarEditorModule();
     }
 
     private isCrouching: boolean = false;
@@ -224,7 +231,7 @@ export default class HUDModuleC extends ModuleC<HUDModuleS, HUDData> {
 
     //#region SoundService
     private playBgm(): void {
-        return;
+        // return;
         SoundService.playBGM("146100", this.currentBgmVolume);
     }
 
