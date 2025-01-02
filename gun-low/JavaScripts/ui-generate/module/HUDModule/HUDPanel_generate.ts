@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/HUDModule/HUDPanel.ui
- * TIME: 2024.12.31-20.21.20
+ * TIME: 2025.01.02-22.17.23
  */
  
 @UIBind('UI/module/HUDModule/HUDPanel.ui')
@@ -119,6 +119,20 @@ export default class HUDPanel_Generate extends UIScript {
 			this.mRoleButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RoleCanvas/mRoleButton') as mw.Button
 		}
 		return this.mRoleButton_Internal
+	}
+	private mOpenShareImage_Internal: mw.Image
+	public get mOpenShareImage(): mw.Image {
+		if(!this.mOpenShareImage_Internal&&this.uiWidgetBase) {
+			this.mOpenShareImage_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/mOpenShareImage') as mw.Image
+		}
+		return this.mOpenShareImage_Internal
+	}
+	private mOpenShareButton_Internal: mw.StaleButton
+	public get mOpenShareButton(): mw.StaleButton {
+		if(!this.mOpenShareButton_Internal&&this.uiWidgetBase) {
+			this.mOpenShareButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/mOpenShareImage/mOpenShareButton') as mw.StaleButton
+		}
+		return this.mOpenShareButton_Internal
 	}
 	private mActivityButton_Internal: mw.Button
 	public get mActivityButton(): mw.Button {
@@ -600,6 +614,13 @@ export default class HUDPanel_Generate extends UIScript {
 	protected initButtons() {
 		//按钮添加点击
 		
+		this.mOpenShareButton.onClicked.add(()=>{
+			Event.dispatchToLocal("PlayButtonClick", "mOpenShareButton");
+		});
+		this.initLanguage(this.mOpenShareButton);
+		this.mOpenShareButton.touchMethod = (mw.ButtonTouchMethod.PreciseTap);
+		
+	
 		//按钮添加点击
 		
 		this.mSetButton.onClicked.add(()=>{

@@ -2,6 +2,7 @@
 import { GameConfig } from "../../../config/GameConfig";
 import Utils, { cubicBezier } from "../../../tools/Utils";
 import HUDPanel_Generate from "../../../ui-generate/module/HUDModule/HUDPanel_generate";
+import SharePanel_Generate from "../../../ui-generate/module/ShareModule/SharePanel_generate";
 import CoinModuleC from "../../CoinModule/CoinModuleC";
 import { KillTipData, KillTipType } from "../HUDData";
 import HUDModuleC from "../HUDModuleC";
@@ -74,6 +75,7 @@ export default class HUDPanel extends HUDPanel_Generate {
         this.mUnMorphButton.onClicked.add(this.onClickUnMorphButton.bind(this));
         this.mJumpButton.onClicked.add(this.onClickJumpButton.bind(this));
         this.mRoleButton.onClicked.add(this.onClickOpenRoleButton.bind(this));
+        this.mOpenShareButton.onClicked.add(this.addOpenShareButton.bind(this));
         this.bindSetButton();
         this.bindAtkButton();
     }
@@ -84,6 +86,10 @@ export default class HUDPanel extends HUDPanel_Generate {
 
     private onClickOpenRoleButton(): void {
         this.getHUDModuleC.onOpenRoleAction.call();
+    }
+
+    private addOpenShareButton(): void {
+        this.getHUDModuleC.onOpenShareAction.call(1);
     }
 
     private onClickOpenTeamButton(): void {
@@ -463,6 +469,7 @@ export default class HUDPanel extends HUDPanel_Generate {
         this.initShakeActivityTween();
         this.initShakeShopTween();
         this.initShakeRoleTween();
+        this.initShakeShareTween();
         this.initMorphButtonTween();
     }
     //#region RankTween
@@ -568,6 +575,23 @@ export default class HUDPanel extends HUDPanel_Generate {
     public initShakeShopTween(): void {
         let rightBigToLeftSmall = this.getShakeScaleTween(this.mShopButton, 0.8, 20, -20, 1.1, 0.9);
         let leftSamllToRightBig = this.getShakeScaleTween(this.mShopButton, 0.8, -20, 20, 0.9, 1.1);
+
+        rightBigToLeftSmall.start().onComplete(() => {
+            TimeUtil.delaySecond(0.1).then(() => {
+                leftSamllToRightBig.start().onComplete(() => {
+                    TimeUtil.delaySecond(0.1).then(() => {
+                        rightBigToLeftSmall.start();
+                    });
+                });
+            })
+        });
+    }
+    //#endregion
+
+    //#region ShopTween
+    public initShakeShareTween(): void {
+        let rightBigToLeftSmall = this.getShakeScaleTween(this.mOpenShareButton, 0.8, 20, -20, 1.1, 0.9);
+        let leftSamllToRightBig = this.getShakeScaleTween(this.mOpenShareButton, 0.8, -20, 20, 0.9, 1.1);
 
         rightBigToLeftSmall.start().onComplete(() => {
             TimeUtil.delaySecond(0.1).then(() => {
@@ -853,4 +877,66 @@ export default class HUDPanel extends HUDPanel_Generate {
         this.mGunBulletCountTextBlock.text = bulletCount.toString();
     }
     //#endregion
+}
+
+export class SharePanel extends SharePanel_Generate {
+    private hudModuleC: HUDModuleC = null;
+    private get getHUDModuleC(): HUDModuleC {
+        if (this.hudModuleC == null) {
+            this.hudModuleC = ModuleService.getModule(HUDModuleC);
+        }
+        return this.hudModuleC;
+    }
+
+    protected onStart(): void {
+        this.initUI();
+        this.bindButton();
+    }
+
+    private initUI(): void {
+        this.mMyselfTipsTextBlock.text = GameConfig.Language.Text_MyCharacterId.Value;
+        this.mOtherTipsTextBlock.text = GameConfig.Language.Text_TryOnYourFriendAvatarForFree.Value;
+        this.mInputBox.text = "";
+        this.mInputBox.hintString = GameConfig.Language.Text_PleaseEnter.Value;
+        this.mCancelTextBlock.text = GameConfig.Language.Text_Cancel.Value;
+        this.mUseTextBlock.text = GameConfig.Language.Text_FreeTryOn.Value;
+        this.mAdsButton.text = GameConfig.Language.Text_FreeTryOn.Value;
+
+        Utils.setWidgetVisibility(this.mAdsButton, mw.SlateVisibility.Collapsed);
+    }
+
+    private bindButton(): void {
+        this.mCopyButton.onClicked.add(this.addCopyButton.bind(this));
+        this.mCancelButton.onClicked.add(this.addCancelButton.bind(this));
+        this.mUseButton.onClicked.add(this.addUseButton.bind(this));
+    }
+
+    private addCopyButton(): void {
+        let copyText = this.mMyselfTextBlock.text;
+        if (!copyText || copyText == "" || copyText.length == 0) return;
+        StringUtil.clipboardCopy(copyText);
+        Notice.showDownNotice(GameConfig.Language.Text_CopySuccessfully.Value);
+    }
+
+    private addCancelButton(): void {
+        this.hide();
+    }
+
+    private addUseButton(): void {
+        let shareId = this.mInputBox.text;
+        if (!shareId || shareId == "" || shareId.length == 0) return;
+        this.getHUDModuleC.onUseShareAction.call(shareId);
+        this.hide();
+    }
+
+    public showPanel(shareId: string): void {
+        this.mMyselfTextBlock.text = shareId;
+        Utils.setWidgetVisibility(this.mInputBgImage, mw.SlateVisibility.SelfHitTestInvisible);
+        this.mOtherTipsTextBlock.text = GameConfig.Language.Text_TryOnYourFriendAvatarForFree.Value;
+    }
+
+    protected onShow(...params: any[]): void {
+        this.mMyselfTextBlock.text = GameConfig.Language.Text_Loading.Value;
+        this.mInputBox.text = ``;
+    }
 }
