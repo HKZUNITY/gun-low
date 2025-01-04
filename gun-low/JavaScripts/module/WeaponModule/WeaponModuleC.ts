@@ -2,7 +2,6 @@
 import { GameConfig } from "../../config/GameConfig";
 import { IWeaponPropElement } from "../../config/WeaponProp";
 import { Helper } from "../../tools/Helper";
-import Utils from "../../tools/Utils";
 import HUDModuleC from "../HUDModule/HUDModuleC";
 import { Projectile } from "./Projectile";
 import { ProjectileType } from "./WeaponData";

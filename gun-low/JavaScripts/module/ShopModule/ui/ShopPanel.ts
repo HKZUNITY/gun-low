@@ -15,7 +15,7 @@ export default class ShopPanel extends ShopPanel_Generate {
 		}
 		return this.shopModuleC;
 	}
-	private shopTypes: number[] = [15, 34, 63];
+	private shopTypes: number[] = [16, 34, 63];
 
 	/** 
 	 * 构造UI文件成功后，在合适的时机最先初始化一次 

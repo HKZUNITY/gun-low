@@ -113,7 +113,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     private buyComplete(): void {
         this.shopIds = {};
         let weaponIds: number[] = [];
-        for (let i = 1; i <= 15; ++i) {
+        for (let i = 1; i <= 16; ++i) {
             weaponIds.push(i);
         }
         MapEx.set(this.shopIds, ShopType.Gun, weaponIds);

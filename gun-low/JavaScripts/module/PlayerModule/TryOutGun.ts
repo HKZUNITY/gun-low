@@ -113,12 +113,12 @@ export default class TryOutGun extends Script {
             this.getAdPanel.showRewardAd(() => {
                 if (!this.gunkey) return;
                 this.switchGun();
-                this.switchGunModel(Utils.randomInt(10, 15));
+                this.switchGunModel(Utils.randomInt(10, 16));
             }, StringUtil.format(GameConfig.Language.FreeUseOfOneRound.Value, gunElement.WeaponName), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
         } else {
             if (!this.gunkey) return;
             this.switchGun();
-            this.switchGunModel(Utils.randomInt(10, 15));
+            this.switchGunModel(Utils.randomInt(10, 16));
         }
     }
 
