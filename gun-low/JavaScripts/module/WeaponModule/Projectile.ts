@@ -175,7 +175,7 @@ export class Projectile {
     }
 
     private recycleThis(): void {
-        this.play3DSound("208300");
+        this.play3DSound("205238"); //208300
         this.playHitEffect();
         this.recycleProjectile();
         // console.error("recycle");
