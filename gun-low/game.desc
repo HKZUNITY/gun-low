@@ -12,7 +12,7 @@
 	"parentGameId": "",
 	"extra": "{\"attribute\":2,\"IsHorizontal\":true,\"useAvatar\":1}",
 	"devEnv": 4,
-	"needToMgs": 1,
+	"needToMgs": 0,
 	"attribute": 2,
 	"autoSubmitAudit": false,
 	"lightZipIgnore":
