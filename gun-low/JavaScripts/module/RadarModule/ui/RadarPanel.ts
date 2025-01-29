@@ -98,7 +98,7 @@ export default class RadarPanel extends UIScript {
 				let loc = this.Loc2RadarPos(otherPlayer.character.worldTransform.position);
 				let offset = otherPlayerPoint.size;
 				let retPosition = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
-				console.error(retPosition);
+				// console.error(retPosition);
 				if (retPosition.x < 0 || retPosition.x > 400 || retPosition.y < 0 || retPosition.y > 400) {
 					Utils.setWidgetVisibility(otherPlayerPoint, mw.SlateVisibility.Collapsed);
 				} else {

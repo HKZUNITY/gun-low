@@ -52,7 +52,6 @@ export default class GameLauncher extends mw.Script {
     /**客户端服务端的onStart */
     private onStartCS(): void {
         GlobalData.isOpenIAA = !mw.SystemUtil.isPIE || this.isOpenIAA;
-        this.initLanguage();
         this.onRegisterModule();
     }
 
@@ -89,6 +88,7 @@ export default class GameLauncher extends mw.Script {
     /**------------------------------------------- 客户端 ------------------------------------------------ */
     /**客户端的OnStart */
     private onStartC(): void {
+        this.initLanguage();
     }
 
     private initLanguage(): void {

@@ -316,7 +316,7 @@ export class TaskItem extends TaskItem_Generate {
 
 	public updateTaskCompaleteItemData(): void {
 		let nextId = this.vIPTaskElement.NextId;
-		console.error(`nextId = ${nextId}`);
+		// console.error(`nextId = ${nextId}`);
 		if (nextId != 0) {
 			this.task.taskId = nextId;
 			// this.task.progress = 0;

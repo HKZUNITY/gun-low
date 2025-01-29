@@ -100,7 +100,7 @@ export default class Monster extends Script {
             this.monsterWidth = this.getMonster.collisionExtent.x > this.getMonster.collisionExtent.y ?
                 this.getMonster.collisionExtent.x : this.getMonster.collisionExtent.y;
         }
-        console.error(`this.monsterWidth:${this.monsterWidth}`);
+        // console.error(`this.monsterWidth:${this.monsterWidth}`);
         return this.monsterWidth + 10;
     }
 
@@ -401,7 +401,7 @@ export default class Monster extends Script {
 
     private chasePlayerNavigateTo_S(targetPlayer: mw.Player): void {
         let dis = mw.Vector.distance(this.getMonster.worldTransform.position, targetPlayer.character.worldTransform.position);
-        console.error(`dis:${dis}`);
+        // console.error(`dis:${dis}`);
         if (dis > this.getMonsterWidth) {
             this.directChasePlayerNavigateTo_S(targetPlayer);
         } else {

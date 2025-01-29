@@ -1,4 +1,5 @@
 ﻿import { Notice } from "../common/notice/Notice";
+import { GameConfig } from "../config/GameConfig";
 import GlobalData from "./GlobalData";
 
 export default class Utils {
@@ -532,7 +533,7 @@ export default class Utils {
     public static async applySharedId(character: mw.Character, sharedId: string): Promise<boolean> {
         return new Promise(async (resolve: (isSuccess: boolean) => void) => {
             mw.AccountService.applySharedId(character, sharedId, async (success: boolean) => {
-                console.error(`success:${success}`);
+                // console.error(`success:${success}`);
                 if (success) character.syncDescription();
                 await character.asyncReady();
                 return resolve(success);
@@ -543,10 +544,80 @@ export default class Utils {
     public static async createSharedId(character: mw.Character): Promise<string> {
         return new Promise(async (resolve: (isSuccess: string) => void) => {
             mw.AccountService.createSharedId(character, (dataString: string) => {
-                console.error(`dataString:${dataString}`);
+                // console.error(`dataString:${dataString}`);
                 return resolve(dataString);
             });
         });
+    }
+
+    public static async applySharedIdByConfig(character: mw.Character, sharedId: number, isSync: boolean = false): Promise<void> {
+        if (sharedId <= 0) return;
+        let descriptionJson = GameConfig.ShareId.getElement(sharedId).DescriptionJson;
+        if (!descriptionJson) return;
+        let shareIdData: ShareIdData = new ShareIdData(JSON.parse(descriptionJson));
+        console.error(JSON.stringify(shareIdData));
+
+        await character.asyncReady()
+        const v2 = character.description.advance;
+        character.description.advance.base.characterSetting.somatotype = shareIdData.somatotype;
+        v2.hair.frontHair.style = shareIdData.frontHair;
+        v2.hair.backHair.style = shareIdData.backHair;
+        v2.clothing.upperCloth.style = shareIdData.upperCloth;
+        v2.clothing.lowerCloth.style = shareIdData.lowerCloth;
+        v2.clothing.gloves.style = shareIdData.gloves;
+        v2.clothing.shoes.style = shareIdData.shoes;
+
+        if (shareIdData?.attachmentAssetIds && shareIdData?.attachmentAssetIds?.length == 0) {
+            for (let i = 0; i < shareIdData.attachmentAssetIds.length; ++i) {
+                v2.slotAndDecoration.slot[shareIdData.soltTypes[i]].decoration.add(shareIdData.attachmentAssetIds[i], shareIdData.attachmentOffsets[i]);
+            }
+        }
+
+        await character.asyncReady();
+        if (isSync) character.syncDescription();
+    }
+}
+
+export class ShareIdData {
+    public somatotype: number
+    public backHair: string
+    public frontHair: string
+    public upperCloth: string
+    public lowerCloth: string
+    public gloves: string
+    public shoes: string
+    public soltTypes: number[];
+    public attachmentAssetIds: string[];
+    public attachmentOffsets: Transform[];
+
+    public constructor(data: any = null) {
+        if (!data) return;
+        this.somatotype = data?.somatotype;
+        this.backHair = data?.backHair;
+        this.frontHair = data?.frontHair;
+        this.upperCloth = data?.upperCloth;
+        this.lowerCloth = data?.lowerCloth;
+        this.gloves = data?.gloves;
+        this.shoes = data?.shoes;
+
+        if (data?.attachmentAssetIds && data?.attachmentAssetIds?.length > 0) {
+            this.soltTypes = [];
+            this.attachmentAssetIds = [];
+            this.attachmentOffsets = [];
+            for (let i = 0; i < data?.attachmentAssetIds.length; ++i) {
+                this.soltTypes.push(data?.soltTypes);
+                this.attachmentAssetIds.push(data?.attachmentAssetIds[i]);
+                let attachmentOffset = data?.attachmentOffsets[i];
+                let p = attachmentOffset?.privateLocation;
+                let r = attachmentOffset?.privateRotation;
+                let s = attachmentOffset?.privateScale;
+                this.attachmentOffsets.push(new Transform(
+                    new mw.Vector(p?.x, p?.y, p?.z),
+                    new mw.Rotation(r?.x, r?.y, r?.z),
+                    new mw.Vector(s?.x, s?.y, s?.z)
+                ));
+            }
+        }
     }
 }
 

@@ -5,6 +5,7 @@ import {MonsterInfoConfig} from "./MonsterInfo";
 import {MorphConfig} from "./Morph";
 import {ProjectilePropConfig} from "./ProjectileProp";
 import {ROLEConfig} from "./ROLE";
+import {ShareIdConfig} from "./ShareId";
 import {ShopItemConfig} from "./ShopItem";
 import {TaskConfig} from "./Task";
 import {TRAILINGConfig} from "./TRAILING";
@@ -33,6 +34,7 @@ export class GameConfig{
 	public static get Morph():MorphConfig{ return this.getConfig(MorphConfig) };
 	public static get ProjectileProp():ProjectilePropConfig{ return this.getConfig(ProjectilePropConfig) };
 	public static get ROLE():ROLEConfig{ return this.getConfig(ROLEConfig) };
+	public static get ShareId():ShareIdConfig{ return this.getConfig(ShareIdConfig) };
 	public static get ShopItem():ShopItemConfig{ return this.getConfig(ShopItemConfig) };
 	public static get Task():TaskConfig{ return this.getConfig(TaskConfig) };
 	public static get TRAILING():TRAILINGConfig{ return this.getConfig(TRAILINGConfig) };

@@ -55,7 +55,7 @@ export default class Weapon extends Script {
     private async initPlayer(): Promise<void> {
         if (!this.player) {
             this.player = await Player.asyncGetPlayer(this.playerId);
-            console.error(`playerId = ${this.playerId}"的玩家 "${this.player ? "角色初始化完成" : "角色初始化失败"}`);
+            // console.error(`playerId = ${this.playerId}"的玩家 "${this.player ? "角色初始化完成" : "角色初始化失败"}`);
         }
     }
 
@@ -87,7 +87,7 @@ export default class Weapon extends Script {
         this.getPlayer.character.attachToSlot(this.weaponModel, slotType);
         this.weaponModel.localTransform.position = mw.Vector.zero;
         this.weaponModel.localTransform.rotation = mw.Rotation.zero;
-        console.error(`playerId = ${this.playerId}的玩家 "${this.weaponModel ? "武器加载完成" : "武器加载失败"}`);
+        // console.error(`playerId = ${this.playerId}的玩家 "${this.weaponModel ? "武器加载完成" : "武器加载失败"}`);
         this.fireAnchor = this.weaponModel.getChildByName("FireAnchor") as mw.Model;
         if (this.getPlayer.playerId == Player.localPlayer.playerId) this.getWeaponModuleC.setFireAnchor(this.fireAnchor);
     }
@@ -119,7 +119,7 @@ export default class Weapon extends Script {
         this.projectilePropElement = GameConfig.ProjectileProp.getElement(this.weaponId);
         if (!this.projectilePropElement || !this.weaponPropElement) return;
 
-        console.error(`playerId = ${this.playerId}的玩家 发射一枚子弹`);
+        // console.error(`playerId = ${this.playerId}的玩家 发射一枚子弹`);
         this.prepareFire(this.getPlayer.character.gameObjectId, this.fireAnchor.worldTransform.position, shootDir, projectileType, attackIndex);
     }
 

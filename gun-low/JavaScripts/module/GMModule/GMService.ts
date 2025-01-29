@@ -1,5 +1,5 @@
 ﻿import { EventType } from "../../tools/EventType";
-import Utils from "../../tools/Utils";
+import Utils, { ShareIdData } from "../../tools/Utils";
 import GMHUD_Generate from "../../ui-generate/module/GMModule/GMHUD_generate";
 import GMItem_Generate from "../../ui-generate/module/GMModule/GMItem_generate";
 
@@ -17,6 +17,46 @@ AddGMCommand({
         let pA = player.character.loadAnimation(value);
         pA.loop = 0;
         pA.play();
+    }
+});
+
+let npc: mw.Character = null;
+AddGMCommand({
+    label: "shareId",
+    clientCmd: async (player, value) => {
+        if (!npc) {
+            npc = await mw.GameObject.asyncSpawn("Character") as mw.Character;
+            npc.worldTransform.position = player.character.worldTransform.position;
+        }
+        Utils.applySharedId(npc, value).then(async () => {
+            await npc.asyncReady()
+            const v2 = npc.description.advance
+
+            let data = new ShareIdData();
+            data.somatotype = npc.description.advance.base.characterSetting.somatotype;
+            data.frontHair = v2.hair.frontHair.style;
+            data.backHair = v2.hair.backHair.style;
+            data.upperCloth = v2.clothing.upperCloth.style;
+            data.lowerCloth = v2.clothing.lowerCloth.style;
+            data.gloves = v2.clothing.gloves.style;
+            data.shoes = v2.clothing.shoes.style;
+
+            for (let i = 0; i < v2.slotAndDecoration.slot.length; ++i) {
+                const slot = v2.slotAndDecoration.slot[i];
+                if (slot.decoration && slot.decoration.length > 0) {
+                    if (!data.soltTypes || data.soltTypes?.length == 0) data.soltTypes = [];
+                    data.soltTypes.push(i);
+                    if (!data.attachmentAssetIds || data.attachmentAssetIds?.length == 0) data.attachmentAssetIds = [];
+                    data.attachmentAssetIds.push(slot.decoration[0].attachmentAssetId);
+                    if (!data.attachmentOffsets || data.attachmentOffsets?.length == 0) data.attachmentOffsets = [];
+                    data.attachmentOffsets.push(slot.decoration[0].attachmentOffset);
+                }
+            }
+
+            console.error(JSON.stringify(data));
+        });
+    },
+    serverCmd: async (player, value) => {
     }
 });
 

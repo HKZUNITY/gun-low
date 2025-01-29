@@ -155,10 +155,10 @@ var foreign9 = /*#__PURE__*/Object.freeze({
     ConfigBase: ConfigBase
 });
 
-const EXCELDATA$9 = [["ID", "GUNNAME", "GUNPREFAB", "GUNICON", "GUNICON_M", "GUNLOC", "GUNSCALE", "IATURNICON", "PRICETYPE", "PRICE", "FIREINTERVAL", "BULLETCOUNT", "HURT"], ["", "", "", "", "", "", "", "", "", "", "", "", ""], [1, "水枪", "587777AD4056DC3AB465FBA7D3F5F7BA", null, "166941", new mw.Vector(0, 0, 0), new mw.Vector(1, 2, 1), 0, 1, [1, 15888], "0.2", 30, 25], [2, "泡泡枪", "0D543D5346C331F41DA890A5E6DD3DB5", null, "155696", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [1, 15888], "0.2", 30, 25], [3, "霰弹枪", "E3E0C2994D3518540DBB6D8C00C8AB83", null, "226214", new mw.Vector(0, 0, 0), new mw.Vector(2, 2, 2), 0, 1, [1, 15888], "0.15", 30, 25], [4, "金枪鱼", "5181250F44DF914A714B668F99177E3A", null, "138213", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [1, 15888], "0.15", 30, 25], [5, "脉冲枪", "1CD6AEAB4602DF140ACE93BD49D5CA19", null, "153110", new mw.Vector(0, 0, 0), new mw.Vector(2, 2.5, 2), 0, 1, [1, 15888], "0.1", 35, 25], [6, "喷火枪", "A469CCC84AAA873815243BB25439707C", null, "226213", new mw.Vector(0, 0, 0), new mw.Vector(2, 2, 2), 0, 1, [1, 15888], "0.1", 35, 25], [7, "散弹喷枪", "68E812DC47B714F9A2BB2ABE18304C5B", null, "155702", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [2, 28888], "0.1", 35, 25], [8, "霰弹枪枪身", "BA1BDC034FCDE8574CBBAA8C4831A950", null, "318664", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [2, 28888], "0.1", 40, 25], [9, "火箭发射器", "FCFE18BE440FAEBD5AB999A222F10AA9", null, "226826", new mw.Vector(0, 0, 0), new mw.Vector(1.5, 1, 1), 0, 1, [2, 28888], "0.2", 100, 25], [10, "激光幽灵枪", "23240FEE4F3BD25DE8EA6DBE525B3A20", null, "122716", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 1, 1, [3, 38888], "0.3", 40, 50], [11, "烟花枪", "A830458640D6EA21FB7AEA8F7E029CB7", null, "122726", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [3, 38888], "0.3", 40, 50], [12, "激光烈火枪", "0C7F278C4254F90F69614086DCA0B906", null, "95676", new mw.Vector(-30, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [4, 48888], "0.3", 40, 50], [13, "激光冰雷枪", "29CD5E6145D1B05590E887A050E0D3C8", null, "122720", new mw.Vector(-30, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [4, 48888], "0.3", 40, 50], [14, "尖叫鸡", "015C826546EBC60F95EF399D16523B78", null, "20799", new mw.Vector(0, 0, 0), new mw.Vector(2, 2, 3), 1, 1, [5, 58888], "1", 10, 100]];
+const EXCELDATA$a = [["ID", "GUNNAME", "GUNPREFAB", "GUNICON", "GUNICON_M", "GUNLOC", "GUNSCALE", "IATURNICON", "PRICETYPE", "PRICE", "FIREINTERVAL", "BULLETCOUNT", "HURT"], ["", "", "", "", "", "", "", "", "", "", "", "", ""], [1, "水枪", "587777AD4056DC3AB465FBA7D3F5F7BA", null, "166941", new mw.Vector(0, 0, 0), new mw.Vector(1, 2, 1), 0, 1, [1, 15888], "0.2", 30, 25], [2, "泡泡枪", "0D543D5346C331F41DA890A5E6DD3DB5", null, "155696", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [1, 15888], "0.2", 30, 25], [3, "霰弹枪", "E3E0C2994D3518540DBB6D8C00C8AB83", null, "226214", new mw.Vector(0, 0, 0), new mw.Vector(2, 2, 2), 0, 1, [1, 15888], "0.15", 30, 25], [4, "金枪鱼", "5181250F44DF914A714B668F99177E3A", null, "138213", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [1, 15888], "0.15", 30, 25], [5, "脉冲枪", "1CD6AEAB4602DF140ACE93BD49D5CA19", null, "153110", new mw.Vector(0, 0, 0), new mw.Vector(2, 2.5, 2), 0, 1, [1, 15888], "0.1", 35, 25], [6, "喷火枪", "A469CCC84AAA873815243BB25439707C", null, "226213", new mw.Vector(0, 0, 0), new mw.Vector(2, 2, 2), 0, 1, [1, 15888], "0.1", 35, 25], [7, "散弹喷枪", "68E812DC47B714F9A2BB2ABE18304C5B", null, "155702", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [2, 28888], "0.1", 35, 25], [8, "霰弹枪枪身", "BA1BDC034FCDE8574CBBAA8C4831A950", null, "318664", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [2, 28888], "0.1", 40, 25], [9, "火箭发射器", "FCFE18BE440FAEBD5AB999A222F10AA9", null, "226826", new mw.Vector(0, 0, 0), new mw.Vector(1.5, 1, 1), 0, 1, [2, 28888], "0.2", 100, 25], [10, "激光幽灵枪", "23240FEE4F3BD25DE8EA6DBE525B3A20", null, "122716", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 1, 1, [3, 38888], "0.3", 40, 50], [11, "烟花枪", "A830458640D6EA21FB7AEA8F7E029CB7", null, "122726", new mw.Vector(0, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [3, 38888], "0.3", 40, 50], [12, "激光烈火枪", "0C7F278C4254F90F69614086DCA0B906", null, "95676", new mw.Vector(-30, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [4, 48888], "0.3", 40, 50], [13, "激光冰雷枪", "29CD5E6145D1B05590E887A050E0D3C8", null, "122720", new mw.Vector(-30, 0, 0), new mw.Vector(1, 1, 1), 0, 1, [4, 48888], "0.3", 40, 50], [14, "尖叫鸡", "015C826546EBC60F95EF399D16523B78", null, "20799", new mw.Vector(0, 0, 0), new mw.Vector(2, 2, 3), 1, 1, [5, 58888], "1", 10, 100]];
 class GUNConfig extends ConfigBase {
     constructor() {
-        super(EXCELDATA$9);
+        super(EXCELDATA$a);
     }
 }
 
@@ -167,10 +167,10 @@ var foreign11 = /*#__PURE__*/Object.freeze({
     GUNConfig: GUNConfig
 });
 
-const EXCELDATA$8 = [["Id", "Name", "Value", "Value_Ch", "Value_Cht", "Value_J", "Value_K"], ["", "Key|ReadByName", "MainLanguage", "ChildLanguage", "ChildLanguage", "ChildLanguage", "ChildLanguage"], [1, "CannotResetPositionWithinSeconds", "Cannot Reset Position Within {0} Seconds", "{0}秒内不可重置位置", null, null, null], [2, "DoYouWantToResetThePosition", "Do You Want To Reset The Position", "是否重置位置", null, null, null], [3, "Yes", "Yes", "是", null, null, null], [4, "No", "No", "否", null, null, null], [5, "ResetPosition", "Reset Position", "重置位置", null, null, null], [6, "DoYouWantToUseItImmediately", "Do You Want To Use It Immediately", "是否立即使用", null, null, null], [7, "Buy", "Buy", "购买", null, null, null], [8, "ConfirmExpenses", "Confirm Expenses", "确认花费", null, null, null], [9, "Diamonds", "Diamonds", "钻石", null, null, null], [10, "GoldCoins", "Gold Coins", "金币", null, null, null], [11, "Cancel", "Cancel", "取消", null, null, null], [12, "Tips", "Tips", "提示", null, null, null], [13, "AcquisitionFailedPleaseTryAgain", "Acquisition Failed, Please Try Again", "获取失败，请重试", null, null, null], [14, "FreeCollectionOfCoins", "Free Collection Of {0} Coins", "免费领取{0}金币", null, null, null], [15, "FreeToReceive", "Free To Receive", "免费领取", null, null, null], [16, "DoubleTheRewardMaximumHealthIncreasedTo", "Double The Reward\nMaximum Health Increased To {0}", "奖励翻倍\n最大生命值提高到{0}", null, null, null], [17, "FreeIncrease", "Free Increase", "免费提高", null, null, null], [18, "FreeUseOfOneRound", "{0}\nFree Use Of One Round", "{0}\n免费使用一局", null, null, null], [19, "FreeToUse", "Free To Use", "免费使用", null, null, null], [20, "FreeCollectionOfDiamonds", "Free Collection Of {0} Diamonds", "免费领取{0}钻石", null, null, null], [21, "Get", "Get", "获得", null, null, null], [22, "Spend", "Spend", "花费", null, null, null], [23, "Lurking", "Lurkers", "潜伏者", null, null, null], [24, "Defenders", "Defenders", "保卫者", null, null, null], [25, "Life", "Hp", "生命", null, null, null], [26, "InvincibleTime", "Invincible Time", "无敌时间", null, null, null], [27, "ResurrectionCountdown", "Resurrection Countdown", "复活倒计时", null, null, null], [28, "InvincibleWithinSecondsAfterResurrection", "Invincible Within {0} Seconds After Resurrection", "复活后{0}秒内无敌", null, null, null], [29, "SetUp", "Set Up", "设置", null, null, null], [30, "FiringSensitivity", "Firing Sensitivity", "开火灵敏度", null, null, null], [31, "ControlSensitivity", "Control Sensitivity", "控制灵敏度", null, null, null], [32, "BackgroundMusicSize", "Background Music Size", "背景音乐大小", null, null, null], [33, "SfxVolume", "Sfx Volume", "音效大小", null, null, null], [34, "Defeated", " Defeated ", " 击败了 ", null, null, null], [35, "YouHaveBeenDefeatedBy", "You Have Been Defeated By {0}", "你已被 {0} 击败", null, null, null], [36, "DefeatToCompleteRevenge", "Defeat {0} To Complete Revenge", "击败 {0} 完成复仇", null, null, null], [37, "RdPlace", "{0}: {1}Rd Place", "{0}：第{1}名", null, null, null], [38, "DefeatedPeople_2", "Defeated 2 People", "连续消灭2人！势不可当！", null, null, null], [39, "DefeatedPeople_3", "Defeated 3 People", "连续消灭3人！勇冠三军！", null, null, null], [40, "DefeatedPeople_4", "Defeated 4 People", "连续消灭4人！无人能敌！", null, null, null], [41, "DefeatedPeople_5", "Defeated 5 People", "连续消灭5人！横扫千军！", null, null, null], [42, "DefeatedPeople_6", "Defeated 6 People", "连续消灭6人！接近神了！", null, null, null], [43, "DefeatedPeople_7", "Defeated {0} People", "连续消灭{0}人！超越神了！", null, null, null], [44, "Ranking", "Ranking", "排名", null, null, null], [45, "Nickname", "Nickname", "昵称", null, null, null], [46, "Beat", "Beat", "击败", null, null, null], [47, "Death", "Death", "死亡", null, null, null], [48, "TopInTheEntireServer", "Top {0} In The Entire Server", "全服前{0}名", null, null, null], [49, "TotalDefeat", "Total Defeat", "总击败", null, null, null], [50, "TotalDeaths", "Total Deaths", "总死亡", null, null, null], [51, "RankingOfAchievements", "Ranking\nAchievements", "战绩排行榜", null, null, null], [52, "FullServerRankingList", "Full Server\nRanking List", "全服排行榜", null, null, null], [53, "Weapon", "Weapon", "武器", null, null, null], [54, "Skin", "Skin", "皮肤", null, null, null], [55, "Trailing", "Trailing", "拖尾", null, null, null], [56, "Use", "Use", "使用", null, null, null], [57, "Obtained", "Obtained", "已获得", null, null, null], [58, "NotObtained", "Not Obtained", "未获得", null, null, null], [59, "Hurt", "Hurt", "伤害", null, null, null], [60, "Bullet", "Bullet", "子弹", null, null, null], [61, "TimeLimited", "Time Limited", "限时", null, null, null], [62, "Permanent", "Permanent", "永久", null, null, null], [63, "Error", "Error", "出错啦", null, null, null], [64, "TransformationStatusCannotOpenTheStore", "Transformation Status Cannot Open The Store", "变身状态不可打开商店", null, null, null], [65, "PurchaseSuccessful", "Purchase Successful", "购买成功", null, null, null], [66, "InsufficientGoldCoins", "Insufficient Gold Coins", "金币不足", null, null, null], [67, "DiamondShortage", "Diamond Shortage", "钻石不足", null, null, null], [68, "WearingIt", "Wearing It", "穿戴中", null, null, null], [69, "SkinSuccessfullyWorn", "Skin Successfully Worn", "皮肤成功穿戴", null, null, null], [70, "TailSuccessfullyWorn", "Tail Successfully Worn", "尾迹成功穿戴", null, null, null], [71, "Previewing", "Previewing", "正在预览", null, null, null], [72, "Pistol", "Pistol", "手枪", null, null, null], [73, "BubbleGun", "Bubble Gun", "泡泡枪", null, null, null], [74, "ShotgunSprayGun", "Shotgun Spray Gun", "散弹喷枪", null, null, null], [75, "Shotgun", "Shotgun", "霰弹枪", null, null, null], [76, "SpitfireGun", "Spitfire Gun", "喷火枪", null, null, null], [77, "FireGun", "Fire Gun", "火枪", null, null, null], [78, "LaserGun", "Laser Gun", "激光枪", null, null, null], [79, "WaterGun", "Water Gun", "水枪", null, null, null], [80, "RocketLauncher", "Rocket Launcher", "火箭发射器", null, null, null], [81, "JustinGatlin", "Justin Gatlin", "加特林", null, null, null], [82, "Tunas", "Tunas", "金枪鱼", null, null, null], [83, "BowAndArrow", "Bow And Arrow", "弓箭", null, null, null], [84, "ParticleTailing", "Particle Tailing", "粒子拖尾", null, null, null], [85, "SmokeTrail", "Smoke Trail", "烟雾拖尾", null, null, null], [86, "BeamTrailing", "Beam Trailing", "光束拖尾", null, null, null], [87, "Tail", "Tail", "拖尾", null, null, null], [88, "WaterTailing", "Water Tailing", "水拖尾", null, null, null], [89, "FlameTrailing", "Flame Trailing", "火焰拖尾", null, null, null], [90, "ThunderTail", "Thunder Tail", "雷拖尾", null, null, null], [91, "RainbowTail", "Rainbow Tail", "彩虹拖尾", null, null, null], [92, "TirePrintTailing", "Tire Print Tailing", "胎印拖尾", null, null, null], [93, "ScrewTail", "Screw Tail", "螺丝钉拖尾", null, null, null], [94, "FootballTail", "Football Tail", "足球拖尾", null, null, null], [95, "CandyTail", "Candy Tail", "糖果拖尾", null, null, null], [96, "TrophyTail", "Trophy Tail", "奖杯拖尾", null, null, null], [97, "CrownTail", "Crown Tail", "皇冠拖尾", null, null, null], [98, "LoveTail", "Love Tail", "爱心拖尾", null, null, null], [99, "SkullTail", "Skull Tail", "骷髅拖尾", null, null, null], [100, "BananaTail", "Banana Tail", "香蕉拖尾", null, null, null], [102, "SnowflakeTail", "Snowflake Tail", "雪花拖尾", null, null, null], [103, "Tail2023", "2023 Tail", "2023拖尾", null, null, null], [104, "FirecrackerTail", "Firecracker Tail", "爆竹拖尾", null, null, null], [105, "FireworksTail", "Fireworks Tail", "烟花拖尾", null, null, null], [106, "GiftTail", "Gift Tail", "礼物拖尾", null, null, null], [107, "TailOfBanknotes", "Tail Of Banknotes", "钞票拖尾", null, null, null], [108, "BubbleTail", "Bubble Tail", "泡泡拖尾", null, null, null], [109, "RibbonTrailing", "Ribbon Trailing", "彩带拖尾", null, null, null], [110, "TailOfFeces", "Tail Of Feces", "便便拖尾", null, null, null], [111, "MapleLeafTail", "Maple Leaf Tail", "枫叶拖尾", null, null, null], [112, "SixPointedStarTail", "Six Pointed Star Tail", "六芒星拖尾", null, null, null], [113, "ButterflyTail", "Butterfly Tail", "蝴蝶拖尾", null, null, null], [114, "IceCreamTrail", "Ice Cream Trail", "冰淇淋拖尾", null, null, null], [115, "BirdTail", "Bird Tail", "鸟拖尾", null, null, null], [116, "BatTail", "Bat Tail", "蝙蝠拖尾", null, null, null], [117, "XiangyunTail", "Xiangyun Tail", "祥云拖尾", null, null, null], [118, "Print", "Print", "爪印", null, null, null], [119, "HoodedMan", "Hooded Man", "兜帽男", null, null, null], [120, "DoublePonytailGirl", "Double Ponytail Girl", "双马尾女", null, null, null], [121, "MaleWarrior", "Male Warrior", "男战士", null, null, null], [122, "MechGirl", "Mech Girl", "机甲少女", null, null, null], [123, "MaleKnight", "Male Knight", "男骑士", null, null, null], [124, "NanoMechWomen", "Nano Mech Women", "纳米机甲女性", null, null, null], [125, "CyberYouth", "Cyber Youth", "赛博少年", null, null, null], [126, "CyberGirls", "Cyber Girls", "赛博少女", null, null, null], [127, "DefinitelyPotBoy", "Definitely Pot Boy", "一定锅少年", null, null, null], [128, "SeekingGodYoungMan", "Seeking God, Young Man", "求神少年", null, null, null], [129, "DefinitelyPotGirl", "Definitely Pot Girl", "一定锅少女", null, null, null], [130, "SeekingGodGirl", "Seeking God Girl", "求神少女", null, null, null], [131, "GemstoneArmoredMan", "Gemstone Armored Man", "宝石铠甲男", null, null, null], [132, "ArmoredMaleWarrior", "Armored Male Warrior", "铠甲男战士", null, null, null], [133, "BlackMaleNanomecha", "Black Male Nanomecha", "黑人男纳米机甲", null, null, null], [134, "WhiteMaleNanomecha", "White Male Nanomecha", "白人男纳米机甲", null, null, null], [135, "SilverKnights", "Silver Knights", "白银骑士", null, null, null], [136, "EagleWarrior", "Eagle Warrior", "鹰战士", null, null, null], [137, "Warrior", "Warrior", "战士", null, null, null], [138, "VenomMonster", "Venom Monster", "毒液怪人", null, null, null], [139, "AntWarrior", "Ant Warrior", "蚁侠士", null, null, null], [140, "TheStrongestCaptain", "The Strongest Captain", "最强队长", null, null, null], [141, "SuperHandsomeHero", "Super Handsome Hero", "超帅侠", null, null, null], [142, "StrangeWarrior", "Strange Warrior", "奇异战士", null, null, null], [143, "LightningMonster", "Lightning Monster", "闪电怪", null, null, null], [144, "EvilSpiritSkull", "Evil Spirit Skull", "恶灵骷髅", null, null, null], [145, "IronMan", "Iron Man", "铁人", null, null, null], [146, "WindbreakerGirl", "Windbreaker Girl", "风衣女", null, null, null], [147, "HanfuGirl", "Hanfu Girl", "汉服少女", null, null, null], [148, "FashionableGirl", "Fashionable Girl", "时尚少女", null, null, null], [149, "TrendyGirl", "Trendy Girl", "潮流少女", null, null, null], [150, "AncientScholars", "Ancient Scholars", "古代书生", null, null, null], [151, "OrangeLaserGun", "Orange Laser Gun", "橘黄激光枪", null, null, null], [152, "Text_ClaimRewards", "Claim Rewards", "领取奖励", null, null, null], [153, "Text_HangInTheAir", "Hang In The Air", "未完成", null, null, null], [154, "Text_DailyTasks", "Daily Tasks", "每日任务", null, null, null], [155, "Text_AllTasksHaveBeenCompletedWaitingForRefresh", "All Tasks Have Been Completed, Waiting For Refresh", "任务已全部完成，等待刷新...", null, null, null], [156, "Text_RemainingHours", "Remaining: {0} Hours", "剩余：{0}小时", null, null, null], [157, "Text_RemainingDays", "Remaining: {0} Days", "剩余：{0}天", null, null, null], [158, "Text_WeeklyTasks", "Weekly Tasks", "每周任务", null, null, null], [159, "Dailylogintothegame", "Daily login to the game ({0}/{1})", "每日登录游戏（{0}/{1}）", null, null, null], [160, "Dailyonlinedurationminutes", "Daily online duration {2} minutes ({0}/{1})", "每日在线时长{2}分钟（{0}/{1}）", null, null, null], [161, "Defeatplayersdaily", "Defeat {2} players daily ({0}/{1})", "每日击败{2}个玩家（{0}/{1}）", null, null, null], [162, "Logindaysperweek", "Login {2} days per week ({0}/{1})", "每周登录{2}天（{0}/{1}）", null, null, null], [163, "Join", "Join", "加入", null, null, null], [164, "WeaponEquipmentSuccessful", "Weapon Equipment Successful", "武器装备成功", null, null, null], [165, "SwitchingFailedYouAreAlreadyIn", "Switching Failed, You Are Already In {0}", "切换失败,你已在{0}中", null, null, null], [166, "CannotSwitchTeamsFrequentlyTryAgainInSeconds", "Cannot Switch Teams Frequently, Try Again In {0} Seconds", "不能频繁切换队伍，{0}秒后再试", null, null, null], [167, "SuccessfullySwitchedTeams", "Successfully Switched Teams", "切换队伍成功", null, null, null], [168, "SwitchingFailedThisTeamIsFull", "Switching Failed, This Team Is Full", "切换失败,此队已满", null, null, null], [169, "SwitchingFailedUnequalNumberOfPeople", "Switching Failed, Unequal Number Of People", "切换失败,人数不平等", null, null, null], [170, "AlreadyOnThisTeam", "Already On This Team", "已在此队", null, null, null], [171, "bazooka", "bazooka", "火箭筒", null, null, null], [172, "Text_TheItemBarIsFull", "The item bar is full", "道具栏已满", null, null, null], [173, "Text_ThisItemIsInUse", "This item is in use", "正在使用此道具", null, null, null], [174, "Text_Tips1", "Someone is using it, please try another one", "有人正在使用，请换个试试", null, null, null], [175, "Text_SetUp1", "Base Setup", "基础设置", null, null, null], [176, "Text_PictureQuality", "Picture Quality", "画质", null, null, null], [177, "Text_SoundEffects", "Sound Effects", "音效", null, null, null], [178, "Text_BackgroundMusic", "Background Music", "背景音乐", null, null, null], [179, "Text_ViewAngleScaling", "View Angle Scaling", "视角缩放", null, null, null], [180, "Text_DisplayNicknames", "Display Nicknames", "显示昵称", null, null, null], [181, "Text_ResetLocation", "Reset Location", "重置位置", null, null, null], [182, "Text_RestoringSettings", "Restoring Settings", "还原设置", null, null, null], [183, "Text_On", "ON", "开", null, null, null], [184, "Text_Off", "OFF", "关", null, null, null], [185, "Text_ObtainedTips", "Obtained, open the knapsack to use", "已获得，打开背包使用", null, null, null], [186, "Text_Advertising", "Advertising", "广告奖励", null, null, null], [187, "Text_ADGetTips", "See the AD for free guide you get", "看广告免费指引你获得", null, null, null], [188, "Text_Dont", "Don't", "不要", null, null, null], [189, "Text_Free", "free", "免费获得", null, null, null], [190, "Text_Fail", "Fail", "指引失败，请重试", null, null, null], [191, "Text_NoOnTheList", "Not", "未上榜", null, null, null], [192, "Text_Ranking", "Ranking", "排名", null, null, null], [193, "Text_Nickname", "Nickname", "昵称", null, null, null], [194, "Text_Score", "Score", "分数", null, null, null], [195, "Text_Duration", "Duration", "时长", null, null, null], [196, "Text_TopInTermsOfDuration", "Top {0} In Terms Of Duration", "时长全服前{0}名", null, null, null], [197, "Text_StartGame", "Start the game", "开始游戏", null, null, null], [198, "Text_WelcomeTo", "Welcome to\nMy Cherry blossom town", "欢迎来到\n我的樱花小镇", null, null, null], [199, "Text_UpNext", "Up next", "下一个", null, null, null], [200, "Text_GuideEnd", "With the guide over, start your trip to the cherry blossom town", "引导结束，开启你的樱花小镇之旅吧", null, null, null], [201, "Text_Close", "Close", "关闭", null, null, null], [202, "Text_MyCharacterId", "My Character ID- Share Friend Try On", "我的角色ID-分享好友试穿", null, null, null], [203, "Text_PleaseEnter", "Please Enter The Friend Role ID", "请输入好友角色ID", null, null, null], [204, "Text_Cancel", "Cancel", "取消", null, null, null], [205, "Text_FreeTryOn", "Free Try On", "免费试穿", null, null, null], [206, "Text_SaveImagesForFree", "Save images for free", "免费保存形象", null, null, null], [207, "Text_TryOnYourFriendAvatarForFree", "Try On Your Friend's Avatar For Free", "免费试穿好友的角色形象", null, null, null], [208, "Text_CopySuccessfully", "Copy Successfully", "复制成功", null, null, null], [209, "Text_InvalidID", "Invalid ID!", "ID无效！", null, null, null], [210, "Text_Loading", "Loading", "加载中", null, null, null], [211, "Text_TryItOnSuccessfully", "Try it on successfully", "试穿成功", null, null, null], [212, "Text_CopyTheCharacterIDShareFriendsTryOn", "Copy the character ID share friends try on", "复制角色ID分享好友试穿", null, null, null], [213, "Text_TryItOnForFree", "Try it on for free", "看广告免费试穿", null, null, null], [214, "Text_GuideTips", "Reach near the target point", "达到目标点附近", null, null, null]];
+const EXCELDATA$9 = [["Id", "Name", "Value", "Value_Ch", "Value_Cht", "Value_J", "Value_K"], ["", "Key|ReadByName", "MainLanguage", "ChildLanguage", "ChildLanguage", "ChildLanguage", "ChildLanguage"], [1, "CannotResetPositionWithinSeconds", "Cannot Reset Position Within {0} Seconds", "{0}秒内不可重置位置", null, null, null], [2, "DoYouWantToResetThePosition", "Do You Want To Reset The Position", "是否重置位置", null, null, null], [3, "Yes", "Yes", "是", null, null, null], [4, "No", "No", "否", null, null, null], [5, "ResetPosition", "Reset Position", "重置位置", null, null, null], [6, "DoYouWantToUseItImmediately", "Do You Want To Use It Immediately", "是否立即使用", null, null, null], [7, "Buy", "Buy", "购买", null, null, null], [8, "ConfirmExpenses", "Confirm Expenses", "确认花费", null, null, null], [9, "Diamonds", "Diamonds", "钻石", null, null, null], [10, "GoldCoins", "Gold Coins", "金币", null, null, null], [11, "Cancel", "Cancel", "取消", null, null, null], [12, "Tips", "Tips", "提示", null, null, null], [13, "AcquisitionFailedPleaseTryAgain", "Acquisition Failed, Please Try Again", "获取失败，请重试", null, null, null], [14, "FreeCollectionOfCoins", "Free Collection Of {0} Coins", "免费领取{0}金币", null, null, null], [15, "FreeToReceive", "Free To Receive", "免费领取", null, null, null], [16, "DoubleTheRewardMaximumHealthIncreasedTo", "Double The Reward\nMaximum Health Increased To {0}", "奖励翻倍\n最大生命值提高到{0}", null, null, null], [17, "FreeIncrease", "Free Increase", "免费提高", null, null, null], [18, "FreeUseOfOneRound", "{0}\nFree Use Of One Round", "{0}\n免费使用一局", null, null, null], [19, "FreeToUse", "Free To Use", "免费使用", null, null, null], [20, "FreeCollectionOfDiamonds", "Free Collection Of {0} Diamonds", "免费领取{0}钻石", null, null, null], [21, "Get", "Get", "获得", null, null, null], [22, "Spend", "Spend", "花费", null, null, null], [23, "Lurking", "Lurkers", "潜伏者", null, null, null], [24, "Defenders", "Defenders", "保卫者", null, null, null], [25, "Life", "Hp", "生命", null, null, null], [26, "InvincibleTime", "Invincible Time", "无敌时间", null, null, null], [27, "ResurrectionCountdown", "Resurrection Countdown", "复活倒计时", null, null, null], [28, "InvincibleWithinSecondsAfterResurrection", "Invincible Within {0} Seconds After Resurrection", "复活后{0}秒内无敌", null, null, null], [29, "SetUp", "Set Up", "设置", null, null, null], [30, "FiringSensitivity", "Firing Sensitivity", "开火灵敏度", null, null, null], [31, "ControlSensitivity", "Control Sensitivity", "控制灵敏度", null, null, null], [32, "BackgroundMusicSize", "Background Music Size", "背景音乐大小", null, null, null], [33, "SfxVolume", "Sfx Volume", "音效大小", null, null, null], [34, "Defeated", " Defeated ", " 击败了 ", null, null, null], [35, "YouHaveBeenDefeatedBy", "You Have Been Defeated By {0}", "你已被 {0} 击败", null, null, null], [36, "DefeatToCompleteRevenge", "Defeat {0} To Complete Revenge", "击败 {0} 完成复仇", null, null, null], [37, "RdPlace", "{0}: {1}Rd Place", "{0}：第{1}名", null, null, null], [38, "DefeatedPeople_2", "Defeated 2 People", "连续消灭2人！势不可当！", null, null, null], [39, "DefeatedPeople_3", "Defeated 3 People", "连续消灭3人！勇冠三军！", null, null, null], [40, "DefeatedPeople_4", "Defeated 4 People", "连续消灭4人！无人能敌！", null, null, null], [41, "DefeatedPeople_5", "Defeated 5 People", "连续消灭5人！横扫千军！", null, null, null], [42, "DefeatedPeople_6", "Defeated 6 People", "连续消灭6人！接近神了！", null, null, null], [43, "DefeatedPeople_7", "Defeated {0} People", "连续消灭{0}人！超越神了！", null, null, null], [44, "Ranking", "Ranking", "排名", null, null, null], [45, "Nickname", "Nickname", "昵称", null, null, null], [46, "Beat", "Beat", "击败", null, null, null], [47, "Death", "Death", "死亡", null, null, null], [48, "TopInTheEntireServer", "Top {0} In The Entire Server", "全服前{0}名", null, null, null], [49, "TotalDefeat", "Total Defeat", "总击败", null, null, null], [50, "TotalDeaths", "Total Deaths", "总死亡", null, null, null], [51, "RankingOfAchievements", "Ranking\nAchievements", "战绩排行榜", null, null, null], [52, "FullServerRankingList", "Full Server\nRanking List", "全服排行榜", null, null, null], [53, "Weapon", "Weapon", "武器", null, null, null], [54, "Skin", "Skin", "皮肤", null, null, null], [55, "Trailing", "Trailing", "拖尾", null, null, null], [56, "Use", "Use", "使用", null, null, null], [57, "Obtained", "Obtained", "已获得", null, null, null], [58, "NotObtained", "Not Obtained", "未获得", null, null, null], [59, "Hurt", "Hurt", "伤害", null, null, null], [60, "Bullet", "Bullet", "子弹", null, null, null], [61, "TimeLimited", "Time Limited", "限时", null, null, null], [62, "Permanent", "Permanent", "永久", null, null, null], [63, "Error", "Error", "出错啦", null, null, null], [64, "TransformationStatusCannotOpenTheStore", "Transformation Status Cannot Open The Store", "变身状态不可打开商店", null, null, null], [65, "PurchaseSuccessful", "Purchase Successful", "购买成功", null, null, null], [66, "InsufficientGoldCoins", "Insufficient Gold Coins", "金币不足", null, null, null], [67, "DiamondShortage", "Diamond Shortage", "钻石不足", null, null, null], [68, "WearingIt", "Wearing It", "穿戴中", null, null, null], [69, "SkinSuccessfullyWorn", "Skin Successfully Worn", "皮肤成功穿戴", null, null, null], [70, "TailSuccessfullyWorn", "Tail Successfully Worn", "尾迹成功穿戴", null, null, null], [71, "Previewing", "Previewing", "正在预览", null, null, null], [72, "Pistol", "Pistol", "手枪", null, null, null], [73, "BubbleGun", "Bubble Gun", "泡泡枪", null, null, null], [74, "ShotgunSprayGun", "Shotgun Spray Gun", "散弹喷枪", null, null, null], [75, "Shotgun", "Shotgun", "霰弹枪", null, null, null], [76, "SpitfireGun", "Spitfire Gun", "喷火枪", null, null, null], [77, "FireGun", "Fire Gun", "火枪", null, null, null], [78, "LaserGun", "Laser Gun", "激光枪", null, null, null], [79, "WaterGun", "Water Gun", "水枪", null, null, null], [80, "RocketLauncher", "Rocket Launcher", "火箭发射器", null, null, null], [81, "JustinGatlin", "Justin Gatlin", "加特林", null, null, null], [82, "Tunas", "Tunas", "金枪鱼", null, null, null], [83, "BowAndArrow", "Bow And Arrow", "弓箭", null, null, null], [84, "ParticleTailing", "Particle Tailing", "粒子拖尾", null, null, null], [85, "SmokeTrail", "Smoke Trail", "烟雾拖尾", null, null, null], [86, "BeamTrailing", "Beam Trailing", "光束拖尾", null, null, null], [87, "Tail", "Tail", "拖尾", null, null, null], [88, "WaterTailing", "Water Tailing", "水拖尾", null, null, null], [89, "FlameTrailing", "Flame Trailing", "火焰拖尾", null, null, null], [90, "ThunderTail", "Thunder Tail", "雷拖尾", null, null, null], [91, "RainbowTail", "Rainbow Tail", "彩虹拖尾", null, null, null], [92, "TirePrintTailing", "Tire Print Tailing", "胎印拖尾", null, null, null], [93, "ScrewTail", "Screw Tail", "螺丝钉拖尾", null, null, null], [94, "FootballTail", "Football Tail", "足球拖尾", null, null, null], [95, "CandyTail", "Candy Tail", "糖果拖尾", null, null, null], [96, "TrophyTail", "Trophy Tail", "奖杯拖尾", null, null, null], [97, "CrownTail", "Crown Tail", "皇冠拖尾", null, null, null], [98, "LoveTail", "Love Tail", "爱心拖尾", null, null, null], [99, "SkullTail", "Skull Tail", "骷髅拖尾", null, null, null], [100, "BananaTail", "Banana Tail", "香蕉拖尾", null, null, null], [102, "SnowflakeTail", "Snowflake Tail", "雪花拖尾", null, null, null], [103, "Tail2023", "2023 Tail", "2023拖尾", null, null, null], [104, "FirecrackerTail", "Firecracker Tail", "爆竹拖尾", null, null, null], [105, "FireworksTail", "Fireworks Tail", "烟花拖尾", null, null, null], [106, "GiftTail", "Gift Tail", "礼物拖尾", null, null, null], [107, "TailOfBanknotes", "Tail Of Banknotes", "钞票拖尾", null, null, null], [108, "BubbleTail", "Bubble Tail", "泡泡拖尾", null, null, null], [109, "RibbonTrailing", "Ribbon Trailing", "彩带拖尾", null, null, null], [110, "TailOfFeces", "Tail Of Feces", "便便拖尾", null, null, null], [111, "MapleLeafTail", "Maple Leaf Tail", "枫叶拖尾", null, null, null], [112, "SixPointedStarTail", "Six Pointed Star Tail", "六芒星拖尾", null, null, null], [113, "ButterflyTail", "Butterfly Tail", "蝴蝶拖尾", null, null, null], [114, "IceCreamTrail", "Ice Cream Trail", "冰淇淋拖尾", null, null, null], [115, "BirdTail", "Bird Tail", "鸟拖尾", null, null, null], [116, "BatTail", "Bat Tail", "蝙蝠拖尾", null, null, null], [117, "XiangyunTail", "Xiangyun Tail", "祥云拖尾", null, null, null], [118, "Print", "Print", "爪印", null, null, null], [119, "HoodedMan", "Hooded Man", "兜帽男", null, null, null], [120, "DoublePonytailGirl", "Double Ponytail Girl", "双马尾女", null, null, null], [121, "MaleWarrior", "Male Warrior", "男战士", null, null, null], [122, "MechGirl", "Mech Girl", "机甲少女", null, null, null], [123, "MaleKnight", "Male Knight", "男骑士", null, null, null], [124, "NanoMechWomen", "Nano Mech Women", "纳米机甲女性", null, null, null], [125, "CyberYouth", "Cyber Youth", "赛博少年", null, null, null], [126, "CyberGirls", "Cyber Girls", "赛博少女", null, null, null], [127, "DefinitelyPotBoy", "Definitely Pot Boy", "一定锅少年", null, null, null], [128, "SeekingGodYoungMan", "Seeking God, Young Man", "求神少年", null, null, null], [129, "DefinitelyPotGirl", "Definitely Pot Girl", "一定锅少女", null, null, null], [130, "SeekingGodGirl", "Seeking God Girl", "求神少女", null, null, null], [131, "GemstoneArmoredMan", "Gemstone Armored Man", "宝石铠甲男", null, null, null], [132, "ArmoredMaleWarrior", "Armored Male Warrior", "铠甲男战士", null, null, null], [133, "BlackMaleNanomecha", "Black Male Nanomecha", "黑人男纳米机甲", null, null, null], [134, "WhiteMaleNanomecha", "White Male Nanomecha", "白人男纳米机甲", null, null, null], [135, "SilverKnights", "Silver Knights", "白银骑士", null, null, null], [136, "EagleWarrior", "Eagle Warrior", "鹰战士", null, null, null], [137, "Warrior", "Warrior", "战士", null, null, null], [138, "VenomMonster", "Venom Monster", "毒液怪人", null, null, null], [139, "AntWarrior", "Ant Warrior", "蚁侠士", null, null, null], [140, "TheStrongestCaptain", "The Strongest Captain", "最强队长", null, null, null], [141, "SuperHandsomeHero", "Super Handsome Hero", "超帅侠", null, null, null], [142, "StrangeWarrior", "Strange Warrior", "奇异战士", null, null, null], [143, "LightningMonster", "Lightning Monster", "闪电怪", null, null, null], [144, "EvilSpiritSkull", "Evil Spirit Skull", "恶灵骷髅", null, null, null], [145, "IronMan", "Iron Man", "铁人", null, null, null], [146, "WindbreakerGirl", "Windbreaker Girl", "风衣女", null, null, null], [147, "HanfuGirl", "Hanfu Girl", "汉服少女", null, null, null], [148, "FashionableGirl", "Fashionable Girl", "时尚少女", null, null, null], [149, "TrendyGirl", "Trendy Girl", "潮流少女", null, null, null], [150, "AncientScholars", "Ancient Scholars", "古代书生", null, null, null], [151, "OrangeLaserGun", "Orange Laser Gun", "橘黄激光枪", null, null, null], [152, "Text_ClaimRewards", "Claim Rewards", "领取奖励", null, null, null], [153, "Text_HangInTheAir", "Hang In The Air", "未完成", null, null, null], [154, "Text_DailyTasks", "Daily Tasks", "每日任务", null, null, null], [155, "Text_AllTasksHaveBeenCompletedWaitingForRefresh", "All Tasks Have Been Completed, Waiting For Refresh", "任务已全部完成，等待刷新...", null, null, null], [156, "Text_RemainingHours", "Remaining: {0} Hours", "剩余：{0}小时", null, null, null], [157, "Text_RemainingDays", "Remaining: {0} Days", "剩余：{0}天", null, null, null], [158, "Text_WeeklyTasks", "Weekly Tasks", "每周任务", null, null, null], [159, "Dailylogintothegame", "Daily login to the game ({0}/{1})", "每日登录游戏（{0}/{1}）", null, null, null], [160, "Dailyonlinedurationminutes", "Daily online duration {2} minutes ({0}/{1})", "每日在线时长{2}分钟（{0}/{1}）", null, null, null], [161, "Defeatplayersdaily", "Defeat {2} players daily ({0}/{1})", "每日击败{2}个玩家（{0}/{1}）", null, null, null], [162, "Logindaysperweek", "Login {2} days per week ({0}/{1})", "每周登录{2}天（{0}/{1}）", null, null, null], [163, "Join", "Join", "加入", null, null, null], [164, "WeaponEquipmentSuccessful", "Weapon Equipment Successful", "武器装备成功", null, null, null], [165, "SwitchingFailedYouAreAlreadyIn", "Switching Failed, You Are Already In {0}", "切换失败,你已在{0}中", null, null, null], [166, "CannotSwitchTeamsFrequentlyTryAgainInSeconds", "Cannot Switch Teams Frequently, Try Again In {0} Seconds", "不能频繁切换队伍，{0}秒后再试", null, null, null], [167, "SuccessfullySwitchedTeams", "Successfully Switched Teams", "切换队伍成功", null, null, null], [168, "SwitchingFailedThisTeamIsFull", "Switching Failed, This Team Is Full", "切换失败,此队已满", null, null, null], [169, "SwitchingFailedUnequalNumberOfPeople", "Switching Failed, Unequal Number Of People", "切换失败,人数不平等", null, null, null], [170, "AlreadyOnThisTeam", "Already On This Team", "已在此队", null, null, null], [171, "bazooka", "bazooka", "火箭筒", null, null, null], [172, "Text_TheItemBarIsFull", "The item bar is full", "道具栏已满", null, null, null], [173, "Text_ThisItemIsInUse", "This item is in use", "正在使用此道具", null, null, null], [174, "Text_Tips1", "Someone is using it, please try another one", "有人正在使用，请换个试试", null, null, null], [175, "Text_SetUp1", "Base Setup", "基础设置", null, null, null], [176, "Text_PictureQuality", "Picture Quality", "画质", null, null, null], [177, "Text_SoundEffects", "Sound Effects", "音效", null, null, null], [178, "Text_BackgroundMusic", "Background Music", "背景音乐", null, null, null], [179, "Text_ViewAngleScaling", "View Angle Scaling", "视角缩放", null, null, null], [180, "Text_DisplayNicknames", "Display Nicknames", "显示昵称", null, null, null], [181, "Text_ResetLocation", "Reset Location", "重置位置", null, null, null], [182, "Text_RestoringSettings", "Restoring Settings", "还原设置", null, null, null], [183, "Text_On", "ON", "开", null, null, null], [184, "Text_Off", "OFF", "关", null, null, null], [185, "Text_ObtainedTips", "Obtained, open the knapsack to use", "已获得，打开背包使用", null, null, null], [186, "Text_Advertising", "Advertising", "广告奖励", null, null, null], [187, "Text_ADGetTips", "See the AD for free guide you get", "看广告免费指引你获得", null, null, null], [188, "Text_Dont", "Don't", "不要", null, null, null], [189, "Text_Free", "free", "免费获得", null, null, null], [190, "Text_Fail", "Fail", "指引失败，请重试", null, null, null], [191, "Text_NoOnTheList", "Not", "未上榜", null, null, null], [192, "Text_Ranking", "Ranking", "排名", null, null, null], [193, "Text_Nickname", "Nickname", "昵称", null, null, null], [194, "Text_Score", "Score", "分数", null, null, null], [195, "Text_Duration", "Duration", "时长", null, null, null], [196, "Text_TopInTermsOfDuration", "Top {0} In Terms Of Duration", "时长全服前{0}名", null, null, null], [197, "Text_StartGame", "Start the game", "开始游戏", null, null, null], [198, "Text_WelcomeTo", "Welcome to\nMy Cherry blossom town", "欢迎来到\n我的樱花小镇", null, null, null], [199, "Text_UpNext", "Up next", "下一个", null, null, null], [200, "Text_GuideEnd", "With the guide over, start your trip to the cherry blossom town", "引导结束，开启你的樱花小镇之旅吧", null, null, null], [201, "Text_Close", "Close", "关闭", null, null, null], [202, "Text_MyCharacterId", "My Character ID- Share Friend Try On", "我的角色ID-分享好友试穿", null, null, null], [203, "Text_PleaseEnter", "Please Enter The Friend Role ID", "请输入好友角色ID", null, null, null], [204, "Text_Cancel", "Cancel", "取消", null, null, null], [205, "Text_FreeTryOn", "Free Try On", "免费试穿", null, null, null], [206, "Text_SaveImagesForFree", "Save images for free", "免费保存形象", null, null, null], [207, "Text_TryOnYourFriendAvatarForFree", "Try On Your Friend's Avatar For Free", "免费试穿好友的角色形象", null, null, null], [208, "Text_CopySuccessfully", "Copy Successfully", "复制成功", null, null, null], [209, "Text_InvalidID", "Invalid ID!", "ID无效！", null, null, null], [210, "Text_Loading", "Loading", "加载中", null, null, null], [211, "Text_TryItOnSuccessfully", "Try it on successfully", "试穿成功", null, null, null], [212, "Text_CopyTheCharacterIDShareFriendsTryOn", "Copy the character ID share friends try on", "复制角色ID分享好友试穿", null, null, null], [213, "Text_TryItOnForFree", "Try it on for free", "看广告免费试穿", null, null, null], [214, "Text_GuideTips", "Reach near the target point", "达到目标点附近", null, null, null]];
 class LanguageConfig extends ConfigBase {
     constructor() {
-        super(EXCELDATA$8);
+        super(EXCELDATA$9);
     }
     /**{0}秒内不可重置位置*/
     get CannotResetPositionWithinSeconds() { return this.getElement(1); }
@@ -821,10 +821,10 @@ var foreign12 = /*#__PURE__*/Object.freeze({
     LanguageConfig: LanguageConfig
 });
 
-const EXCELDATA$7 = [["ID", "Des", "PathStr", "Idles", "Moves", "MoveSpeed", "Die", "Attacks", "AttackTimePoints", "AttackOffsets", "AttackLengths", "AttackSizes", "Damages", "EffectIds", "EffectPosOffsets", "EffectRotOffsets", "EffectScales"], ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], [1, "蛇女", ["3E882EFC"], ["318618"], ["318617"], 300, "318619", ["318616"], [0.35], [new mw.Vector(0, 50, 0)], [300], [new mw.Vector(50, 50, 100)], [100], ["125704"], [new mw.Vector(60, 0, 0)], [new mw.Vector(0, 0, -90)], [new mw.Vector(1, 0.8, 1)]], [2, "蜘蛛", ["3E882EFC"], ["336664", "336668"], ["336669"], 250, "336816", ["336673", "336670", "336672"], [1, 0.95, 1.2], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100, 100], ["384353", "101411", "297932"], [new mw.Vector(170, 0, -50), new mw.Vector(200, 0, -120), new mw.Vector(100, 0, -125)], [new mw.Vector(0, -60, 0), new mw.Vector(0, 30, 10), new mw.Vector(0, 0, 0)], [new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(1, 1, 1), new mw.Vector(0.55, 1, 1)]], [3, "蜘蛛精", ["3E882EFC"], ["336664", "336668"], ["338467"], 250, "338468", ["338464", "338466"], [0.8, 0.8], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100], ["297932", "101407"], [new mw.Vector(100, 0, -125), new mw.Vector(100, 0, -125)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0.55, 1, 1), new mw.Vector(1, 1, 1)]], [4, "龙", ["3E882EFC"], ["160627", "250400", "250399", "160627"], ["160628"], 250, "-1", ["250094", "250095"], [1.6, 1.3], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100], ["168947", "92843"], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(1, 1, 1), new mw.Vector(1, 1, 1)]], [5, "丧尸", ["3E882EFC"], ["284991", "268599"], ["285740", "269161", "285826"], 150, "-1", ["285210"], [0.55], [new mw.Vector(0, 50, 0)], [300], [new mw.Vector(50, 50, 100)], [100], ["31260"], [new mw.Vector(5, 0, 0)], [new mw.Vector(0, -30, 180)], [new mw.Vector(1, 1, 1)]], [6, "角色", ["3E882EFC"], ["285445"], ["285336", "285372", "280652", "280671", "280723", "284685", "280699", "280780"], 150, "-1", ["219129", "280914", "280916"], [0.2, 0.4, 0.3], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100, 100], ["92838", "135894", "125704"], [new mw.Vector(250, 0, 0), new mw.Vector(140, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0, 0, -90)], [new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(1, 1, 1)]], [7, "角色", ["3E882EFC"], ["-1"], ["-1"], 150, "-1", ["219129", "280914", "280916"], [0.2, 0.4, 0.3], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100, 100], ["92838", "135894", "125704"], [new mw.Vector(250, 0, 0), new mw.Vector(140, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0, 0, -90)], [new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(1, 1, 1)]]];
+const EXCELDATA$8 = [["ID", "Des", "PathStr", "Idles", "Moves", "MoveSpeed", "Die", "Attacks", "AttackTimePoints", "AttackOffsets", "AttackLengths", "AttackSizes", "Damages", "EffectIds", "EffectPosOffsets", "EffectRotOffsets", "EffectScales"], ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], [1, "蛇女", ["3E882EFC"], ["318618"], ["318617"], 300, "318619", ["318616"], [0.35], [new mw.Vector(0, 50, 0)], [300], [new mw.Vector(50, 50, 100)], [100], ["125704"], [new mw.Vector(60, 0, 0)], [new mw.Vector(0, 0, -90)], [new mw.Vector(1, 0.8, 1)]], [2, "蜘蛛", ["3E882EFC"], ["336664", "336668"], ["336669"], 250, "336816", ["336673", "336670", "336672"], [1, 0.95, 1.2], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100, 100], ["384353", "101411", "297932"], [new mw.Vector(170, 0, -50), new mw.Vector(200, 0, -120), new mw.Vector(100, 0, -125)], [new mw.Vector(0, -60, 0), new mw.Vector(0, 30, 10), new mw.Vector(0, 0, 0)], [new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(1, 1, 1), new mw.Vector(0.55, 1, 1)]], [3, "蜘蛛精", ["3E882EFC"], ["336664", "336668"], ["338467"], 250, "338468", ["338464", "338466"], [0.8, 0.8], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100], ["297932", "101407"], [new mw.Vector(100, 0, -125), new mw.Vector(100, 0, -125)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0.55, 1, 1), new mw.Vector(1, 1, 1)]], [4, "龙", ["3E882EFC"], ["160627", "250400", "250399", "160627"], ["160628"], 250, "-1", ["250094", "250095"], [1.6, 1.3], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100], ["168947", "92843"], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(1, 1, 1), new mw.Vector(1, 1, 1)]], [5, "丧尸", ["3E882EFC"], ["284991", "268599"], ["285740", "269161", "285826"], 150, "-1", ["285210"], [0.55], [new mw.Vector(0, 50, 0)], [300], [new mw.Vector(50, 50, 100)], [100], ["31260"], [new mw.Vector(5, 0, 0)], [new mw.Vector(0, -30, 180)], [new mw.Vector(1, 1, 1)]], [6, "角色", ["3E882EFC"], ["285445"], ["285336", "285372", "280652", "280671", "280723", "284685", "280699", "280780"], 150, "-1", ["219129", "280914", "280916"], [0.2, 0.4, 0.3], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100, 100], ["92838", "135894", "125704"], [new mw.Vector(250, 0, 0), new mw.Vector(140, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0, 0, -90)], [new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(1, 1, 1)]], [7, "角色", ["3E882EFC"], ["-1"], ["-1"], 150, "-1", ["219129", "280914", "280916"], [0.2, 0.4, 0.3], [new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0), new mw.Vector(0, 50, 0)], [300, 300, 300], [new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100), new mw.Vector(50, 50, 100)], [100, 100, 100], ["92838", "135894", "125704"], [new mw.Vector(250, 0, 0), new mw.Vector(140, 0, 0), new mw.Vector(0, 0, 0)], [new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0, 0, -90)], [new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(0.5, 0.5, 0.5), new mw.Vector(1, 1, 1)]]];
 class MonsterInfoConfig extends ConfigBase {
     constructor() {
-        super(EXCELDATA$7);
+        super(EXCELDATA$8);
     }
 }
 
@@ -833,10 +833,10 @@ var foreign13 = /*#__PURE__*/Object.freeze({
     MonsterInfoConfig: MonsterInfoConfig
 });
 
-const EXCELDATA$6 = [["ID", "AssetId", "OffsetPos", "OffsetRot", "OffsetSca"], ["", "", "", "", ""], [1, "20686", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [2, "20689", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [3, "20693", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [4, "20707", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [5, "20741", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [6, "20799", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [7, "20910", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [8, "20957", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [9, "21007", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [10, "21034", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [11, "21037", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0.3, 0.3, 0.3)], [12, "22879", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [13, "22881", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [14, "22905", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [15, "22906", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [16, "22907", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [17, "22913", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [18, "22921", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [19, "22926", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [20, "22951", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [21, "22940", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [22, "22972", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [23, "22966", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [24, "22969", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [25, "22986", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [26, "22981", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [27, "23001", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [28, "23018", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [29, "23020", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [30, "23043", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [31, "23071", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [32, "23072", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [33, "23102", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)]];
+const EXCELDATA$7 = [["ID", "AssetId", "OffsetPos", "OffsetRot", "OffsetSca"], ["", "", "", "", ""], [1, "20686", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [2, "20689", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [3, "20693", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [4, "20707", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [5, "20741", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [6, "20799", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [7, "20910", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [8, "20957", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [9, "21007", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [10, "21034", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [11, "21037", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(0.3, 0.3, 0.3)], [12, "22879", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [13, "22881", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [14, "22905", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [15, "22906", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [16, "22907", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [17, "22913", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [18, "22921", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [19, "22926", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [20, "22951", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [21, "22940", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [22, "22972", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [23, "22966", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [24, "22969", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [25, "22986", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [26, "22981", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [27, "23001", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [28, "23018", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [29, "23020", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [30, "23043", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [31, "23071", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [32, "23072", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)], [33, "23102", new mw.Vector(0, 0, 0), new mw.Vector(0, 0, -90), new mw.Vector(1, 1, 1)]];
 class MorphConfig extends ConfigBase {
     constructor() {
-        super(EXCELDATA$6);
+        super(EXCELDATA$7);
     }
 }
 
@@ -845,10 +845,10 @@ var foreign14 = /*#__PURE__*/Object.freeze({
     MorphConfig: MorphConfig
 });
 
-const EXCELDATA$5 = [["ID", "PrefabId", "FireSound", "HitEffect", "HitEffectScale", "Des"], ["", "", "", "", "", ""], [1, "5FE5766E4D27D1FC0ECC9DB29673A3EB", "208258", "174251", new mw.Vector(1, 1, 1), null, null, 208399], [2, "EAF62D0F4EF181ABB6C8AB83E876818B", "207772", "174251", new mw.Vector(1, 1, 1), null], [3, "F32C6FB24570123F58CEFA81FC1DAC1F", "208268", "174251", new mw.Vector(1, 1, 1), null], [4, "28BA1D7C44D241C468F19A94D9E63238", "208374", "174249", new mw.Vector(1, 1, 1), null, null, null, 208166], [5, "D07DD084490C6D2C3BC3A7A8BC4884C0", "208374", "174249", new mw.Vector(1, 1, 1), null], [6, "A5C80A2E45063598223D4A8D042593A8", "208166", "174252", new mw.Vector(1, 1, 1), null], [7, "E2497FC44D0EC13158099584EED17776", "208374", "174249", new mw.Vector(1, 1, 1), null, 208495, null, 287821], [8, "24E7DF3146C2E5414BE4EE8AC093215B", "208166", "174251", new mw.Vector(1, 1, 1), "208166"], [9, "6EB015964A8F1DC44DF94595AA7593E1", "208166", "174253", new mw.Vector(1, 1, 1), "屠龙激光枪3号-已完善"], [10, "A3BC64CF4B29BD2D076E4194A2F9E40C", "208374", "174249", new mw.Vector(1, 1, 1), null], [11, "C7708014418743519AEB66A05118335F", "208374", "174249", new mw.Vector(1, 1, 1), null], [12, "592867B84C2ABC5BC11326A6588AC115", "208495", "174249", new mw.Vector(1, 1, 1), null], [13, "4E31B836400E0183C925ACA18475115B", "208374", "174253", new mw.Vector(1, 1, 1), null], [14, "4C18E7A440AD7AE26CFA71AD44B70903", "208374", "174253", new mw.Vector(1, 1, 1), null], [15, "1405575C47698FE0FC41F0B7E104529E", "208048", "174253", new mw.Vector(1, 1, 1), null], [16, "D6BED3274D75002CE69EFC863C6C58F6", "186450", "174252", new mw.Vector(1, 1, 1), null]];
+const EXCELDATA$6 = [["ID", "PrefabId", "FireSound", "HitEffect", "HitEffectScale", "Des"], ["", "", "", "", "", ""], [1, "5FE5766E4D27D1FC0ECC9DB29673A3EB", "208258", "174251", new mw.Vector(1, 1, 1), null, null, 208399], [2, "EAF62D0F4EF181ABB6C8AB83E876818B", "207772", "174251", new mw.Vector(1, 1, 1), null], [3, "F32C6FB24570123F58CEFA81FC1DAC1F", "208268", "174251", new mw.Vector(1, 1, 1), null], [4, "28BA1D7C44D241C468F19A94D9E63238", "208374", "174249", new mw.Vector(1, 1, 1), null, null, null, 208166], [5, "D07DD084490C6D2C3BC3A7A8BC4884C0", "208374", "174249", new mw.Vector(1, 1, 1), null], [6, "A5C80A2E45063598223D4A8D042593A8", "208166", "174252", new mw.Vector(1, 1, 1), null], [7, "E2497FC44D0EC13158099584EED17776", "208374", "174249", new mw.Vector(1, 1, 1), null, 208495, null, 287821], [8, "24E7DF3146C2E5414BE4EE8AC093215B", "208166", "174251", new mw.Vector(1, 1, 1), "208166"], [9, "6EB015964A8F1DC44DF94595AA7593E1", "208166", "174253", new mw.Vector(1, 1, 1), "屠龙激光枪3号-已完善"], [10, "A3BC64CF4B29BD2D076E4194A2F9E40C", "208374", "174249", new mw.Vector(1, 1, 1), null], [11, "C7708014418743519AEB66A05118335F", "208374", "174249", new mw.Vector(1, 1, 1), null], [12, "592867B84C2ABC5BC11326A6588AC115", "208495", "174249", new mw.Vector(1, 1, 1), null], [13, "4E31B836400E0183C925ACA18475115B", "208374", "174253", new mw.Vector(1, 1, 1), null], [14, "4C18E7A440AD7AE26CFA71AD44B70903", "208374", "174253", new mw.Vector(1, 1, 1), null], [15, "1405575C47698FE0FC41F0B7E104529E", "208048", "174253", new mw.Vector(1, 1, 1), null], [16, "D6BED3274D75002CE69EFC863C6C58F6", "186450", "174252", new mw.Vector(1, 1, 1), null]];
 class ProjectilePropConfig extends ConfigBase {
     constructor() {
-        super(EXCELDATA$5);
+        super(EXCELDATA$6);
     }
 }
 
@@ -857,10 +857,10 @@ var foreign15 = /*#__PURE__*/Object.freeze({
     ProjectilePropConfig: ProjectilePropConfig
 });
 
-const EXCELDATA$4 = [["ID", "ROLEID", "PRICETYPE", "PRICE", "NAME", "DESC"], ["", "", "", "", "Language", ""], [1, "181562", 1, [1, 5888], "HoodedMan", "兜帽男"], [2, "143400", 1, [1, 5888], "DoublePonytailGirl", "双马尾女"], [3, "142292", 1, [1, 5888], "MaleWarrior", "男战士"], [4, "142272", 1, [1, 5888], "MechGirl", "机甲少女"], [5, "142293", 1, [1, 5888], "MaleKnight", "男骑士"], [6, "142255", 1, [1, 5888], "NanoMechWomen", "纳米机甲女性"], [7, "219915", 1, [1, 5888], "CyberYouth", "赛博少年"], [8, "226379", 1, [1, 5888], "CyberYouth", "赛博少年"], [9, "219912", 1, [1, 5888], "CyberGirls", "赛博少女"], [10, "226386", 1, [1, 5888], "CyberGirls", "赛博少女"], [11, "266641", 1, [1, 5888], "DefinitelyPotBoy", "一定锅少年"], [12, "267183", 1, [1, 5888], "SeekingGodYoungMan", "求神少年"], [13, "264622", 1, [1, 5888], "DefinitelyPotGirl", "一定锅少女"], [14, "266861", 1, [1, 5888], "SeekingGodGirl", "求神少女"], [15, "142302", 1, [1, 5888], "GemstoneArmoredMan", "宝石铠甲男"], [16, "142303", 1, [1, 5888], "ArmoredMaleWarrior", "铠甲男战士"], [17, "142396", 1, [1, 5888], "BlackMaleNanomecha", "黑人男纳米机甲"], [18, "142397", 1, [1, 5888], "WhiteMaleNanomecha", "白人男纳米机甲"], [19, "142398", 1, [1, 5888], "SilverKnights", "白银骑士"], [20, "142906", 1, [1, 5888], "EagleWarrior", "鹰战士"], [21, "142895", 1, [1, 5888], "Warrior", "战士"], [22, "142886", 1, [1, 5888], "VenomMonster", "毒液怪人"], [23, "142905", 1, [1, 5888], "AntWarrior", "蚁侠士"], [24, "142898", 1, [1, 5888], "TheStrongestCaptain", "最强队长"], [25, "142885", 1, [1, 5888], "SuperHandsomeHero", "超帅侠"], [26, "142900", 1, [1, 5888], "StrangeWarrior", "奇异战士"], [27, "142901", 1, [1, 5888], "LightningMonster", "闪电怪"], [28, "142887", 1, [1, 5888], "EvilSpiritSkull", "恶灵骷髅"], [29, "142888", 1, [1, 5888], "IronMan", "铁人"], [30, "222475", 1, [1, 5888], "WindbreakerGirl", "风衣女"], [31, "219916", 1, [1, 5888], "HanfuGirl", "汉服少女"], [32, "266860", 1, [1, 5888], "FashionableGirl", "时尚少女"], [33, "226382", 1, [1, 5888], "TrendyGirl", "潮流少女"], [34, "222476", 1, [1, 5888], "AncientScholars", "古代书生"]];
+const EXCELDATA$5 = [["ID", "ROLEID", "PRICETYPE", "PRICE", "NAME", "DESC"], ["", "", "", "", "Language", ""], [1, "181562", 1, [1, 5888], "HoodedMan", "兜帽男"], [2, "143400", 1, [1, 5888], "DoublePonytailGirl", "双马尾女"], [3, "142292", 1, [1, 5888], "MaleWarrior", "男战士"], [4, "142272", 1, [1, 5888], "MechGirl", "机甲少女"], [5, "142293", 1, [1, 5888], "MaleKnight", "男骑士"], [6, "142255", 1, [1, 5888], "NanoMechWomen", "纳米机甲女性"], [7, "219915", 1, [1, 5888], "CyberYouth", "赛博少年"], [8, "226379", 1, [1, 5888], "CyberYouth", "赛博少年"], [9, "219912", 1, [1, 5888], "CyberGirls", "赛博少女"], [10, "226386", 1, [1, 5888], "CyberGirls", "赛博少女"], [11, "266641", 1, [1, 5888], "DefinitelyPotBoy", "一定锅少年"], [12, "267183", 1, [1, 5888], "SeekingGodYoungMan", "求神少年"], [13, "264622", 1, [1, 5888], "DefinitelyPotGirl", "一定锅少女"], [14, "266861", 1, [1, 5888], "SeekingGodGirl", "求神少女"], [15, "142302", 1, [1, 5888], "GemstoneArmoredMan", "宝石铠甲男"], [16, "142303", 1, [1, 5888], "ArmoredMaleWarrior", "铠甲男战士"], [17, "142396", 1, [1, 5888], "BlackMaleNanomecha", "黑人男纳米机甲"], [18, "142397", 1, [1, 5888], "WhiteMaleNanomecha", "白人男纳米机甲"], [19, "142398", 1, [1, 5888], "SilverKnights", "白银骑士"], [20, "142906", 1, [1, 5888], "EagleWarrior", "鹰战士"], [21, "142895", 1, [1, 5888], "Warrior", "战士"], [22, "142886", 1, [1, 5888], "VenomMonster", "毒液怪人"], [23, "142905", 1, [1, 5888], "AntWarrior", "蚁侠士"], [24, "142898", 1, [1, 5888], "TheStrongestCaptain", "最强队长"], [25, "142885", 1, [1, 5888], "SuperHandsomeHero", "超帅侠"], [26, "142900", 1, [1, 5888], "StrangeWarrior", "奇异战士"], [27, "142901", 1, [1, 5888], "LightningMonster", "闪电怪"], [28, "142887", 1, [1, 5888], "EvilSpiritSkull", "恶灵骷髅"], [29, "142888", 1, [1, 5888], "IronMan", "铁人"], [30, "222475", 1, [1, 5888], "WindbreakerGirl", "风衣女"], [31, "219916", 1, [1, 5888], "HanfuGirl", "汉服少女"], [32, "266860", 1, [1, 5888], "FashionableGirl", "时尚少女"], [33, "226382", 1, [1, 5888], "TrendyGirl", "潮流少女"], [34, "222476", 1, [1, 5888], "AncientScholars", "古代书生"]];
 class ROLEConfig extends ConfigBase {
     constructor() {
-        super(EXCELDATA$4);
+        super(EXCELDATA$5);
     }
 }
 
@@ -869,6 +869,13 @@ var foreign16 = /*#__PURE__*/Object.freeze({
     ROLEConfig: ROLEConfig
 });
 
+const EXCELDATA$4 = [["ID", "DescriptionJson"], ["", ""], [1, "{\"somatotype\":1,\"frontHair\":\"92724\",\"backHair\":\"408467\",\"upperCloth\":\"408463\",\"lowerCloth\":\"408469\",\"gloves\":\"408462\",\"shoes\":\"408408\"}"], [2, "{\"somatotype\":1,\"frontHair\":\"92724\",\"backHair\":\"408175\",\"upperCloth\":\"408174\",\"lowerCloth\":\"408171\",\"gloves\":\"408169\",\"shoes\":\"408170\"}"], [3, "{\"somatotype\":1,\"frontHair\":\"226354\",\"backHair\":\"226348\",\"upperCloth\":\"226357\",\"lowerCloth\":\"226358\",\"gloves\":\"226349\",\"shoes\":\"226356\"}"], [4, "{\"somatotype\":1,\"frontHair\":\"92724\",\"backHair\":\"241129\",\"upperCloth\":\"241136\",\"lowerCloth\":\"241130\",\"gloves\":\"241135\",\"shoes\":\"241128\"}"], [5, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"493696\",\"upperCloth\":\"493767\",\"lowerCloth\":\"493697\",\"gloves\":\"75663\",\"shoes\":\"493645\",\"soltTypes\":[2,19],\"attachmentAssetIds\":[\"493632\",\"493583\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":2.62,\"y\":9.34,\"z\":-24.870001},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":-89.999992},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}},{\"privateLocation\":{\"x\":0,\"y\":0,\"z\":0},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":0},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"], [6, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"373198\",\"upperCloth\":\"373200\",\"lowerCloth\":\"373199\",\"gloves\":\"373180\",\"shoes\":\"373179\"}"], [7, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"453968\",\"upperCloth\":\"453998\",\"lowerCloth\":\"453996\",\"gloves\":\"75663\",\"shoes\":\"453997\",\"soltTypes\":[1,6,12],\"attachmentAssetIds\":[\"453959\",\"453958\",\"453934\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":0.04,\"y\":-0.95,\"z\":12.97},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":0},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}},{\"privateLocation\":{\"x\":-5.7,\"y\":0.07,\"z\":-1.06},\"privateRotation\":{\"x\":-5.740005,\"y\":0.379998,\"z\":-88.989998},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}},{\"privateLocation\":{\"x\":0,\"y\":0,\"z\":0},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":0},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"], [8, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"458342\",\"upperCloth\":\"458358\",\"lowerCloth\":\"458343\",\"gloves\":\"458324\",\"shoes\":\"458323\"}"], [9, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"472267\",\"upperCloth\":\"472266\",\"lowerCloth\":\"472263\",\"gloves\":\"472265\",\"shoes\":\"472264\",\"soltTypes\":[10,23],\"attachmentAssetIds\":[\"472276\",\"475488\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":11.23,\"y\":-2.61,\"z\":-5.8},\"privateRotation\":{\"x\":-76.119972,\"y\":-4.140003,\"z\":-143.559998},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}},{\"privateLocation\":{\"x\":0,\"y\":0,\"z\":1},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":0},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"], [10, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"481167\",\"upperCloth\":\"481095\",\"lowerCloth\":\"481168\",\"gloves\":\"481164\",\"shoes\":\"481162\",\"soltTypes\":[6],\"attachmentAssetIds\":[\"481254\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":-1.86,\"y\":0,\"z\":-3.24},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":0},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"], [11, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"482110\",\"upperCloth\":\"482124\",\"lowerCloth\":\"482109\",\"gloves\":\"75663\",\"shoes\":\"482094\",\"soltTypes\":[1,10],\"attachmentAssetIds\":[\"482134\",\"481478\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":0,\"y\":0,\"z\":0},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":0},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}},{\"privateLocation\":{\"x\":3.62,\"y\":3.36,\"z\":-3.05},\"privateRotation\":{\"x\":-72.779991,\"y\":6.100001,\"z\":-105.050026},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"], [12, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"491278\",\"upperCloth\":\"491314\",\"lowerCloth\":\"491315\",\"gloves\":\"75663\",\"shoes\":\"491312\",\"soltTypes\":[2,23],\"attachmentAssetIds\":[\"490998\",\"494016\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":4,\"y\":1.8,\"z\":-18},\"privateRotation\":{\"x\":43.000008,\"y\":-12.999994,\"z\":89.999992},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}},{\"privateLocation\":{\"x\":0,\"y\":0,\"z\":0},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":-89.999992},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"], [13, "{\"somatotype\":2,\"frontHair\":\"92726\",\"backHair\":\"498227\",\"upperCloth\":\"498263\",\"lowerCloth\":\"498264\",\"gloves\":\"498262\",\"shoes\":\"498228\",\"soltTypes\":[23],\"attachmentAssetIds\":[\"500584\"],\"attachmentOffsets\":[{\"privateLocation\":{\"x\":0,\"y\":0,\"z\":0},\"privateRotation\":{\"x\":0,\"y\":0,\"z\":-89.999992},\"privateScale\":{\"x\":1,\"y\":1,\"z\":1}}]}"]];
+class ShareIdConfig extends ConfigBase {
+    constructor() {
+        super(EXCELDATA$4);
+    }
+}
+
 const EXCELDATA$3 = [["ID", "CommodityId", "PartyPrice", "Count", "Des", "Icon"], ["", "", "", "", "", ""], [1, "2up8k7U7ULm0000hZ", 98, 100, "钻石*100", "103220"], [2, "9ZHaEgphvWq0000ha", 580, 600, "钻石*600", "103221"], [3, "6JfMPeEBARi0000hb", 980, 1000, "钻石*1000", "103215"], [4, "55OB9kdnutU0000hc", 2800, 3000, "钻石*3000", "103214"], [5, "7BktFJ9eIPI0000hd", 6800, 7000, "钻石*7000", "103214"], [6, "8CbboTcgQAn0000he", 9800, 10000, "钻石*10000", "103217"], [7, "6I0UekjBePp0000hf", 19800, 20000, "钻石*20000", "103217"], [8, "6U1htY0UV3i0000hg", 45800, 50000, "钻石*50000", "103218"], [9, "A2d5Hp0SiF40000hh", 88800, 100000, "钻石*100000", "103218"]];
 class ShopItemConfig extends ConfigBase {
     constructor() {
@@ -876,7 +883,7 @@ class ShopItemConfig extends ConfigBase {
     }
 }
 
-var foreign17 = /*#__PURE__*/Object.freeze({
+var foreign18 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     ShopItemConfig: ShopItemConfig
 });
@@ -888,7 +895,7 @@ class TaskConfig extends ConfigBase {
     }
 }
 
-var foreign18 = /*#__PURE__*/Object.freeze({
+var foreign19 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     TaskConfig: TaskConfig
 });
@@ -900,7 +907,7 @@ class TRAILINGConfig extends ConfigBase {
     }
 }
 
-var foreign19 = /*#__PURE__*/Object.freeze({
+var foreign20 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     TRAILINGConfig: TRAILINGConfig
 });
@@ -912,7 +919,7 @@ class WeaponPropConfig extends ConfigBase {
     }
 }
 
-var foreign20 = /*#__PURE__*/Object.freeze({
+var foreign21 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     WeaponPropConfig: WeaponPropConfig
 });
@@ -944,6 +951,8 @@ class GameConfig {
     static get ProjectileProp() { return this.getConfig(ProjectilePropConfig); }
     ;
     static get ROLE() { return this.getConfig(ROLEConfig); }
+    ;
+    static get ShareId() { return this.getConfig(ShareIdConfig); }
     ;
     static get ShopItem() { return this.getConfig(ShopItemConfig); }
     ;
@@ -1023,7 +1032,7 @@ NoticeView_Generate = __decorate([
 ], NoticeView_Generate);
 var NoticeView_Generate$1 = NoticeView_Generate;
 
-var foreign88 = /*#__PURE__*/Object.freeze({
+var foreign89 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: NoticeView_Generate$1
 });
@@ -1097,7 +1106,7 @@ TopNoticeItem_Generate = __decorate([
 ], TopNoticeItem_Generate);
 var TopNoticeItem_Generate$1 = TopNoticeItem_Generate;
 
-var foreign90 = /*#__PURE__*/Object.freeze({
+var foreign91 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TopNoticeItem_Generate$1
 });
@@ -2348,7 +2357,7 @@ GlobalData.addDiamond = 10;
 GlobalData.addCoin = 88888;
 GlobalData.maxWorldRankCount = 500;
 
-var foreign78 = /*#__PURE__*/Object.freeze({
+var foreign79 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: GlobalData
 });
@@ -2796,7 +2805,7 @@ class Utils {
     static async applySharedId(character, sharedId) {
         return new Promise(async (resolve) => {
             mw.AccountService.applySharedId(character, sharedId, async (success) => {
-                console.error(`success:${success}`);
+                // console.error(`success:${success}`);
                 if (success)
                     character.syncDescription();
                 await character.asyncReady();
@@ -2807,10 +2816,36 @@ class Utils {
     static async createSharedId(character) {
         return new Promise(async (resolve) => {
             mw.AccountService.createSharedId(character, (dataString) => {
-                console.error(`dataString:${dataString}`);
+                // console.error(`dataString:${dataString}`);
                 return resolve(dataString);
             });
         });
+    }
+    static async applySharedIdByConfig(character, sharedId, isSync = false) {
+        if (sharedId <= 0)
+            return;
+        let descriptionJson = GameConfig.ShareId.getElement(sharedId).DescriptionJson;
+        if (!descriptionJson)
+            return;
+        let shareIdData = new ShareIdData(JSON.parse(descriptionJson));
+        console.error(JSON.stringify(shareIdData));
+        await character.asyncReady();
+        const v2 = character.description.advance;
+        character.description.advance.base.characterSetting.somatotype = shareIdData.somatotype;
+        v2.hair.frontHair.style = shareIdData.frontHair;
+        v2.hair.backHair.style = shareIdData.backHair;
+        v2.clothing.upperCloth.style = shareIdData.upperCloth;
+        v2.clothing.lowerCloth.style = shareIdData.lowerCloth;
+        v2.clothing.gloves.style = shareIdData.gloves;
+        v2.clothing.shoes.style = shareIdData.shoes;
+        if (shareIdData?.attachmentAssetIds && shareIdData?.attachmentAssetIds?.length == 0) {
+            for (let i = 0; i < shareIdData.attachmentAssetIds.length; ++i) {
+                v2.slotAndDecoration.slot[shareIdData.soltTypes[i]].decoration.add(shareIdData.attachmentAssetIds[i], shareIdData.attachmentOffsets[i]);
+            }
+        }
+        await character.asyncReady();
+        if (isSync)
+            character.syncDescription();
     }
 }
 Utils.assetIconDataMap = new Map();
@@ -2839,6 +2874,33 @@ Utils.blueTeamRevivalPoint = [
 ];
 Utils.targetGos = [];
 Utils.pathIndex = 0;
+class ShareIdData {
+    constructor(data = null) {
+        if (!data)
+            return;
+        this.somatotype = data?.somatotype;
+        this.backHair = data?.backHair;
+        this.frontHair = data?.frontHair;
+        this.upperCloth = data?.upperCloth;
+        this.lowerCloth = data?.lowerCloth;
+        this.gloves = data?.gloves;
+        this.shoes = data?.shoes;
+        if (data?.attachmentAssetIds && data?.attachmentAssetIds?.length > 0) {
+            this.soltTypes = [];
+            this.attachmentAssetIds = [];
+            this.attachmentOffsets = [];
+            for (let i = 0; i < data?.attachmentAssetIds.length; ++i) {
+                this.soltTypes.push(data?.soltTypes);
+                this.attachmentAssetIds.push(data?.attachmentAssetIds[i]);
+                let attachmentOffset = data?.attachmentOffsets[i];
+                let p = attachmentOffset?.privateLocation;
+                let r = attachmentOffset?.privateRotation;
+                let s = attachmentOffset?.privateScale;
+                this.attachmentOffsets.push(new Transform(new mw.Vector(p?.x, p?.y, p?.z), new mw.Rotation(r?.x, r?.y, r?.z), new mw.Vector(s?.x, s?.y, s?.z)));
+            }
+        }
+    }
+}
 function cubicBezier(p1x, p1y, p2x, p2y) {
     const ZERO_LIMIT = 1e-6;
     const ax = 3 * p1x - 3 * p2x + 1;
@@ -2895,8 +2957,9 @@ function cubicBezier(p1x, p1y, p2x, p2y) {
     return solve;
 }
 
-var foreign84 = /*#__PURE__*/Object.freeze({
+var foreign85 = /*#__PURE__*/Object.freeze({
     __proto__: null,
+    ShareIdData: ShareIdData,
     cubicBezier: cubicBezier,
     default: Utils
 });
@@ -2976,7 +3039,7 @@ AdPanel_Generate = __decorate([
 ], AdPanel_Generate);
 var AdPanel_Generate$1 = AdPanel_Generate;
 
-var foreign92 = /*#__PURE__*/Object.freeze({
+var foreign93 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: AdPanel_Generate$1
 });
@@ -3039,7 +3102,7 @@ class AdPanel extends AdPanel_Generate$1 {
     }
 }
 
-var foreign26 = /*#__PURE__*/Object.freeze({
+var foreign27 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: AdPanel
 });
@@ -3047,34 +3110,23 @@ var foreign26 = /*#__PURE__*/Object.freeze({
 let ChangeClothes = class ChangeClothes extends Script {
     constructor() {
         super(...arguments);
-        this.shareId = "";
+        this.shareId = 0;
+        /**------------------------------------------- 服务端 ------------------------------------------------ */
     }
     /** 当脚本被实例后，会在第一帧更新前调用此函数 */
     onStart() {
+        this.onStartCS();
         if (mw.SystemUtil.isClient()) {
-            let trigger = this.gameObject;
-            let npc = trigger.parent;
-            if (this.shareId && this.shareId != "")
-                Utils.applySharedId(npc, this.shareId);
-            trigger.onEnter.add((char) => {
-                if (char.gameObjectId != Player.localPlayer.character.gameObjectId)
-                    return;
-                if (!GlobalData.isOpenIAA) {
-                    char.setDescription(npc.getDescription());
-                    char.asyncReady().then(() => {
-                        char.syncDescription();
-                    });
-                }
-                else {
-                    mw.UIService.getUI(AdPanel).showRewardAd(() => {
-                        char.setDescription(npc.getDescription());
-                        char.asyncReady().then(() => {
-                            char.syncDescription();
-                        });
-                    }, GameConfig.Language.FreeToUse.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
-                }
-            });
+            this.useUpdate = false;
+            this.onStartC();
         }
+        else if (mw.SystemUtil.isServer()) {
+            this.useUpdate = false;
+            this.onStartS();
+        }
+    }
+    /**客户端服务端的onStart */
+    onStartCS() {
     }
     /**
      * 周期函数 每帧执行
@@ -3082,9 +3134,46 @@ let ChangeClothes = class ChangeClothes extends Script {
      * @param dt 当前帧与上一帧的延迟 / 秒
      */
     onUpdate(dt) {
+        if (mw.SystemUtil.isClient()) {
+            this.onUpdateC(dt);
+        }
+        else if (mw.SystemUtil.isServer()) {
+            this.onUpdateS(dt);
+        }
     }
-    /** 脚本被销毁时最后一帧执行完调用此函数 */
-    onDestroy() {
+    /**------------------------------------------- 客户端 ------------------------------------------------ */
+    /**客户端的OnStart */
+    onStartC() {
+        this.initNpc();
+    }
+    initNpc() {
+        let trigger = this.gameObject;
+        let npc = trigger.parent;
+        if (this.shareId > 0)
+            Utils.applySharedIdByConfig(npc, this.shareId);
+        trigger.onEnter.add((char) => {
+            if (char.gameObjectId != Player.localPlayer.character.gameObjectId)
+                return;
+            if (!GlobalData.isOpenIAA) {
+                Utils.applySharedIdByConfig(char, this.shareId, true);
+            }
+            else {
+                mw.UIService.getUI(AdPanel).showRewardAd(() => {
+                    Utils.applySharedIdByConfig(char, this.shareId, true);
+                }, GameConfig.Language.FreeToUse.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
+            }
+        });
+    }
+    /**客户端的update */
+    onUpdateC(dt) {
+    }
+    /**------------------------------------------- 客户端 ------------------------------------------------ */
+    /**------------------------------------------- 服务端 ------------------------------------------------ */
+    /**服务端的OnStart */
+    onStartS() {
+    }
+    /**服务端的update */
+    onUpdateS(dt) {
     }
 };
 __decorate([
@@ -3192,7 +3281,7 @@ ConfirmPanel_Generate = __decorate([
 ], ConfirmPanel_Generate);
 var ConfirmPanel_Generate$1 = ConfirmPanel_Generate;
 
-var foreign85 = /*#__PURE__*/Object.freeze({
+var foreign86 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ConfirmPanel_Generate$1
 });
@@ -3965,7 +4054,7 @@ function PrefabReport(reportId = null) {
     };
 }
 
-var foreign83 = /*#__PURE__*/Object.freeze({
+var foreign84 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get PrefabEvent () { return PrefabEvent; },
     PrefabReport: PrefabReport
@@ -4006,7 +4095,7 @@ __decorate([
     Decorator.persistence()
 ], CoinData.prototype, "isFirstBuy", void 0);
 
-var foreign27 = /*#__PURE__*/Object.freeze({
+var foreign28 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: CoinData
 });
@@ -4057,7 +4146,7 @@ __decorate([
     Decorator.noReply()
 ], CoinModuleS.prototype, "net_setFirstBuy", null);
 
-var foreign29 = /*#__PURE__*/Object.freeze({
+var foreign30 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: CoinModuleS
 });
@@ -4070,7 +4159,7 @@ var EventType;
     EventType["OnOffWeaponUI"] = "OnOffWeaponUI";
 })(EventType || (EventType = {}));
 
-var foreign75 = /*#__PURE__*/Object.freeze({
+var foreign76 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get EventType () { return EventType; }
 });
@@ -4165,7 +4254,7 @@ CoinPanel_Generate = __decorate([
 ], CoinPanel_Generate);
 var CoinPanel_Generate$1 = CoinPanel_Generate;
 
-var foreign93 = /*#__PURE__*/Object.freeze({
+var foreign94 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: CoinPanel_Generate$1
 });
@@ -4383,7 +4472,7 @@ class CoinModuleC extends ModuleC {
     }
 }
 
-var foreign28 = /*#__PURE__*/Object.freeze({
+var foreign29 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: CoinModuleC
 });
@@ -4430,7 +4519,7 @@ class CoinPanel extends CoinPanel_Generate$1 {
     }
 }
 
-var foreign30 = /*#__PURE__*/Object.freeze({
+var foreign31 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: CoinPanel
 });
@@ -4472,7 +4561,7 @@ var KillTipType;
     KillTipType[KillTipType["revenge"] = 3] = "revenge";
 })(KillTipType || (KillTipType = {}));
 
-var foreign34 = /*#__PURE__*/Object.freeze({
+var foreign35 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     HUDData: HUDData,
     KillTipData: KillTipData,
@@ -5133,7 +5222,7 @@ HUDPanel_Generate = __decorate([
 ], HUDPanel_Generate);
 var HUDPanel_Generate$1 = HUDPanel_Generate;
 
-var foreign98 = /*#__PURE__*/Object.freeze({
+var foreign99 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: HUDPanel_Generate$1
 });
@@ -5271,7 +5360,7 @@ SharePanel_Generate = __decorate([
 ], SharePanel_Generate);
 var SharePanel_Generate$1 = SharePanel_Generate;
 
-var foreign104 = /*#__PURE__*/Object.freeze({
+var foreign105 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: SharePanel_Generate$1
 });
@@ -5353,7 +5442,7 @@ KillTipItem_Generate = __decorate([
 ], KillTipItem_Generate);
 var KillTipItem_Generate$1 = KillTipItem_Generate;
 
-var foreign99 = /*#__PURE__*/Object.freeze({
+var foreign100 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: KillTipItem_Generate$1
 });
@@ -5392,7 +5481,7 @@ class KillTipItem extends KillTipItem_Generate$1 {
     }
 }
 
-var foreign38 = /*#__PURE__*/Object.freeze({
+var foreign39 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     KillTipItem: KillTipItem
 });
@@ -6277,7 +6366,7 @@ class SharePanel extends SharePanel_Generate$1 {
     }
 }
 
-var foreign37 = /*#__PURE__*/Object.freeze({
+var foreign38 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     SharePanel: SharePanel,
     default: HUDPanel
@@ -6585,7 +6674,7 @@ class HUDModuleC extends ModuleC {
     }
 }
 
-var foreign35 = /*#__PURE__*/Object.freeze({
+var foreign36 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: HUDModuleC
 });
@@ -6730,7 +6819,7 @@ var MapEx;
     MapEx.copy = copy;
 })(MapEx || (MapEx = {}));
 
-var foreign82 = /*#__PURE__*/Object.freeze({
+var foreign83 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get MapEx () { return MapEx; }
 });
@@ -6805,7 +6894,7 @@ __decorate([
     Decorator.persistence()
 ], ShopData.prototype, "useShopIds", void 0);
 
-var foreign55 = /*#__PURE__*/Object.freeze({
+var foreign56 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get PriceType () { return PriceType; },
     get ShopType () { return ShopType; },
@@ -7134,7 +7223,7 @@ Helper.weaponDataMap_Abandon = new Map([
     ], //弓,弓箭瞬发射箭,弓箭手A大招
 ]);
 
-var foreign79 = /*#__PURE__*/Object.freeze({
+var foreign80 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     Helper: Helper
 });
@@ -7153,7 +7242,7 @@ var ProjectileType;
     ProjectileType[ProjectileType["Throw"] = 4] = "Throw";
 })(ProjectileType || (ProjectileType = {}));
 
-var foreign72 = /*#__PURE__*/Object.freeze({
+var foreign73 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get ProjectileType () { return ProjectileType; }
 });
@@ -7352,7 +7441,7 @@ class Projectile {
     }
 }
 
-var foreign69 = /*#__PURE__*/Object.freeze({
+var foreign70 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     Projectile: Projectile
 });
@@ -7587,7 +7676,7 @@ class WeaponModuleC extends ModuleC {
     }
 }
 
-var foreign73 = /*#__PURE__*/Object.freeze({
+var foreign74 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: WeaponModuleC
 });
@@ -7641,7 +7730,7 @@ let Weapon = class Weapon extends Script {
     async initPlayer() {
         if (!this.player) {
             this.player = await Player.asyncGetPlayer(this.playerId);
-            console.error(`playerId = ${this.playerId}"的玩家 "${this.player ? "角色初始化完成" : "角色初始化失败"}`);
+            // console.error(`playerId = ${this.playerId}"的玩家 "${this.player ? "角色初始化完成" : "角色初始化失败"}`);
         }
     }
     async onWeaponChanged() {
@@ -7669,7 +7758,7 @@ let Weapon = class Weapon extends Script {
         this.getPlayer.character.attachToSlot(this.weaponModel, slotType);
         this.weaponModel.localTransform.position = mw.Vector.zero;
         this.weaponModel.localTransform.rotation = mw.Rotation.zero;
-        console.error(`playerId = ${this.playerId}的玩家 "${this.weaponModel ? "武器加载完成" : "武器加载失败"}`);
+        // console.error(`playerId = ${this.playerId}的玩家 "${this.weaponModel ? "武器加载完成" : "武器加载失败"}`);
         this.fireAnchor = this.weaponModel.getChildByName("FireAnchor");
         if (this.getPlayer.playerId == Player.localPlayer.playerId)
             this.getWeaponModuleC.setFireAnchor(this.fireAnchor);
@@ -7699,7 +7788,7 @@ let Weapon = class Weapon extends Script {
         this.projectilePropElement = GameConfig.ProjectileProp.getElement(this.weaponId);
         if (!this.projectilePropElement || !this.weaponPropElement)
             return;
-        console.error(`playerId = ${this.playerId}的玩家 发射一枚子弹`);
+        // console.error(`playerId = ${this.playerId}的玩家 发射一枚子弹`);
         this.prepareFire(this.getPlayer.character.gameObjectId, this.fireAnchor.worldTransform.position, shootDir, projectileType, attackIndex);
     }
     async prepareFire(characterId, firePosition, shootDir, projectileType, attackIndex) {
@@ -7804,7 +7893,7 @@ Weapon = __decorate([
 ], Weapon);
 var Weapon$1 = Weapon;
 
-var foreign71 = /*#__PURE__*/Object.freeze({
+var foreign72 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: Weapon$1
 });
@@ -7901,7 +7990,7 @@ __decorate([
     Decorator.noReply()
 ], WeaponModuleS.prototype, "net_switchWeapon", null);
 
-var foreign74 = /*#__PURE__*/Object.freeze({
+var foreign75 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: WeaponModuleS
 });
@@ -8039,7 +8128,7 @@ __decorate([
     Decorator.noReply()
 ], MorphModuleS.prototype, "net_unmorph", null);
 
-var foreign39 = /*#__PURE__*/Object.freeze({
+var foreign40 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     MorphModuleC: MorphModuleC,
     MorphModuleS: MorphModuleS
@@ -8082,7 +8171,7 @@ class WorldData {
     }
 }
 
-var foreign49 = /*#__PURE__*/Object.freeze({
+var foreign50 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     RoomData: RoomData,
     WorldData: WorldData
@@ -8357,7 +8446,7 @@ __decorate([
     Decorator.noReply()
 ], RankModuleS.prototype, "net_setFirstModel", null);
 
-var foreign51 = /*#__PURE__*/Object.freeze({
+var foreign52 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RankModuleS
 });
@@ -8508,7 +8597,7 @@ __decorate([
     Decorator.persistence()
 ], TaskData.prototype, "weeklyTasks", void 0);
 
-var foreign60 = /*#__PURE__*/Object.freeze({
+var foreign61 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     Task: Task,
     TaskData: TaskData,
@@ -8699,7 +8788,7 @@ __decorate([
     Decorator.noReply()
 ], TaskModuleS.prototype, "net_updateTaskConpleteData", null);
 
-var foreign62 = /*#__PURE__*/Object.freeze({
+var foreign63 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TaskModuleS
 });
@@ -8732,7 +8821,7 @@ var ResultType;
     ResultType[ResultType["Fail3"] = 3] = "Fail3";
 })(ResultType || (ResultType = {}));
 
-var foreign64 = /*#__PURE__*/Object.freeze({
+var foreign65 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     get ResultType () { return ResultType; },
     TeamData: TeamData,
@@ -8842,7 +8931,7 @@ __decorate([
     Decorator.noReply()
 ], TeamModuleS.prototype, "net_onEnterScene", null);
 
-var foreign66 = /*#__PURE__*/Object.freeze({
+var foreign67 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TeamModuleS
 });
@@ -8880,7 +8969,7 @@ __decorate([
     Decorator.persistence()
 ], PlayerData.prototype, "dieCount", void 0);
 
-var foreign42 = /*#__PURE__*/Object.freeze({
+var foreign43 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     PlayerStatus: PlayerStatus,
     default: PlayerData
@@ -9081,7 +9170,7 @@ class PlayerModuleS extends ModuleS {
     }
 }
 
-var foreign44 = /*#__PURE__*/Object.freeze({
+var foreign45 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     PlayerModuleS: PlayerModuleS
 });
@@ -9321,7 +9410,7 @@ RankPanel_Generate = __decorate([
 ], RankPanel_Generate);
 var RankPanel_Generate$1 = RankPanel_Generate;
 
-var foreign101 = /*#__PURE__*/Object.freeze({
+var foreign102 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RankPanel_Generate$1
 });
@@ -9398,7 +9487,7 @@ RoomItem_Generate = __decorate([
 ], RoomItem_Generate);
 var RoomItem_Generate$1 = RoomItem_Generate;
 
-var foreign102 = /*#__PURE__*/Object.freeze({
+var foreign103 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RoomItem_Generate$1
 });
@@ -9425,7 +9514,7 @@ class RoomItem extends RoomItem_Generate$1 {
     }
 }
 
-var foreign53 = /*#__PURE__*/Object.freeze({
+var foreign54 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RoomItem
 });
@@ -9502,7 +9591,7 @@ WorldItem_Generate = __decorate([
 ], WorldItem_Generate);
 var WorldItem_Generate$1 = WorldItem_Generate;
 
-var foreign103 = /*#__PURE__*/Object.freeze({
+var foreign104 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: WorldItem_Generate$1
 });
@@ -9529,7 +9618,7 @@ class WorldItem extends WorldItem_Generate$1 {
     }
 }
 
-var foreign54 = /*#__PURE__*/Object.freeze({
+var foreign55 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: WorldItem
 });
@@ -9698,7 +9787,7 @@ class RankPanel extends RankPanel_Generate$1 {
     }
 }
 
-var foreign52 = /*#__PURE__*/Object.freeze({
+var foreign53 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RankPanel
 });
@@ -9979,7 +10068,7 @@ class RankModuleC extends ModuleC {
     }
 }
 
-var foreign50 = /*#__PURE__*/Object.freeze({
+var foreign51 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RankModuleC
 });
@@ -10104,7 +10193,7 @@ TeamPanel_Generate = __decorate([
 ], TeamPanel_Generate);
 var TeamPanel_Generate$1 = TeamPanel_Generate;
 
-var foreign110 = /*#__PURE__*/Object.freeze({
+var foreign111 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TeamPanel_Generate$1
 });
@@ -10166,7 +10255,7 @@ TeamItem_Generate = __decorate([
 ], TeamItem_Generate);
 var TeamItem_Generate$1 = TeamItem_Generate;
 
-var foreign109 = /*#__PURE__*/Object.freeze({
+var foreign110 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TeamItem_Generate$1
 });
@@ -10189,7 +10278,7 @@ class TeamItem extends TeamItem_Generate$1 {
     }
 }
 
-var foreign67 = /*#__PURE__*/Object.freeze({
+var foreign68 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TeamItem
 });
@@ -10310,7 +10399,7 @@ class TeamPanel extends TeamPanel_Generate$1 {
     }
 }
 
-var foreign68 = /*#__PURE__*/Object.freeze({
+var foreign69 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TeamPanel
 });
@@ -10443,7 +10532,7 @@ class TeamModuleC extends ModuleC {
     }
 }
 
-var foreign65 = /*#__PURE__*/Object.freeze({
+var foreign66 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TeamModuleC
 });
@@ -10488,7 +10577,7 @@ class RadarModuleC extends ModuleC {
     }
 }
 
-var foreign46 = /*#__PURE__*/Object.freeze({
+var foreign47 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RadarModuleC
 });
@@ -10582,7 +10671,7 @@ class RadarPanel extends UIScript {
                 let loc = this.Loc2RadarPos(otherPlayer.character.worldTransform.position);
                 let offset = otherPlayerPoint.size;
                 let retPosition = new Vector2(loc.x - (offset.x / 2), loc.y - (offset.y / 2));
-                console.error(retPosition);
+                // console.error(retPosition);
                 if (retPosition.x < 0 || retPosition.x > 400 || retPosition.y < 0 || retPosition.y > 400) {
                     Utils.setWidgetVisibility(otherPlayerPoint, mw.SlateVisibility.Collapsed);
                 }
@@ -10673,7 +10762,7 @@ class RadarPanel extends UIScript {
     }
 }
 
-var foreign48 = /*#__PURE__*/Object.freeze({
+var foreign49 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RadarPanel
 });
@@ -10735,7 +10824,7 @@ EnemyLifebar_Generate = __decorate([
 ], EnemyLifebar_Generate);
 var EnemyLifebar_Generate$1 = EnemyLifebar_Generate;
 
-var foreign86 = /*#__PURE__*/Object.freeze({
+var foreign87 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: EnemyLifebar_Generate$1
 });
@@ -10839,7 +10928,7 @@ class Monster extends Script {
             this.monsterWidth = this.getMonster.collisionExtent.x > this.getMonster.collisionExtent.y ?
                 this.getMonster.collisionExtent.x : this.getMonster.collisionExtent.y;
         }
-        console.error(`this.monsterWidth:${this.monsterWidth}`);
+        // console.error(`this.monsterWidth:${this.monsterWidth}`);
         return this.monsterWidth + 10;
     }
     async onStart_CS() {
@@ -11104,7 +11193,7 @@ class Monster extends Script {
     }
     chasePlayerNavigateTo_S(targetPlayer) {
         let dis = mw.Vector.distance(this.getMonster.worldTransform.position, targetPlayer.character.worldTransform.position);
-        console.error(`dis:${dis}`);
+        // console.error(`dis:${dis}`);
         if (dis > this.getMonsterWidth) {
             this.directChasePlayerNavigateTo_S(targetPlayer);
         }
@@ -11340,7 +11429,7 @@ __decorate([
     Decorator.persistence()
 ], ActivityData.prototype, "minutes", void 0);
 
-var foreign22 = /*#__PURE__*/Object.freeze({
+var foreign23 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ActivityData
 });
@@ -11479,7 +11568,7 @@ ShopPanel_Generate = __decorate([
 ], ShopPanel_Generate);
 var ShopPanel_Generate$1 = ShopPanel_Generate;
 
-var foreign106 = /*#__PURE__*/Object.freeze({
+var foreign107 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ShopPanel_Generate$1
 });
@@ -11672,7 +11761,7 @@ ShopItem_Generate = __decorate([
 ], ShopItem_Generate);
 var ShopItem_Generate$1 = ShopItem_Generate;
 
-var foreign105 = /*#__PURE__*/Object.freeze({
+var foreign106 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ShopItem_Generate$1
 });
@@ -11865,7 +11954,7 @@ class ShopItem extends ShopItem_Generate$1 {
     }
 }
 
-var foreign58 = /*#__PURE__*/Object.freeze({
+var foreign59 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ShopItem
 });
@@ -12055,7 +12144,7 @@ class ShopPanel extends ShopPanel_Generate$1 {
     }
 }
 
-var foreign59 = /*#__PURE__*/Object.freeze({
+var foreign60 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ShopPanel
 });
@@ -12459,7 +12548,7 @@ class ShopModuleC extends ModuleC {
     }
 }
 
-var foreign56 = /*#__PURE__*/Object.freeze({
+var foreign57 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ShopModuleC
 });
@@ -12606,7 +12695,7 @@ ActivityPanel_Generate = __decorate([
 ], ActivityPanel_Generate);
 var ActivityPanel_Generate$1 = ActivityPanel_Generate;
 
-var foreign91 = /*#__PURE__*/Object.freeze({
+var foreign92 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ActivityPanel_Generate$1
 });
@@ -12790,7 +12879,7 @@ class ActivityPanel extends ActivityPanel_Generate$1 {
     }
 }
 
-var foreign25 = /*#__PURE__*/Object.freeze({
+var foreign26 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ActivityPanel
 });
@@ -12897,7 +12986,7 @@ class ActivityModuleC extends ModuleC {
     }
 }
 
-var foreign23 = /*#__PURE__*/Object.freeze({
+var foreign24 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ActivityModuleC
 });
@@ -12920,7 +13009,7 @@ __decorate([
     Decorator.noReply()
 ], ActivityModuleS.prototype, "net_setMinutes", null);
 
-var foreign24 = /*#__PURE__*/Object.freeze({
+var foreign25 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ActivityModuleS
 });
@@ -12941,7 +13030,7 @@ __decorate([
     Decorator.noReply()
 ], HUDModuleS.prototype, "net_saveSetData", null);
 
-var foreign36 = /*#__PURE__*/Object.freeze({
+var foreign37 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: HUDModuleS
 });
@@ -13037,7 +13126,7 @@ class FlyText {
     }
 }
 
-var foreign76 = /*#__PURE__*/Object.freeze({
+var foreign77 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     FlyText: FlyText
 });
@@ -13121,7 +13210,7 @@ class PlayerModuleC extends ModuleC {
     }
 }
 
-var foreign43 = /*#__PURE__*/Object.freeze({
+var foreign44 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     PlayerModuleC: PlayerModuleC
 });
@@ -13131,7 +13220,7 @@ class RadarModuleS extends ModuleS {
     }
 }
 
-var foreign47 = /*#__PURE__*/Object.freeze({
+var foreign48 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RadarModuleS
 });
@@ -13192,7 +13281,7 @@ __decorate([
     Decorator.noReply()
 ], ShopModuleS.prototype, "net_setCharacterTrailing", null);
 
-var foreign57 = /*#__PURE__*/Object.freeze({
+var foreign58 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ShopModuleS
 });
@@ -13298,7 +13387,7 @@ TaskItem_Generate = __decorate([
 ], TaskItem_Generate);
 var TaskItem_Generate$1 = TaskItem_Generate;
 
-var foreign107 = /*#__PURE__*/Object.freeze({
+var foreign108 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TaskItem_Generate$1
 });
@@ -13423,7 +13512,7 @@ TaskPanel_Generate = __decorate([
 ], TaskPanel_Generate);
 var TaskPanel_Generate$1 = TaskPanel_Generate;
 
-var foreign108 = /*#__PURE__*/Object.freeze({
+var foreign109 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TaskPanel_Generate$1
 });
@@ -13718,7 +13807,7 @@ class TaskItem extends TaskItem_Generate$1 {
     }
     updateTaskCompaleteItemData() {
         let nextId = this.vIPTaskElement.NextId;
-        console.error(`nextId = ${nextId}`);
+        // console.error(`nextId = ${nextId}`);
         if (nextId != 0) {
             this.task.taskId = nextId;
             // this.task.progress = 0;
@@ -13743,7 +13832,7 @@ class TaskItem extends TaskItem_Generate$1 {
     }
 }
 
-var foreign63 = /*#__PURE__*/Object.freeze({
+var foreign64 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     TaskItem: TaskItem,
     default: TaskPanel
@@ -14079,7 +14168,7 @@ class TaskModuleC extends ModuleC {
     }
 }
 
-var foreign61 = /*#__PURE__*/Object.freeze({
+var foreign62 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TaskModuleC
 });
@@ -14106,7 +14195,6 @@ let GameLauncher = class GameLauncher extends mw.Script {
     /**客户端服务端的onStart */
     onStartCS() {
         GlobalData.isOpenIAA = !mw.SystemUtil.isPIE || this.isOpenIAA;
-        this.initLanguage();
         this.onRegisterModule();
     }
     /**
@@ -14141,6 +14229,7 @@ let GameLauncher = class GameLauncher extends mw.Script {
     /**------------------------------------------- 客户端 ------------------------------------------------ */
     /**客户端的OnStart */
     onStartC() {
+        this.initLanguage();
     }
     initLanguage() {
         let language = LocaleUtil.getDefaultLocale().toString().toLowerCase();
@@ -14207,7 +14296,7 @@ GameLauncher = __decorate([
 ], GameLauncher);
 var GameLauncher$1 = GameLauncher;
 
-var foreign21 = /*#__PURE__*/Object.freeze({
+var foreign22 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: GameLauncher$1
 });
@@ -14271,7 +14360,7 @@ var foreign21 = /*#__PURE__*/Object.freeze({
 //     }
 // }
 
-var foreign31 = /*#__PURE__*/Object.freeze({
+var foreign32 = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
 
@@ -14357,7 +14446,7 @@ var foreign31 = /*#__PURE__*/Object.freeze({
 //     }
 // }
 
-var foreign32 = /*#__PURE__*/Object.freeze({
+var foreign33 = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
 
@@ -14446,7 +14535,7 @@ GMHUD_Generate = __decorate([
 ], GMHUD_Generate);
 var GMHUD_Generate$1 = GMHUD_Generate;
 
-var foreign96 = /*#__PURE__*/Object.freeze({
+var foreign97 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: GMHUD_Generate$1
 });
@@ -14506,7 +14595,7 @@ GMItem_Generate = __decorate([
 ], GMItem_Generate);
 var GMItem_Generate$1 = GMItem_Generate;
 
-var foreign97 = /*#__PURE__*/Object.freeze({
+var foreign98 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: GMItem_Generate$1
 });
@@ -14525,6 +14614,45 @@ AddGMCommand({
         let pA = player.character.loadAnimation(value);
         pA.loop = 0;
         pA.play();
+    }
+});
+let npc = null;
+AddGMCommand({
+    label: "shareId",
+    clientCmd: async (player, value) => {
+        if (!npc) {
+            npc = await mw.GameObject.asyncSpawn("Character");
+            npc.worldTransform.position = player.character.worldTransform.position;
+        }
+        Utils.applySharedId(npc, value).then(async () => {
+            await npc.asyncReady();
+            const v2 = npc.description.advance;
+            let data = new ShareIdData();
+            data.somatotype = npc.description.advance.base.characterSetting.somatotype;
+            data.frontHair = v2.hair.frontHair.style;
+            data.backHair = v2.hair.backHair.style;
+            data.upperCloth = v2.clothing.upperCloth.style;
+            data.lowerCloth = v2.clothing.lowerCloth.style;
+            data.gloves = v2.clothing.gloves.style;
+            data.shoes = v2.clothing.shoes.style;
+            for (let i = 0; i < v2.slotAndDecoration.slot.length; ++i) {
+                const slot = v2.slotAndDecoration.slot[i];
+                if (slot.decoration && slot.decoration.length > 0) {
+                    if (!data.soltTypes || data.soltTypes?.length == 0)
+                        data.soltTypes = [];
+                    data.soltTypes.push(i);
+                    if (!data.attachmentAssetIds || data.attachmentAssetIds?.length == 0)
+                        data.attachmentAssetIds = [];
+                    data.attachmentAssetIds.push(slot.decoration[0].attachmentAssetId);
+                    if (!data.attachmentOffsets || data.attachmentOffsets?.length == 0)
+                        data.attachmentOffsets = [];
+                    data.attachmentOffsets.push(slot.decoration[0].attachmentOffset);
+                }
+            }
+            console.error(JSON.stringify(data));
+        });
+    },
+    serverCmd: async (player, value) => {
     }
 });
 let GMService = GMService_1 = class GMService extends mw.Script {
@@ -14721,7 +14849,7 @@ class DropdownList {
     }
 }
 
-var foreign33 = /*#__PURE__*/Object.freeze({
+var foreign34 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     AddGMCommand: AddGMCommand,
     CloseGMUI: CloseGMUI,
@@ -14965,7 +15093,7 @@ Npc = __decorate([
 ], Npc);
 var Npc$1 = Npc;
 
-var foreign40 = /*#__PURE__*/Object.freeze({
+var foreign41 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: Npc$1
 });
@@ -15077,7 +15205,7 @@ AddMaxHp = __decorate([
 ], AddMaxHp);
 var AddMaxHp$1 = AddMaxHp;
 
-var foreign41 = /*#__PURE__*/Object.freeze({
+var foreign42 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: AddMaxHp$1
 });
@@ -15237,7 +15365,7 @@ TryOutGun = __decorate([
 ], TryOutGun);
 var TryOutGun$1 = TryOutGun;
 
-var foreign45 = /*#__PURE__*/Object.freeze({
+var foreign46 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: TryOutGun$1
 });
@@ -15305,7 +15433,7 @@ ProjectTarget = __decorate([
 ], ProjectTarget);
 var ProjectTarget$1 = ProjectTarget;
 
-var foreign70 = /*#__PURE__*/Object.freeze({
+var foreign71 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: ProjectTarget$1
 });
@@ -15503,7 +15631,7 @@ class KeyActionManager {
     }
 }
 
-var foreign77 = /*#__PURE__*/Object.freeze({
+var foreign78 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: FreeCamera$1
 });
@@ -15587,7 +15715,7 @@ class TSIAP {
 }
 let TSIAPService = new TSIAP();
 
-var foreign80 = /*#__PURE__*/Object.freeze({
+var foreign81 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     TSIAPService: TSIAPService
 });
@@ -15658,7 +15786,7 @@ JumpGame = __decorate([
 ], JumpGame);
 var JumpGame$1 = JumpGame;
 
-var foreign81 = /*#__PURE__*/Object.freeze({
+var foreign82 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: JumpGame$1
 });
@@ -15708,7 +15836,7 @@ JumpGameTips_Generate = __decorate([
 ], JumpGameTips_Generate);
 var JumpGameTips_Generate$1 = JumpGameTips_Generate;
 
-var foreign87 = /*#__PURE__*/Object.freeze({
+var foreign88 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: JumpGameTips_Generate$1
 });
@@ -15776,7 +15904,7 @@ SecondNoticeItem_Generate = __decorate([
 ], SecondNoticeItem_Generate);
 var SecondNoticeItem_Generate$1 = SecondNoticeItem_Generate;
 
-var foreign89 = /*#__PURE__*/Object.freeze({
+var foreign90 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: SecondNoticeItem_Generate$1
 });
@@ -15888,7 +16016,7 @@ DiamondItem_Generate = __decorate([
 ], DiamondItem_Generate);
 var DiamondItem_Generate$1 = DiamondItem_Generate;
 
-var foreign94 = /*#__PURE__*/Object.freeze({
+var foreign95 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: DiamondItem_Generate$1
 });
@@ -15979,7 +16107,7 @@ DiamondPanel_Generate = __decorate([
 ], DiamondPanel_Generate);
 var DiamondPanel_Generate$1 = DiamondPanel_Generate;
 
-var foreign95 = /*#__PURE__*/Object.freeze({
+var foreign96 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: DiamondPanel_Generate$1
 });
@@ -16028,7 +16156,7 @@ RadarPanel_Generate = __decorate([
 ], RadarPanel_Generate);
 var RadarPanel_Generate$1 = RadarPanel_Generate;
 
-var foreign100 = /*#__PURE__*/Object.freeze({
+var foreign101 = /*#__PURE__*/Object.freeze({
     __proto__: null,
     default: RadarPanel_Generate$1
 });
@@ -16050,100 +16178,100 @@ const MWModuleMap = {
      'EC2961B34147096FC9DBC2971DD9AA53': foreign14,
      '6A277D5049CE2CE92CD7339A98FE615B': foreign15,
      'E19C4FBC41BEE3AD41222B8D64AAD365': foreign16,
-     '011052CD4ED0D3DC9960ABBFBBC46D5A': foreign17,
-     'C2E7A2E041E5BB00F9451CBBBF64D6A6': foreign18,
-     '5CA2293C4B0A9CA7C2D0CBBF73D219E2': foreign19,
-     'C319097045752CFC53190794AB2BCD76': foreign20,
-     '290F1F4D42ECBF13317BD8BC212FA75A': foreign21,
-     '2E162EDD4A7F55E58539648F012097D2': foreign22,
-     '36994D0E483CF7F6283CAFACCB406590': foreign23,
-     'F80D68DA497F0D49745DDE80D38E9011': foreign24,
-     '0F598A9C453EA67A85B875B1E1D8AB93': foreign25,
-     '7D98F77C457BD44550899198F36FDB9F': foreign26,
-     '188EB62D4BAF9B98F91C589C70DE4698': foreign27,
-     '2943C580492BC867A5B690B2B178012A': foreign28,
-     '533992264411311B6F383EBE0ECF1BB5': foreign29,
-     '2A2161914E537A9F71E302BCA0CA6AC6': foreign30,
-     '42EE39EA49315FAE8563A88B97E3F060': foreign31,
-     '34514D87410DC61DB5B64C9DCE81A833': foreign32,
-     'C6239AAF49000AB5543412A4C68EAD31': foreign33,
-     '43D19C1D40CA859F774230B98EE261B5': foreign34,
-     '7B3F640D45CDC99A229EFDBBC3F50ABD': foreign35,
-     '66C82E484C9BFB4ADA02618A95752286': foreign36,
-     'DAA40DEE420925A8EA2B4FB015573440': foreign37,
-     '8E647D8F40D9B4AE1A1349ACD3C3F392': foreign38,
-     '21227DCE4B6FB5C99FA72BA5B225A752': foreign39,
-     '1B12D2CD40775D42550AC8B64BACB2B5': foreign40,
-     '3B463A284FD7B66C9489AA8EC3AC8A23': foreign41,
-     'B8D3411E480AD6F4CBA476A88A02FD84': foreign42,
-     '001BB3D44F528AD6DFEB5BBB7FF03216': foreign43,
-     '0C60A5DE4F7AF9F8DE3381B2CECCE96F': foreign44,
-     '885A77EA4AC06DB2ABF8EB9F4AC89BA5': foreign45,
-     'C414180848195EEA22C4BC8C95BB22CB': foreign46,
-     '2C98E91946EADE4E5FDA0EB10A1AEC93': foreign47,
-     '7BDEA3704CEBB5559C6239928321865C': foreign48,
-     '7833C871441E612CC5B5CE9BDDA947C9': foreign49,
-     'A12B8D524B602E750EB63288C79D32E2': foreign50,
-     'F057824E4569A842D403858DC7D1D88B': foreign51,
-     '9F1D50A144B07BFAFC552F925299CE71': foreign52,
-     '3E1D070A4147D9A5B46E0EAF1E5FD4E1': foreign53,
-     'F215908B4B4F40F5531DE4A01F660731': foreign54,
-     '89FAB6BA4950774A1AEE0AA919005864': foreign55,
-     '448F172F473F500F568CE69787A05879': foreign56,
-     '7C89EFEF4B37DB0513F2659514BB7B93': foreign57,
-     'C7E79CD049A93AFDBCA399B718D2D8DC': foreign58,
-     '21E846D34531A31F92F411BB9E300D5B': foreign59,
-     '5F4167AC4B1A67501A0DD4A98DCCE793': foreign60,
-     'C2A63B424C2C17C9DE3395B59BA9444C': foreign61,
-     '4CA21C094DAD2346E120EFBEA3D7736C': foreign62,
-     'E8535D714F5BFEC20EF595B175FA24BD': foreign63,
-     '7B098C68429B7A33AA075BB6631641B6': foreign64,
-     'A41BD48545CC9593CB2B62B8C8BD8505': foreign65,
-     '4CF1BF6940037F5268A8B4B1C326C0E1': foreign66,
-     '799144174FCC1F72D4AAD2B8C0D23A93': foreign67,
-     '7969AEF34724BDC60E081286C23D4945': foreign68,
-     'D9B1CF04450CE54C9707ECA7D804DA6C': foreign69,
-     '5224C416400F824F56E4AB9FA410B705': foreign70,
-     '018CFAAD48940396A20DC296154E69CF': foreign71,
-     '02178C534E1EACB3145516B4D5E08CA6': foreign72,
-     '586E7BD34D881F24CE4369A4C4ACD64D': foreign73,
-     '75DBE6154A88D0897AB52CB8303D0D68': foreign74,
-     'C8CD71394F0002E646F3F093BF3B8A20': foreign75,
-     '761A5E774007E1CA28720DB572DA7A45': foreign76,
-     '3A19265E439F9BC57DD9188415D69D90': foreign77,
-     'ACB26C334F3E66726611CAAACE1B29F0': foreign78,
-     'C3A91C494BCF42191B03718F492DFA64': foreign79,
-     '5F9FD257458AA792F70050AEC35F3C7F': foreign80,
-     '86F0A1A849C1B3DE1E04178576CB52FF': foreign81,
-     'A30FDC1848F2A2BB4F412FB42FC6A123': foreign82,
-     'CD82A2E448FA71DD00529A8B5261ED6C': foreign83,
-     '7BC3DC9143A0AC886B7C69BF0BA72582': foreign84,
-     '0ADADD634CB1574E2CE91AA7D15972BF': foreign85,
-     '2F33F92C43E1FE19AADC9F869E4783F3': foreign86,
-     'BEE82D4145CF7AADF455DA8F65630FCE': foreign87,
-     'BF72AC404FF17C439A9112B6B4B32279': foreign88,
-     'A012B90749779FBE8DE607A2B99C7BBD': foreign89,
-     '82E080274DC72CA9D26CFF80275210C8': foreign90,
-     'B445B07141F3B81911589FB86B887D16': foreign91,
-     '3738A163431B2780E684368D4B44D659': foreign92,
-     '9A05761A4E0937CD96EDBD98F5CF127C': foreign93,
-     'AA29C1244938B00FCD91B2AF49E1CD69': foreign94,
-     '5AFEABF6491C62D9F43C6094E8586D99': foreign95,
-     '69B56DE846DD7777A34F73BAAD388917': foreign96,
-     'C8403C274C4A11E56CBA4ABE1BB56FE9': foreign97,
-     '6378A8BD4992C396F0BF5795C241272A': foreign98,
-     'E65657ED48A221438A440EB8FB55AB3A': foreign99,
-     '4BAAB5D2447B37D97384719CE67C9E72': foreign100,
-     '4B7AD5B5415D6B34A20794B83D33C8D4': foreign101,
-     '8B4959C3457E9E607BFD83A45E3B0B4E': foreign102,
-     '61C409DE43B68BAD7C2712AC407F6B85': foreign103,
-     '4D25A206408C58C237B478A97839EA8E': foreign104,
-     'BD732EF648AD01E5A18863865EF79E7F': foreign105,
-     'D7D5128A42442933D108809A874A1F67': foreign106,
-     '5951240940FFACB56FF8EB8F140D19E5': foreign107,
-     'E0AAC56B4C54E8B2B8B946A3EB4D60C5': foreign108,
-     '54FA95C94AC4FD0AE2C3AF985B5862A7': foreign109,
-     '181ACB1C48C92C4E510D6B94FA31BD79': foreign110,
+     '011052CD4ED0D3DC9960ABBFBBC46D5A': foreign18,
+     'C2E7A2E041E5BB00F9451CBBBF64D6A6': foreign19,
+     '5CA2293C4B0A9CA7C2D0CBBF73D219E2': foreign20,
+     'C319097045752CFC53190794AB2BCD76': foreign21,
+     '290F1F4D42ECBF13317BD8BC212FA75A': foreign22,
+     '2E162EDD4A7F55E58539648F012097D2': foreign23,
+     '36994D0E483CF7F6283CAFACCB406590': foreign24,
+     'F80D68DA497F0D49745DDE80D38E9011': foreign25,
+     '0F598A9C453EA67A85B875B1E1D8AB93': foreign26,
+     '7D98F77C457BD44550899198F36FDB9F': foreign27,
+     '188EB62D4BAF9B98F91C589C70DE4698': foreign28,
+     '2943C580492BC867A5B690B2B178012A': foreign29,
+     '533992264411311B6F383EBE0ECF1BB5': foreign30,
+     '2A2161914E537A9F71E302BCA0CA6AC6': foreign31,
+     '42EE39EA49315FAE8563A88B97E3F060': foreign32,
+     '34514D87410DC61DB5B64C9DCE81A833': foreign33,
+     'C6239AAF49000AB5543412A4C68EAD31': foreign34,
+     '43D19C1D40CA859F774230B98EE261B5': foreign35,
+     '7B3F640D45CDC99A229EFDBBC3F50ABD': foreign36,
+     '66C82E484C9BFB4ADA02618A95752286': foreign37,
+     'DAA40DEE420925A8EA2B4FB015573440': foreign38,
+     '8E647D8F40D9B4AE1A1349ACD3C3F392': foreign39,
+     '21227DCE4B6FB5C99FA72BA5B225A752': foreign40,
+     '1B12D2CD40775D42550AC8B64BACB2B5': foreign41,
+     '3B463A284FD7B66C9489AA8EC3AC8A23': foreign42,
+     'B8D3411E480AD6F4CBA476A88A02FD84': foreign43,
+     '001BB3D44F528AD6DFEB5BBB7FF03216': foreign44,
+     '0C60A5DE4F7AF9F8DE3381B2CECCE96F': foreign45,
+     '885A77EA4AC06DB2ABF8EB9F4AC89BA5': foreign46,
+     'C414180848195EEA22C4BC8C95BB22CB': foreign47,
+     '2C98E91946EADE4E5FDA0EB10A1AEC93': foreign48,
+     '7BDEA3704CEBB5559C6239928321865C': foreign49,
+     '7833C871441E612CC5B5CE9BDDA947C9': foreign50,
+     'A12B8D524B602E750EB63288C79D32E2': foreign51,
+     'F057824E4569A842D403858DC7D1D88B': foreign52,
+     '9F1D50A144B07BFAFC552F925299CE71': foreign53,
+     '3E1D070A4147D9A5B46E0EAF1E5FD4E1': foreign54,
+     'F215908B4B4F40F5531DE4A01F660731': foreign55,
+     '89FAB6BA4950774A1AEE0AA919005864': foreign56,
+     '448F172F473F500F568CE69787A05879': foreign57,
+     '7C89EFEF4B37DB0513F2659514BB7B93': foreign58,
+     'C7E79CD049A93AFDBCA399B718D2D8DC': foreign59,
+     '21E846D34531A31F92F411BB9E300D5B': foreign60,
+     '5F4167AC4B1A67501A0DD4A98DCCE793': foreign61,
+     'C2A63B424C2C17C9DE3395B59BA9444C': foreign62,
+     '4CA21C094DAD2346E120EFBEA3D7736C': foreign63,
+     'E8535D714F5BFEC20EF595B175FA24BD': foreign64,
+     '7B098C68429B7A33AA075BB6631641B6': foreign65,
+     'A41BD48545CC9593CB2B62B8C8BD8505': foreign66,
+     '4CF1BF6940037F5268A8B4B1C326C0E1': foreign67,
+     '799144174FCC1F72D4AAD2B8C0D23A93': foreign68,
+     '7969AEF34724BDC60E081286C23D4945': foreign69,
+     'D9B1CF04450CE54C9707ECA7D804DA6C': foreign70,
+     '5224C416400F824F56E4AB9FA410B705': foreign71,
+     '018CFAAD48940396A20DC296154E69CF': foreign72,
+     '02178C534E1EACB3145516B4D5E08CA6': foreign73,
+     '586E7BD34D881F24CE4369A4C4ACD64D': foreign74,
+     '75DBE6154A88D0897AB52CB8303D0D68': foreign75,
+     'C8CD71394F0002E646F3F093BF3B8A20': foreign76,
+     '761A5E774007E1CA28720DB572DA7A45': foreign77,
+     '3A19265E439F9BC57DD9188415D69D90': foreign78,
+     'ACB26C334F3E66726611CAAACE1B29F0': foreign79,
+     'C3A91C494BCF42191B03718F492DFA64': foreign80,
+     '5F9FD257458AA792F70050AEC35F3C7F': foreign81,
+     '86F0A1A849C1B3DE1E04178576CB52FF': foreign82,
+     'A30FDC1848F2A2BB4F412FB42FC6A123': foreign83,
+     'CD82A2E448FA71DD00529A8B5261ED6C': foreign84,
+     '7BC3DC9143A0AC886B7C69BF0BA72582': foreign85,
+     '0ADADD634CB1574E2CE91AA7D15972BF': foreign86,
+     '2F33F92C43E1FE19AADC9F869E4783F3': foreign87,
+     'BEE82D4145CF7AADF455DA8F65630FCE': foreign88,
+     'BF72AC404FF17C439A9112B6B4B32279': foreign89,
+     'A012B90749779FBE8DE607A2B99C7BBD': foreign90,
+     '82E080274DC72CA9D26CFF80275210C8': foreign91,
+     'B445B07141F3B81911589FB86B887D16': foreign92,
+     '3738A163431B2780E684368D4B44D659': foreign93,
+     '9A05761A4E0937CD96EDBD98F5CF127C': foreign94,
+     'AA29C1244938B00FCD91B2AF49E1CD69': foreign95,
+     '5AFEABF6491C62D9F43C6094E8586D99': foreign96,
+     '69B56DE846DD7777A34F73BAAD388917': foreign97,
+     'C8403C274C4A11E56CBA4ABE1BB56FE9': foreign98,
+     '6378A8BD4992C396F0BF5795C241272A': foreign99,
+     'E65657ED48A221438A440EB8FB55AB3A': foreign100,
+     '4BAAB5D2447B37D97384719CE67C9E72': foreign101,
+     '4B7AD5B5415D6B34A20794B83D33C8D4': foreign102,
+     '8B4959C3457E9E607BFD83A45E3B0B4E': foreign103,
+     '61C409DE43B68BAD7C2712AC407F6B85': foreign104,
+     '4D25A206408C58C237B478A97839EA8E': foreign105,
+     'BD732EF648AD01E5A18863865EF79E7F': foreign106,
+     'D7D5128A42442933D108809A874A1F67': foreign107,
+     '5951240940FFACB56FF8EB8F140D19E5': foreign108,
+     'E0AAC56B4C54E8B2B8B946A3EB4D60C5': foreign109,
+     '54FA95C94AC4FD0AE2C3AF985B5862A7': foreign110,
+     '181ACB1C48C92C4E510D6B94FA31BD79': foreign111,
 };
 const MWFileMapping = new WeakMap([[foreign1 || {}, "JavaScripts/common/ChangeClothes"],
 [foreign2 || {}, "JavaScripts/common/ConfirmPanel"],
@@ -16161,100 +16289,100 @@ const MWFileMapping = new WeakMap([[foreign1 || {}, "JavaScripts/common/ChangeCl
 [foreign14 || {}, "JavaScripts/config/Morph"],
 [foreign15 || {}, "JavaScripts/config/ProjectileProp"],
 [foreign16 || {}, "JavaScripts/config/ROLE"],
-[foreign17 || {}, "JavaScripts/config/ShopItem"],
-[foreign18 || {}, "JavaScripts/config/Task"],
-[foreign19 || {}, "JavaScripts/config/TRAILING"],
-[foreign20 || {}, "JavaScripts/config/WeaponProp"],
-[foreign21 || {}, "JavaScripts/GameLauncher"],
-[foreign22 || {}, "JavaScripts/module/ActivityModule/ActivityData"],
-[foreign23 || {}, "JavaScripts/module/ActivityModule/ActivityModuleC"],
-[foreign24 || {}, "JavaScripts/module/ActivityModule/ActivityModuleS"],
-[foreign25 || {}, "JavaScripts/module/ActivityModule/ui/ActivityPanel"],
-[foreign26 || {}, "JavaScripts/module/AdModule/ui/AdPanel"],
-[foreign27 || {}, "JavaScripts/module/CoinModule/CoinData"],
-[foreign28 || {}, "JavaScripts/module/CoinModule/CoinModuleC"],
-[foreign29 || {}, "JavaScripts/module/CoinModule/CoinModuleS"],
-[foreign30 || {}, "JavaScripts/module/CoinModule/ui/CoinPanel"],
-[foreign31 || {}, "JavaScripts/module/CoinModule/ui/DiamondItem"],
-[foreign32 || {}, "JavaScripts/module/CoinModule/ui/DiamondPanel"],
-[foreign33 || {}, "JavaScripts/module/GMModule/GMService"],
-[foreign34 || {}, "JavaScripts/module/HUDModule/HUDData"],
-[foreign35 || {}, "JavaScripts/module/HUDModule/HUDModuleC"],
-[foreign36 || {}, "JavaScripts/module/HUDModule/HUDModuleS"],
-[foreign37 || {}, "JavaScripts/module/HUDModule/ui/HUDPanel"],
-[foreign38 || {}, "JavaScripts/module/HUDModule/ui/KillTipItem"],
-[foreign39 || {}, "JavaScripts/module/MorphModule/MorphModule"],
-[foreign40 || {}, "JavaScripts/module/NpcModule/Npc"],
-[foreign41 || {}, "JavaScripts/module/PlayerModule/AddMaxHp"],
-[foreign42 || {}, "JavaScripts/module/PlayerModule/PlayerData"],
-[foreign43 || {}, "JavaScripts/module/PlayerModule/PlayerModuleC"],
-[foreign44 || {}, "JavaScripts/module/PlayerModule/PlayerModuleS"],
-[foreign45 || {}, "JavaScripts/module/PlayerModule/TryOutGun"],
-[foreign46 || {}, "JavaScripts/module/RadarModule/RadarModuleC"],
-[foreign47 || {}, "JavaScripts/module/RadarModule/RadarModuleS"],
-[foreign48 || {}, "JavaScripts/module/RadarModule/ui/RadarPanel"],
-[foreign49 || {}, "JavaScripts/module/RankModule/RankData"],
-[foreign50 || {}, "JavaScripts/module/RankModule/RankModuleC"],
-[foreign51 || {}, "JavaScripts/module/RankModule/RankModuleS"],
-[foreign52 || {}, "JavaScripts/module/RankModule/ui/RankPanel"],
-[foreign53 || {}, "JavaScripts/module/RankModule/ui/RoomItem"],
-[foreign54 || {}, "JavaScripts/module/RankModule/ui/WorldItem"],
-[foreign55 || {}, "JavaScripts/module/ShopModule/ShopData"],
-[foreign56 || {}, "JavaScripts/module/ShopModule/ShopModuleC"],
-[foreign57 || {}, "JavaScripts/module/ShopModule/ShopModuleS"],
-[foreign58 || {}, "JavaScripts/module/ShopModule/ui/ShopItem"],
-[foreign59 || {}, "JavaScripts/module/ShopModule/ui/ShopPanel"],
-[foreign60 || {}, "JavaScripts/module/TaskModule/TaskData"],
-[foreign61 || {}, "JavaScripts/module/TaskModule/TaskModuleC"],
-[foreign62 || {}, "JavaScripts/module/TaskModule/TaskModuleS"],
-[foreign63 || {}, "JavaScripts/module/TaskModule/ui/TaskPanel"],
-[foreign64 || {}, "JavaScripts/module/TeamModule/TeamData"],
-[foreign65 || {}, "JavaScripts/module/TeamModule/TeamModuleC"],
-[foreign66 || {}, "JavaScripts/module/TeamModule/TeamModuleS"],
-[foreign67 || {}, "JavaScripts/module/TeamModule/ui/TeamItem"],
-[foreign68 || {}, "JavaScripts/module/TeamModule/ui/TeamPanel"],
-[foreign69 || {}, "JavaScripts/module/WeaponModule/Projectile"],
-[foreign70 || {}, "JavaScripts/module/WeaponModule/ProjectTarget"],
-[foreign71 || {}, "JavaScripts/module/WeaponModule/Weapon"],
-[foreign72 || {}, "JavaScripts/module/WeaponModule/WeaponData"],
-[foreign73 || {}, "JavaScripts/module/WeaponModule/WeaponModuleC"],
-[foreign74 || {}, "JavaScripts/module/WeaponModule/WeaponModuleS"],
-[foreign75 || {}, "JavaScripts/tools/EventType"],
-[foreign76 || {}, "JavaScripts/tools/FlyText"],
-[foreign77 || {}, "JavaScripts/tools/FreeCamera"],
-[foreign78 || {}, "JavaScripts/tools/GlobalData"],
-[foreign79 || {}, "JavaScripts/tools/Helper"],
-[foreign80 || {}, "JavaScripts/tools/IAPInstance"],
-[foreign81 || {}, "JavaScripts/tools/JumpGame"],
-[foreign82 || {}, "JavaScripts/tools/MapEx"],
-[foreign83 || {}, "JavaScripts/tools/PrefabEvent"],
-[foreign84 || {}, "JavaScripts/tools/Utils"],
-[foreign85 || {}, "JavaScripts/ui-generate/common/ConfirmPanel_generate"],
-[foreign86 || {}, "JavaScripts/ui-generate/common/EnemyLifebar_generate"],
-[foreign87 || {}, "JavaScripts/ui-generate/common/JumpGameTips_generate"],
-[foreign88 || {}, "JavaScripts/ui-generate/common/notice/NoticeView_generate"],
-[foreign89 || {}, "JavaScripts/ui-generate/common/notice/SecondNoticeItem_generate"],
-[foreign90 || {}, "JavaScripts/ui-generate/common/notice/TopNoticeItem_generate"],
-[foreign91 || {}, "JavaScripts/ui-generate/module/ActivityModule/ActivityPanel_generate"],
-[foreign92 || {}, "JavaScripts/ui-generate/module/AdModule/AdPanel_generate"],
-[foreign93 || {}, "JavaScripts/ui-generate/module/CoinModule/CoinPanel_generate"],
-[foreign94 || {}, "JavaScripts/ui-generate/module/CoinModule/DiamondItem_generate"],
-[foreign95 || {}, "JavaScripts/ui-generate/module/CoinModule/DiamondPanel_generate"],
-[foreign96 || {}, "JavaScripts/ui-generate/module/GMModule/GMHUD_generate"],
-[foreign97 || {}, "JavaScripts/ui-generate/module/GMModule/GMItem_generate"],
-[foreign98 || {}, "JavaScripts/ui-generate/module/HUDModule/HUDPanel_generate"],
-[foreign99 || {}, "JavaScripts/ui-generate/module/HUDModule/KillTipItem_generate"],
-[foreign100 || {}, "JavaScripts/ui-generate/module/RadarModule/RadarPanel_generate"],
-[foreign101 || {}, "JavaScripts/ui-generate/module/RankModule/RankPanel_generate"],
-[foreign102 || {}, "JavaScripts/ui-generate/module/RankModule/RoomItem_generate"],
-[foreign103 || {}, "JavaScripts/ui-generate/module/RankModule/WorldItem_generate"],
-[foreign104 || {}, "JavaScripts/ui-generate/module/ShareModule/SharePanel_generate"],
-[foreign105 || {}, "JavaScripts/ui-generate/module/ShopModule/ShopItem_generate"],
-[foreign106 || {}, "JavaScripts/ui-generate/module/ShopModule/ShopPanel_generate"],
-[foreign107 || {}, "JavaScripts/ui-generate/module/TaskModule/TaskItem_generate"],
-[foreign108 || {}, "JavaScripts/ui-generate/module/TaskModule/TaskPanel_generate"],
-[foreign109 || {}, "JavaScripts/ui-generate/module/TeamModule/TeamItem_generate"],
-[foreign110 || {}, "JavaScripts/ui-generate/module/TeamModule/TeamPanel_generate"]]);
+[foreign18 || {}, "JavaScripts/config/ShopItem"],
+[foreign19 || {}, "JavaScripts/config/Task"],
+[foreign20 || {}, "JavaScripts/config/TRAILING"],
+[foreign21 || {}, "JavaScripts/config/WeaponProp"],
+[foreign22 || {}, "JavaScripts/GameLauncher"],
+[foreign23 || {}, "JavaScripts/module/ActivityModule/ActivityData"],
+[foreign24 || {}, "JavaScripts/module/ActivityModule/ActivityModuleC"],
+[foreign25 || {}, "JavaScripts/module/ActivityModule/ActivityModuleS"],
+[foreign26 || {}, "JavaScripts/module/ActivityModule/ui/ActivityPanel"],
+[foreign27 || {}, "JavaScripts/module/AdModule/ui/AdPanel"],
+[foreign28 || {}, "JavaScripts/module/CoinModule/CoinData"],
+[foreign29 || {}, "JavaScripts/module/CoinModule/CoinModuleC"],
+[foreign30 || {}, "JavaScripts/module/CoinModule/CoinModuleS"],
+[foreign31 || {}, "JavaScripts/module/CoinModule/ui/CoinPanel"],
+[foreign32 || {}, "JavaScripts/module/CoinModule/ui/DiamondItem"],
+[foreign33 || {}, "JavaScripts/module/CoinModule/ui/DiamondPanel"],
+[foreign34 || {}, "JavaScripts/module/GMModule/GMService"],
+[foreign35 || {}, "JavaScripts/module/HUDModule/HUDData"],
+[foreign36 || {}, "JavaScripts/module/HUDModule/HUDModuleC"],
+[foreign37 || {}, "JavaScripts/module/HUDModule/HUDModuleS"],
+[foreign38 || {}, "JavaScripts/module/HUDModule/ui/HUDPanel"],
+[foreign39 || {}, "JavaScripts/module/HUDModule/ui/KillTipItem"],
+[foreign40 || {}, "JavaScripts/module/MorphModule/MorphModule"],
+[foreign41 || {}, "JavaScripts/module/NpcModule/Npc"],
+[foreign42 || {}, "JavaScripts/module/PlayerModule/AddMaxHp"],
+[foreign43 || {}, "JavaScripts/module/PlayerModule/PlayerData"],
+[foreign44 || {}, "JavaScripts/module/PlayerModule/PlayerModuleC"],
+[foreign45 || {}, "JavaScripts/module/PlayerModule/PlayerModuleS"],
+[foreign46 || {}, "JavaScripts/module/PlayerModule/TryOutGun"],
+[foreign47 || {}, "JavaScripts/module/RadarModule/RadarModuleC"],
+[foreign48 || {}, "JavaScripts/module/RadarModule/RadarModuleS"],
+[foreign49 || {}, "JavaScripts/module/RadarModule/ui/RadarPanel"],
+[foreign50 || {}, "JavaScripts/module/RankModule/RankData"],
+[foreign51 || {}, "JavaScripts/module/RankModule/RankModuleC"],
+[foreign52 || {}, "JavaScripts/module/RankModule/RankModuleS"],
+[foreign53 || {}, "JavaScripts/module/RankModule/ui/RankPanel"],
+[foreign54 || {}, "JavaScripts/module/RankModule/ui/RoomItem"],
+[foreign55 || {}, "JavaScripts/module/RankModule/ui/WorldItem"],
+[foreign56 || {}, "JavaScripts/module/ShopModule/ShopData"],
+[foreign57 || {}, "JavaScripts/module/ShopModule/ShopModuleC"],
+[foreign58 || {}, "JavaScripts/module/ShopModule/ShopModuleS"],
+[foreign59 || {}, "JavaScripts/module/ShopModule/ui/ShopItem"],
+[foreign60 || {}, "JavaScripts/module/ShopModule/ui/ShopPanel"],
+[foreign61 || {}, "JavaScripts/module/TaskModule/TaskData"],
+[foreign62 || {}, "JavaScripts/module/TaskModule/TaskModuleC"],
+[foreign63 || {}, "JavaScripts/module/TaskModule/TaskModuleS"],
+[foreign64 || {}, "JavaScripts/module/TaskModule/ui/TaskPanel"],
+[foreign65 || {}, "JavaScripts/module/TeamModule/TeamData"],
+[foreign66 || {}, "JavaScripts/module/TeamModule/TeamModuleC"],
+[foreign67 || {}, "JavaScripts/module/TeamModule/TeamModuleS"],
+[foreign68 || {}, "JavaScripts/module/TeamModule/ui/TeamItem"],
+[foreign69 || {}, "JavaScripts/module/TeamModule/ui/TeamPanel"],
+[foreign70 || {}, "JavaScripts/module/WeaponModule/Projectile"],
+[foreign71 || {}, "JavaScripts/module/WeaponModule/ProjectTarget"],
+[foreign72 || {}, "JavaScripts/module/WeaponModule/Weapon"],
+[foreign73 || {}, "JavaScripts/module/WeaponModule/WeaponData"],
+[foreign74 || {}, "JavaScripts/module/WeaponModule/WeaponModuleC"],
+[foreign75 || {}, "JavaScripts/module/WeaponModule/WeaponModuleS"],
+[foreign76 || {}, "JavaScripts/tools/EventType"],
+[foreign77 || {}, "JavaScripts/tools/FlyText"],
+[foreign78 || {}, "JavaScripts/tools/FreeCamera"],
+[foreign79 || {}, "JavaScripts/tools/GlobalData"],
+[foreign80 || {}, "JavaScripts/tools/Helper"],
+[foreign81 || {}, "JavaScripts/tools/IAPInstance"],
+[foreign82 || {}, "JavaScripts/tools/JumpGame"],
+[foreign83 || {}, "JavaScripts/tools/MapEx"],
+[foreign84 || {}, "JavaScripts/tools/PrefabEvent"],
+[foreign85 || {}, "JavaScripts/tools/Utils"],
+[foreign86 || {}, "JavaScripts/ui-generate/common/ConfirmPanel_generate"],
+[foreign87 || {}, "JavaScripts/ui-generate/common/EnemyLifebar_generate"],
+[foreign88 || {}, "JavaScripts/ui-generate/common/JumpGameTips_generate"],
+[foreign89 || {}, "JavaScripts/ui-generate/common/notice/NoticeView_generate"],
+[foreign90 || {}, "JavaScripts/ui-generate/common/notice/SecondNoticeItem_generate"],
+[foreign91 || {}, "JavaScripts/ui-generate/common/notice/TopNoticeItem_generate"],
+[foreign92 || {}, "JavaScripts/ui-generate/module/ActivityModule/ActivityPanel_generate"],
+[foreign93 || {}, "JavaScripts/ui-generate/module/AdModule/AdPanel_generate"],
+[foreign94 || {}, "JavaScripts/ui-generate/module/CoinModule/CoinPanel_generate"],
+[foreign95 || {}, "JavaScripts/ui-generate/module/CoinModule/DiamondItem_generate"],
+[foreign96 || {}, "JavaScripts/ui-generate/module/CoinModule/DiamondPanel_generate"],
+[foreign97 || {}, "JavaScripts/ui-generate/module/GMModule/GMHUD_generate"],
+[foreign98 || {}, "JavaScripts/ui-generate/module/GMModule/GMItem_generate"],
+[foreign99 || {}, "JavaScripts/ui-generate/module/HUDModule/HUDPanel_generate"],
+[foreign100 || {}, "JavaScripts/ui-generate/module/HUDModule/KillTipItem_generate"],
+[foreign101 || {}, "JavaScripts/ui-generate/module/RadarModule/RadarPanel_generate"],
+[foreign102 || {}, "JavaScripts/ui-generate/module/RankModule/RankPanel_generate"],
+[foreign103 || {}, "JavaScripts/ui-generate/module/RankModule/RoomItem_generate"],
+[foreign104 || {}, "JavaScripts/ui-generate/module/RankModule/WorldItem_generate"],
+[foreign105 || {}, "JavaScripts/ui-generate/module/ShareModule/SharePanel_generate"],
+[foreign106 || {}, "JavaScripts/ui-generate/module/ShopModule/ShopItem_generate"],
+[foreign107 || {}, "JavaScripts/ui-generate/module/ShopModule/ShopPanel_generate"],
+[foreign108 || {}, "JavaScripts/ui-generate/module/TaskModule/TaskItem_generate"],
+[foreign109 || {}, "JavaScripts/ui-generate/module/TaskModule/TaskPanel_generate"],
+[foreign110 || {}, "JavaScripts/ui-generate/module/TeamModule/TeamItem_generate"],
+[foreign111 || {}, "JavaScripts/ui-generate/module/TeamModule/TeamPanel_generate"]]);
 
 exports.MWFileMapping = MWFileMapping;
 exports.MWModuleMap = MWModuleMap;
