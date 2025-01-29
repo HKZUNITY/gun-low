@@ -12141,7 +12141,7 @@ class ShopModuleC extends ModuleC {
                 this.buyComplete();
             }
             else {
-                mw.PurchaseService.placeOrder(`AaQ7PpZOzzO0002Ug`, 1, (status, msg) => {
+                mw.PurchaseService.placeOrder(`AZarteInF1d00033S`, 1, (status, msg) => {
                     mw.PurchaseService.getArkBalance(); //刷新代币数量
                     if (status != 200)
                         return;
@@ -12173,7 +12173,7 @@ class ShopModuleC extends ModuleC {
         this.shopPanel = UIService.getUI(ShopPanel);
     }
     net_deliverGoods(commodityId, amount) {
-        if (commodityId == "AaQ7PpZOzzO0002Ug") {
+        if (commodityId == "AZarteInF1d00033S") {
             Notice.showDownNotice(`购买成功`);
             this.buyComplete();
         }
@@ -12283,6 +12283,7 @@ class ShopModuleC extends ModuleC {
                 this.setCharacterTrailing(shopId);
                 break;
         }
+        Notice.showDownNotice(GameConfig.Language.WeaponEquipmentSuccessful.Value);
     }
     setUseShopId_Gun(shopId) {
         if (MapEx.has(this.useShopIds, ShopType.Gun) && MapEx.get(this.useShopIds, ShopType.Gun) == shopId)

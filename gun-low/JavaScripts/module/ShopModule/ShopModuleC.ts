@@ -67,7 +67,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
                 Notice.showDownNotice(`购买成功`);
                 this.buyComplete();
             } else {
-                mw.PurchaseService.placeOrder(`AaQ7PpZOzzO0002Ug`, 1, (status, msg) => {
+                mw.PurchaseService.placeOrder(`AZarteInF1d00033S`, 1, (status, msg) => {
                     mw.PurchaseService.getArkBalance();//刷新代币数量
                     if (status != 200) return;
                 });
@@ -104,7 +104,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
     }
 
     public net_deliverGoods(commodityId: string, amount: number): void {
-        if (commodityId == "AaQ7PpZOzzO0002Ug") {
+        if (commodityId == "AZarteInF1d00033S") {
             Notice.showDownNotice(`购买成功`);
             this.buyComplete();
         }
@@ -222,6 +222,7 @@ export default class ShopModuleC extends ModuleC<ShopModuleS, ShopData> {
             default:
                 break;
         }
+        Notice.showDownNotice(GameConfig.Language.WeaponEquipmentSuccessful.Value);
     }
 
     public setUseShopId_Gun(shopId: number): void {
