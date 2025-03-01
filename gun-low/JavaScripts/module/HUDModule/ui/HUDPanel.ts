@@ -45,6 +45,14 @@ export default class HUDPanel extends HUDPanel_Generate {
         this.mBgmTextBlock.text = GameConfig.Language.BackgroundMusicSize.Value;
         this.mSoundTextBlock.text = GameConfig.Language.SfxVolume.Value;
         this.mResetTextBlock.text = GameConfig.Language.ResetPosition.Value;
+
+        this.mSetButtonTextBlock.text = GameConfig.Language.Text_HUDTips3.Value;
+        this.mTaskTextBlock.text = GameConfig.Language.Text_HUDTips1.Value;
+        this.mRankButtonTextBlock.text = GameConfig.Language.Text_HUDTips2.Value;
+        this.mRoleTextBlock.text = GameConfig.Language.Text_HUDTips4.Value;
+        this.mShareTextBlock.text = GameConfig.Language.Text_HUDTips7.Value;
+        this.mTeamTextBlock.text = GameConfig.Language.Text_HUDTips6.Value;
+        this.mShopTextBlock.text = GameConfig.Language.Text_HUDTips5.Value;
     }
 
     private initModule(): void {

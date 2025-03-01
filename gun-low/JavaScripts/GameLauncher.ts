@@ -9,6 +9,9 @@ import CoinModuleS from "./module/CoinModule/CoinModuleS";
 import { HUDData } from "./module/HUDModule/HUDData";
 import HUDModuleC from "./module/HUDModule/HUDModuleC";
 import HUDModuleS from "./module/HUDModule/HUDModuleS";
+import MallData from "./module/MallModule/MallData";
+import MallModuleC from "./module/MallModule/MallModuleC";
+import MallModuleS from "./module/MallModule/MallModuleS";
 import { MorphModuleC, MorphModuleS } from "./module/MorphModule/MorphModule";
 import PlayerData from "./module/PlayerModule/PlayerData";
 import { PlayerModuleC } from "./module/PlayerModule/PlayerModuleC";
@@ -84,6 +87,7 @@ export default class GameLauncher extends mw.Script {
         ModuleService.registerModule(WeaponModuleS, WeaponModuleC, null);
         ModuleService.registerModule(TaskModuleS, TaskModuleC, TaskData);
         ModuleService.registerModule(MorphModuleS, MorphModuleC, null);
+        ModuleService.registerModule(MallModuleS, MallModuleC, MallData);
     }
 
     /**------------------------------------------- 客户端 ------------------------------------------------ */

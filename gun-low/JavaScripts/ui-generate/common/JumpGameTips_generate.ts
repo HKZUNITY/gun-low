@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/common/JumpGameTips.ui
- * TIME: 2025.01.02-22.17.22
+ * TIME: 2025.03.01-09.58.11
  */
  
 @UIBind('UI/common/JumpGameTips.ui')

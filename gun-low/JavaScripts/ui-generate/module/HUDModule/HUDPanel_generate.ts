@@ -3,7 +3,7 @@
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * AUTHOR: 爱玩游戏的小胖子
  * UI: UI/module/HUDModule/HUDPanel.ui
- * TIME: 2025.01.02-22.17.23
+ * TIME: 2025.03.01-09.58.12
  */
  
 @UIBind('UI/module/HUDModule/HUDPanel.ui')
@@ -57,12 +57,26 @@ export default class HUDPanel_Generate extends UIScript {
 		}
 		return this.mSetButton_Internal
 	}
+	private mSetButtonTextBlock_Internal: mw.TextBlock
+	public get mSetButtonTextBlock(): mw.TextBlock {
+		if(!this.mSetButtonTextBlock_Internal&&this.uiWidgetBase) {
+			this.mSetButtonTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/SetCanvas/mSetButtonTextBlock') as mw.TextBlock
+		}
+		return this.mSetButtonTextBlock_Internal
+	}
 	private mRankButton_Internal: mw.Button
 	public get mRankButton(): mw.Button {
 		if(!this.mRankButton_Internal&&this.uiWidgetBase) {
 			this.mRankButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RankCanvas/mRankButton') as mw.Button
 		}
 		return this.mRankButton_Internal
+	}
+	private mRankButtonTextBlock_Internal: mw.TextBlock
+	public get mRankButtonTextBlock(): mw.TextBlock {
+		if(!this.mRankButtonTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRankButtonTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RankCanvas/mRankButtonTextBlock') as mw.TextBlock
+		}
+		return this.mRankButtonTextBlock_Internal
 	}
 	private mTaskButton_Internal: mw.Button
 	public get mTaskButton(): mw.Button {
@@ -85,6 +99,13 @@ export default class HUDPanel_Generate extends UIScript {
 		}
 		return this.mTaskBgImage_Internal
 	}
+	private mTaskTextBlock_Internal: mw.TextBlock
+	public get mTaskTextBlock(): mw.TextBlock {
+		if(!this.mTaskTextBlock_Internal&&this.uiWidgetBase) {
+			this.mTaskTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TaskCanvas/mTaskTextBlock') as mw.TextBlock
+		}
+		return this.mTaskTextBlock_Internal
+	}
 	private mTeamButton_Internal: mw.Button
 	public get mTeamButton(): mw.Button {
 		if(!this.mTeamButton_Internal&&this.uiWidgetBase) {
@@ -106,6 +127,13 @@ export default class HUDPanel_Generate extends UIScript {
 		}
 		return this.mTeamIconImage_Internal
 	}
+	private mTeamTextBlock_Internal: mw.TextBlock
+	public get mTeamTextBlock(): mw.TextBlock {
+		if(!this.mTeamTextBlock_Internal&&this.uiWidgetBase) {
+			this.mTeamTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/TeamCanvas/mTeamTextBlock') as mw.TextBlock
+		}
+		return this.mTeamTextBlock_Internal
+	}
 	private mShopButton_Internal: mw.Button
 	public get mShopButton(): mw.Button {
 		if(!this.mShopButton_Internal&&this.uiWidgetBase) {
@@ -113,12 +141,26 @@ export default class HUDPanel_Generate extends UIScript {
 		}
 		return this.mShopButton_Internal
 	}
+	private mShopTextBlock_Internal: mw.TextBlock
+	public get mShopTextBlock(): mw.TextBlock {
+		if(!this.mShopTextBlock_Internal&&this.uiWidgetBase) {
+			this.mShopTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/ShopCanvas/mShopTextBlock') as mw.TextBlock
+		}
+		return this.mShopTextBlock_Internal
+	}
 	private mRoleButton_Internal: mw.Button
 	public get mRoleButton(): mw.Button {
 		if(!this.mRoleButton_Internal&&this.uiWidgetBase) {
 			this.mRoleButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RoleCanvas/mRoleButton') as mw.Button
 		}
 		return this.mRoleButton_Internal
+	}
+	private mRoleTextBlock_Internal: mw.TextBlock
+	public get mRoleTextBlock(): mw.TextBlock {
+		if(!this.mRoleTextBlock_Internal&&this.uiWidgetBase) {
+			this.mRoleTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/RoleCanvas/mRoleTextBlock') as mw.TextBlock
+		}
+		return this.mRoleTextBlock_Internal
 	}
 	private mOpenShareImage_Internal: mw.Image
 	public get mOpenShareImage(): mw.Image {
@@ -133,6 +175,13 @@ export default class HUDPanel_Generate extends UIScript {
 			this.mOpenShareButton_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/mOpenShareImage/mOpenShareButton') as mw.StaleButton
 		}
 		return this.mOpenShareButton_Internal
+	}
+	private mShareTextBlock_Internal: mw.TextBlock
+	public get mShareTextBlock(): mw.TextBlock {
+		if(!this.mShareTextBlock_Internal&&this.uiWidgetBase) {
+			this.mShareTextBlock_Internal = this.uiWidgetBase.findChildByPath('RootCanvas/RightButtonCanvas/mOpenShareImage/mShareTextBlock') as mw.TextBlock
+		}
+		return this.mShareTextBlock_Internal
 	}
 	private mActivityButton_Internal: mw.Button
 	public get mActivityButton(): mw.Button {
@@ -727,6 +776,27 @@ export default class HUDPanel_Generate extends UIScript {
 		
 	
 		this.initLanguage(this.mBlueCountTextBlock)
+		
+	
+		this.initLanguage(this.mSetButtonTextBlock)
+		
+	
+		this.initLanguage(this.mRankButtonTextBlock)
+		
+	
+		this.initLanguage(this.mTaskTextBlock)
+		
+	
+		this.initLanguage(this.mTeamTextBlock)
+		
+	
+		this.initLanguage(this.mShopTextBlock)
+		
+	
+		this.initLanguage(this.mRoleTextBlock)
+		
+	
+		this.initLanguage(this.mShareTextBlock)
 		
 	
 		this.initLanguage(this.mRankTextBlock)
