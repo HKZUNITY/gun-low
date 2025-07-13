@@ -15794,7 +15794,7 @@ class MallPanel extends MallPanel_Generate$1 {
             this.tab1Ids.push(value.ID);
         }));
         this.updateTab1();
-        this.tab1Id = this.tab1Ids[0];
+        this.tab1Id = this.tab1Ids[1];
         this.getMallModuleC.onSelectTab1Action.call(this.tab1Id);
         this.initTab2();
     }
@@ -15904,7 +15904,7 @@ class MallPanel extends MallPanel_Generate$1 {
     }
     get getDefaultTab2Index() {
         if (this.tab1Id == Tab1Type.Tab1_Appearance) return 5;
-        if (this.tab1Id == Tab1Type.Tab1_Clothing) return 0;
+        if (this.tab1Id == Tab1Type.Tab1_Clothing) return 6;
         return 0;
     }
     getTab3() {
