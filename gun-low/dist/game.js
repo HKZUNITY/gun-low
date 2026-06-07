@@ -2821,7 +2821,7 @@ class Group {
         this._tweensAddedDuringUpdate = {};
     }
     getAll() {
-        return Object.keys(this._tweens).map((tweenId => this._tweens[tweenId]));
+        return Object.keys(this._tweens).map(tweenId => this._tweens[tweenId]);
     }
     removeAll() {
         this._tweens = {};
@@ -3392,9 +3392,9 @@ var foreign7 = Object.freeze({
 class Notice {
     static showDownNotice(context) {
         this.checkView();
-        this.view.topNoticeComponent2.insert((notice => {
+        this.view.topNoticeComponent2.insert(notice => {
             notice.setInfo(context);
-        }));
+        });
     }
     static checkView() {
         if (this.view) return;
@@ -3409,12 +3409,12 @@ class TopNoticeComponent {
         this.targetCanvas = targetCanvas;
         this.noticeCanvasHeight = this.targetCanvas.size.y;
         this.insertItemTempLocation = new mw.Vector2;
-        this.noticeItemPool = new UIPool((() => {
+        this.noticeItemPool = new UIPool(() => {
             let item = mw.UIService.create(TopNoticeItem);
             this.targetCanvas.addChild(item.uiObject);
             item.uiObject.size = new mw.Vector2(700, 60);
             return item;
-        }));
+        });
     }
     insert(initAction) {
         this.pendingQueue.push(initAction);
@@ -3428,10 +3428,10 @@ class TopNoticeComponent {
         if (first.lifeTime >= TopNoticeComponent.NoticeItemLifeTime) {
             this.fadeoutNoticeElement();
         }
-        this.noticeItemPool.eachVisibleItem((item => {
+        this.noticeItemPool.eachVisibleItem(item => {
             if (item.targetHeight >= item.position.y) return;
             item.setLocation(item.position.x, item.position.y - TopNoticeComponent.NoticeMoveStepCount);
-        }));
+        });
     }
     insertPendingNotice(initAction) {
         if (this.visibleNotice.length >= TopNoticeComponent.NoticeItemMaxCount) {
@@ -3454,9 +3454,9 @@ class TopNoticeComponent {
             alpha: 0
         }).to({
             alpha: 1
-        }, 250).onUpdate((arg => {
+        }, 250).onUpdate(arg => {
             recent.uiObject.renderOpacity = arg.alpha;
-        })).start();
+        }).start();
     }
     fadeoutNoticeElement() {
         let item = this.visibleNotice.shift();
@@ -3464,11 +3464,11 @@ class TopNoticeComponent {
             alpha: 1
         }).to({
             alpha: 0
-        }, 250).onUpdate((arg => {
+        }, 250).onUpdate(arg => {
             item.uiObject.renderOpacity = arg.alpha;
-        })).onComplete((() => {
+        }).onComplete(() => {
             this.noticeItemPool.giveBack(item);
-        })).start();
+        }).start();
     }
     checkPendingNotice() {
         if (this.pendingQueue.length < 1) return;
@@ -3498,12 +3498,12 @@ class TopNoticeComponent2 {
         this.targetCanvas = targetCanvas;
         this.noticeCanvasHeight = this.targetCanvas.size.y;
         this.insertItemTempLocation = new mw.Vector2;
-        this.noticeItemPool = new UIPool((() => {
+        this.noticeItemPool = new UIPool(() => {
             let item = mw.UIService.create(TopNoticeItem);
             this.targetCanvas.addChild(item.uiObject);
             item.uiObject.size = new mw.Vector2(item.uiObject.size.x, item.uiObject.size.y);
             return item;
-        }));
+        });
     }
     insert(initAction) {
         this.insertPendingNotice(initAction);
@@ -3519,10 +3519,10 @@ class TopNoticeComponent2 {
             }
         }
         this.eachLeftRightItem();
-        this.noticeItemPool.eachVisibleItem((item => {
+        this.noticeItemPool.eachVisibleItem(item => {
             if (item.targetHeight >= item.position.y) return;
             item.setLocation(item.position.x, item.position.y - TopNoticeComponent2.NoticeMoveStepCount);
-        }));
+        });
     }
     insertPendingNotice(initAction) {
         this.isinsert = true;
@@ -3562,9 +3562,9 @@ class TopNoticeComponent2 {
             posy: -500
         }).to({
             posy: this.insertItemTempLocation.y
-        }, 500).onUpdate((arg => {
+        }, 500).onUpdate(arg => {
             recent.setLocation(this.insertItemTempLocation.x, arg.posy);
-        })).start().easing(Easing.Linear.None);
+        }).start().easing(Easing.Linear.None);
         this.isinsert = false;
     }
     eachLeftRightItem() {
@@ -3579,10 +3579,10 @@ class TopNoticeComponent2 {
             posX: 0
         }).to({
             posX: 1
-        }, 500).onComplete((() => {
+        }, 500).onComplete(() => {
             this.isRemoveing = false;
-        })).start();
-        let arr = this.visibleNotice.filter((e => !this.needmovingNotice.includes(e)));
+        }).start();
+        let arr = this.visibleNotice.filter(e => !this.needmovingNotice.includes(e));
         for (let i = 0; i < arr.length; i++) {
             const element = arr[i];
             element.targetHeight = TopNoticeComponent2.NoticeItemIntervalSpace + i * TopNoticeComponent2.NoticeItemIntervalSpace;
@@ -3590,9 +3590,9 @@ class TopNoticeComponent2 {
                 posy: element.uiObject.position.y
             }).to({
                 posy: element.targetHeight
-            }, 500).onUpdate((arg => {
+            }, 500).onUpdate(arg => {
                 element.setLocation(this.insertItemTempLocation.x, arg.posy);
-            })).onComplete((() => {})).easing(Easing.Linear.None).start();
+            }).onComplete(() => {}).easing(Easing.Linear.None).start();
         }
         while (this.needmovingNotice.length > 0) {
             let item = this.needmovingNotice.shift();
@@ -3603,13 +3603,13 @@ class TopNoticeComponent2 {
                 posX: 0
             }).to({
                 posX: this.isLeft ? 3e3 : -3e3
-            }, 250).onUpdate((arg => {
+            }, 250).onUpdate(arg => {
                 target.x = arg.posX;
                 item.uiObject.position = target;
-            })).onComplete((() => {
+            }).onComplete(() => {
                 this.noticeItemPool.giveBack(item);
-            })).easing(Easing.Linear.None).start();
-            let index = this.visibleNotice.findIndex((ele => item));
+            }).easing(Easing.Linear.None).start();
+            let index = this.visibleNotice.findIndex(ele => item);
             if (index != -1) {
                 this.visibleNotice.splice(index, 1);
             }
@@ -3758,7 +3758,7 @@ class Utils {
     }
     static randomOneDifferentId(guids, lastId) {
         let newGuids = [];
-        newGuids = guids.filter((v => v != lastId));
+        newGuids = guids.filter(v => v != lastId);
         lastId = newGuids[this.randomInt(0, newGuids.length - 1)];
         return lastId;
     }
@@ -3766,13 +3766,13 @@ class Utils {
         if (this.assetIconDataMap.has(icon)) {
             image.setImageByAssetIconData(this.assetIconDataMap.get(icon));
         } else {
-            mw.assetIDChangeIconUrlRequest([ icon ]).then((() => {
+            mw.assetIDChangeIconUrlRequest([ icon ]).then(() => {
                 try {
                     let assetIconData = mw.getAssetIconDataByAssetID(icon);
                     image.setImageByAssetIconData(assetIconData);
                     this.assetIconDataMap.set(icon, assetIconData);
                 } catch (error) {}
-            }));
+            });
         }
     }
     static openUITween(mCanvas, onStart, onComplete) {
@@ -3799,15 +3799,15 @@ class Utils {
         }).to({
             x: 0,
             y: 0
-        }, .5 * 1e3).onStart((() => {
+        }, .5 * 1e3).onStart(() => {
             mCanvas.position = new mw.Vector2(tmpX, tmpY);
             if (onStart) onStart();
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             mCanvas.position = new mw.Vector2(v.x, v.y);
-        })).easing(cubicBezier(.75, 2.9, .46, -.18)).onComplete((() => {
+        }).easing(cubicBezier(.75, 2.9, .46, -.18)).onComplete(() => {
             mCanvas.position = mw.Vector2.zero;
             if (onComplete) onComplete();
-        })).start();
+        }).start();
         let scaleType = this.randomInt(0, 2);
         new mw.Tween({
             x: 0,
@@ -3815,7 +3815,7 @@ class Utils {
         }).to({
             x: 1,
             y: 1
-        }, .5 * 1e3).onStart((() => {
+        }, .5 * 1e3).onStart(() => {
             switch (scaleType) {
               case 0:
                 mCanvas.renderScale = new mw.Vector2(1, 0);
@@ -3829,7 +3829,7 @@ class Utils {
                 mCanvas.renderScale = new mw.Vector2(1, 1);
                 break;
             }
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             switch (scaleType) {
               case 0:
                 mCanvas.renderScale = new mw.Vector2(1, v.y);
@@ -3843,9 +3843,9 @@ class Utils {
                 mCanvas.renderScale = new mw.Vector2(v.x, v.y);
                 break;
             }
-        })).onComplete((() => {
+        }).onComplete(() => {
             mCanvas.renderScale = mw.Vector2.one;
-        })).start();
+        }).start();
     }
     static closeUITween(mCanvas, onStart, onComplete) {
         let scaleType = this.randomInt(0, 2);
@@ -3855,10 +3855,10 @@ class Utils {
         }).to({
             x: 0,
             y: 0
-        }, .5 * 1e3).onStart((() => {
+        }, .5 * 1e3).onStart(() => {
             if (onStart) onStart();
             mCanvas.renderScale = new mw.Vector2(1, 1);
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             switch (scaleType) {
               case 0:
                 mCanvas.renderScale = new mw.Vector2(1, v.y);
@@ -3872,7 +3872,7 @@ class Utils {
                 mCanvas.renderScale = new mw.Vector2(v.x, v.y);
                 break;
             }
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (onComplete) onComplete();
             switch (scaleType) {
               case 0:
@@ -3887,7 +3887,7 @@ class Utils {
                 mCanvas.renderScale = new mw.Vector2(0, 0);
                 break;
             }
-        })).start();
+        }).start();
     }
     static getCurrentTime() {
         let date = new Date;
@@ -3928,7 +3928,7 @@ class Utils {
         return;
     }
     static showAd(adsType, callback) {
-        AdsService.showAd(adsType, (isSuccess => {
+        AdsService.showAd(adsType, isSuccess => {
             if (isSuccess) {
                 callback(AdsState.Success);
                 callback(AdsState.Close);
@@ -3936,7 +3936,7 @@ class Utils {
             } else {
                 callback(AdsState.Fail);
             }
-        }));
+        });
     }
     static randomColor() {
         let colors = [ mw.LinearColor.red, mw.LinearColor.green, mw.LinearColor.blue, mw.LinearColor.yellow, new mw.LinearColor(1, 0, 1, 1), new mw.LinearColor(0, 1, 1, 1), mw.LinearColor.white ];
@@ -4102,22 +4102,22 @@ class Utils {
         return this.randomInt(0, length - 1);
     }
     static async applySharedId(character, sharedId) {
-        return new Promise((async resolve => {
-            mw.AccountService.applySharedId(character, sharedId, (async success => {
+        return new Promise(async resolve => {
+            mw.AccountService.applySharedId(character, sharedId, async success => {
                 console.error(`success:${success}`);
                 if (success) character.syncDescription();
                 await character.asyncReady();
                 return resolve(success);
-            }));
-        }));
+            });
+        });
     }
     static async createSharedId(character) {
-        return new Promise((async resolve => {
-            mw.AccountService.createSharedId(character, (dataString => {
+        return new Promise(async resolve => {
+            mw.AccountService.createSharedId(character, dataString => {
                 console.error(`dataString:${dataString}`);
                 return resolve(dataString);
-            }));
-        }));
+            });
+        });
     }
     static copyArray(array) {
         let newArray = [];
@@ -4148,9 +4148,9 @@ class Utils {
         return transform;
     }
     static accountServiceDownloadData(character) {
-        return new Promise((async resolve => {
-            mw.AccountService.downloadData(character, (async success => resolve(success)));
-        }));
+        return new Promise(async resolve => {
+            mw.AccountService.downloadData(character, async success => resolve(success));
+        });
     }
 }
 
@@ -4264,9 +4264,9 @@ let AdPanel_Generate = class AdPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mNoBtn.onClicked.add((() => {
+        this.mNoBtn.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mNoBtn");
-        }));
+        });
         this.initLanguage(this.mNoBtn);
         this.mNoBtn.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTitleTxt);
@@ -4342,9 +4342,9 @@ class AdPanel extends AdPanel_Generate$1 {
     }
     hideAdPanel() {
         if (!this.visible) return;
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
     onShow(...params) {
         Utils.openUITween(this.rootCanvas, null, null);
@@ -4366,22 +4366,22 @@ let ChangeClothes = class ChangeClothes extends Script {
             let trigger = this.gameObject;
             let npc = trigger.parent;
             if (this.shareId && this.shareId != "") Utils.applySharedId(npc, this.shareId);
-            trigger.onEnter.add((char => {
+            trigger.onEnter.add(char => {
                 if (char.gameObjectId != Player.localPlayer.character.gameObjectId) return;
                 if (!GlobalData.isOpenIAA) {
                     char.setDescription(npc.getDescription());
-                    char.asyncReady().then((() => {
+                    char.asyncReady().then(() => {
                         char.syncDescription();
-                    }));
+                    });
                 } else {
-                    mw.UIService.getUI(AdPanel).showRewardAd((() => {
+                    mw.UIService.getUI(AdPanel).showRewardAd(() => {
                         char.setDescription(npc.getDescription());
-                        char.asyncReady().then((() => {
+                        char.asyncReady().then(() => {
                             char.syncDescription();
-                        }));
-                    }), GameConfig.Language.FreeToUse.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
+                        });
+                    }, GameConfig.Language.FreeToUse.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
                 }
-            }));
+            });
         }
     }
     onUpdate(dt) {}
@@ -4445,13 +4445,13 @@ let ConfirmPanel_Generate = class ConfirmPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mSureButton.onClicked.add((() => {
+        this.mSureButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSureButton");
-        }));
+        });
         this.mSureButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCancleButton.onClicked.add((() => {
+        this.mCancleButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCancleButton");
-        }));
+        });
         this.mCancleButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTitleTextBlock);
         this.initLanguage(this.mContentTextBlock);
@@ -4499,13 +4499,13 @@ class ConfirmPanel extends ConfirmPanel_Generate$1 {
         }
     }
     bindButton() {
-        this.mSureButton.onClicked.add((() => {
+        this.mSureButton.onClicked.add(() => {
             this.hide();
             if (this.callback) this.callback();
-        }));
-        this.mCancleButton.onClicked.add((() => {
+        });
+        this.mCancleButton.onClicked.add(() => {
             this.hideTween();
-        }));
+        });
     }
     confirmTips(callback, contentText, yesText, noText, titleText) {
         this.mSureTextBlock.text = yesText;
@@ -4519,9 +4519,9 @@ class ConfirmPanel extends ConfirmPanel_Generate$1 {
         Utils.openUITween(this.rootCanvas, null, null);
     }
     hideTween() {
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
 }
 
@@ -4543,37 +4543,37 @@ var PrefabEvent;
         mwext["PrefabEvent"] = true;
         if (SystemUtil.isServer()) {
             DataStorage.setTemporaryStorage(mw.SystemUtil.isPIE);
-            Event.addLocalListener("__setCustomDataCache", ((k, v) => {
+            Event.addLocalListener("__setCustomDataCache", (k, v) => {
                 _retrySetCustomDataList.push({
                     key: k,
                     val: v
                 });
-            }));
-            setInterval((() => {
+            });
+            setInterval(() => {
                 let keyMap = new Map;
-                _retrySetCustomDataList.forEach((e => {
+                _retrySetCustomDataList.forEach(e => {
                     keyMap.set(e.key, e.val);
-                }));
+                });
                 _retrySetCustomDataList = [];
-                keyMap.forEach(((v, k, maps) => {
+                keyMap.forEach((v, k, maps) => {
                     _retrySetCustomDataList.push({
                         key: k,
                         val: v
                     });
-                }));
+                });
                 while (_retrySetCustomDataList.length > 0) {
                     let data = _retrySetCustomDataList.shift();
                     if (data) {
-                        DataStorage.asyncSetData(data.key, data.val).then((res => {
+                        DataStorage.asyncSetData(data.key, data.val).then(res => {
                             if (res != mw.DataStorageResultCode.Success) {
                                 _retrySetCustomDataList.push(data);
                             }
-                        })).catch((err => {
+                        }).catch(err => {
                             _retrySetCustomDataList.push(data);
-                        }));
+                        });
                     }
                 }
-            }), 6500);
+            }, 6500);
         }
         var call = (clazzName, funcName, ...params) => {
             if (!PrefabEvent[clazzName]) {
@@ -4585,14 +4585,14 @@ var PrefabEvent;
             Event.dispatchToLocal(_onEventKey + ":" + clazzName + ":" + funcName, ...params);
         };
         if (mw.SystemUtil.isServer()) {
-            Event.addClientListener(_onEventNetKey, ((player, clazzName, funcName, ...params) => {
+            Event.addClientListener(_onEventNetKey, (player, clazzName, funcName, ...params) => {
                 call(clazzName, funcName, ...params);
-            }));
+            });
         }
         if (mw.SystemUtil.isClient()) {
-            Event.addServerListener(_onEventNetKey, ((clazzName, funcName, ...params) => {
+            Event.addServerListener(_onEventNetKey, (clazzName, funcName, ...params) => {
                 call(clazzName, funcName, ...params);
-            }));
+            });
         }
     }
     function callClientFunc(clazzName, funcName, ...params) {
@@ -4626,16 +4626,16 @@ var PrefabEvent;
             return dataCache[playerId];
         }
         static async asyncGetValue(playerId, key) {
-            return new Promise(((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 let playerDataCache = this.getPlayerDataCache(playerId);
                 let dataKey = key + "_" + playerId + "_key";
                 let dataVal = null;
                 let keys = Object.keys(playerDataCache);
-                keys.forEach(((v, i, arr) => {
+                keys.forEach((v, i, arr) => {
                     if (v == dataKey) {
                         dataVal = playerDataCache[dataKey];
                     }
-                }));
+                });
                 if (dataVal) {
                     let res = null;
                     let db = dataVal;
@@ -4647,7 +4647,7 @@ var PrefabEvent;
                     resolve(res.value);
                     return;
                 }
-                Utils.asyncRpcGetData(dataKey).then((v => {
+                Utils.asyncRpcGetData(dataKey).then(v => {
                     let res = null;
                     let db = v;
                     if (!db) {
@@ -4656,13 +4656,13 @@ var PrefabEvent;
                     res = JSON.parse(db);
                     playerDataCache[dataKey] = db;
                     resolve(res.value);
-                })).catch((err => {
+                }).catch(err => {
                     reject("不存在这份存档，可能是新玩家");
-                }));
-            }));
+                });
+            });
         }
         static async asyncSetValue(playerId, key, val) {
-            return new Promise(((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 let data = new DBSaveBase;
                 data.value = val;
                 let dataStr = JSON.stringify(data);
@@ -4675,7 +4675,7 @@ var PrefabEvent;
                 playerDataCache[dataKey] = dataStr;
                 Event.dispatchToLocal("__setCustomDataCache", key + "_" + playerId + "_key", dataStr);
                 resolve();
-            }));
+            });
         }
     }
     PrefabEvent.DBServerTool = DBServerTool;
@@ -5159,25 +5159,25 @@ class ExecutorManager {
         this.doneCb.call();
     }
     runExecute(exeFunc) {
-        return new Promise((async resolve => {
-            let timeOut = setTimeout((() => {
+        return new Promise(async resolve => {
+            let timeOut = setTimeout(() => {
                 console.error(`命令执行10秒超时`);
                 return resolve();
-            }), 10 * 1e3);
+            }, 10 * 1e3);
             await exeFunc();
             clearTimeout(timeOut);
             return resolve();
-        }));
+        });
     }
     awaitDone() {
-        return new Promise((resolve => {
+        return new Promise(resolve => {
             if (!this.running) return resolve();
             const doneFunc = () => {
                 this.doneCb.remove(doneFunc, this);
                 return resolve();
             };
             this.doneCb.add(doneFunc, this);
-        }));
+        });
     }
 }
 
@@ -5231,13 +5231,13 @@ let CoinPanel_Generate = class CoinPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mAddCoinButton.onClicked.add((() => {
+        this.mAddCoinButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mAddCoinButton");
-        }));
+        });
         this.mAddCoinButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mAddDiamondButton.onClicked.add((() => {
+        this.mAddDiamondButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mAddDiamondButton");
-        }));
+        });
         this.mAddDiamondButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mCoinTextBlock);
         this.initLanguage(this.mDiamondTextBlock);
@@ -5335,18 +5335,18 @@ class CoinModuleC extends ModuleC {
     }
     getCoinByAd() {
         if (GlobalData.isOpenIAA) {
-            this.getAdPanel.showRewardAd((() => {
+            this.getAdPanel.showRewardAd(() => {
                 this.setCoin(GlobalData.addCoin);
-            }), StringUtil.format(GameConfig.Language.FreeCollectionOfCoins.Value, GlobalData.addCoin), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToReceive.Value);
+            }, StringUtil.format(GameConfig.Language.FreeCollectionOfCoins.Value, GlobalData.addCoin), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToReceive.Value);
         } else {
             this.setCoin(GlobalData.addCoin);
         }
     }
     getDiamondByAd(diamond) {
         if (GlobalData.isOpenIAA) {
-            this.getAdPanel.showRewardAd((() => {
+            this.getAdPanel.showRewardAd(() => {
                 this.setDiamond(GlobalData.addDiamond);
-            }), StringUtil.format(GameConfig.Language.FreeCollectionOfDiamonds.Value, GlobalData.addDiamond), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToReceive.Value);
+            }, StringUtil.format(GameConfig.Language.FreeCollectionOfDiamonds.Value, GlobalData.addDiamond), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToReceive.Value);
         } else {
             this.setDiamond(GlobalData.addDiamond);
         }
@@ -6013,70 +6013,70 @@ let HUDPanel_Generate = class HUDPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mOpenShareButton.onClicked.add((() => {
+        this.mOpenShareButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mOpenShareButton");
-        }));
+        });
         this.initLanguage(this.mOpenShareButton);
         this.mOpenShareButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mSetButton.onClicked.add((() => {
+        this.mSetButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSetButton");
-        }));
+        });
         this.mSetButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mRankButton.onClicked.add((() => {
+        this.mRankButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mRankButton");
-        }));
+        });
         this.mRankButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mTaskButton.onClicked.add((() => {
+        this.mTaskButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTaskButton");
-        }));
+        });
         this.mTaskButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mTeamButton.onClicked.add((() => {
+        this.mTeamButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTeamButton");
-        }));
+        });
         this.mTeamButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mShopButton.onClicked.add((() => {
+        this.mShopButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mShopButton");
-        }));
+        });
         this.mShopButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mRoleButton.onClicked.add((() => {
+        this.mRoleButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mRoleButton");
-        }));
+        });
         this.mRoleButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mActivityButton.onClicked.add((() => {
+        this.mActivityButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mActivityButton");
-        }));
+        });
         this.mActivityButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mSetCloseButton.onClicked.add((() => {
+        this.mSetCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSetCloseButton");
-        }));
+        });
         this.mSetCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mResetPosButton.onClicked.add((() => {
+        this.mResetPosButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mResetPosButton");
-        }));
+        });
         this.mResetPosButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mUnMorphButton.onClicked.add((() => {
+        this.mUnMorphButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mUnMorphButton");
-        }));
+        });
         this.mUnMorphButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mJumpButton.onClicked.add((() => {
+        this.mJumpButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mJumpButton");
-        }));
+        });
         this.mJumpButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mMorphButton.onClicked.add((() => {
+        this.mMorphButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mMorphButton");
-        }));
+        });
         this.mMorphButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mReloadButton.onClicked.add((() => {
+        this.mReloadButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mReloadButton");
-        }));
+        });
         this.mReloadButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCrouchButton.onClicked.add((() => {
+        this.mCrouchButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCrouchButton");
-        }));
+        });
         this.mCrouchButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mFireJumpButton.onClicked.add((() => {
+        this.mFireJumpButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mFireJumpButton");
-        }));
+        });
         this.mFireJumpButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mRedVsTextBlock);
         this.initLanguage(this.mRedCountTextBlock);
@@ -6224,17 +6224,17 @@ let SharePanel_Generate = class SharePanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mCopyButton.onClicked.add((() => {
+        this.mCopyButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCopyButton");
-        }));
+        });
         this.mCopyButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCancelButton.onClicked.add((() => {
+        this.mCancelButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCancelButton");
-        }));
+        });
         this.mCancelButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mUseButton.onClicked.add((() => {
+        this.mUseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mUseButton");
-        }));
+        });
         this.mUseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mMyselfTipsTextBlock);
         this.initLanguage(this.mMyselfTextBlock);
@@ -6361,9 +6361,9 @@ class KillTipItem extends KillTipItem_Generate$1 {
             break;
         }
         Utils.setWidgetVisibility(this.uiObject, mw.SlateVisibility.SelfHitTestInvisible);
-        setTimeout((() => {
+        setTimeout(() => {
             this.mBgImage.size = new mw.Vector2(this.mMainCanvas.size.x + 20, this.mMainCanvas.size.y);
-        }), 1);
+        }, 1);
     }
 }
 
@@ -6544,14 +6544,14 @@ class HUDPanel extends HUDPanel_Generate$1 {
         this.killTipDatas.push(killTipData);
         this.updateKillTipItems();
         this.clearHideKillTipIntervalId();
-        this.hideKillTipIntervalId = TimeUtil.setInterval((() => {
+        this.hideKillTipIntervalId = TimeUtil.setInterval(() => {
             if (this.killTipDatas && this.killTipDatas.length > 0) {
                 this.killTipDatas.shift();
                 this.updateKillTipItems();
             } else {
                 this.clearHideKillTipIntervalId();
             }
-        }), 5);
+        }, 5);
     }
     clearHideKillTipIntervalId() {
         if (this.hideKillTipIntervalId) {
@@ -6585,10 +6585,10 @@ class HUDPanel extends HUDPanel_Generate$1 {
             this.mKillTipTextBlock3.text = StringUtil.format(GameConfig.Language.DefeatToCompleteRevenge.Value, killedName);
         }
         Utils.setWidgetVisibility(this.mKillTipTextBlock3, mw.SlateVisibility.SelfHitTestInvisible);
-        this.killTipsTimeOutId2 = setTimeout((() => {
+        this.killTipsTimeOutId2 = setTimeout(() => {
             Utils.setWidgetVisibility(this.mKillTipTextBlock3, mw.SlateVisibility.Collapsed);
             this.clearKillTipsTimeOutId2();
-        }), 3 * 1e3);
+        }, 3 * 1e3);
     }
     clearKillTipsTimeOutId2() {
         if (this.killTipsTimeOutId2) {
@@ -6625,10 +6625,10 @@ class HUDPanel extends HUDPanel_Generate$1 {
         this.deadCountDown = 3;
         this.mDeadCountDownTextBlock.text = this.deadCountDown-- + "";
         this.clearCountDownInterval();
-        this.deadCountDownInterval = TimeUtil.setInterval((() => {
+        this.deadCountDownInterval = TimeUtil.setInterval(() => {
             this.mDeadCountDownTextBlock.text = this.deadCountDown-- + "";
             if (this.deadCountDown < 0) this.clearCountDownInterval();
-        }), 1);
+        }, 1);
     }
     clearCountDownInterval() {
         if (this.deadCountDownInterval) {
@@ -6647,16 +6647,16 @@ class HUDPanel extends HUDPanel_Generate$1 {
             x: 0
         }).to({
             x: 1
-        }, invincibleTime * 1e3).onStart((() => {
+        }, invincibleTime * 1e3).onStart(() => {
             Utils.setWidgetVisibility(this.mInvincibleCanvas, mw.SlateVisibility.SelfHitTestInvisible);
             this.mInvincibleProgressBar.currentValue = 0;
             this.startFlickerText();
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mInvincibleProgressBar.currentValue = v.x;
-        })).onComplete((() => {
+        }).onComplete(() => {
             Utils.setWidgetVisibility(this.mInvincibleCanvas, mw.SlateVisibility.Collapsed);
             this.stopFlickerText();
-        })).start();
+        }).start();
     }
     initFlickerInvincibleText() {
         Utils.setWidgetVisibility(this.mInvincibleCanvas, mw.SlateVisibility.Collapsed);
@@ -6664,24 +6664,24 @@ class HUDPanel extends HUDPanel_Generate$1 {
             x: 1
         }).to({
             x: 0
-        }, .4 * 1e3).onStart((() => {
+        }, .4 * 1e3).onStart(() => {
             this.mInvincibleTextBlock.renderOpacity = 1;
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mInvincibleTextBlock.renderOpacity = v.x;
-        })).onComplete((() => {
+        }).onComplete(() => {
             this.flickerTextTween2.start();
-        }));
+        });
         this.flickerTextTween2 = new mw.Tween({
             x: 0
         }).to({
             x: 1
-        }, .4 * 1e3).onStart((() => {
+        }, .4 * 1e3).onStart(() => {
             this.mInvincibleTextBlock.renderOpacity = 0;
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mInvincibleTextBlock.renderOpacity = v.x;
-        })).onComplete((() => {
+        }).onComplete(() => {
             this.flickerTextTween1.start();
-        }));
+        });
     }
     startFlickerText() {
         if (this.flickerTextTween1) this.flickerTextTween1.start();
@@ -6700,31 +6700,31 @@ class HUDPanel extends HUDPanel_Generate$1 {
         this.startSetTween();
     }
     bindSetButton() {
-        this.mSetButton.onClicked.add((() => {
-            Utils.openUITween(this.mSetCanvas, (() => {
+        this.mSetButton.onClicked.add(() => {
+            Utils.openUITween(this.mSetCanvas, () => {
                 Utils.setWidgetVisibility(this.mSetCanvas, mw.SlateVisibility.SelfHitTestInvisible);
-            }), null);
-        }));
-        this.mSetCloseButton.onClicked.add((() => {
-            Utils.closeUITween(this.mSetCanvas, (() => {
+            }, null);
+        });
+        this.mSetCloseButton.onClicked.add(() => {
+            Utils.closeUITween(this.mSetCanvas, () => {
                 this.getHUDModuleC.saveSetData();
-            }), (() => {
+            }, () => {
                 Utils.setWidgetVisibility(this.mSetCanvas, mw.SlateVisibility.Collapsed);
-            }));
-        }));
-        this.mFireProgressBar.onSliderValueChanged.add((value => {
+            });
+        });
+        this.mFireProgressBar.onSliderValueChanged.add(value => {
             this.getHUDModuleC.onFireScaleAction.call(value);
-        }));
-        this.mControlProgressBar.onSliderValueChanged.add((value => {
+        });
+        this.mControlProgressBar.onSliderValueChanged.add(value => {
             this.getHUDModuleC.onControlScaleAction.call(value);
             this.mTouchPad.inputScale = new mw.Vector2(value, value);
-        }));
-        this.mBgmProgressBar.onSliderValueChanged.add((value => {
+        });
+        this.mBgmProgressBar.onSliderValueChanged.add(value => {
             this.getHUDModuleC.onBgmVolumeAction.call(value);
-        }));
-        this.mSoundProgressBar.onSliderValueChanged.add((value => {
+        });
+        this.mSoundProgressBar.onSliderValueChanged.add(value => {
             this.getHUDModuleC.onSoundVolumeAction.call(value);
-        }));
+        });
     }
     startSetTween() {
         if (!this.setRotateTween1 || !this.setRotateTween1) this.initSetTween();
@@ -6739,24 +6739,24 @@ class HUDPanel extends HUDPanel_Generate$1 {
             angle: 0
         }).to({
             angle: 360
-        }, 2 * 1e3).onStart((() => {
+        }, 2 * 1e3).onStart(() => {
             this.mSetButton.renderTransformAngle = 0;
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mSetButton.renderTransformAngle = v.angle;
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (this.setRotateTween2) this.setRotateTween2.start();
-        }));
+        });
         this.setRotateTween2 = new mw.Tween({
             angle: 0
         }).to({
             angle: 360
-        }, 2 * 1e3).onStart((() => {
+        }, 2 * 1e3).onStart(() => {
             this.mSetButton.renderTransformAngle = 0;
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mSetButton.renderTransformAngle = v.angle;
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (this.setRotateTween1) this.setRotateTween1.start();
-        }));
+        });
     }
     initUITweens() {
         this.initRankButtonTweens();
@@ -6771,11 +6771,11 @@ class HUDPanel extends HUDPanel_Generate$1 {
     initRankButtonTweens() {
         let rankButtonTween1 = this.getScaleTween(this.mRankButton, .4, .8, .8, 1.2, 1.2);
         let rankButtonsTween2 = this.getScaleTween(this.mRankButton, .4, 1.2, 1.2, .8, .8);
-        rankButtonTween1.start().onComplete((() => {
-            rankButtonsTween2.start().onComplete((() => {
+        rankButtonTween1.start().onComplete(() => {
+            rankButtonsTween2.start().onComplete(() => {
                 rankButtonTween1.start();
-            }));
-        }));
+            });
+        });
     }
     startTaskRedPointTween() {
         if (!this.taskRedPointTween1 || !this.taskRedPointTween2) this.initTaskRedPointTweens();
@@ -6793,103 +6793,103 @@ class HUDPanel extends HUDPanel_Generate$1 {
             value: .8
         }).to({
             value: 1.2
-        }, .2 * 1e3).onStart((() => {
+        }, .2 * 1e3).onStart(() => {
             this.mTaskPointImage.renderScale = mw.Vector2.one.multiply(.8);
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mTaskPointImage.renderScale = mw.Vector2.one.multiply(v.value);
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (this.taskRedPointTween2) this.taskRedPointTween2.start();
-        })).easing(cubicBezier(.25, .1, .25, 1));
+        }).easing(cubicBezier(.25, .1, .25, 1));
         this.taskRedPointTween2 = new mw.Tween({
             value: 1.2
         }).to({
             value: .8
-        }, .2 * 1e3).onStart((() => {
+        }, .2 * 1e3).onStart(() => {
             this.mTaskPointImage.renderScale = mw.Vector2.one.multiply(1.2);
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mTaskPointImage.renderScale = mw.Vector2.one.multiply(v.value);
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (this.taskRedPointTween1) this.taskRedPointTween1.start();
-        })).easing(cubicBezier(.25, .1, .25, 1));
+        }).easing(cubicBezier(.25, .1, .25, 1));
     }
     initTaskTween() {
         let leftToRight = this.getPosTween(this.mTaskBgImage, .5, 0, 15, 40, 15);
         let rightToLeft = this.getPosTween(this.mTaskBgImage, .5, 40, 15, 0, 15);
-        leftToRight.start().onComplete((() => {
-            TimeUtil.delaySecond(.1).then((() => {
-                rightToLeft.start().onComplete((() => {
-                    TimeUtil.delaySecond(.1).then((() => {
+        leftToRight.start().onComplete(() => {
+            TimeUtil.delaySecond(.1).then(() => {
+                rightToLeft.start().onComplete(() => {
+                    TimeUtil.delaySecond(.1).then(() => {
                         leftToRight.start();
-                    }));
-                }));
-            }));
-        }));
+                    });
+                });
+            });
+        });
         this.initTaskRedPointTweens();
     }
     initTeamTweens() {
         let teamBgTween1 = this.getRenderOpacityTween(this.mTeamBgImage, .75, 1, 0);
         let teamBgTween2 = this.getRenderOpacityTween(this.mTeamBgImage, .75, 0, 1);
-        teamBgTween1.start().onComplete((() => {
-            TimeUtil.delaySecond(.2).then((() => {
-                teamBgTween2.start().onComplete((() => {
-                    TimeUtil.delaySecond(.2).then((() => {
+        teamBgTween1.start().onComplete(() => {
+            TimeUtil.delaySecond(.2).then(() => {
+                teamBgTween2.start().onComplete(() => {
+                    TimeUtil.delaySecond(.2).then(() => {
                         teamBgTween1.start();
-                    }));
-                }));
-            }));
-        }));
+                    });
+                });
+            });
+        });
         let teamIconTween1 = this.getScaleTween(this.mTeamIconImage, .75, 1, 1, 0, 1);
         let teamIconTween2 = this.getScaleTween(this.mTeamIconImage, .75, 0, 1, 1, 1);
-        TimeUtil.delaySecond(.75).then((() => {
-            teamIconTween1.start().onComplete((() => {
-                TimeUtil.delaySecond(.2).then((() => {
-                    teamIconTween2.start().onComplete((() => {
-                        TimeUtil.delaySecond(.2).then((() => {
+        TimeUtil.delaySecond(.75).then(() => {
+            teamIconTween1.start().onComplete(() => {
+                TimeUtil.delaySecond(.2).then(() => {
+                    teamIconTween2.start().onComplete(() => {
+                        TimeUtil.delaySecond(.2).then(() => {
                             teamIconTween1.start();
-                        }));
-                    }));
-                }));
-            }));
-        }));
+                        });
+                    });
+                });
+            });
+        });
     }
     initShakeShopTween() {
         let rightBigToLeftSmall = this.getShakeScaleTween(this.mShopButton, .8, 20, -20, 1.1, .9);
         let leftSamllToRightBig = this.getShakeScaleTween(this.mShopButton, .8, -20, 20, .9, 1.1);
-        rightBigToLeftSmall.start().onComplete((() => {
-            TimeUtil.delaySecond(.1).then((() => {
-                leftSamllToRightBig.start().onComplete((() => {
-                    TimeUtil.delaySecond(.1).then((() => {
+        rightBigToLeftSmall.start().onComplete(() => {
+            TimeUtil.delaySecond(.1).then(() => {
+                leftSamllToRightBig.start().onComplete(() => {
+                    TimeUtil.delaySecond(.1).then(() => {
                         rightBigToLeftSmall.start();
-                    }));
-                }));
-            }));
-        }));
+                    });
+                });
+            });
+        });
     }
     initShakeShareTween() {
         let rightBigToLeftSmall = this.getShakeScaleTween(this.mOpenShareButton, .8, 20, -20, 1.1, .9);
         let leftSamllToRightBig = this.getShakeScaleTween(this.mOpenShareButton, .8, -20, 20, .9, 1.1);
-        rightBigToLeftSmall.start().onComplete((() => {
-            TimeUtil.delaySecond(.1).then((() => {
-                leftSamllToRightBig.start().onComplete((() => {
-                    TimeUtil.delaySecond(.1).then((() => {
+        rightBigToLeftSmall.start().onComplete(() => {
+            TimeUtil.delaySecond(.1).then(() => {
+                leftSamllToRightBig.start().onComplete(() => {
+                    TimeUtil.delaySecond(.1).then(() => {
                         rightBigToLeftSmall.start();
-                    }));
-                }));
-            }));
-        }));
+                    });
+                });
+            });
+        });
     }
     initShakeRoleTween() {
         let rightBigToLeftSmall = this.getShakeScaleTween(this.mRoleButton, .8, 20, -20, 1.1, .9);
         let leftSamllToRightBig = this.getShakeScaleTween(this.mRoleButton, .8, -20, 20, .9, 1.1);
-        rightBigToLeftSmall.start().onComplete((() => {
-            TimeUtil.delaySecond(.1).then((() => {
-                leftSamllToRightBig.start().onComplete((() => {
-                    TimeUtil.delaySecond(.1).then((() => {
+        rightBigToLeftSmall.start().onComplete(() => {
+            TimeUtil.delaySecond(.1).then(() => {
+                leftSamllToRightBig.start().onComplete(() => {
+                    TimeUtil.delaySecond(.1).then(() => {
                         rightBigToLeftSmall.start();
-                    }));
-                }));
-            }));
-        }));
+                    });
+                });
+            });
+        });
     }
     startActivityRedPointTween() {
         if (!this.activityRedPointTween1 || !this.activityRedPointTween2) this.initActivityRedPointTweens();
@@ -6907,60 +6907,60 @@ class HUDPanel extends HUDPanel_Generate$1 {
             value: .8
         }).to({
             value: 1.2
-        }, .2 * 1e3).onStart((() => {
+        }, .2 * 1e3).onStart(() => {
             this.mActivityPointImage.renderScale = mw.Vector2.one.multiply(.8);
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mActivityPointImage.renderScale = mw.Vector2.one.multiply(v.value);
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (this.activityRedPointTween2) this.activityRedPointTween2.start();
-        })).easing(cubicBezier(.25, .1, .25, 1));
+        }).easing(cubicBezier(.25, .1, .25, 1));
         this.activityRedPointTween2 = new mw.Tween({
             value: 1.2
         }).to({
             value: .8
-        }, .2 * 1e3).onStart((() => {
+        }, .2 * 1e3).onStart(() => {
             this.mActivityPointImage.renderScale = mw.Vector2.one.multiply(1.2);
-        })).onUpdate((v => {
+        }).onUpdate(v => {
             this.mActivityPointImage.renderScale = mw.Vector2.one.multiply(v.value);
-        })).onComplete((() => {
+        }).onComplete(() => {
             if (this.activityRedPointTween1) this.activityRedPointTween1.start();
-        })).easing(cubicBezier(.25, .1, .25, 1));
+        }).easing(cubicBezier(.25, .1, .25, 1));
     }
     initShakeActivityTween() {
         let middleToRight = this.getShakeTween(this.mActivityButton, .05, 0, 15);
         let rightToLeft = this.getShakeTween(this.mActivityButton, .1, 15, -15);
         let leftToRight = this.getShakeTween(this.mActivityButton, .1, -15, 15);
         let rightToMiddle = this.getShakeTween(this.mActivityButton, .05, 15, 0);
-        middleToRight.start().onComplete((() => {
-            rightToLeft.start().onComplete((() => {
-                leftToRight.start().onComplete((() => {
-                    rightToMiddle.start().onComplete((() => {
-                        TimeUtil.delaySecond(1).then((() => {
+        middleToRight.start().onComplete(() => {
+            rightToLeft.start().onComplete(() => {
+                leftToRight.start().onComplete(() => {
+                    rightToMiddle.start().onComplete(() => {
+                        TimeUtil.delaySecond(1).then(() => {
                             middleToRight.start();
-                        }));
-                    }));
-                }));
-            }));
-        }));
+                        });
+                    });
+                });
+            });
+        });
         this.initActivityRedPointTweens();
     }
     initMorphButtonTween() {
         let rotate1 = this.getShakeTween(this.mMorphButton, 1, 0, 360);
         let rotate2 = this.getShakeTween(this.mMorphButton, 1, 0, 360);
-        rotate1.start().onComplete((() => {
-            rotate2.start().onComplete((() => {
+        rotate1.start().onComplete(() => {
+            rotate2.start().onComplete(() => {
                 rotate1.start();
-            }));
-        }));
+            });
+        });
     }
     getShakeTween(widget, angleTime, startAngle, endAngle) {
         return new Tween({
             angle: startAngle
         }).to({
             angle: endAngle
-        }, angleTime * 1e3).onUpdate((v => {
+        }, angleTime * 1e3).onUpdate(v => {
             widget.renderTransformAngle = v.angle;
-        })).easing(cubicBezier(.22, .9, .28, .92));
+        }).easing(cubicBezier(.22, .9, .28, .92));
     }
     getScaleTween(widget, scaleTime, startScaleX, startScaleY, endScaleX, endScaleY) {
         return new Tween({
@@ -6969,9 +6969,9 @@ class HUDPanel extends HUDPanel_Generate$1 {
         }).to({
             scaleX: endScaleX,
             scaleY: endScaleY
-        }, scaleTime * 1e3).onUpdate((v => {
+        }, scaleTime * 1e3).onUpdate(v => {
             widget.renderScale = new mw.Vector2(v.scaleX, v.scaleY);
-        })).easing(cubicBezier(.22, .9, .28, .92));
+        }).easing(cubicBezier(.22, .9, .28, .92));
     }
     getShakeScaleTween(widget, shakeScaleTime, startAngle, endAngle, startScale, endScale) {
         return new Tween({
@@ -6980,19 +6980,19 @@ class HUDPanel extends HUDPanel_Generate$1 {
         }).to({
             angle: endAngle,
             scale: endScale
-        }, shakeScaleTime * 1e3).onUpdate((v => {
+        }, shakeScaleTime * 1e3).onUpdate(v => {
             widget.renderTransformAngle = v.angle;
             widget.renderScale = new mw.Vector2(v.scale, v.scale);
-        })).easing(cubicBezier(.22, .9, .28, .92));
+        }).easing(cubicBezier(.22, .9, .28, .92));
     }
     getRenderOpacityTween(widget, time, startOpacity, endOpacity) {
         return new Tween({
             opacity: startOpacity
         }).to({
             opacity: endOpacity
-        }, time * 1e3).onUpdate((v => {
+        }, time * 1e3).onUpdate(v => {
             widget.renderOpacity = v.opacity;
-        })).easing(cubicBezier(.22, .9, .28, .92));
+        }).easing(cubicBezier(.22, .9, .28, .92));
     }
     getPosTween(widget, posTime, startPosX, startPosY, endPosX, endPosY) {
         return new Tween({
@@ -7001,17 +7001,17 @@ class HUDPanel extends HUDPanel_Generate$1 {
         }).to({
             posX: endPosX,
             posY: endPosY
-        }, posTime * 1e3).onUpdate((v => {
+        }, posTime * 1e3).onUpdate(v => {
             widget.position = new mw.Vector2(v.posX, v.posY);
-        })).easing(cubicBezier(.22, .9, .28, .92));
+        }).easing(cubicBezier(.22, .9, .28, .92));
     }
     bindAtkButton() {
-        this.mNormalAtkButton.onJoyStickDown.add((() => {
+        this.mNormalAtkButton.onJoyStickDown.add(() => {
             this.getHUDModuleC.onNormalAction.call(true);
-        }));
-        this.mNormalAtkButton.onJoyStickUp.add((() => {
+        });
+        this.mNormalAtkButton.onJoyStickUp.add(() => {
             this.getHUDModuleC.onNormalAction.call(false);
-        }));
+        });
         this.mFireJumpButton.onClicked.add(this.onClickJumpButton.bind(this));
         this.mReloadButton.onClicked.add(this.onClickReloadButton.bind(this));
         this.mCrouchButton.onClicked.add(this.onClickCrouchButton.bind(this));
@@ -7056,18 +7056,18 @@ class HUDPanel extends HUDPanel_Generate$1 {
     startAimUITween() {
         this.stopAimUITween();
         let lerpTime = Math.abs(this.mAimLeft.position.x - this.toAimLeftPos.x) / (this.aimOffsetValue * 3) * this.expansionTime;
-        this.leftAimTween1 = this.expansionTween(this.mAimLeft, new mw.Vector2(this.mAimLeft.position.x, this.mAimLeft.position.y), this.toAimLeftPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete((() => {
+        this.leftAimTween1 = this.expansionTween(this.mAimLeft, new mw.Vector2(this.mAimLeft.position.x, this.mAimLeft.position.y), this.toAimLeftPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete(() => {
             this.leftAimTween2.start();
-        }));
-        this.rightAimTween1 = this.expansionTween(this.mAimRight, new mw.Vector2(this.mAimRight.position.x, this.mAimRight.position.y), this.toAimRightPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete((() => {
+        });
+        this.rightAimTween1 = this.expansionTween(this.mAimRight, new mw.Vector2(this.mAimRight.position.x, this.mAimRight.position.y), this.toAimRightPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete(() => {
             this.rightAimTween2.start();
-        }));
-        this.upAimTween1 = this.expansionTween(this.mAimUp, new mw.Vector2(this.mAimUp.position.x, this.mAimUp.position.y), this.toAimUpPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete((() => {
+        });
+        this.upAimTween1 = this.expansionTween(this.mAimUp, new mw.Vector2(this.mAimUp.position.x, this.mAimUp.position.y), this.toAimUpPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete(() => {
             this.upAimTween2.start();
-        }));
-        this.downAimTween1 = this.expansionTween(this.mAimDown, new mw.Vector2(this.mAimDown.position.x, this.mAimDown.position.y), this.toAimDownPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete((() => {
+        });
+        this.downAimTween1 = this.expansionTween(this.mAimDown, new mw.Vector2(this.mAimDown.position.x, this.mAimDown.position.y), this.toAimDownPos, lerpTime).easing(cubicBezier(.13, .68, .8, .25)).start().onComplete(() => {
             this.downAimTween2.start();
-        }));
+        });
     }
     stopAimUITween() {
         if (this.leftAimTween1) this.leftAimTween1.stop();
@@ -7086,9 +7086,9 @@ class HUDPanel extends HUDPanel_Generate$1 {
         }).to({
             x: toXY.x,
             y: toXY.y
-        }, time * 1e3).onUpdate((v => {
+        }, time * 1e3).onUpdate(v => {
             ui.position = new mw.Vector2(v.x, v.y);
-        }));
+        });
     }
     updateGunPropUI(gunIcon, gunBulletCount, gunName) {
         Utils.setImageByAssetIconData(this.mGunIconImage, gunIcon);
@@ -7232,11 +7232,11 @@ class HUDModuleC extends ModuleC {
         this.onCrouchAction.add(this.addCrouchAction.bind(this));
         Event.addLocalListener(EventType.OnOffMainHUD, this.addOnOffHUDPannel.bind(this));
         let isOpen = true;
-        InputUtil.onKeyDown(mw.Keys.NumPadFive, (() => {
+        InputUtil.onKeyDown(mw.Keys.NumPadFive, () => {
             isOpen = !isOpen;
             isOpen ? UIService.getUI(CoinPanel).show() : UIService.getUI(CoinPanel).hide();
             Event.dispatchToLocal(EventType.OnOffMainHUD, isOpen);
-        }));
+        });
     }
     addOnOffHUDPannel(isOpen) {
         if (isOpen) {
@@ -7252,18 +7252,18 @@ class HUDModuleC extends ModuleC {
         if (!this.localPlayer.character.movementEnabled) this.localPlayer.character.movementEnabled = true;
     }
     addOpenRoleAction() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             await AvatarEditorService.asyncOpenAvatarEditorModule();
-        }));
+        });
     }
     async onOpenShareActionHandler() {
         return;
     }
     onUseShareActionHandler(shareId) {
         if (GlobalData.isOpenIAA) {
-            this.getAdPanel.showRewardAd((() => {
+            this.getAdPanel.showRewardAd(() => {
                 this.useShareId(shareId);
-            }), GameConfig.Language.Text_TryItOnForFree.Value, GameConfig.Language.Text_Cancel.Value, GameConfig.Language.Text_FreeTryOn.Value);
+            }, GameConfig.Language.Text_TryItOnForFree.Value, GameConfig.Language.Text_Cancel.Value, GameConfig.Language.Text_FreeTryOn.Value);
         } else {
             this.useShareId(shareId);
         }
@@ -7383,20 +7383,20 @@ class HUDModuleC extends ModuleC {
         this.getHUDPanel.initSetData(this.currentFireScale, this.currentControlScale, this.currentBgmVolume, this.currentSoundVolume);
     }
     initSetAction() {
-        this.onFireScaleAction.add((scale => {
+        this.onFireScaleAction.add(scale => {
             this.currentFireScale = scale;
-        }));
-        this.onControlScaleAction.add((scale => {
+        });
+        this.onControlScaleAction.add(scale => {
             this.currentControlScale = scale;
-        }));
-        this.onBgmVolumeAction.add((volume => {
+        });
+        this.onBgmVolumeAction.add(volume => {
             this.currentBgmVolume = volume;
             SoundService.BGMVolumeScale = volume;
-        }));
-        this.onSoundVolumeAction.add((volume => {
+        });
+        this.onSoundVolumeAction.add(volume => {
             this.currentSoundVolume = volume;
             GlobalData.soundVolume = volume;
-        }));
+        });
     }
     get getFireScale() {
         return this.currentFireScale;
@@ -7409,10 +7409,10 @@ class HUDModuleC extends ModuleC {
         SoundService.playBGM("146100", this.currentBgmVolume);
     }
     initSoundEvent() {
-        Event.addLocalListener("PlayButtonClick", (btnName => {
+        Event.addLocalListener("PlayButtonClick", btnName => {
             if (btnName == "reload" || btnName == "jump" || btnName == "aim" || btnName == "left_fire" || btnName == "mJumpButton") return;
             this.playClickSound();
-        }));
+        });
     }
     playClickSound() {
         if (this.clickId) SoundService.stopSound(this.clickId);
@@ -7512,9 +7512,9 @@ var MapEx;
     MapEx.has = has;
     function count(map) {
         let res = 0;
-        forEach(map, (e => {
+        forEach(map, e => {
             ++res;
-        }));
+        });
         return res;
     }
     MapEx.count = count;
@@ -7638,9 +7638,9 @@ class Helper {
     static getCharacterId(gameObjectId) {
         if (!this.playerObMap || this.playerObMap.size == 0) return null;
         let characterId = null;
-        this.playerObMap.forEach(((value, key) => {
+        this.playerObMap.forEach((value, key) => {
             if (value == gameObjectId) characterId = key;
-        }));
+        });
         return characterId;
     }
 }
@@ -8104,9 +8104,9 @@ class Projectile {
     }
     setRecycleTimeout() {
         this.clearRecycleTimeOut();
-        this.recycleTimeOutId = setTimeout((() => {
+        this.recycleTimeOutId = setTimeout(() => {
             this.recycleThis();
-        }), 10 * 1e3);
+        }, 10 * 1e3);
     }
     clearRecycleTimeOut() {
         if (!this.recycleTimeOutId) return;
@@ -8192,10 +8192,10 @@ class WeaponModuleC extends ModuleC {
         this.getHUDModuleC.onNormalAction.add(this.normalIntervalAttack.bind(this));
         this.getHUDModuleC.onReloadAction.add(this.reloadButtet.bind(this));
         let isNormal = true;
-        InputUtil.onKeyDown(mw.Keys.R, (() => {
+        InputUtil.onKeyDown(mw.Keys.R, () => {
             isNormal = !isNormal;
             this.switchProjectileType(isNormal ? ProjectileType.Normal : ProjectileType.ArcTracing_Weak);
-        }));
+        });
     }
     switchWeaponData(weaponId) {
         if (this.currentWeaponId == weaponId) return;
@@ -8252,15 +8252,15 @@ class WeaponModuleC extends ModuleC {
         this.bulletCount--;
         if (this.bulletCount <= 0) this.reloadButtet(1);
         this.getHUDModuleC.updateBulletCount(this.bulletCount);
-        TimeUtil.delaySecond(this.normalAtkTime[this.normalAttackIndex - 1]).then((() => {
+        TimeUtil.delaySecond(this.normalAtkTime[this.normalAttackIndex - 1]).then(() => {
             this.getHUDModuleC.startAimUITween();
-        }));
+        });
     }
     updateNormalAttackState() {
         this.isCanNormalAttack = false;
-        TimeUtil.delaySecond(this.normalAtkTime[this.normalAttackIndex]).then((() => {
+        TimeUtil.delaySecond(this.normalAtkTime[this.normalAttackIndex]).then(() => {
             this.isCanNormalAttack = true;
-        }));
+        });
     }
     clearNormalAttackTimeout() {
         if (this.normalAttackTimeoutId) {
@@ -8270,10 +8270,10 @@ class WeaponModuleC extends ModuleC {
     }
     resetNormalAttackIndex() {
         this.clearNormalAttackTimeout();
-        this.normalAttackTimeoutId = setTimeout((() => {
+        this.normalAttackTimeoutId = setTimeout(() => {
             this.normalAttackIndex = 0;
             if (!this.isCanNormalAttack) this.isCanNormalAttack = true;
-        }), this.normalAnimTimes[this.normalAttackIndex] * 1e3);
+        }, this.normalAnimTimes[this.normalAttackIndex] * 1e3);
     }
     get getCamera() {
         if (this.camera == null) {
@@ -8327,18 +8327,18 @@ class WeaponModuleC extends ModuleC {
     onUpdate(dt) {
         this.cameraUpdate(dt);
         if (Helper.activeBulletMap.size == 0) return;
-        Helper.activeBulletMap.forEach((value => {
-            value.forEach((projectile => {
+        Helper.activeBulletMap.forEach(value => {
+            value.forEach(projectile => {
                 projectile.update(dt);
-            }));
-        }));
+            });
+        });
     }
     calculateFireDirection(cameraWorldTransform, firePosition) {
         let cameraShootDir = Camera.currentCamera.worldTransform.clone().getForwardVector().clone();
         let endLoc = cameraShootDir.multiply(1e5).add(cameraWorldTransform.clone().position);
         let shootDir = endLoc.clone().subtract(firePosition);
         let hitRes = QueryUtil.lineTrace(cameraWorldTransform.clone().position, endLoc, true, mw.SystemUtil.isPIE);
-        hitRes = hitRes.filter((e => !(e.gameObject instanceof mw.Trigger)));
+        hitRes = hitRes.filter(e => !(e.gameObject instanceof mw.Trigger));
         console.error(`hitRes: ${hitRes.length}`);
         if (hitRes && hitRes.length > 0 && mw.Vector.dot(hitRes[0].gameObject.worldTransform.position.clone().subtract(firePosition), shootDir) > 0) {
             shootDir = hitRes[0].impactPoint.clone().subtract(firePosition);
@@ -8453,12 +8453,12 @@ let Weapon = class Weapon extends Script {
         let fireInterval = this.weaponPropElement.NormalFireInterval[attackIndex];
         this.calculateFire(characterId, prefabId, hitEffect, hitEffectScale, firePosition, shootDir, projectileType, fireSound);
         for (let i = 0; i < projectileCount - 1; ++i) {
-            await new Promise((resolve => {
-                setTimeout((() => {
+            await new Promise(resolve => {
+                setTimeout(() => {
                     this.calculateFire(characterId, prefabId, hitEffect, hitEffectScale, firePosition, shootDir, projectileType, fireSound);
                     return resolve();
-                }), fireInterval * 1e3);
-            }));
+                }, fireInterval * 1e3);
+            });
         }
     }
     calculateFire(characterId, prefabId, hitEffect, hitEffectScale, firePosition, shootDir, projectileType, fireSound) {
@@ -8576,11 +8576,11 @@ class WeaponModuleS extends ModuleS {
             player.character.loadAnimation(atkAnimation).play();
         }
         let atkTime = weaponPropElement.NormalAtkTime[attackIndex];
-        TimeUtil.delaySecond(atkTime).then((() => {
+        TimeUtil.delaySecond(atkTime).then(() => {
             if (!this.playerWeaponMap.has(player.playerId)) return;
             let fireData = Utils.vectorToString(shootDir) + "|" + projectileType + "|" + attackIndex;
             this.playerWeaponMap.get(player.playerId).fireData = fireData;
-        }));
+        });
     }
     net_reload(reloadAniId, reloadSoundId) {
         this.reload(this.currentPlayer, reloadAniId, reloadSoundId);
@@ -8648,12 +8648,12 @@ class MorphModuleC extends ModuleC {
         return this.hudModuleC;
     }
     onStart() {
-        InputUtil.onKeyDown(mw.Keys.Z, (() => {
+        InputUtil.onKeyDown(mw.Keys.Z, () => {
             this.morph();
-        }));
-        InputUtil.onKeyDown(mw.Keys.X, (() => {
+        });
+        InputUtil.onKeyDown(mw.Keys.X, () => {
             this.unmorph();
-        }));
+        });
         this.initAction();
     }
     initAction() {
@@ -8673,9 +8673,9 @@ class MorphModuleC extends ModuleC {
         }
         this.isComplete = true;
         await this.server.net_morph();
-        TimeUtil.delaySecond(1).then((() => {
+        TimeUtil.delaySecond(1).then(() => {
             this.isComplete = false;
-        }));
+        });
     }
     unmorph() {
         this.server.net_unmorph();
@@ -8945,12 +8945,12 @@ class RankModuleS extends ModuleS {
         this.roomNames.length = 0;
         this.roomKillCounts.length = 0;
         this.roomDieCounts.length = 0;
-        this.tmpRoomDataMap.forEach(((value, key) => {
+        this.tmpRoomDataMap.forEach((value, key) => {
             this.roomUserIds.push(value.userId);
             this.roomNames.push(value.playerName);
             this.roomKillCounts.push(value.killCount);
             this.roomDieCounts.push(value.dieCount);
-        }));
+        });
     }
     updateWorldData() {
         if (!this.worldDatas || this.worldDatas.length == 0) return;
@@ -8968,34 +8968,34 @@ class RankModuleS extends ModuleS {
     synchrodata_onEnterScene(sendUserId) {
         this.updateRoomData();
         this.updateWorldData();
-        this.syncPlayerMap.forEach(((value, key) => {
+        this.syncPlayerMap.forEach((value, key) => {
             if (sendUserId == key.userId) {
                 this.getClient(key).net_syncRoomWorldRankData(this.roomUserIds, this.roomNames, this.roomKillCounts, this.roomDieCounts, this.worldUserIds, this.worldNames, this.worldKillCounts, this.worldDieCounts);
             } else {
                 this.getClient(key).net_syncRoomRankData(this.roomUserIds, this.roomNames, this.roomKillCounts, this.roomDieCounts);
             }
-        }));
+        });
     }
     synchrodata_Room() {
         this.updateRoomData();
-        this.syncPlayerMap.forEach(((value, key) => {
+        this.syncPlayerMap.forEach((value, key) => {
             this.getClient(key).net_syncRoomRankData(this.roomUserIds, this.roomNames, this.roomKillCounts, this.roomDieCounts);
-        }));
+        });
     }
     synchrodata_RoomWorld() {
         this.updateRoomData();
         this.updateWorldData();
-        this.syncPlayerMap.forEach(((value, key) => {
+        this.syncPlayerMap.forEach((value, key) => {
             this.getClient(key).net_syncRoomWorldRankData(this.roomUserIds, this.roomNames, this.roomKillCounts, this.roomDieCounts, this.worldUserIds, this.worldNames, this.worldKillCounts, this.worldDieCounts);
-        }));
+        });
     }
     synchrodata_aRoomWorld(player) {
         this.getClient(player).net_syncRoomWorldRankData(this.roomUserIds, this.roomNames, this.roomKillCounts, this.roomDieCounts, this.worldUserIds, this.worldNames, this.worldKillCounts, this.worldDieCounts);
     }
     net_updateRankByChangeTeam() {
-        this.syncPlayerMap.forEach(((value, key) => {
+        this.syncPlayerMap.forEach((value, key) => {
             this.getClient(key).net_syncRoomRankData(this.roomUserIds, this.roomNames, this.roomKillCounts, this.roomDieCounts);
-        }));
+        });
     }
     async getCustomdata(key) {
         return (await DataStorage.asyncGetData(key)).data;
@@ -9225,15 +9225,15 @@ class TaskModuleS extends ModuleS {
         }
     }
     resetAllPlayersDailyTask() {
-        this.playerTaskMap.forEach((player => {
+        this.playerTaskMap.forEach(player => {
             DataCenterS.getData(player, TaskData).resetDailyTask();
-        }));
+        });
         this.getAllClient().net_resetDailyTask();
     }
     resetAllPlayersWeeklyTask() {
-        this.playerTaskMap.forEach((player => {
+        this.playerTaskMap.forEach(player => {
             DataCenterS.getData(player, TaskData).resetWeeklyTask();
-        }));
+        });
         this.getAllClient().net_resetWeeklyTask();
     }
     net_saveTaskProgress(dailyTaskIds, dailyTaskTypes, dailyProgresss, weeklyTaskIds, weeklyTaskTypes, weeklyProgresss) {
@@ -9397,13 +9397,13 @@ class TeamModuleS extends ModuleS {
     getRedBlueCount() {
         if (this.teamMap.size == 0) return [];
         let redCount = 0, blueCount = 0;
-        this.teamMap.forEach((teamData => {
+        this.teamMap.forEach(teamData => {
             if (teamData.teamId == TeamType.Red) {
                 redCount++;
             } else {
                 blueCount++;
             }
-        }));
+        });
         return [ redCount, blueCount ];
     }
     net_onEnterScene(playerName) {
@@ -9423,24 +9423,24 @@ class TeamModuleS extends ModuleS {
     getTeamId() {
         if (this.teamMap.size == 0) return TeamType.Red;
         let redCount = 0, blueCount = 0;
-        this.teamMap.forEach((teamData => {
+        this.teamMap.forEach(teamData => {
             if (teamData.teamId == TeamType.Red) {
                 redCount++;
             } else {
                 blueCount++;
             }
-        }));
+        });
         return redCount > blueCount ? TeamType.Blue : TeamType.Red;
     }
     syncTeamData() {
         let userIds = [];
         let playerNames = [];
         let teamIds = [];
-        this.teamMap.forEach(((teamData, userId) => {
+        this.teamMap.forEach((teamData, userId) => {
             userIds.push(userId);
             playerNames.push(teamData.playerName);
             teamIds.push(teamData.teamId);
-        }));
+        });
         if (userIds.length == 0) return;
         this.getAllClient().net_syncTeamData(userIds, playerNames, teamIds);
     }
@@ -9566,9 +9566,9 @@ class PlayerModuleS extends ModuleS {
         playerStatus.hp = playerStatus.maxHp;
         this.playerStatusMap.set(player.userId, playerStatus);
         this.playerMap.set(player.character.gameObjectId, player);
-        TimeUtil.delaySecond(5).then((() => {
+        TimeUtil.delaySecond(5).then(() => {
             this.playerBirth(player, 100);
-        }));
+        });
     }
     deletePlayerState(player) {
         let userId = player.userId;
@@ -9609,11 +9609,11 @@ class PlayerModuleS extends ModuleS {
             if (sendPlayer) this.updatePlayerKillCount(sendPlayer, targetPlayer);
             targetPlayer.character.ragdollEnabled = true;
             this.playerDie(targetPlayer);
-            TimeUtil.delaySecond(3).then((() => {
+            TimeUtil.delaySecond(3).then(() => {
                 targetPlayer.character.ragdollEnabled = false;
                 targetPlayerData.hp = targetPlayerData.maxHp;
                 this.playerBirth(targetPlayer, targetPlayerData.maxHp);
-            }));
+            });
         } else {
             targetPlayerData.hp = curHp;
         }
@@ -9660,9 +9660,9 @@ class PlayerModuleS extends ModuleS {
         let revivalPoint = Utils.randomRevivalPoint(this.getTeamModuleS.isRedTeam(userId));
         player.character.worldTransform.position = revivalPoint;
         Utils.playBirthEffect(player);
-        TimeUtil.delaySecond(2).then((() => {
+        TimeUtil.delaySecond(2).then(() => {
             if (this.playerStatusMap.get(userId).isDead == true) this.playerStatusMap.get(userId).isDead = false;
-        }));
+        });
         this.getMorphModuleS.setPlayerMorphState(player.userId, true);
     }
     net_addMaxHp() {
@@ -9850,17 +9850,17 @@ let RankPanel_Generate = class RankPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mRoomButton.onClicked.add((() => {
+        this.mRoomButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mRoomButton");
-        }));
+        });
         this.mRoomButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mWorldButton.onClicked.add((() => {
+        this.mWorldButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mWorldButton");
-        }));
+        });
         this.mWorldButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mRedRoomTextBlock);
         this.initLanguage(this.mBlueRoomTextBlock);
@@ -10217,9 +10217,9 @@ class RankPanel extends RankPanel_Generate$1 {
         Utils.openUITween(this.rootCanvas, null, null);
     }
     hideTween() {
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
 }
 
@@ -10306,12 +10306,12 @@ class RankModuleC extends ModuleC {
     calculateKillCount() {
         let redCount = 0;
         let blueCount = 0;
-        this.redRoomDatas.forEach((roomData => {
+        this.redRoomDatas.forEach(roomData => {
             redCount += roomData.killCount;
-        }));
-        this.blueRoomDatas.forEach((roomData => {
+        });
+        this.blueRoomDatas.forEach(roomData => {
             blueCount += roomData.killCount;
-        }));
+        });
         this.getHUDModuleC.updateVsUI(redCount, blueCount);
     }
     updateRoomDatas(roomUserIds, roomNames, roomKillCounts, roomDieCounts) {
@@ -10440,8 +10440,8 @@ class RankModuleC extends ModuleC {
         this.getRankPanel.refreshRankPanel_RoomWorld(this.redRoomDatas, this.blueRoomDatas, this.isRedTeam, this.curRoomIndex, this.worldDatas, this.curWorldIndex);
     }
     sortRoomData() {
-        this.redRoomDatas.sort(((a, b) => b.killCount - a.killCount || b.killCount == a.killCount && a.dieCount - b.dieCount));
-        this.blueRoomDatas.sort(((a, b) => b.killCount - a.killCount || b.killCount == a.killCount && a.dieCount - b.dieCount));
+        this.redRoomDatas.sort((a, b) => b.killCount - a.killCount || b.killCount == a.killCount && a.dieCount - b.dieCount);
+        this.blueRoomDatas.sort((a, b) => b.killCount - a.killCount || b.killCount == a.killCount && a.dieCount - b.dieCount);
     }
     updateRankByChangeTeam() {
         this.server.net_updateRankByChangeTeam();
@@ -10526,17 +10526,17 @@ let TeamPanel_Generate = class TeamPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mRedTeamButton.onClicked.add((() => {
+        this.mRedTeamButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mRedTeamButton");
-        }));
+        });
         this.mRedTeamButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mBlueTeamButton.onClicked.add((() => {
+        this.mBlueTeamButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mBlueTeamButton");
-        }));
+        });
         this.mBlueTeamButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mRedTeamTextBlock);
         this.initLanguage(this.mBlueTeamTextBlock);
@@ -10700,9 +10700,9 @@ class TeamPanel extends TeamPanel_Generate$1 {
             return;
         }
         this.isDelayedEnd = false;
-        TimeUtil.delaySecond(10).then((() => {
+        TimeUtil.delaySecond(10).then(() => {
             this.isDelayedEnd = true;
-        }));
+        });
         await this.getTeamModuleC.net_changeTeam(teamType);
     }
     setTeamDatas(redNames, blueNames, selfIndex, currentTeamType) {
@@ -10730,12 +10730,12 @@ class TeamPanel extends TeamPanel_Generate$1 {
         }
     }
     onShow(...params) {
-        Utils.openUITween(this.rootCanvas, (() => {}), null);
+        Utils.openUITween(this.rootCanvas, () => {}, null);
     }
     hideTween() {
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
 }
 
@@ -10834,9 +10834,9 @@ class TeamModuleC extends ModuleC {
         switch (resultType) {
           case ResultType.Succeed:
             Notice.showDownNotice(GameConfig.Language.SuccessfullySwitchedTeams.Value);
-            TimeUtil.delaySecond(1).then((() => {
+            TimeUtil.delaySecond(1).then(() => {
                 this.getRankModuleC.updateRankByChangeTeam();
-            }));
+            });
             break;
 
           case ResultType.Fail1:
@@ -10868,9 +10868,9 @@ class TeamModuleC extends ModuleC {
     }
     setAllPlayerOutline() {
         let localPlayerUserId = this.localPlayer.userId;
-        Player.getAllPlayers().forEach((player => {
+        Player.getAllPlayers().forEach(player => {
             Utils.setOutLine(player, this.isTeamMate(localPlayerUserId, player.userId));
-        }));
+        });
     }
 }
 
@@ -10981,24 +10981,24 @@ class RadarPanel extends UIScript {
         this.mRadarCanvas.size = this.mCutCanvas.size.clone();
         this.mRadarCanvas.position = Vector2.zero;
         this.mCutCanvas.addChild(this.mRadarCanvas);
-        TimeUtil.setInterval((() => {
+        TimeUtil.setInterval(() => {
             this.mCutCanvas.position = mw.Vector.zero;
             bgp.position = this.mCutCanvas.position;
             selfCanvas.position = this.mCutCanvas.position.add(this.mCutCanvas.size.clone().multiply(.5).clone().subtract(selfCanvas.size.clone().multiply(.5)));
             this.mRadarCanvas.renderTransformAngle = -1 * Camera.currentCamera.worldTransform.clone().rotation.z;
             this.updatePlayerState();
             this.updateNpcState();
-        }), .1);
+        }, .1);
     }
     bindEvent() {
-        Player.onPlayerLeave.add((otherPlayer => {
+        Player.onPlayerLeave.add(otherPlayer => {
             if (!this.playerPointMap.has(otherPlayer)) return;
             this.playerPointMap.get(otherPlayer).destroyObject();
             this.playerPointMap.delete(otherPlayer);
-        }));
+        });
     }
     updatePlayerState() {
-        Player.getAllPlayers().forEach((otherPlayer => {
+        Player.getAllPlayers().forEach(otherPlayer => {
             if (otherPlayer == this.currentPlayer) return;
             if (this.playerPointMap.has(otherPlayer)) {
                 let otherPlayerPoint = this.playerPointMap.get(otherPlayer);
@@ -11025,11 +11025,11 @@ class RadarPanel extends UIScript {
             } else {
                 this.playerPointMap.set(otherPlayer, this.getTextBlockPoint(otherPlayer.userId));
             }
-        }));
+        });
     }
     updateNpcState() {
         if (!this.npcPointMap || this.npcPointMap.size == 0) return;
-        this.npcPointMap.forEach(((value, key) => {
+        this.npcPointMap.forEach((value, key) => {
             let loc = this.Loc2RadarPos(key.worldTransform.position);
             let offset = value.size;
             let retPosition = new Vector2(loc.x - offset.x / 2, loc.y - offset.y / 2);
@@ -11044,7 +11044,7 @@ class RadarPanel extends UIScript {
                 value.position = new Vector2(loc.x - offset.x / 2, loc.y - offset.y / 2);
                 Utils.setWidgetVisibility(value, mw.SlateVisibility.SelfHitTestInvisible);
             }
-        }));
+        });
     }
     setNpcPoint(npc) {
         this.npcPointMap.set(npc, this.getTextBlockPoint(npc.gameObjectId, true));
@@ -11254,18 +11254,18 @@ class Monster extends Script {
         this.attackInfo.damages = monsterElement?.Damages;
         this.attackEffectInfo.effectIds = monsterElement?.EffectIds;
         this.attackEffectInfo.posOffsets = monsterElement?.EffectPosOffsets;
-        monsterElement?.EffectRotOffsets?.forEach((value => {
+        monsterElement?.EffectRotOffsets?.forEach(value => {
             this.attackEffectInfo.rotOffsets.push(new mw.Rotation(value));
-        }));
+        });
         this.attackEffectInfo.effectScales = monsterElement?.EffectScales;
         this.moveSpeed = monsterElement?.MoveSpeed;
     }
     async initPaths(pathStr = null) {
         let pathParent = await mw.GameObject.asyncFindGameObjectById("1AE81301");
         this.pathVectors.length = 0;
-        pathParent?.getChildren().forEach((child => {
+        pathParent?.getChildren().forEach(child => {
             this.pathVectors.push(child.worldTransform.position);
-        }));
+        });
     }
     onUpdate(dt) {
         if (mw.SystemUtil.isClient()) {
@@ -11371,9 +11371,9 @@ class Monster extends Script {
             this.getMonster?.currentAnimation?.stop();
             if (!this.getMonster.ragdollEnabled) this.getMonster.ragdollEnabled = true;
         }
-        TimeUtil.delaySecond(dieTime).then((() => {
+        TimeUtil.delaySecond(dieTime).then(() => {
             this.rebirth_S();
-        }));
+        });
     }
     dieReset_S() {
         this.setMonsterState = MonsterState.Inactivation;
@@ -11388,7 +11388,7 @@ class Monster extends Script {
         let rebirthEffect = EffectService.playAtPosition("142948", rebirthEffectPos, {
             loopCount: 0
         });
-        TimeUtil.delaySecond(this.randomInt(5, 10)).then((async () => {
+        TimeUtil.delaySecond(this.randomInt(5, 10)).then(async () => {
             EffectService.stop(rebirthEffect);
             EffectService.playOnGameObject("142750", this.getMonster, {
                 slotType: mw.HumanoidSlotType.Root
@@ -11397,8 +11397,8 @@ class Monster extends Script {
             if (this.getMonster.ragdollEnabled) this.getMonster.ragdollEnabled = false;
             this.setMonsterState = MonsterState.Activate;
             await this.playIdleAni_S();
-            TimeUtil.delaySecond(this.randomInt(3, 5)).then((() => this.startNavigateTo_S()));
-        }));
+            TimeUtil.delaySecond(this.randomInt(3, 5)).then(() => this.startNavigateTo_S());
+        });
     }
     updateChasePlayer(targetGuid, damage) {
         let totalDamage = 0;
@@ -11417,18 +11417,18 @@ class Monster extends Script {
         if (!this.chasePlayerMap || this.chasePlayerMap.size == 0) return null;
         let maxDamage = 0;
         let targetGuid = null;
-        this.chasePlayerMap.forEach(((value, key) => {
+        this.chasePlayerMap.forEach((value, key) => {
             if (value > maxDamage) {
                 maxDamage = value;
                 targetGuid = key;
             }
-        }));
+        });
         let targetPlayer = null;
-        Player.getAllPlayers().forEach((value => {
+        Player.getAllPlayers().forEach(value => {
             if (value.character.gameObjectId == targetGuid) {
                 targetPlayer = value;
             }
-        }));
+        });
         return targetPlayer;
     }
     async activate_S() {
@@ -11438,17 +11438,17 @@ class Monster extends Script {
         this.setMonsterState = MonsterState.Activate;
         this.isFollowing = false;
         this.isNavigateToing = false;
-        TimeUtil.delaySecond(this.randomInt(1, 3)).then((() => {
+        TimeUtil.delaySecond(this.randomInt(1, 3)).then(() => {
             this.playIdleAni_S();
-        }));
-        TimeUtil.delaySecond(this.randomInt(5, 15)).then((() => this.startNavigateTo_S()));
+        });
+        TimeUtil.delaySecond(this.randomInt(5, 15)).then(() => this.startNavigateTo_S());
     }
     async fromNavigateToToFollow() {
         if (this.isFollowing || !this.isNavigateToing) return;
         Navigation.stopNavigateTo(this.getMonster);
         this.isNavigateToing = false;
         await this.playIdleAni_S();
-        TimeUtil.delaySecond(this.randomFloat(.5, 1)).then((() => this.startNavigateTo_S()));
+        TimeUtil.delaySecond(this.randomFloat(.5, 1)).then(() => this.startNavigateTo_S());
     }
     async startNavigateTo_S() {
         if (this.getMonsterState != MonsterState.Activate) return;
@@ -11458,18 +11458,18 @@ class Monster extends Script {
     }
     randomNavigateTo_S() {
         this.isNavigateToing = true;
-        Navigation.navigateTo(this.getMonster, this.getRandomTargetPoint_S(), 0, (() => {
+        Navigation.navigateTo(this.getMonster, this.getRandomTargetPoint_S(), 0, () => {
             this.randomNavigateToComplete_S();
-        }), (() => {
+        }, () => {
             this.randomNavigateToComplete_S();
-        }));
+        });
     }
     async randomNavigateToComplete_S() {
         this.isNavigateToing = false;
         await this.playIdleAni_S();
-        TimeUtil.delaySecond(this.randomInt(1, 3)).then((() => {
+        TimeUtil.delaySecond(this.randomInt(1, 3)).then(() => {
             this.randomAttack_S();
-        }));
+        });
     }
     chasePlayerNavigateTo_S(targetPlayer) {
         let dis = mw.Vector.distance(this.getMonster.worldTransform.position, targetPlayer.character.worldTransform.position);
@@ -11481,12 +11481,12 @@ class Monster extends Script {
         }
     }
     directChasePlayerNavigateTo_S(targetPlayer) {
-        let isFollowSuccess = Navigation.follow(this.getMonster, targetPlayer.character, 0, (() => {
+        let isFollowSuccess = Navigation.follow(this.getMonster, targetPlayer.character, 0, () => {
             this.chasePlayerNavigateToComplete_S(targetPlayer);
-        }), (() => {
+        }, () => {
             this.deleteChasePlayer(targetPlayer.character.gameObjectId);
             this.chasePlayerNavigateToComplete_S(targetPlayer);
-        }));
+        });
         if (isFollowSuccess) {
             this.isFollowing = true;
             return;
@@ -11497,18 +11497,18 @@ class Monster extends Script {
     async directRandomAttack_S(targetPlayer) {
         await this.playIdleAni_S();
         this.getMonster.lookAt(targetPlayer.character.worldTransform.position);
-        TimeUtil.delaySecond(this.randomFloat(.5, 1)).then((() => {
+        TimeUtil.delaySecond(this.randomFloat(.5, 1)).then(() => {
             this.randomAttack_S();
-        }));
+        });
     }
     async chasePlayerNavigateToComplete_S(targetPlayer) {
         Navigation.stopFollow(this.getMonster);
         this.isFollowing = false;
         await this.playIdleAni_S();
         this.getMonster.lookAt(targetPlayer.character.worldTransform.position);
-        TimeUtil.delaySecond(this.randomFloat(.5, 1)).then((() => {
+        TimeUtil.delaySecond(this.randomFloat(.5, 1)).then(() => {
             this.randomAttack_S();
-        }));
+        });
     }
     getRandomTargetPoint_S() {
         let targetVector = this.pathVectors[Utils.getPathIndex(this.pathVectors.length)];
@@ -11520,13 +11520,13 @@ class Monster extends Script {
         this.attackIndex = this.randomInt(0, this.animationInfo.attacks.length - 1);
         let attackAni = await this.playAtkAni_S();
         let attackTime = attackAni.length;
-        TimeUtil.delaySecond(this.attackInfo.attackTimePoints[this.attackIndex]).then((() => {
+        TimeUtil.delaySecond(this.attackInfo.attackTimePoints[this.attackIndex]).then(() => {
             this.randomAttackCheck_S();
-        }));
-        TimeUtil.delaySecond(attackTime).then((() => {
+        });
+        TimeUtil.delaySecond(attackTime).then(() => {
             this.playIdleAni_S();
-        }));
-        TimeUtil.delaySecond(attackTime + this.randomInt(1, 3)).then((() => this.startNavigateTo_S()));
+        });
+        TimeUtil.delaySecond(attackTime + this.randomInt(1, 3)).then(() => this.startNavigateTo_S());
     }
     randomAttackCheck_S() {
         if (this.getMonsterState != MonsterState.Activate) return;
@@ -11670,9 +11670,9 @@ let setTag = class setTag extends Script {
     findChild(obj) {
         obj.tag = `go`;
         if (obj.getChildren().length > 0) {
-            obj.getChildren().forEach((value => {
+            obj.getChildren().forEach(value => {
                 this.findChild(value);
-            }));
+            });
         }
     }
     onUpdate(dt) {}
@@ -11804,25 +11804,25 @@ let ShopPanel_Generate = class ShopPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mTabButton_0.onClicked.add((() => {
+        this.mTabButton_0.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTabButton_0");
-        }));
+        });
         this.mTabButton_0.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mTabButton_1.onClicked.add((() => {
+        this.mTabButton_1.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTabButton_1");
-        }));
+        });
         this.mTabButton_1.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mTabButton_2.onClicked.add((() => {
+        this.mTabButton_2.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTabButton_2");
-        }));
+        });
         this.mTabButton_2.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mBuyButton.onClicked.add((() => {
+        this.mBuyButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mBuyButton");
-        }));
+        });
         this.mBuyButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTabTextBlock_0);
         this.initLanguage(this.mTabTextBlock_1);
@@ -11980,21 +11980,21 @@ let ShopItem_Generate = class ShopItem_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mPreButton.onClicked.add((() => {
+        this.mPreButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mPreButton");
-        }));
+        });
         this.mPreButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mDiamondBuyButton.onClicked.add((() => {
+        this.mDiamondBuyButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mDiamondBuyButton");
-        }));
+        });
         this.mDiamondBuyButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCoinBuyButton.onClicked.add((() => {
+        this.mCoinBuyButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCoinBuyButton");
-        }));
+        });
         this.mCoinBuyButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mUseButton.onClicked.add((() => {
+        this.mUseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mUseButton");
-        }));
+        });
         this.mUseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mNameTextBlock);
         this.initLanguage(this.mHasTypeTextBlock);
@@ -12077,25 +12077,25 @@ class ShopItem extends ShopItem_Generate$1 {
         if (!this.isCanSuccessfulClick()) return;
         this.getShopModuleC.previewShopItem(this.key, this.shopType);
         let contentText = `<size=80>${GameConfig.Language.ConfirmExpenses.Value}</size>\n` + "<size=100><color=#yellow>" + this.getShopModuleC.getGoodPrice(this.key, this.shopType)[1] + `</color></size><size=80>${GameConfig.Language.GoldCoins.Value}</size>`;
-        this.getConfirmPanel.confirmTips((() => {
+        this.getConfirmPanel.confirmTips(() => {
             if (!this.getShopModuleC.buyShopItemByCoin(this.key, this.shopType)) return;
             this.buyCompleted();
-            this.getConfirmPanel.confirmTips((() => {
+            this.getConfirmPanel.confirmTips(() => {
                 this.getShopModuleC.useShopItem(this.key, this.shopType);
-            }), GameConfig.Language.DoYouWantToUseItImmediately.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.Tips.Value);
-        }), contentText, GameConfig.Language.Buy.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.Tips.Value);
+            }, GameConfig.Language.DoYouWantToUseItImmediately.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.Tips.Value);
+        }, contentText, GameConfig.Language.Buy.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.Tips.Value);
     }
     onClickDiamondBuyButton() {
         if (!this.isCanSuccessfulClick()) return;
         this.getShopModuleC.previewShopItem(this.key, this.shopType);
         let contentText = `<size=80>${GameConfig.Language.ConfirmExpenses.Value}</size>\n` + "<size=100><color=#blue>" + this.getShopModuleC.getGoodPrice(this.key, this.shopType)[0] + `</color></size><size=80>${GameConfig.Language.Diamonds.Value}</size>`;
-        this.getConfirmPanel.confirmTips((() => {
+        this.getConfirmPanel.confirmTips(() => {
             if (!this.getShopModuleC.buyShopItemByDiamond(this.key, this.shopType)) return;
             this.buyCompleted();
-            this.getConfirmPanel.confirmTips((() => {
+            this.getConfirmPanel.confirmTips(() => {
                 this.getShopModuleC.useShopItem(this.key, this.shopType);
-            }), GameConfig.Language.DoYouWantToUseItImmediately.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.Tips.Value);
-        }), contentText, GameConfig.Language.Buy.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.Tips.Value);
+            }, GameConfig.Language.DoYouWantToUseItImmediately.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.Tips.Value);
+        }, contentText, GameConfig.Language.Buy.Value, GameConfig.Language.Cancel.Value, GameConfig.Language.Tips.Value);
     }
     onClickUseButton() {
         if (!this.isCanSuccessfulClick()) return;
@@ -12307,9 +12307,9 @@ class ShopPanel extends ShopPanel_Generate$1 {
         Utils.openUITween(this.rootCanvas, null, null);
     }
     hideTween() {
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
 }
 
@@ -12385,17 +12385,17 @@ class ShopModuleC extends ModuleC {
     }
     initEvent() {
         Event.addLocalListener(EventType.TryOutGun, this.setCharacterGun.bind(this));
-        this.onBuyAction.add((() => {
+        this.onBuyAction.add(() => {
             if (mw.SystemUtil.isPIE) {
                 Notice.showDownNotice(`购买成功`);
                 this.buyComplete();
             } else {
-                mw.PurchaseService.placeOrder(`AaQ7PpZOzzO0002Ug`, 1, ((status, msg) => {
+                mw.PurchaseService.placeOrder(`AaQ7PpZOzzO0002Ug`, 1, (status, msg) => {
                     mw.PurchaseService.getArkBalance();
                     if (status != 200) return;
-                }));
+                });
             }
-        }));
+        });
     }
     bindOpenShopAction() {
         if (this.getHUDModuleC.getIsMorph && !this.localPlayer.character.getVisibility()) {
@@ -12563,7 +12563,7 @@ class ShopModuleC extends ModuleC {
             replicates: false,
             transform: cameraAnchor.worldTransform
         });
-        this.onSwitchCameraAction.add((cameraType => {
+        this.onSwitchCameraAction.add(cameraType => {
             if (cameraType == 0) {
                 Camera.switch(myCamera);
                 this.shopNpcIntegratedMover.enable = false;
@@ -12574,7 +12574,7 @@ class ShopModuleC extends ModuleC {
                 this.shopNpcIntegratedMover.enable = true;
                 this.trailingIntegratedMover.enable = true;
             }
-        }));
+        });
     }
     async initShopAnchor() {
         this.shopAnchor = await GameObject.asyncFindGameObjectById("1694D9FB");
@@ -12778,25 +12778,25 @@ let ActivityPanel_Generate = class ActivityPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mAdsGetButton.onClicked.add((() => {
+        this.mAdsGetButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mAdsGetButton");
-        }));
+        });
         this.mAdsGetButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mGetButton.onClicked.add((() => {
+        this.mGetButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mGetButton");
-        }));
+        });
         this.mGetButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mLeftButton.onClicked.add((() => {
+        this.mLeftButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mLeftButton");
-        }));
+        });
         this.mLeftButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mRightButton.onClicked.add((() => {
+        this.mRightButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mRightButton");
-        }));
+        });
         this.mRightButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mWhatDayTextBlock);
         this.initLanguage(this.mAdsTextBlock);
@@ -12945,9 +12945,9 @@ class ActivityPanel extends ActivityPanel_Generate$1 {
     onClickAdsGetButton() {
         if (!this.isHasCondition(true)) return;
         if (GlobalData.isOpenIAA) {
-            this.getAdPanel.showRewardAd((() => {
+            this.getAdPanel.showRewardAd(() => {
                 this.setGetActivity();
-            }), "免费领取" + this.getActicityShopTypeStr(), `取消`, `领取`);
+            }, "免费领取" + this.getActicityShopTypeStr(), `取消`, `领取`);
         } else {
             this.setGetActivity();
         }
@@ -13006,9 +13006,9 @@ class ActivityPanel extends ActivityPanel_Generate$1 {
         Utils.openUITween(this.rootCanvas, null, null);
     }
     hideTween() {
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
 }
 
@@ -13821,13 +13821,13 @@ let ColorPickPanel_Generate = class ColorPickPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mSaveButton.onClicked.add((() => {
+        this.mSaveButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSaveButton");
-        }));
+        });
         this.mSaveButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mSaveTextBlock);
     }
@@ -13952,9 +13952,9 @@ let ColorPickTab2_Generate = class ColorPickTab2_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mTab2Button.onClicked.add((() => {
+        this.mTab2Button.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTab2Button");
-        }));
+        });
         this.mTab2Button.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTab2TextBlock);
     }
@@ -14076,9 +14076,9 @@ let ColorPickTab3_Generate = class ColorPickTab3_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mSelectButton.onClicked.add((() => {
+        this.mSelectButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSelectButton");
-        }));
+        });
         this.mSelectButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
     }
     initLanguage(ui) {
@@ -14410,21 +14410,21 @@ let MallPanel_Generate = class MallPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mResetButton.onClicked.add((() => {
+        this.mResetButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mResetButton");
-        }));
+        });
         this.mResetButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mSaveButton.onClicked.add((() => {
+        this.mSaveButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSaveButton");
-        }));
+        });
         this.mSaveButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mSexButton.onClicked.add((() => {
+        this.mSexButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSexButton");
-        }));
+        });
         this.mSexButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mResetTextBlock);
         this.initLanguage(this.mSaveTextBlock);
@@ -14496,9 +14496,9 @@ let MallItem_Big_Generate = class MallItem_Big_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mSelectButton.onClicked.add((() => {
+        this.mSelectButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSelectButton");
-        }));
+        });
         this.mSelectButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mPriceTextBlock);
     }
@@ -14688,9 +14688,9 @@ let MallItem_Color_Generate = class MallItem_Color_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mSelectButton.onClicked.add((() => {
+        this.mSelectButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSelectButton");
-        }));
+        });
         this.mSelectButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
     }
     initLanguage(ui) {
@@ -14817,9 +14817,9 @@ let MallItem_Self_Generate = class MallItem_Self_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.initLanguage(this.mCloseButton);
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
     }
@@ -14953,13 +14953,13 @@ let MallItem_Small_Generate = class MallItem_Small_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mSelectButton.onClicked.add((() => {
+        this.mSelectButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSelectButton");
-        }));
+        });
         this.mSelectButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mColorButton.onClicked.add((() => {
+        this.mColorButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mColorButton");
-        }));
+        });
         this.mColorButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mPriceTextBlock);
     }
@@ -15340,9 +15340,9 @@ let MallTab1_Generate = class MallTab1_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mTab1Button.onClicked.add((() => {
+        this.mTab1Button.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTab1Button");
-        }));
+        });
         this.mTab1Button.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTab1TextBlock);
     }
@@ -15457,9 +15457,9 @@ let MallTab2_Generate = class MallTab2_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mTab2Button.onClicked.add((() => {
+        this.mTab2Button.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTab2Button");
-        }));
+        });
         this.mTab2Button.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTab2TextBlock);
     }
@@ -15572,9 +15572,9 @@ let MallTab3_Generate = class MallTab3_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mTab3Button.onClicked.add((() => {
+        this.mTab3Button.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mTab3Button");
-        }));
+        });
         this.mTab3Button.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTab3TextBlock);
     }
@@ -15790,9 +15790,9 @@ class MallPanel extends MallPanel_Generate$1 {
         }
         this.showTab1Canvas();
         this.tab1Ids.length = 0;
-        this.tab1Elements.forEach((value => {
+        this.tab1Elements.forEach(value => {
             this.tab1Ids.push(value.ID);
-        }));
+        });
         this.updateTab1();
         this.tab1Id = this.tab1Ids[1];
         this.getMallModuleC.onSelectTab1Action.call(this.tab1Id);
@@ -15894,9 +15894,9 @@ class MallPanel extends MallPanel_Generate$1 {
         if (this.tabIdDataMap.has(this.tab1Id)) {
             let tab2IdDataMap = this.tabIdDataMap.get(this.tab1Id).tabIdDataMap;
             if (!tab2IdDataMap || tab2IdDataMap.size == 0) return tab2Id;
-            tab2IdDataMap.forEach(((value, key) => {
+            tab2IdDataMap.forEach((value, key) => {
                 if (value.isOn) tab2Id = key;
-            }));
+            });
             return tab2Id;
         } else {
             return tab2Id;
@@ -15915,9 +15915,9 @@ class MallPanel extends MallPanel_Generate$1 {
             if (tab2IdDataMap.has(this.tab2Id)) {
                 let tab3IdDataMap = tab2IdDataMap.get(this.tab2Id).tabIdDataMap;
                 if (!tab3IdDataMap || tab3IdDataMap.size == 0) return tab3Id;
-                tab3IdDataMap.forEach(((value, key) => {
+                tab3IdDataMap.forEach((value, key) => {
                     if (value.isOn) tab3Id = key;
-                }));
+                });
                 return tab3Id;
             } else {
                 return tab3Id;
@@ -15931,9 +15931,9 @@ class MallPanel extends MallPanel_Generate$1 {
         let tab1IdData = new TabIdData;
         tab1IdData.tabId = this.tab1Id;
         this.tabIdDataMap.set(this.tab1Id, tab1IdData);
-        this.tabIdDataMap.forEach(((value, key) => {
+        this.tabIdDataMap.forEach((value, key) => {
             value.isOn = key == this.tab1Id;
-        }));
+        });
     }
     initTab2IdDataMap() {
         let tab1IdData = null;
@@ -15944,22 +15944,22 @@ class MallPanel extends MallPanel_Generate$1 {
                 tab2IdData.tabId = this.tab2Id;
                 tab1IdData.tabIdDataMap.set(this.tab2Id, tab2IdData);
             }
-            tab1IdData.tabIdDataMap.forEach(((value, key) => {
+            tab1IdData.tabIdDataMap.forEach((value, key) => {
                 value.isOn = key == this.tab2Id;
-            }));
+            });
         } else {
             tab1IdData = new TabIdData;
             tab1IdData.tabId = this.tab1Id;
             let tab2IdData = new TabIdData;
             tab2IdData.tabId = this.tab2Id;
             tab1IdData.tabIdDataMap.set(this.tab2Id, tab2IdData);
-            tab1IdData.tabIdDataMap.forEach(((value, key) => {
+            tab1IdData.tabIdDataMap.forEach((value, key) => {
                 value.isOn = key == this.tab2Id;
-            }));
+            });
             this.tabIdDataMap.set(this.tab1Id, tab1IdData);
-            this.tabIdDataMap.forEach(((value, key) => {
+            this.tabIdDataMap.forEach((value, key) => {
                 value.isOn = key == this.tab1Id;
-            }));
+            });
         }
     }
     initTab3IdDataMap() {
@@ -15974,21 +15974,21 @@ class MallPanel extends MallPanel_Generate$1 {
                     tab3IdData.tabId = this.tab3Id;
                     tab2IdData.tabIdDataMap.set(this.tab3Id, tab3IdData);
                 }
-                tab2IdData.tabIdDataMap.forEach(((value, key) => {
+                tab2IdData.tabIdDataMap.forEach((value, key) => {
                     value.isOn = key == this.tab3Id;
-                }));
+                });
             } else {
                 tab2IdData.tabId = this.tab2Id;
                 tab1IdData.tabIdDataMap.set(this.tab2Id, tab2IdData);
-                tab1IdData.tabIdDataMap.forEach(((value, key) => {
+                tab1IdData.tabIdDataMap.forEach((value, key) => {
                     value.isOn = key == this.tab2Id;
-                }));
+                });
                 let tab3IdData = new TabIdData;
                 tab3IdData.tabId = this.tab3Id;
                 tab2IdData.tabIdDataMap.set(this.tab3Id, tab3IdData);
-                tab2IdData.tabIdDataMap.forEach(((value, key) => {
+                tab2IdData.tabIdDataMap.forEach((value, key) => {
                     value.isOn = key == this.tab3Id;
-                }));
+                });
             }
         } else {
             tab1IdData = new TabIdData;
@@ -15996,19 +15996,19 @@ class MallPanel extends MallPanel_Generate$1 {
             let tab2IdData = new TabIdData;
             tab2IdData.tabId = this.tab2Id;
             tab1IdData.tabIdDataMap.set(this.tab2Id, tab2IdData);
-            tab1IdData.tabIdDataMap.forEach(((value, key) => {
+            tab1IdData.tabIdDataMap.forEach((value, key) => {
                 value.isOn = key == this.tab2Id;
-            }));
+            });
             let tab3IdData = new TabIdData;
             tab3IdData.tabId = this.tab3Id;
             tab2IdData.tabIdDataMap.set(this.tab3Id, tab3IdData);
-            tab2IdData.tabIdDataMap.forEach(((value, key) => {
+            tab2IdData.tabIdDataMap.forEach((value, key) => {
                 value.isOn = key == this.tab3Id;
-            }));
+            });
             this.tabIdDataMap.set(this.tab1Id, tab1IdData);
-            this.tabIdDataMap.forEach(((value, key) => {
+            this.tabIdDataMap.forEach((value, key) => {
                 value.isOn = key == this.tab1Id;
-            }));
+            });
         }
     }
     clearMallItemData() {
@@ -16019,69 +16019,69 @@ class MallPanel extends MallPanel_Generate$1 {
         this.clearMallItemData();
         switch (this.tab2Id) {
           case Tab2Type.Tab2_BodyType:
-            GameConfig.BodyType.getAllElement().forEach((value => {
+            GameConfig.BodyType.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_SkinTone:
-            GameConfig.SkinTone.getAllElement().forEach((value => {
+            GameConfig.SkinTone.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.SkinTone);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Face:
-            GameConfig.Face.getAllElement().forEach((value => {
+            GameConfig.Face.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Eyebrows:
-            GameConfig.Eyebrows.getAllElement().forEach((value => {
+            GameConfig.Eyebrows.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Expression:
-            GameConfig.FaceExpression.getAllElement().forEach((value => {
+            GameConfig.FaceExpression.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Outfit:
-            GameConfig.Outfit.getAllElement().forEach((value => {
+            GameConfig.Outfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Top:
-            GameConfig.Top.getAllElement().forEach((value => {
+            GameConfig.Top.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Bottom:
-            GameConfig.Bottom.getAllElement().forEach((value => {
+            GameConfig.Bottom.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Shoes:
-            GameConfig.Shoes.getAllElement().forEach((value => {
+            GameConfig.Shoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Gloves:
-            GameConfig.Gloves.getAllElement().forEach((value => {
+            GameConfig.Gloves.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab2Type.Tab2_Pet:
-            GameConfig.Pet.getAllElement().forEach((value => {
+            GameConfig.Pet.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
         }
         this.currentConfigId = this.tab2Id;
@@ -16091,282 +16091,282 @@ class MallPanel extends MallPanel_Generate$1 {
         this.clearMallItemData();
         switch (this.tab3Id) {
           case Tab3Type.Tab3_PupilStyle:
-            GameConfig.PupilStyle.getAllElement().forEach((value => {
+            GameConfig.PupilStyle.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Lens:
-            GameConfig.Lens.getAllElement().forEach((value => {
+            GameConfig.Lens.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_UpperHighlight:
-            GameConfig.UpperHighlight.getAllElement().forEach((value => {
+            GameConfig.UpperHighlight.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_LowerHighlight:
-            GameConfig.LowerHighlight.getAllElement().forEach((value => {
+            GameConfig.LowerHighlight.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Eyelashes:
-            GameConfig.Eyelashes.getAllElement().forEach((value => {
+            GameConfig.Eyelashes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Eyeshadow:
-            GameConfig.Eyeshadow.getAllElement().forEach((value => {
+            GameConfig.Eyeshadow.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Blush:
-            GameConfig.Blush.getAllElement().forEach((value => {
+            GameConfig.Blush.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_LipMakeup:
-            GameConfig.LipMakeup.getAllElement().forEach((value => {
+            GameConfig.LipMakeup.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_FaceTattoo:
             break;
 
           case Tab3Type.Tab3_FullHair:
-            GameConfig.FullHair.getAllElement().forEach((value => {
+            GameConfig.FullHair.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_FrontHair:
-            GameConfig.FrontHair.getAllElement().forEach((value => {
+            GameConfig.FrontHair.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_BackHair:
-            GameConfig.BackHair.getAllElement().forEach((value => {
+            GameConfig.BackHair.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(value.AssetId);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_LeftHand:
-            GameConfig.LeftHand.getAllElement().forEach((value => {
+            GameConfig.LeftHand.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_RightHand:
-            GameConfig.RightHand.getAllElement().forEach((value => {
+            GameConfig.RightHand.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Back:
-            GameConfig.Back.getAllElement().forEach((value => {
+            GameConfig.Back.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Ear:
-            GameConfig.Ear.getAllElement().forEach((value => {
+            GameConfig.Ear.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Face:
-            GameConfig.Facing.getAllElement().forEach((value => {
+            GameConfig.Facing.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Hip:
-            GameConfig.Hip.getAllElement().forEach((value => {
+            GameConfig.Hip.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Shoulder:
-            GameConfig.Shoulder.getAllElement().forEach((value => {
+            GameConfig.Shoulder.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Effects:
-            GameConfig.Effects.getAllElement().forEach((value => {
+            GameConfig.Effects.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Trailing:
-            GameConfig.Trailings.getAllElement().forEach((value => {
+            GameConfig.Trailings.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_DailyStyling_Suit1:
-            GameConfig.DailyStylingOutfit1.getAllElement().forEach((value => {
+            GameConfig.DailyStylingOutfit1.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_DailyStyling_Suit2:
-            GameConfig.DailyStylingOutfit2.getAllElement().forEach((value => {
+            GameConfig.DailyStylingOutfit2.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_MuppetStyling_Suit:
-            GameConfig.MuppetStylingOutfit.getAllElement().forEach((value => {
+            GameConfig.MuppetStylingOutfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_HeroStyling_Suit:
-            GameConfig.HeroStylingOutfit.getAllElement().forEach((value => {
+            GameConfig.HeroStylingOutfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_FantasyModeling_Suit:
-            GameConfig.FantasyModelingOutfit.getAllElement().forEach((value => {
+            GameConfig.FantasyModelingOutfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_HolidayStyling_Suit:
-            GameConfig.HolidayStylingOutfit.getAllElement().forEach((value => {
+            GameConfig.HolidayStylingOutfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_ScienceFictionStyling_Suit:
-            GameConfig.ScienceFictionStylingOutfit.getAllElement().forEach((value => {
+            GameConfig.ScienceFictionStylingOutfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_AncientMolding_Suit:
-            GameConfig.AncientMoldingOutfit.getAllElement().forEach((value => {
+            GameConfig.AncientMoldingOutfit.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_LongSinglePiece_Top:
-            GameConfig.LongSinglePieceTop.getAllElement().forEach((value => {
+            GameConfig.LongSinglePieceTop.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_ShortJacket_Top:
-            GameConfig.ShortJacketTop.getAllElement().forEach((value => {
+            GameConfig.ShortJacketTop.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_ShortSinglePiece_Top:
-            GameConfig.ShortSinglePieceTop.getAllElement().forEach((value => {
+            GameConfig.ShortSinglePieceTop.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Suit_Top:
-            GameConfig.SuitTop.getAllElement().forEach((value => {
+            GameConfig.SuitTop.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_ALongCoat_Top:
-            GameConfig.ALongCoatTop.getAllElement().forEach((value => {
+            GameConfig.ALongCoatTop.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_ShortSkirt_Bottom:
-            GameConfig.ShortSkirtBottom.getAllElement().forEach((value => {
+            GameConfig.ShortSkirtBottom.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_LongPants_Bottom:
-            GameConfig.LongPantsBottom.getAllElement().forEach((value => {
+            GameConfig.LongPantsBottom.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Shorts_Bottom:
-            GameConfig.ShortsBottom.getAllElement().forEach((value => {
+            GameConfig.ShortsBottom.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_LongSkirt_Bottom:
-            GameConfig.LongSkirtBottom.getAllElement().forEach((value => {
+            GameConfig.LongSkirtBottom.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Tights_Bottom:
-            GameConfig.TightsBottom.getAllElement().forEach((value => {
+            GameConfig.TightsBottom.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Gloves_Gloves:
-            GameConfig.GlovesGloves.getAllElement().forEach((value => {
+            GameConfig.GlovesGloves.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Accessories_Gloves:
-            GameConfig.AccessoriesGloves.getAllElement().forEach((value => {
+            GameConfig.AccessoriesGloves.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Everyday_Shoes:
-            GameConfig.EverydayShoes.getAllElement().forEach((value => {
+            GameConfig.EverydayShoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_Boots_Shoes:
-            GameConfig.BootsShoes.getAllElement().forEach((value => {
+            GameConfig.BootsShoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_FootCover_Shoes:
-            GameConfig.FootCoverShoes.getAllElement().forEach((value => {
+            GameConfig.FootCoverShoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_NakedDress_Shoes:
-            GameConfig.NakedDressShoes.getAllElement().forEach((value => {
+            GameConfig.NakedDressShoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_HighHeels_Shoes:
-            GameConfig.HighHeelsShoes.getAllElement().forEach((value => {
+            GameConfig.HighHeelsShoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
 
           case Tab3Type.Tab3_SportsShoes_Shoes:
-            GameConfig.SportsShoesShoes.getAllElement().forEach((value => {
+            GameConfig.SportsShoesShoes.getAllElement().forEach(value => {
                 if (value.SexType == 0 || value.SexType == this.currentSomatotype) this.mallItemAssetIds.push(`${value.ID}`);
-            }));
+            });
             break;
         }
         this.currentConfigId = this.tab3Id;
@@ -16383,28 +16383,28 @@ class MallPanel extends MallPanel_Generate$1 {
         }
     }
     hideMallItemSmallAndBig() {
-        this.mallItem_Small.forEach((value => {
+        this.mallItem_Small.forEach(value => {
             Utils.setWidgetVisibility(value.uiObject, mw.SlateVisibility.Collapsed);
-        }));
-        this.mallItem_Big.forEach((value => {
+        });
+        this.mallItem_Big.forEach(value => {
             Utils.setWidgetVisibility(value.uiObject, mw.SlateVisibility.Collapsed);
-        }));
+        });
     }
     hideMallItemSamllAndColor() {
-        this.mallItem_Small.forEach((value => {
+        this.mallItem_Small.forEach(value => {
             Utils.setWidgetVisibility(value.uiObject, mw.SlateVisibility.Collapsed);
-        }));
-        this.mallItem_Color.forEach((value => {
+        });
+        this.mallItem_Color.forEach(value => {
             Utils.setWidgetVisibility(value.uiObject, mw.SlateVisibility.Collapsed);
-        }));
+        });
     }
     hideMallItemBigAndColor() {
-        this.mallItem_Big.forEach((value => {
+        this.mallItem_Big.forEach(value => {
             Utils.setWidgetVisibility(value.uiObject, mw.SlateVisibility.Collapsed);
-        }));
-        this.mallItem_Color.forEach((value => {
+        });
+        this.mallItem_Color.forEach(value => {
             Utils.setWidgetVisibility(value.uiObject, mw.SlateVisibility.Collapsed);
-        }));
+        });
     }
     initMallItem() {
         this.thisFeatureIsNotEnabled();
@@ -16497,7 +16497,7 @@ class MallPanel extends MallPanel_Generate$1 {
         }
     }
     checkMallItemState() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             let assetId = null;
             switch (this.currentConfigId) {
               case Tab2Type.Tab2_SkinTone:
@@ -16519,23 +16519,23 @@ class MallPanel extends MallPanel_Generate$1 {
                 this.mallItemMap.get(assetId).updateSelectState(true);
                 break;
             }
-        }));
+        });
     }
     checkSkinToneMallItemState() {
         if (this.currentConfigId != Tab2Type.Tab2_SkinTone) return;
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             let assetId = await this.getMallModuleC.getCharacterAssetId(this.currentConfigId);
             let isHasSelect = false;
-            this.mallItemMap.forEach(((value, key) => {
+            this.mallItemMap.forEach((value, key) => {
                 if (Utils.isEqulaLinearColor(Utils.colorHexToLinearColorToString(key), assetId)) {
                     isHasSelect = true;
                     value.updateSelectState(true);
                 } else {
                     value.updateSelectState(false);
                 }
-            }));
+            });
             if (!isHasSelect) this.mallItemMap.get(`ColorPick`).updateSelectState(true);
-        }));
+        });
     }
     hideTab123Canvas() {
         Utils.setWidgetVisibility(this.mTab1Canvas, mw.SlateVisibility.Collapsed);
@@ -16679,9 +16679,9 @@ class MallPanel extends MallPanel_Generate$1 {
     }
     initMallRot() {
         this.moveVec = [];
-        mw.TimeUtil.delayExecute((() => {
+        mw.TimeUtil.delayExecute(() => {
             this.movePos = this.mTouchImage.position.multiply(1);
-        }), 3);
+        }, 3);
     }
     onUpdate(dt) {
         if (this.dir != 0) {
@@ -16850,9 +16850,9 @@ class ColorPickPanel extends ColorPickPanel_Generate$1 {
     }
     checkColorPickTab3AndColorPick(color) {
         if (!color) return;
-        this.colorPickTab3Map.forEach(((value, key) => {
+        this.colorPickTab3Map.forEach((value, key) => {
             value.updateSelectState(Utils.isEqulaLinearColor(Utils.colorHexToLinearColorToString(key), color));
-        }));
+        });
         this.isLockColorPick = true;
         this.mColorPick.color = color;
         this.isLockColorPick = false;
@@ -16868,9 +16868,9 @@ class ColorPickPanel extends ColorPickPanel_Generate$1 {
     addColorChanged(Content) {
         if (this.isLockColorPick) return;
         this.getMallModuleC.onColorPickChangedAction.call(Content);
-        this.colorPickTab3Map.forEach(((value, key) => {
+        this.colorPickTab3Map.forEach((value, key) => {
             value.updateSelectState(false);
-        }));
+        });
         if (this.currenrColorPickTab2Index < 0 || !this.colorPickTab2s || this.currenrColorPickTab2Index >= this.colorPickTab2s.length) return;
         this.colorPickTab2s[this.currenrColorPickTab2Index].refreshColorImage(Content);
     }
@@ -16930,13 +16930,13 @@ let MallTipsPanel_Generate = class MallTipsPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mCancelButton.onClicked.add((() => {
+        this.mCancelButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCancelButton");
-        }));
+        });
         this.mCancelButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.mSureButton.onClicked.add((() => {
+        this.mSureButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mSureButton");
-        }));
+        });
         this.mSureButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mTipsTextBlock);
         this.initLanguage(this.mContentTextBlock);
@@ -17094,9 +17094,9 @@ class MallModuleC extends ModuleC {
         this.onCloseMallItemSelfAction.add(this.addCloseMallItemSelfAction.bind(this));
     }
     bindEvent() {
-        InputUtil.onKeyDown(mw.Keys.O, (() => {
+        InputUtil.onKeyDown(mw.Keys.O, () => {
             this.addOpenMallAction();
-        }));
+        });
     }
     addSaveColorPickPanelAction() {
         this.isNeedSaveColor = false;
@@ -17104,24 +17104,24 @@ class MallModuleC extends ModuleC {
     }
     addCloseColorPickPanelAction() {
         if (this.isNeedSaveColor) {
-            this.getMallTipsPanel.showTips((() => {
+            this.getMallTipsPanel.showTips(() => {
                 this.isNeedSaveColor = false;
                 this.getMallPanel.checkSkinToneMallItemStateAndShowMallPanel();
-            }), (() => {
+            }, () => {
                 this.isNeedSaveColor = false;
-                ExecutorManager.instance.pushAsyncExecutor((async () => {
+                ExecutorManager.instance.pushAsyncExecutor(async () => {
                     await this.copyNpc.asyncReady();
                     this.localPlayer.character.setDescription(this.copyNpc.getDescription());
                     await this.localPlayer.character.asyncReady();
                     this.getMallPanel.checkSkinToneMallItemStateAndShowMallPanel();
-                }));
-            }), GameConfig.Language.Text_CloseTips.Value, GameConfig.Language.Text_WhetherToKeepTheCurrentColor.Value, GameConfig.Language.Text_NoRetain.Value, GameConfig.Language.Text_Retain.Value);
+                });
+            }, GameConfig.Language.Text_CloseTips.Value, GameConfig.Language.Text_WhetherToKeepTheCurrentColor.Value, GameConfig.Language.Text_NoRetain.Value, GameConfig.Language.Text_Retain.Value);
         } else {
             this.getMallPanel.checkSkinToneMallItemStateAndShowMallPanel();
         }
     }
     addOpenMallAction() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             await this.localPlayer.character.asyncReady();
             this.initUsingCharacterData();
             this.onSwitchCameraAction.call(2);
@@ -17131,7 +17131,7 @@ class MallModuleC extends ModuleC {
             }
             this.getMallPanel.show();
             this.decorationIndexMap.clear();
-        }));
+        });
     }
     closeMallPanel() {
         this.getMallPanel.hide();
@@ -17188,7 +17188,7 @@ class MallModuleC extends ModuleC {
         if (LipMakeup && LipMakeup.length > 0 && LipMakeup != `32115`) this.usingAssetIdMap.set(Tab3Type.Tab3_LipMakeup, new AssetIdInfoData(LipMakeup));
     }
     addCloseMallItemSelfAction(tabId, assetId) {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             if (Mall.isClothingTabId(tabId)) {
                 await this.changeCharacter(tabId, assetId);
             } else {
@@ -17204,16 +17204,16 @@ class MallModuleC extends ModuleC {
             }
             this.initUsingCharacterData();
             this.getMallPanel.refreshMallItemSelf(this.usingAssetIdMap, true);
-        }));
+        });
     }
     addSelectItemAction(tabType, tabId, assetId) {
         if (tabType == TabType.None) return;
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             await this.changeCharacter(tabId, assetId);
             if (!Mall.isRemovableTabId(tabId)) return;
             this.initUsingCharacterData();
             this.getMallPanel.refreshMallItemSelf(this.usingAssetIdMap, Mall.isSlot(tabId));
-        }));
+        });
     }
     async changeCharacter(tabId, assetId) {
         await this.localPlayer.character.asyncReady();
@@ -17966,7 +17966,7 @@ class MallModuleC extends ModuleC {
         let myCamera = Camera.currentCamera;
         let shopCamera = await GameObject.asyncSpawn(`Camera`);
         shopCamera.worldTransform.rotation = mw.Rotation.zero;
-        this.onSwitchCameraAction.add((cameraType => {
+        this.onSwitchCameraAction.add(cameraType => {
             if (this.lastCameraType == cameraType) return;
             if (cameraType == 0) {
                 Camera.switch(myCamera);
@@ -17982,7 +17982,7 @@ class MallModuleC extends ModuleC {
                 Camera.switch(shopCamera, .5, mw.CameraSwitchBlendFunction.Linear);
             }
             this.lastCameraType = cameraType;
-        }));
+        });
     }
     addRoatation(dir) {
         if (!this.localPlayer || !this.localPlayer?.character || !this.localPlayer.character?.worldTransform) return;
@@ -18012,18 +18012,18 @@ class MallModuleC extends ModuleC {
         await this.transitionNpc.asyncReady();
     }
     addOpenColorPickAction(tabType, tabId) {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             await this.localPlayer.character.asyncReady();
             this.copyNpc.setDescription(this.localPlayer.character.getDescription());
             await this.copyNpc.asyncReady();
             this.openColorPickPanel(tabId);
-        }));
+        });
     }
     addSaveAction() {
         this.saveCharacterDescription();
     }
     saveCharacterDescription() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             await this.localPlayer.character.asyncReady();
             let somatotype = this.localPlayer.character.description.advance.base.characterSetting.somatotype;
             this.recordSex(somatotype);
@@ -18038,25 +18038,25 @@ class MallModuleC extends ModuleC {
             this.isNeedSaveCharacter = false;
             this.closeMallPanel();
             Notice.showDownNotice(GameConfig.Language.Text_SaveSuccessfully.Value);
-        }));
+        });
     }
     addCloseAction() {
         if (this.isNeedSaveCharacter) {
-            this.getMallTipsPanel.showTips((() => {
+            this.getMallTipsPanel.showTips(() => {
                 this.isNeedSaveCharacter = false;
                 this.saveCharacterDescription();
                 this.closeMallPanel();
-            }), (() => {
+            }, () => {
                 this.isNeedSaveCharacter = false;
                 this.recoverCharacter();
                 this.closeMallPanel();
-            }), GameConfig.Language.Text_CloseTips.Value, GameConfig.Language.Text_WhetherSaveImage.Value, GameConfig.Language.Text_NoSave.Value, GameConfig.Language.Text_Save.Value);
+            }, GameConfig.Language.Text_CloseTips.Value, GameConfig.Language.Text_WhetherSaveImage.Value, GameConfig.Language.Text_NoSave.Value, GameConfig.Language.Text_Save.Value);
         } else {
             this.closeMallPanel();
         }
     }
     recoverCharacter() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             this.getMallPanel.hide();
             this.onSwitchCameraAction.call(0);
             if (this.saveSomatotype % 2 == 0) {
@@ -18065,10 +18065,10 @@ class MallModuleC extends ModuleC {
                 this.localPlayer.character.setDescription(this.maleNpc.getDescription());
             }
             await this.localPlayer.character.asyncReady();
-        }));
+        });
     }
     addResetAction() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             let isSuccess = await Utils.accountServiceDownloadData(this.localPlayer.character);
             if (!isSuccess) {
                 Notice.showDownNotice(GameConfig.Language.Text_ResetImageFaild.Value);
@@ -18079,10 +18079,10 @@ class MallModuleC extends ModuleC {
             this.initUsingCharacterData();
             if (mw.UIService.getUI(MallPanel, false)?.visible) this.getMallPanel.initMallPanel(somatotype, this.usingAssetIdMap);
             Notice.showDownNotice(GameConfig.Language.Text_ResetSuccessfully.Value);
-        }));
+        });
     }
     addSexAction() {
-        ExecutorManager.instance.pushAsyncExecutor((async () => {
+        ExecutorManager.instance.pushAsyncExecutor(async () => {
             await this.localPlayer.character.asyncReady();
             let somatotype = this.localPlayer.character.description.advance.base.characterSetting.somatotype;
             if (somatotype % 2 == 0) {
@@ -18095,7 +18095,7 @@ class MallModuleC extends ModuleC {
             this.initUsingCharacterData();
             if (mw.UIService.getUI(MallPanel, false)?.visible) this.getMallPanel.initMallPanel(somatotype, this.usingAssetIdMap);
             Notice.showDownNotice(GameConfig.Language.Text_SwitchSuccessfully.Value);
-        }));
+        });
     }
     openColorPickPanel(tabId) {
         this.colorPickTabId = tabId;
@@ -18205,9 +18205,9 @@ class MallModuleC extends ModuleC {
         let tab1Text = `${GameConfig.Language.Text_ColorPick.Value} - ${name}`;
         let colorPickTab2Data = new ColorPickTab2Data(name, this.localPlayer.character.description.advance.makeup.skinTone.skinColor);
         this.colorPickTab2Datas.push(colorPickTab2Data);
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.SkinToneColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openEyebrowsColorPickPanel() {
@@ -18217,9 +18217,9 @@ class MallModuleC extends ModuleC {
         let eyebrowColor = mw.LinearColor.white;
         if (eyebrows?.eyebrowColor) eyebrowColor = eyebrows?.eyebrowColor;
         this.colorPickTab2Datas.push(new ColorPickTab2Data(name, eyebrowColor));
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.EyebrowsColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openTopColorPickPanel() {
@@ -18239,9 +18239,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.TopColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openBottomColorPickPanel() {
@@ -18261,9 +18261,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.BottomColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openShoesColorPickPanel() {
@@ -18283,9 +18283,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.ShoeColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openGlovesColorPickPanel() {
@@ -18305,9 +18305,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.GloveColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openPupilStyleColorPickPanel() {
@@ -18331,9 +18331,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.PupilStyleColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openLensColorPickPanel() {
@@ -18351,9 +18351,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.PupilStyleColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openUpperHighlightColorPickPanel() {
@@ -18371,9 +18371,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.PupilStyleColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openLowerHighlightColorPickPanel() {
@@ -18391,9 +18391,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.PupilStyleColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openEyelashesColorPickPanel() {
@@ -18411,9 +18411,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.EyeLashColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openEyeshadowColorPickPanel() {
@@ -18431,9 +18431,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.EyeShadow);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openBlushColorPickPanel() {
@@ -18451,9 +18451,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.BlushColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openLipMakeupColorPickPanel() {
@@ -18471,9 +18471,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.LipstickColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openFullHairColorPickPanel() {
@@ -18497,9 +18497,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.HairColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openFrontHairColorPickPanel() {
@@ -18523,9 +18523,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.HairColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     openBackHairColorPickPanel() {
@@ -18549,9 +18549,9 @@ class MallModuleC extends ModuleC {
             Notice.showDownNotice(StringUtil.format(GameConfig.Language.Text_NotSupportToning.Value, name));
             return;
         }
-        GameConfig.ColorValue.getAllElement().forEach((value => {
+        GameConfig.ColorValue.getAllElement().forEach(value => {
             this.colorPickTab3Colors.push(value.HairColor);
-        }));
+        });
         this.getColorPickPanel.showColorPickPanel(tab1Text, name, this.colorPickTab2Datas, this.colorPickTab3Colors);
     }
     changeCharacterColor(color) {
@@ -18745,18 +18745,18 @@ class FlyText {
             a: 0
         }).to({
             a: Math.PI
-        }, 1e3).onUpdate((object => {
+        }, 1e3).onUpdate(object => {
             textBlock.position = vec2.clone().add(new mw.Vector2(toX * object.a / Math.PI, toY * Math.sin(object.a)));
             textBlock.renderScale = new mw.Vector2(Math.sin(object.a));
-        })).onStart((() => {
+        }).onStart(() => {
             textBlock.fontColor = fontColor ? fontColor : this._defaultFontColor;
             textBlock.outlineColor = outlineColor ? outlineColor : this._defaultOutlineColor;
             textBlock.text = content;
             textBlock.visibility = mw.SlateVisibility.SelfHitTestInvisible;
-        })).onComplete((() => {
+        }).onComplete(() => {
             textBlock.visibility = mw.SlateVisibility.Hidden;
             this._textPools.push(textBlock);
-        }));
+        });
         animator.start();
     }
     createText() {
@@ -18834,7 +18834,7 @@ class PlayerModuleC extends ModuleC {
         this.getHUDModuleC.onResetPosAction.add(this.addResetPosAction.bind(this));
     }
     addResetPosAction() {
-        this.getConfirmPanel.confirmTips((() => {
+        this.getConfirmPanel.confirmTips(() => {
             if (!this.isCanResetPos) {
                 Notice.showDownNotice(StringUtil.format(GameConfig.Language.CannotResetPositionWithinSeconds.Value, 60));
                 return;
@@ -18842,10 +18842,10 @@ class PlayerModuleC extends ModuleC {
             let revivalPoint = Utils.randomRevivalPoint(this.getTeamModuleC.isRedTeam(this.localPlayer.userId));
             this.localPlayer.character.worldTransform.position = revivalPoint;
             this.isCanResetPos = false;
-            TimeUtil.delaySecond(60).then((() => {
+            TimeUtil.delaySecond(60).then(() => {
                 this.isCanResetPos = true;
-            }));
-        }), GameConfig.Language.DoYouWantToResetThePosition.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.ResetPosition.Value);
+            });
+        }, GameConfig.Language.DoYouWantToResetThePosition.Value, GameConfig.Language.Yes.Value, GameConfig.Language.No.Value, GameConfig.Language.ResetPosition.Value);
     }
     net_hitTeammate() {
         Notice.showDownNotice("不要攻击队友!");
@@ -19000,9 +19000,9 @@ let TaskItem_Generate = class TaskItem_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mFinishButton.onClicked.add((() => {
+        this.mFinishButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mFinishButton");
-        }));
+        });
         this.mFinishButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mNameTextBlock);
         this.initLanguage(this.mCoinTextBlock);
@@ -19107,9 +19107,9 @@ let TaskPanel_Generate = class TaskPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mDailyTaskTitleTextBlock);
         this.initLanguage(this.mDailyTimeTextBlock);
@@ -19196,9 +19196,9 @@ class TaskPanel extends TaskPanel_Generate$1 {
     }
     hideTween() {
         Event.dispatchToLocal(EventType.OnOffMainHUD, true);
-        Utils.closeUITween(this.rootCanvas, null, (() => {
+        Utils.closeUITween(this.rootCanvas, null, () => {
             this.hide();
-        }));
+        });
     }
     onShow(...params) {
         this.canUpdate = true;
@@ -19225,12 +19225,12 @@ class TaskPanel extends TaskPanel_Generate$1 {
         this.recycleAllDailyTaskItem();
         if (dailyTaskDataMap.size == 0) return;
         Utils.setWidgetVisibility(this.mDailyTaskDoneTextBlock, mw.SlateVisibility.Collapsed);
-        dailyTaskDataMap.forEach(((value, key) => {
+        dailyTaskDataMap.forEach((value, key) => {
             let dailyTaskItem = UIService.create(TaskItem);
             dailyTaskItem.initTaskItemData(key, value);
             this.mDailyTaskCanvas.addChild(dailyTaskItem.uiObject);
             this.dailyTaskItemsMap.set(key, dailyTaskItem);
-        }));
+        });
     }
     updateTaskPanel(vipTaskType, progress) {
         if (this.dailyTaskItemsMap.has(vipTaskType)) {
@@ -19246,12 +19246,12 @@ class TaskPanel extends TaskPanel_Generate$1 {
         this.recycleAllWeeklyTaskItem();
         if (weeklyTaskDataMap.size == 0) return;
         Utils.setWidgetVisibility(this.mWeekTaskDoneTextBlock, mw.SlateVisibility.Collapsed);
-        weeklyTaskDataMap.forEach(((value, key) => {
+        weeklyTaskDataMap.forEach((value, key) => {
             let weeklyTaskItem = UIService.create(TaskItem);
             weeklyTaskItem.initTaskItemData(key, value);
             this.mWeekTaskCanvas.addChild(weeklyTaskItem.uiObject);
             this.weeklyTaskItemsMap.set(key, weeklyTaskItem);
-        }));
+        });
     }
     updateTaskCompletePanel(vipTaskType) {
         if (this.dailyTaskItemsMap.has(vipTaskType)) {
@@ -19283,18 +19283,18 @@ class TaskPanel extends TaskPanel_Generate$1 {
     }
     recycleAllDailyTaskItem() {
         if (this.dailyTaskItemsMap.size == 0) return;
-        this.dailyTaskItemsMap.forEach(((value, key) => {
+        this.dailyTaskItemsMap.forEach((value, key) => {
             value.destroy();
             this.dailyTaskItemsMap.delete(key);
-        }));
+        });
         this.dailyTaskItemsMap.clear();
     }
     recycleAllWeeklyTaskItem() {
         if (this.weeklyTaskItemsMap.size == 0) return;
-        this.weeklyTaskItemsMap.forEach(((value, key) => {
+        this.weeklyTaskItemsMap.forEach((value, key) => {
             value.destroy();
             this.weeklyTaskItemsMap.delete(key);
-        }));
+        });
         this.weeklyTaskItemsMap.clear();
     }
     initTime() {
@@ -19386,10 +19386,10 @@ class TaskItem extends TaskItem_Generate$1 {
         if (this.vIPTaskElement.Diamond == 0 || this.vIPTaskElement.Diamond == null) {
             Utils.setWidgetVisibility(this.mDiamondCanvas, mw.SlateVisibility.Collapsed);
         }
-        this.mFinishButton.onClicked.add((() => {
+        this.mFinishButton.onClicked.add(() => {
             ModuleService.getModule(TaskModuleC).onTaskRewardAction.call(this.vipTaskType, this.task.taskId);
             mw.UIService.getUI(TaskPanel).controllerPic(-1);
-        }));
+        });
     }
     isShowFinishBtn(isShow) {
         if (isShow) {
@@ -19510,23 +19510,23 @@ class TaskModuleC extends ModuleC {
         let dailyTaskTypes = [];
         let dailyProgresss = [];
         if (MapEx.count(this.tempDailTask) > 0) {
-            MapEx.forEach(this.tempDailTask, ((key, value) => {
+            MapEx.forEach(this.tempDailTask, (key, value) => {
                 dailyTaskIds.push(value.taskId);
                 dailyTaskTypes.push(key);
                 dailyProgresss.push(value.progress);
                 MapEx.del(this.tempDailTask, key);
-            }));
+            });
         }
         let weeklyTaskIds = [];
         let weeklyTaskTypes = [];
         let weeklyProgresss = [];
         if (MapEx.count(this.tempWeeklyTask) > 0) {
-            MapEx.forEach(this.tempWeeklyTask, ((key, value) => {
+            MapEx.forEach(this.tempWeeklyTask, (key, value) => {
                 weeklyTaskIds.push(value.taskId);
                 weeklyTaskTypes.push(key);
                 weeklyProgresss.push(value.progress);
                 MapEx.del(this.tempWeeklyTask, key);
-            }));
+            });
         }
         if (dailyTaskIds.length == 0 && weeklyTaskIds.length == 0) {
             return;
@@ -19804,18 +19804,18 @@ let GameLauncher = class GameLauncher extends mw.Script {
         }
         GlobalData.languageId = languageId;
         console.error(`wfz - languageId:${languageId}`);
-        GameConfig.initLanguage(languageId, (key => {
+        GameConfig.initLanguage(languageId, key => {
             let ele = GameConfig.Language.getElement(key);
             if (ele == null) return "unknow_" + key;
             return ele.Value;
-        }));
-        mw.UIScript.addBehavior("lan", (ui => {
+        });
+        mw.UIScript.addBehavior("lan", ui => {
             let key = ui.text;
             if (key) {
                 let lan = GameConfig.Language.getElement(key);
                 if (lan) ui.text = lan.Value;
             }
-        }));
+        });
     }
     onUpdateC(dt) {}
     onStartS() {
@@ -19896,14 +19896,14 @@ let GMHUD_Generate = class GMHUD_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.oKbutton.onClicked.add((() => {
+        this.oKbutton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "oKbutton");
-        }));
+        });
         this.initLanguage(this.oKbutton);
         this.oKbutton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-        this.cmdButton.onClicked.add((() => {
+        this.cmdButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "cmdButton");
-        }));
+        });
         this.initLanguage(this.cmdButton);
         this.cmdButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.pingText);
@@ -19945,9 +19945,9 @@ let GMItem_Generate = class GMItem_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.button.onClicked.add((() => {
+        this.button.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "button");
-        }));
+        });
         this.initLanguage(this.button);
         this.button.touchMethod = mw.ButtonTouchMethod.PreciseTap;
     }
@@ -19996,9 +19996,9 @@ AddGMCommand({
 
 let GMService = GMService_1 = class GMService extends mw.Script {
     createUI(dropDownList) {
-        GMConfig.forEach((cmd => {
+        GMConfig.forEach(cmd => {
             dropDownList.addItem(cmd);
-        }));
+        });
     }
     async onStart() {
         await ModuleService.ready();
@@ -20006,9 +20006,9 @@ let GMService = GMService_1 = class GMService extends mw.Script {
         if (mw.SystemUtil.isClient()) {
             console.log("[GM]：模块初始化");
             new GMBasePanel;
-            Event.addLocalListener(EventType.OnOffMainHUD, (isOpen => {
+            Event.addLocalListener(EventType.OnOffMainHUD, isOpen => {
                 isOpen ? OpenGMUI() : CloseGMUI();
-            }));
+            });
         }
     }
     cmd(player, data, param) {
@@ -20053,18 +20053,18 @@ class GMBasePanel {
             panel: this._view.dropList,
             button: this._view.oKbutton,
             label: this._view.cmdButton
-        }, GMItem_Generate$1, ((ui, data) => {
-            ui.button.onClicked.add((() => {
+        }, GMItem_Generate$1, (ui, data) => {
+            ui.button.onClicked.add(() => {
                 GMService.instance.cmd(Player.localPlayer, data, this._view.argText.text);
-            }));
+            });
             ui.button.text = data.label;
-        }), 5);
+        }, 5);
         GMService.instance.createUI(this.dropDownList);
-        this._view.cmdButton.onClicked.add((() => {
+        this._view.cmdButton.onClicked.add(() => {
             if (this.dropDownList.selectItem) {
                 GMService.instance.cmd(Player.localPlayer, this.dropDownList.selectItem.data, this._view.argText.text);
             }
-        }));
+        });
     }
 }
 
@@ -20087,10 +20087,10 @@ class DropdownList {
         this.addExpandEvent();
     }
     addExpandEvent() {
-        this._root.button.onClicked.add((() => {
+        this._root.button.onClicked.add(() => {
             this._isDropdown = !this._isDropdown;
             this._invalidateLayout();
-        }));
+        });
     }
     get selectItem() {
         return this._select;
@@ -20100,12 +20100,12 @@ class DropdownList {
         if (!itemUI.list) {
             itemUI.list = this;
             itemUI.button.touchMethod = mw.ButtonTouchMethod.PreciseTap;
-            itemUI.button.onClicked.add((() => {
+            itemUI.button.onClicked.add(() => {
                 this._select = itemUI;
                 this._root.label.text = data.label;
                 this._isDropdown = !this._isDropdown;
                 this._invalidateLayout();
-            }));
+            });
             this._root.panel.addChild(itemUI.uiObject);
         }
         itemUI.data = data;
@@ -20279,10 +20279,10 @@ let Npc = class Npc extends Script {
             this.curHp = 0;
             this.dieS();
             this.getPlayerModuleS.playerKillNpc(senderGuid);
-            TimeUtil.delaySecond(this.respawnTime).then((() => {
+            TimeUtil.delaySecond(this.respawnTime).then(() => {
                 this.curHp = 100;
                 this.respawnS();
-            }));
+            });
         }
         this.getPlayerModuleS.playerAtkNpcFlyText(senderGuid, hitPoint, damage);
     }
@@ -20433,9 +20433,9 @@ let AddMaxHp = class AddMaxHp extends Script {
     onTriggerEnter(character) {
         if (Player.localPlayer.character != character) return;
         if (GlobalData.isOpenIAA) {
-            this.getAdPanel.showRewardAd((() => {
+            this.getAdPanel.showRewardAd(() => {
                 this.getPlayerModuleC.addMaxHp();
-            }), StringUtil.format(GameConfig.Language.DoubleTheRewardMaximumHealthIncreasedTo.Value, GlobalData.maxHp * 2), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeIncrease.Value);
+            }, StringUtil.format(GameConfig.Language.DoubleTheRewardMaximumHealthIncreasedTo.Value, GlobalData.maxHp * 2), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeIncrease.Value);
         } else {
             this.getPlayerModuleC.addMaxHp();
         }
@@ -20542,11 +20542,11 @@ let TryOutGun = class TryOutGun extends Script {
         if (Player.localPlayer.character != character) return;
         let gunElement = GameConfig.WeaponProp.getElement(this.gunkey);
         if (GlobalData.isOpenIAA) {
-            this.getAdPanel.showRewardAd((() => {
+            this.getAdPanel.showRewardAd(() => {
                 if (!this.gunkey) return;
                 this.switchGun();
                 this.switchGunModel(Utils.randomInt(10, 16));
-            }), StringUtil.format(GameConfig.Language.FreeUseOfOneRound.Value, gunElement.WeaponName), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
+            }, StringUtil.format(GameConfig.Language.FreeUseOfOneRound.Value, gunElement.WeaponName), GameConfig.Language.Cancel.Value, GameConfig.Language.FreeToUse.Value);
         } else {
             if (!this.gunkey) return;
             this.switchGun();
@@ -20615,10 +20615,10 @@ let ProjectTarget = class ProjectTarget extends Script {
         Utils.setProjectTarget(this.gameObject);
     }
     testOnHit() {
-        PrefabEvent.PrefabEvtFight.onHit(((attackerId, targetId, damage, position) => {
+        PrefabEvent.PrefabEvtFight.onHit((attackerId, targetId, damage, position) => {
             if (this.gameObject.gameObjectId != targetId) return;
             FlyText.instance.showFlyText("-" + damage, position);
-        }));
+        });
     }
     onUpdateC(dt) {}
     onStartS() {
@@ -20663,18 +20663,18 @@ let FreeCamera = FreeCamera_1 = class FreeCamera extends Script {
         this.freeCamera.springArm.localTransform = Transform.identity;
         this.freeCamera.springArm.length = 0;
         this.freeCamera.springArm.collisionEnabled = false;
-        InputUtil.onKeyDown(Keys.F8, (() => {
+        InputUtil.onKeyDown(Keys.F8, () => {
             if (this.isFreeCamera) {
                 this.exitFreeCamera();
             } else {
                 this.enterFreeCamera();
             }
-        }));
-        InputUtil.onKeyDown(Keys.NumPadNine, (() => {
+        });
+        InputUtil.onKeyDown(Keys.NumPadNine, () => {
             this.freeCamera.springArm.worldTransform.position = Player.localPlayer.character.worldTransform.position.clone();
             this._moveLoc = this.freeCamera.springArm.worldTransform.position.clone();
-        }));
-        Event.addLocalListener(FreeCamera_1.EVENTS_JOYSTICK_INPUT, (dir => {
+        });
+        Event.addLocalListener(FreeCamera_1.EVENTS_JOYSTICK_INPUT, dir => {
             if (this.freeCamera) {
                 const forward = this.freeCamera.worldTransform.clone().getForwardVector().clone();
                 const right = this.freeCamera.worldTransform.clone().getRightVector().clone();
@@ -20683,7 +20683,7 @@ let FreeCamera = FreeCamera_1 = class FreeCamera extends Script {
                 this.freeCamera.springArm.worldTransform.position = this._moveLoc;
                 if (this.useUpdate) this.useUpdate = false;
             }
-        }));
+        });
         KeyActionManager.instance.add([ Keys.W, Keys.S, Keys.A, Keys.D, Keys.E, Keys.Q ]);
     }
     enterFreeCamera() {
@@ -20776,22 +20776,22 @@ class KeyActionManager {
     add(btn) {
         if (btn instanceof Button) {
             this._btnStates.set(btn.guid, false);
-            btn.onPressed.add((() => {
+            btn.onPressed.add(() => {
                 this._btnStates.set(btn.guid, true);
-            }));
-            btn.onReleased.add((() => {
+            });
+            btn.onReleased.add(() => {
                 this._btnStates.set(btn.guid, false);
-            }));
+            });
         } else {
-            btn.forEach((element => {
+            btn.forEach(element => {
                 this._actionStates.set(element, false);
-                InputUtil.onKeyDown(element, (() => {
+                InputUtil.onKeyDown(element, () => {
                     this._actionStates.set(element, true);
-                }));
-                InputUtil.onKeyUp(element, (() => {
+                });
+                InputUtil.onKeyUp(element, () => {
                     this._actionStates.set(element, false);
-                }));
-            }));
+                });
+            });
         }
     }
 }
@@ -20807,19 +20807,19 @@ class TSIAP {
         this.arkCoin = 0;
         this.onArkCoinChange = new Action1;
         if (SystemUtil.isClient()) {
-            mw.MessageChannelService.registerAction("bridge.action.feature.support.result", this, (dataStr => {
+            mw.MessageChannelService.registerAction("bridge.action.feature.support.result", this, dataStr => {
                 try {
                     const resp = JSON.parse(dataStr).data;
                     if (resp.feature == "isIAPEnable") {
                         this.enable = resp.isSupport;
                     }
                 } catch (err) {}
-            }));
+            });
             this.reqIAP();
-            PurchaseService.onArkBalanceUpdated.add((amount => {
+            PurchaseService.onArkBalanceUpdated.add(amount => {
                 this.arkCoin = amount;
                 this.onArkCoinChange.call(amount);
-            }));
+            });
             this.reqRefreshCoin();
         }
     }
@@ -20836,9 +20836,9 @@ class TSIAP {
         mw.MessageChannelService.sendTo(mw.MessageChannelReceiver.Client, DataStr);
     }
     reqBuyGoods(commodityId) {
-        return new Promise((result => {
+        return new Promise(result => {
             console.warn("发起购买的code", commodityId);
-            PurchaseService.placeOrder(commodityId, 1, ((status, msg) => {
+            PurchaseService.placeOrder(commodityId, 1, (status, msg) => {
                 console.warn(`IAP_BuyCallback__,status:${status},msg:${msg},id:${commodityId}`);
                 PurchaseService.getArkBalance();
                 if (status == 200) {
@@ -20848,8 +20848,8 @@ class TSIAP {
                     result(false);
                     console.warn(`订单支付失败, id:${commodityId},msg:${msg}`);
                 }
-            }));
-        }));
+            });
+        });
     }
     isArkCoinEnough(cost) {
         return this.arkCoin >= cost;
@@ -20896,9 +20896,9 @@ let JumpGame = class JumpGame extends Script {
     }
     onStartC() {
         this.jumpTrigger = this.gameObject;
-        this.jumpTrigger.onEnter.add((character => {
+        this.jumpTrigger.onEnter.add(character => {
             if (Player.localPlayer.character != character) return;
-        }));
+        });
     }
     onUpdateC(dt) {}
     onStartS() {}
@@ -21059,9 +21059,9 @@ let DiamondItem_Generate = class DiamondItem_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mBuyButton.onClicked.add((() => {
+        this.mBuyButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mBuyButton");
-        }));
+        });
         this.mBuyButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mFirstBuyTextBlock);
         this.initLanguage(this.mDiamondCountTextBlock);
@@ -21136,9 +21136,9 @@ let DiamondPanel_Generate = class DiamondPanel_Generate extends UIScript {
         this.initButtons();
     }
     initButtons() {
-        this.mCloseButton.onClicked.add((() => {
+        this.mCloseButton.onClicked.add(() => {
             Event.dispatchToLocal("PlayButtonClick", "mCloseButton");
-        }));
+        });
         this.mCloseButton.touchMethod = mw.ButtonTouchMethod.PreciseTap;
         this.initLanguage(this.mLeBiCountTextBlock);
         this.initLanguage(this.uiWidgetBase.findChildByPath("RootCanvas/mMainCanvas/TitleTextBlock"));
